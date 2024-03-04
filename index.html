@@ -2,7 +2,6 @@
 <html lang="">
 <head>
   <!-- favicon -->
-  <link rel="shortcut icon" href="images/favicon.png" />
 
   <meta name="generator" content="gulp" />
   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
@@ -46,6 +45,8 @@
 
   <!-- Main Stylesheet -->
   <link href="styles/main.css" rel="stylesheet" />
+
+
 </head>
 
 
@@ -55,7 +56,7 @@
     <!-- logo -->
     <div class="order-0">
       <a href="index.html">
-        <img src="images/logo.jpg" height="60" width="250" alt="logo" />
+        <img src="images/logo.png" height="60" width="250" alt="logo" />
       </a>
     </div>
     <!-- navbar toggler -->
@@ -90,10 +91,10 @@
     >
     
       <li class="nav-item">
-        <a href="contact.html" class="nav-link">Products</a>
+        <a href="#" class="nav-link">Products</a>
       </li>
       <li class="nav-item">
-        <a href="contact.html" class="nav-link">FAQ</a>
+        <a href="#" class="nav-link">FAQ</a>
       </li>
       <li class="nav-item">
         <a class="btn btn-green btn-sm border-border" href="signin.html"
@@ -102,7 +103,8 @@
       </li>
     </ul>
   </nav>
-</header><!-- Banner -->
+</header>
+<!-- Banner -->
 <section class="section banner relative">
   <div class="container">
     <div class="row items-center">
@@ -130,8 +132,8 @@
     </div>
   </div>
   <img
-    class="banner-shape absolute -top-28 right-0 -z-[1] w-full max-w-[30%]"
-    src="images/banner-shape.png"
+    class="banner-shape absolute -top-28 right-0 -z-[1] w-full max-w-[600px]"
+    src="images/banner-shape.svg"
     alt=""
   />
 </section>
@@ -152,7 +154,72 @@
   </div>
 </section>
 <!-- ./end Key features -->
-
+<!-- pricing -->
+<section class="section mt-12 bg-theme-light">
+  <div class="container">
+    <div class="row lg:px-10 items-center justify-center g-5">
+      <div class="mt-8 md:col-6 lg:col-5 lg:mt-0">
+        <div class="rounded-xl bg-white px-8 py-10 shadow-lg text-center">
+          <h2 class="h3 border-b border-border pb-5 uppercase">Business</h2>
+          <div class="border-border py-3 text-center">
+            <p class="mt-6">
+              Tell us more about your business requirements:
+            </p>
+            <ul class="mt-6">
+              <li class="mb-3 flex items-center justify-center font-medium">
+               
+                Business telephone  line
+              </li>
+              <li class="mb-3 flex items-center justify-center font-medium">
+               
+                Hosted Business telephone
+              </li>
+              <li class="mb-3 flex items-center justify-center font-medium">
+                
+                Business Mobile
+              </li>
+              <li class="mb-3 flex items-center justify-center font-medium">
+                
+                United Conversations
+              </li>
+              <li class="mb-3 flex items-center justify-center font-medium">
+               
+                VOIP SIP trunk
+              </li>
+              <li class="mb-3 flex items-center justify-center font-medium">
+              
+                Landline
+              </li>
+              <li class="mb-3 flex items-center justify-center font-medium">
+               
+                Broadband
+              </li>
+            </ul>
+          </div>
+          <div class="text-center">
+            <a class="btn btn-green btn-sm border-border items-center flex justify-center h-16 text-lg font-bold uppercase" href="#">GET YOUR PRICING</a>
+            
+          </div>
+        </div>
+      </div>
+      
+      <div class="mt-8 md:col-6 lg:col-5 lg:mt-0">
+        <div class="rounded-xl bg-white px-8 py-10 shadow-lg">
+          <div class="flex items-center justify-between"> <h2 class="h3 border-b border-border pb-5 uppercase text-center">As low as 12 GBP per month</h2></div>
+          
+          <div class="py-6 my-6 text-center">
+              <img alt="" src="images/home-service.png">
+           
+          </div>
+          <div class="text-center">
+            <a  class="btn btn-green btn-sm border-border items-center flex justify-center h-16 text-lg font-bold uppercase"  href="#" >Get your QUOTE</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- ./end pricing -->
 
 <!-- Reviews -->
 <section class="reviews">
@@ -213,6 +280,21 @@
   </div>
 </section>
 <!-- Reviews -->
+<!-- Counter -->
+<section class="page-hero py-16 bg-theme-dark relative overflow-hidden">
+  <div class="container">
+    <div class="page-hero-content mx-auto max-w-[480px] text-center">
+      <p class="text-white">Easy, reliable and fairly priced phone systems designed for freelancers, startups & growing small businesses.</p>
+      <div class="range">
+          <div class="value2 range-slider-bg">0 <br>USERS</div>
+          <input type="range" min="0" max="50" value="0" id="range2" class="range-input" /> 
+      </div>
+      
+    </div>
+  </div>
+  <img class="floating-bubble-3 absolute right-0 max-w-[480px] -bottom-6" src="images/cta-phone.png" alt="">
+</section>
+<!-- end Counter -->
 <section class="section key-feature relative">
   <div class="container">
     <div class="row justify-between text-center lg:text-start">
@@ -222,43 +304,32 @@
       </div>
     </div>
     <div class="key-feature-grid mt-10 grid grid-cols-2 gap-7 md:grid-cols-3 xl:grid-cols-5">
-      <div class="flex flex-col justify-between rounded-lg bg-white p-5 shadow-lg">
-        <div>
-          <h5 class="uppercase text-center">Feature &  Pricing</h5>
-        </div>
+      <div class="flex justify-center rounded-lg bg-white p-5 shadow-lg items-center">
+        <h6 class="uppercase text-center">Feature &  Pricing</h6>
       </div>
-      <div class="flex flex-col justify-between rounded-lg bg-white p-5 shadow-lg">
-        <div>
-          <h5 class="uppercase text-center">APP &  TEAMS</h5>
-        </div>
+      <div class="flex justify-center rounded-lg bg-white p-5 shadow-lg items-center">
+        <h6 class="uppercase text-center">APP &  TEAMS</h6>
       </div>
-      <div class="flex flex-col justify-between rounded-lg bg-white p-5 shadow-lg">
-        <div>
-          <h5 class="uppercase text-center">Phones & Accessories</h5>
-        </div>
+      <div class="flex justify-center rounded-lg bg-white p-5 shadow-lg items-center">
+        <h6 class="uppercase text-center">Phones & Accessories</h6>
       </div>
-      <div class="flex flex-col justify-between rounded-lg bg-white p-5 shadow-lg">
-        <div>
-          <h5 class="uppercase text-center">INternet line</h5>
-        </div>
+      <div class="flex justify-center rounded-lg bg-white p-5 shadow-lg items-center">
+        <h6 class="uppercase text-center">INternet line</h6>
       </div>
-      <div class="flex flex-col justify-between rounded-lg bg-white p-5 shadow-lg">
-        <div>
-          <h5 class="uppercase text-center">voice messages</h5>
-        </div>
+      <div class="flex justify-center rounded-lg bg-white p-5 shadow-lg items-center">
+        <h6 class="uppercase text-center">voice messages</h6>
       </div>
       
     </div>
   </div>
 </section>
 
-
  <footer class="footer bg-theme-light/50">
   <div class="container">
     <div class="row gx-5 pb-10 pt-[52px]">
       <div class="col-12 mt-12 md:col-6 lg:col-3">
         <a href="index.html">
-          <img src="images/logo.jpg" alt="" />
+          <img src="images/logo.png" alt="" />
         </a>
         <p class="mt-6">
           Lorem ipsum dolor sit sed dmi amet, consectetur adipiscing. Cdo
@@ -267,6 +338,7 @@
       </div>
       <div class="col-12 mt-12 md:col-6 lg:col-3">
         <h6>Socials</h6>
+        <p>themefisher@gmail.com</p>
         <ul class="social-icons mt-4 lg:mt-6">
           <li>
             <a href="#">
@@ -369,12 +441,29 @@
 
 <!-- jQuery -->
 <!-- <script src="plugins/jquery/jquery.min.js"></script> -->
+<script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
+
 <!-- Swiper JS -->
 <script src="plugins/swiper/swiper-bundle.js"></script>
 <script src="plugins/shufflejs/shuffle.js"></script>
 
 <!-- Main Script -->
 <script src="scripts/main.js"></script>
+<script>
+  const sliderEl = document.querySelector("#range2");
+  const sliderValue = document.querySelector(".value2");
 
-</body>
+sliderEl.addEventListener("input", (event) => {
+  const tempSliderValue = event.target.value;
+  sliderValue.textContent = tempSliderValue +  ('USERS');
+
+  const progress = (tempSliderValue / sliderEl.max) * 100;
+
+  sliderEl.style.background = `linear-gradient(to right, #039 ${progress}%, #fff ${progress}%)`;
+});
+
+// 2
+
+
+</script>
 </html>
