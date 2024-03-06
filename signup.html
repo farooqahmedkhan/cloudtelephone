@@ -52,57 +52,73 @@
 
 <body>
 <header class="header">
-  <nav class="navbar container">
-    <!-- logo -->
-    <div class="order-0">
-      <a href="index.html">
-        <img src="images/logo.png" height="60" width="250" alt="logo" />
-      </a>
-    </div>
-    <!-- navbar toggler -->
-    <input id="nav-toggle" type="checkbox" class="hidden" />
-    <label
-      id="show-button"
-      for="nav-toggle"
-      class="order-1 flex cursor-pointer items-center lg:order-1 lg:hidden"
-    >
-      <svg class="h-6 fill-current" viewBox="0 0 20 20">
-        <title>Menu Open</title>
-        <path d="M0 3h20v2H0V3z m0 6h20v2H0V9z m0 6h20v2H0V0z"></path>
-      </svg>
-    </label>
-    <label
-      id="hide-button"
-      for="nav-toggle"
-      class="order-2 hidden cursor-pointer items-center lg:order-1"
-    >
-      <svg class="h-6 fill-current" viewBox="0 0 20 20">
-        <title>Menu Close</title>
-        <polygon
-          points="11 9 22 9 22 11 11 11 11 22 9 22 9 11 -2 11 -2 9 9 9 9 -2 11 -2"
-          transform="rotate(45 10 10)"
-        ></polygon>
-      </svg>
-    </label>
-    <!-- /navbar toggler -->
-    <ul id="nav-menu" class="navbar-nav order-2 hidden w-full flex-[0_0_100%] lg:order-1 lg:flex lg:w-auto lg:flex-auto lg:justify-end lg:space-x-5"
-    >
-    
-      <li class="nav-item">
-        <a href="" class="nav-link">Products</a>
-      </li>
-      <li class="nav-item">
-        <a href="" class="nav-link">FAQ</a>
-      </li>
-      <li class="nav-item">
-        <a class="btn btn-green btn-sm border-border" href="signin.html"
-          >Get A Quote</a
+    <nav class="navbar container">
+      <!-- logo -->
+      <div class="order-0">
+        <a href="index.html">
+          <img src="images/logo.png" height="60" width="250" alt="logo" />
+        </a>
+      </div>
+      <div class="flex gap-7">
+        <ul class="block lg:hidden">
+          <li>
+            <a class="btn btn-green btn-sm border-border" href="signup.html"
+            >Get A Quote</a></li>
+            
+        </ul>
+        <!-- navbar toggler -->
+      <input id="nav-toggle" type="checkbox" class="hidden" />
+      <label
+        id="show-button"
+        for="nav-toggle"
+        class="order-1 flex cursor-pointer items-center lg:order-1 lg:hidden"
+      >
+        <svg class="h-6 fill-current" viewBox="0 0 20 20">
+          <title>Menu Open</title>
+          <path d="M0 3h20v2H0V3z m0 6h20v2H0V9z m0 6h20v2H0V0z"></path>
+        </svg>
+      </label>
+      <label
+        id="hide-button"
+        for="nav-toggle"
+        class="order-2 hidden cursor-pointer items-center lg:order-1"
+      >
+        <svg class="h-6 fill-current" viewBox="0 0 20 20">
+          <title>Menu Close</title>
+          <polygon
+            points="11 9 22 9 22 11 11 11 11 22 9 22 9 11 -2 11 -2 9 9 9 9 -2 11 -2"
+            transform="rotate(45 10 10)"
+          ></polygon>
+        </svg>
+      </label>
+      </div>
+      
+        
+        <!-- /navbar toggler -->
+        <ul id="nav-menu" class="navbar-nav order-2 hidden w-full flex-[0_0_100%] lg:order-1 lg:flex lg:w-auto lg:flex-auto lg:justify-end lg:space-x-5"
         >
-      </li>
-    </ul>
-  </nav>
-</header>
+        
+          <li class="nav-item">
+            <a href="" class="nav-link">Products</a>
+          </li>
+          <li class="nav-item">
+            <a href="" class="nav-link">FAQ</a>
+          </li>
+          <li class="nav-item hidden lg:block 2xl:block">
+            <a class="btn btn-green btn-sm border-border" href="signup.html"
+              >Get A Quote</a><br><a class="link mt-3 text-dark inline-flex text-center items-center justify-center w-full" href="tel:00909916"
+              ><svg class="mr-1.5" width="15" height="15" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path d="M164.9 24.6c-7.7-18.6-28-28.5-47.4-23.2l-88 24C12.1 30.2 0 46 0 64C0 311.4 200.6 512 448 512c18 0 33.8-12.1 38.6-29.5l24-88c5.3-19.4-4.6-39.7-23.2-47.4l-96-40c-16.3-6.8-35.2-2.1-46.3 11.6L304.7 368C234.3 334.7 177.3 277.7 144 207.3L193.3 167c13.7-11.2 18.4-30 11.6-46.3l-40-96z"/></svg> 00909916</a>
+          </li>
+        </ul>
+      
+    </nav>
+  </header>
 <section class="">
+
+
+
+
+
   <div class="section banner relative">
     <div class="row">
       <div class="py-10 lg:col-12">
@@ -124,6 +140,8 @@
           </div>
           <h2 class="text-center mb-3">Instant Phone System  <br><span class="text-blue uppercase">Quote Wizard</span></h2>
           <p class="text-center">Complete in 60 second</p>
+          
+          
           <div class="row">
                <div class="lg:col-3">
                 <ul id="tabs" class="divide-x divide-gray-100  mt-10 rounded-lg border border-gray-100 text-sm text-gray-5 bg-white">
@@ -148,6 +166,19 @@
                       </svg>
                       <p class="leading-none">
                         <strong class="block font-medium"> Users & Lines </strong>
+                        <small class="mt-1"> Where we sending it? </small>
+                      </p>
+                    </a>
+                  </li>
+                  <li class="relative flex items-center gap-2 p-4">
+                    <span class="arrow absolute -right-2 top-1/2 hidden size-4 -translate-y-1/2 rotate-45 border border-gray-100 sm:block ltr:border-b-0 ltr:border-s-0 ltr:bg-gray-50 rtl:border-e-0 rtl:border-t-0 rtl:bg-white"></span>
+    
+                    <a href="#second-1" class="flex gap-3">
+                      <svg class="size-7 shrink-0 mb-2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 512">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M144 0a80 80 0 1 1 0 160A80 80 0 1 1 144 0zM512 0a80 80 0 1 1 0 160A80 80 0 1 1 512 0zM0 298.7C0 239.8 47.8 192 106.7 192h42.7c15.9 0 31 3.5 44.6 9.7c-1.3 7.2-1.9 14.7-1.9 22.3c0 38.2 16.8 72.5 43.3 96c-.2 0-.4 0-.7 0H21.3C9.6 320 0 310.4 0 298.7zM405.3 320c-.2 0-.4 0-.7 0c26.6-23.5 43.3-57.8 43.3-96c0-7.6-.7-15-1.9-22.3c13.6-6.3 28.7-9.7 44.6-9.7h42.7C592.2 192 640 239.8 640 298.7c0 11.8-9.6 21.3-21.3 21.3H405.3zM224 224a96 96 0 1 1 192 0 96 96 0 1 1 -192 0zM128 485.3C128 411.7 187.7 352 261.3 352H378.7C452.3 352 512 411.7 512 485.3c0 14.7-11.9 26.7-26.7 26.7H154.7c-14.7 0-26.7-11.9-26.7-26.7z"></path>
+                      </svg>
+                      <p class="leading-none">
+                        <strong class="block font-medium"> How many users? </strong>
                         <small class="mt-1"> Where we sending it? </small>
                       </p>
                     </a>
@@ -193,7 +224,7 @@
                <div class="lg:col-9">
                 <form action="#">
                   <div id="tab-contents" class="border rounded-lg  mt-10 bg-white">
-                    <div id="first" class="key-feature-grid grid grid-cols-2 gap-7 md:grid-cols-6 xl:grid-cols-6 p-7">
+                    <div id="first" class="key-feature-grid grid grid-cols-1 gap-7 sm:grid-cols-2 p-7">
                         <div class="form-group">
                           <label for="Company" class="form-label">Company Name</label>
                           <input type="text" id="company" class="form-control" placeholder="Company Name">
@@ -217,99 +248,97 @@
                         <input class="btn btn-green mt-10 text-lg " type="submit" value="Get an Instant Quote ">
     
                     </div>
-    
-                    <div id="second" class="key-feature-grid grid grid-cols-2 gap-7 md:grid-cols-6 xl:grid-cols-6 p-7 hidden">
-                      <div class="form-group">
-                        <label for="Company" class="form-label">Company Name</label>
-                        <input type="text" id="company" class="form-control" placeholder="Company Name">
-                      </div>
-                      <div class="form-group">
-                        <label for="telephone" class="form-label">Telephone</label>
-                        <input type="tel" id="telephone" class="form-control" placeholder="Mobile or Landline">
-                      </div>
-                      <div class="form-group">
-                        <label for="Yourname" class="form-label">Your Name</label>
-                        <input type="text" id="Yourname" class="form-control" placeholder="Full Contact Name">
-                      </div>
-                      <div class="form-group">
-                        <label for="Offer" class="form-label">Offer Code</label>
-                        <input type="text" id="Offer" class="form-control" placeholder="If you have an offer code, enter here">
-                      </div>
-                      <div class="form-group">
-                        <label for="Email" class="form-label">Email Address</label>
-                        <input type="email" id="Email" class="form-control" placeholder="Your Email">
-                      </div>
-                      <input class="btn btn-green mt-10 text-lg " type="submit" value="Get an Instant Quote ">
+                    
+                    <div id="second" class="key-feature-grid  grid p-7 hidden text-center">
+                         <h4 class="text-primary">See Internet Options</h4>
+                        <div class="key-feature-grid grid gap-7 sm:grid-cols-2 p-7">
+                            <div class="mb-8 rounded-xl bg-theme-dark text-white py-5 px-5 shadow-lg">
+                                <h5 class="h5 text-white">Yes</h5>
+                                <p class="mt-4">
+                                View Internet Options
+                                </p>
+                            </div>
+                            <div class="mb-8 rounded-xl bg-theme-dark text-white py-5 px-5 shadow-lg">
+                                <h5 class="h5 text-white">No</h5>
+                                <p class="mt-2">
+                                  Use my existing internet
+                                </p>
+                            </div>
+                        </div>
+                        <h5>What does this mean?</h5>
+                        <p class="mt-4">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam molestie odio id gravida fermentum. Etiam quis quam ante. Donec sit amet magna gravida, imperdiet ex lacinia, tempor felis. Duis nec fringilla nibh. Vivamus vitae commodo sem. Vivamus vel lacinia massa. Curabitur convallis sem id condimentum vulputate.</p>
+                        <div class="w-100 flex justify-between"><input class="btn text-white rounded-full bg-theme-dark mt-10  bg-opacity-75 text-lg" type="submit" value="Previous Question "></div>
                     </div>
-                    <div id="third" class="key-feature-grid grid grid-cols-2 gap-7 md:grid-cols-6 xl:grid-cols-6 p-7 hidden">
-                      <div class="form-group">
-                        <label for="Company" class="form-label">Company Name</label>
-                        <input type="text" id="company" class="form-control" placeholder="Company Name">
+                    <div id="second-1" class="key-feature-grid  grid p-7 hidden text-center">
+                      <h4 class="text-primary">How many users</h4>
+                      <!-- Input Number -->
+                        <div class="my-5">
+                          <button data-action="decrement">Decrement</button>
+                          <input type="text" value="0">
+                          <button data-action="increment">Increment</button>
+                        </div>
+                        <!-- End Input Number -->
+                      
+                      <p class="my-6">Unlimited free minute bundle to 01/02/03 and UK mobile<span class="text-primary">*</span> and includues the basic softphone.</p>
+                     
+                     <h5>What does this mean?</h5>
+                     <p class="mt-4">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam molestie odio id gravida fermentum. Etiam quis quam ante. Donec sit amet magna gravida, imperdiet ex lacinia, tempor felis. Duis nec fringilla nibh. Vivamus vitae commodo sem. Vivamus vel lacinia massa. Curabitur convallis sem id condimentum vulputate.</p>
+                     <div class="w-100 flex justify-end"><input class="btn btn-green mt-10 text-lg " type="submit" value="Next"></div>
+                 </div>
+
+
+                    <div id="third" class="key-feature-grid  grid p-7 hidden text-center">
+                      <h4 class="text-primary">Equipment</h4>
+                      <div class="key-feature-grid grid gap-7 md:grid-cols-3 p-7">
+                        <div class="mb-8 rounded-xl bg-theme-dark text-white py-5 px-5 shadow-lg">
+                            <h5 class="h5 text-white">Yes</h5>
+                            <p class="mt-4">See our range if devices</p>
+                        </div>
+                        <div class="mb-8 rounded-xl bg-theme-dark text-white py-5 px-5 shadow-lg">
+                            <h5 class="h5 text-white">Apply Only</h5>
+                            <p class="mt-2">I don't need any hardware</p>
+                        </div>
+                        <div class="mb-8 rounded-xl bg-theme-dark text-white py-5 px-5 shadow-lg">
+                          <h5 class="h5 text-white">Own Phones</h5>
+                          <p class="mt-2">I will use my own phone</p>
                       </div>
-                      <div class="form-group">
-                        <label for="telephone" class="form-label">Telephone</label>
-                        <input type="tel" id="telephone" class="form-control" placeholder="Mobile or Landline">
-                      </div>
-                      <div class="form-group">
-                        <label for="Yourname" class="form-label">Your Name</label>
-                        <input type="text" id="Yourname" class="form-control" placeholder="Full Contact Name">
-                      </div>
-                      <div class="form-group">
-                        <label for="Offer" class="form-label">Offer Code</label>
-                        <input type="text" id="Offer" class="form-control" placeholder="If you have an offer code, enter here">
-                      </div>
-                      <div class="form-group">
-                        <label for="Email" class="form-label">Email Address</label>
-                        <input type="email" id="Email" class="form-control" placeholder="Your Email">
-                      </div>
-                      <input class="btn btn-green mt-10 text-lg " type="submit" value="Get an Instant Quote ">
                     </div>
-                    <div id="four" class="key-feature-grid grid grid-cols-2 gap-7 md:grid-cols-6 xl:grid-cols-6 p-7 hidden">
-                      <div class="form-group">
-                        <label for="Company" class="form-label">Company Name</label>
-                        <input type="text" id="company" class="form-control" placeholder="Company Name">
-                      </div>
-                      <div class="form-group">
-                        <label for="telephone" class="form-label">Telephone</label>
-                        <input type="tel" id="telephone" class="form-control" placeholder="Mobile or Landline">
-                      </div>
-                      <div class="form-group">
-                        <label for="Yourname" class="form-label">Your Name</label>
-                        <input type="text" id="Yourname" class="form-control" placeholder="Full Contact Name">
-                      </div>
-                      <div class="form-group">
-                        <label for="Offer" class="form-label">Offer Code</label>
-                        <input type="text" id="Offer" class="form-control" placeholder="If you have an offer code, enter here">
-                      </div>
-                      <div class="form-group">
-                        <label for="Email" class="form-label">Email Address</label>
-                        <input type="email" id="Email" class="form-control" placeholder="Your Email">
-                      </div>
-                      <input class="btn btn-green mt-10 text-lg " type="submit" value="Get an Instant Quote ">
+                    <h5>What does this mean?</h5>
+                    <p class="mt-4">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam molestie odio id gravida fermentum. Etiam quis quam ante. Donec sit amet magna gravida, imperdiet ex lacinia, tempor felis. Duis nec fringilla nibh. Vivamus vitae commodo sem. Vivamus vel lacinia massa. Curabitur convallis sem id condimentum vulputate.</p>
+                    <div class="w-100 flex justify-between"><input class="btn text-white rounded-full bg-theme-dark mt-10  bg-opacity-75 text-lg" type="submit" value="Previous Question "></div>
                     </div>
-                    <div id="fifth" class="key-feature-grid grid grid-cols-2 gap-7 md:grid-cols-6 xl:grid-cols-6 p-7 hidden">
-                      <div class="form-group">
-                        <label for="Company" class="form-label">Company Name</label>
-                        <input type="text" id="company" class="form-control" placeholder="Company Name">
+                    <div id="four" class="key-feature-grid  grid p-7 hidden text-center">
+                      <h4 class="text-primary">Extra Features</h4>
+                      <div class="key-feature-grid grid gap-7 sm:grid-cols-2 p-7">
+                          <div class="mb-8 rounded-xl bg-theme-dark text-white py-5 px-5 shadow-lg">
+                              <h5 class="h5 text-white">Yes</h5>
+                              <p class="mt-4">See Pick & Mix Features</p>
+                          </div>
+                          <div class="mb-8 rounded-xl bg-theme-dark text-white py-5 px-5 shadow-lg">
+                              <h5 class="h5 text-white">No</h5>
+                              <p class="mt-2">
+                                The standard setup is fine
+                              </p>
+                          </div>
                       </div>
-                      <div class="form-group">
-                        <label for="telephone" class="form-label">Telephone</label>
-                        <input type="tel" id="telephone" class="form-control" placeholder="Mobile or Landline">
+                      <h5>What does this mean?</h5>
+                      <p class="mt-4">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam molestie odio id gravida fermentum. Etiam quis quam ante. Donec sit amet magna gravida, imperdiet ex lacinia, tempor felis. Duis nec fringilla nibh. Vivamus vitae commodo sem. Vivamus vel lacinia massa. Curabitur convallis sem id condimentum vulputate.</p>
+                      <div class="w-100 flex justify-between"><input class="btn text-white rounded-full bg-theme-dark mt-10  bg-opacity-75 text-lg" type="submit" value="Previous Question "></div>
+                    <div id="fifth" class="key-feature-grid  grid p-7 hidden text-center">
+                      <h4 class="text-primary">Installation & Suppport</h4>
+                      <div class="key-feature-grid grid gap-7 sm:grid-cols-2 p-7">
+                          <div class="mb-8 rounded-xl bg-theme-dark text-white py-5 px-5 shadow-lg">
+                              <p class="mb-3">Automatic Install & Ongoing Support Free</p>
+                          </div>
+                          <div class="mb-8 rounded-xl bg-theme-dark text-white py-5 px-5 shadow-lg">
+                              <p class="mb-3">On- Site CAbling 550 per Day (Approx)</p>
+                          </div>
                       </div>
-                      <div class="form-group">
-                        <label for="Yourname" class="form-label">Your Name</label>
-                        <input type="text" id="Yourname" class="form-control" placeholder="Full Contact Name">
-                      </div>
-                      <div class="form-group">
-                        <label for="Offer" class="form-label">Offer Code</label>
-                        <input type="text" id="Offer" class="form-control" placeholder="If you have an offer code, enter here">
-                      </div>
-                      <div class="form-group">
-                        <label for="Email" class="form-label">Email Address</label>
-                        <input type="email" id="Email" class="form-control" placeholder="Your Email">
-                      </div>
-                      <input class="btn btn-green mt-10 text-lg " type="submit" value="Get an Instant Quote ">
+                      <h5>What does this mean?</h5>
+                      <p class="mt-4">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam molestie odio id gravida fermentum. Etiam quis quam ante. Donec sit amet magna gravida, imperdiet ex lacinia, tempor felis. Duis nec fringilla nibh. Vivamus vitae commodo sem. Vivamus vel lacinia massa. Curabitur convallis sem id condimentum vulputate.</p>
+                      <div class="w-100 flex justify-between"><input class="btn text-white rounded-full bg-theme-dark mt-10  bg-opacity-75 text-lg" type="submit" value="Previous Question "></div>
                     </div>
+                    
                     </div>
                   </div>
                 </form>
@@ -330,6 +359,8 @@
   <div class="container">
     <div class="row justify-between text-center lg:text-start">
       <div class="lg:col-12">
+          
+
         <h2 class="text-center text-white">Buy trending 
          <span class="block text-white uppercase">Services</span> </h2>
       </div>
@@ -481,37 +512,86 @@
 <!-- Main Script -->
 <script src="scripts/main.js"></script>
 <script>
-  let tabsContainer = document.querySelector("#tabs");
-let tabTogglers = tabsContainer.querySelectorAll("li a"); // Change this selector to target the <a> tags inside <li> elements
+  (function() {
+  let counterClicked = false;
 
-console.log(tabTogglers);
-
-tabTogglers.forEach(function (toggler) {
-  toggler.addEventListener("click", function (e) {
-    e.preventDefault();
-
-    // Remove the "active" class from all tab items
-    tabsContainer.querySelectorAll("li").forEach(function (tabItem) {
-      tabItem.classList.remove("active");
-    });
-
-    // Add the "active" class to the clicked tab item
-    this.parentElement.classList.add("active");
-
-    let tabName = this.getAttribute("href");
-
-    let tabContents = document.querySelector("#tab-contents");
-
-    for (let i = 0; i < tabContents.children.length; i++) {
-      tabContents.children[i].classList.remove("hidden");
-      if ("#" + tabContents.children[i].id === tabName) {
-        continue;
-      }
-      tabContents.children[i].classList.add("hidden");
+  function decrement(e) {
+    if (!counterClicked) {
+      counterClicked = true;
+      return;
     }
-  });
-});
 
+    const btn = e.target.parentNode.parentElement.querySelector(
+      'button[data-action="decrement"]'
+    );
+    const target = btn.nextElementSibling;
+    let value = Number(target.value);
+    value--;
+    target.value = value;
+  }
+
+  function increment(e) {
+    if (!counterClicked) {
+      counterClicked = true;
+      return;
+    }
+
+    const btn = e.target.parentNode.parentElement.querySelector(
+      'button[data-action="decrement"]'
+    );
+    const target = btn.nextElementSibling;
+    let value = Number(target.value);
+    value++;
+    target.value = value;
+  }
+
+  const decrementButtons = document.querySelectorAll(
+    'button[data-action="decrement"]'
+  );
+
+  const incrementButtons = document.querySelectorAll(
+    'button[data-action="increment"]'
+  );
+
+  decrementButtons.forEach(btn => {
+    btn.addEventListener('click', decrement);
+  });
+
+  incrementButtons.forEach(btn => {
+    btn.addEventListener('click', increment);
+  });
+})();
+
+// Tabs Code
+(function() {
+  let tabsContainer = document.querySelector('#tabs');
+  let tabTogglers = tabsContainer.querySelectorAll('li a');
+
+  tabTogglers.forEach(function(toggler) {
+    toggler.addEventListener('click', function(e) {
+      e.preventDefault();
+
+      tabsContainer.querySelectorAll('li').forEach(function(tabItem) {
+        tabItem.classList.remove('active');
+      });
+
+      this.parentElement.classList.add('active');
+
+      let tabName = this.getAttribute('href');
+
+      let tabContents = document.querySelector('#tab-contents');
+
+      for (let i = 0; i < tabContents.children.length; i++) {
+        tabContents.children[i].classList.remove('hidden');
+        if ('#' + tabContents.children[i].id === tabName) {
+          continue;
+        }
+        tabContents.children[i].classList.add('hidden');
+      }
+    });
+  });
+})();
 
 </script>
+
 </html>
