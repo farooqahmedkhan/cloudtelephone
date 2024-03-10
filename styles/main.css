@@ -2838,9 +2838,162 @@ input#nav-toggle:checked ~ #nav-menu {
 .h-full {
   height: 100%;
 }
-.h-screen {
-  height: 100vh;
+.h-lvh {
+  height: 100lvh
 }
+
+.h-px {
+  height: 1px
+}
+
+.h-screen {
+  height: 100vh
+}
+
+.h-svh {
+  height: 100svh
+}
+
+.\!max-h-\[24\.75rem\] {
+  max-height: 24.75rem!important
+}
+
+.\!max-h-\[none\] {
+  max-height: none!important
+}
+
+.max-h-24 {
+  max-height: 6rem
+}
+
+.max-h-32 {
+  max-height: 8rem
+}
+
+.max-h-40 {
+  max-height: 10rem
+}
+
+.max-h-48 {
+  max-height: 12rem
+}
+
+.max-h-60 {
+  max-height: 15rem
+}
+
+.max-h-64 {
+  max-height: 16rem
+}
+
+.max-h-80 {
+  max-height: 20rem
+}
+
+.max-h-96 {
+  max-height: 24rem
+}
+
+.max-h-\[220px\] {
+  max-height: 220px
+}
+
+.max-h-\[33rem\] {
+  max-height: 33rem
+}
+
+.max-h-\[350px\] {
+  max-height: 350px
+}
+
+.max-h-\[60vh\] {
+  max-height: 60vh
+}
+
+.max-h-\[800px\] {
+  max-height: 800px
+}
+
+.max-h-\[none\] {
+  max-height: none
+}
+
+.max-h-dvh {
+  max-height: 100dvh
+}
+
+.max-h-full {
+  max-height: 100%
+}
+
+.max-h-lvh {
+  max-height: 100lvh
+}
+
+.max-h-screen {
+  max-height: 100vh
+}
+
+.max-h-svh {
+  max-height: 100svh
+}
+
+.min-h-0 {
+  min-height: 0
+}
+
+.min-h-24 {
+  min-height: 6rem
+}
+
+.min-h-32 {
+  min-height: 8rem
+}
+
+.min-h-40 {
+  min-height: 10rem
+}
+
+.min-h-48 {
+  min-height: 12rem
+}
+
+.min-h-64 {
+  min-height: 16rem
+}
+
+.min-h-80 {
+  min-height: 20rem
+}
+
+.min-h-\[220px\] {
+  min-height: 220px
+}
+
+.min-h-\[37\.5rem\] {
+  min-height: 37.5rem
+}
+
+.min-h-\[75dvh\] {
+  min-height: 75dvh
+}
+
+.min-h-dvh {
+  min-height: 100dvh
+}
+
+.min-h-full {
+  min-height: 100%
+}
+
+.min-h-lvh {
+  min-height: 100lvh
+}
+
+.min-h-svh {
+  min-height: 100svh
+}
+
 .min-h-\[980px\] {
   min-height: 980px;
 }
@@ -4391,7 +4544,7 @@ code::after {
     grid-template-columns: repeat(4, minmax(0, 1fr));
   }
   .xl\:grid-cols-5 {
-    grid-template-columns: repeat(5, minmax(0, 1fr));
+    grid-template-columns: repeat(5, minmax(0, 1fr)) !important;
   }
   .xl\:bg-blue-200 {
     --tw-bg-opacity: 1;
@@ -4577,6 +4730,11 @@ code::after {
       
     }
     @media (max-width: 768px) {
+      .header .btn-green{
+        padding-left: 0.5rem;
+        padding-right: 0.5rem;
+        min-width: auto;
+      }
       .page-hero img{
         display: none;
       }
