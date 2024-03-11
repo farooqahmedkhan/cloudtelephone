@@ -19,7 +19,23 @@
   });
 
 
-
+ //reviews-carousel
+ new Swiper(".reviews-carousel", {
+  loop: true,
+  spaceBetween: 20,
+  pagination: {
+    el: ".reviews-carousel-pagination",
+    clickable: true,
+  },
+  breakpoints: {
+    768: {
+      slidesPerView: 1,
+    },
+    992: {
+      slidesPerView: 1,
+    },
+  },
+});
   // for tab component
   // Get all the tab groups on the page
   const tabGroups = document.querySelectorAll("[data-tab-group]");
