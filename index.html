@@ -53,65 +53,59 @@
 <body>
   <header class="header">
     <nav class="navbar container">
-      <!-- logo -->
-      <div class="order-0">
-        <a href="index.html">
-          <img src="images/logo.png" height="60" width="250" alt="logo" />
-        </a>
-      </div>
-      <div class="flex gap-7">
-        <ul class="block lg:hidden">
-          <li>
-            <a class="btn btn-green btn-sm border-border" href="signup.html"
-            >Get A Quote</a></li>
-            
-        </ul>
-        <!-- navbar toggler -->
-      <input id="nav-toggle" type="checkbox" class="hidden" />
-      <label
-        id="show-button"
-        for="nav-toggle"
-        class="order-1 flex cursor-pointer items-center lg:order-1 lg:hidden"
-      >
-        <svg class="h-6 fill-current" viewBox="0 0 20 20">
-          <title>Menu Open</title>
-          <path d="M0 3h20v2H0V3z m0 6h20v2H0V9z m0 6h20v2H0V0z"></path>
-        </svg>
-      </label>
-      <label
-        id="hide-button"
-        for="nav-toggle"
-        class="order-2 hidden cursor-pointer items-center lg:order-1"
-      >
-        <svg class="h-6 fill-current" viewBox="0 0 20 20">
-          <title>Menu Close</title>
-          <polygon
-            points="11 9 22 9 22 11 11 11 11 22 9 22 9 11 -2 11 -2 9 9 9 9 -2 11 -2"
-            transform="rotate(45 10 10)"
-          ></polygon>
-        </svg>
-      </label>
-      </div>
-      
-        
-        <!-- /navbar toggler -->
-        <ul id="nav-menu" class="navbar-nav order-2 hidden w-full flex-[0_0_100%] lg:order-1 lg:flex lg:w-auto lg:flex-auto lg:justify-end lg:space-x-5"
+    <!-- logo -->
+    <div class="order-0">
+      <a href="index.html">
+        <img src="images/logo.png" height="60" width="250" alt="logo" />
+      </a>
+    </div>
+    <!-- navbar toggler -->
+    <a class="btn btn-green btn-sm border-border show-mobile" href="signup.html">Get A Quote</a>
+    <input id="nav-toggle" type="checkbox" class="hidden" />
+    <label
+      id="show-button"
+      for="nav-toggle"
+      class="order-1 flex cursor-pointer items-center lg:order-1 lg:hidden"
+    >
+      <svg class="h-6 fill-current" viewBox="0 0 20 20">
+        <title>Menu Open</title>
+        <path d="M0 3h20v2H0V3z m0 6h20v2H0V9z m0 6h20v2H0V0z"></path>
+      </svg>
+    </label>
+    <label
+      id="hide-button"
+      for="nav-toggle"
+      class="order-2 hidden cursor-pointer items-center lg:order-1"
+    >
+      <svg class="h-6 fill-current" viewBox="0 0 20 20">
+        <title>Menu Close</title>
+        <polygon
+          points="11 9 22 9 22 11 11 11 11 22 9 22 9 11 -2 11 -2 9 9 9 9 -2 11 -2"
+          transform="rotate(45 10 10)"
+        ></polygon>
+      </svg>
+    </label>
+    <!-- /navbar toggler -->
+    <ul
+      id="nav-menu"
+      class="navbar-nav order-2 hidden w-full flex-[0_0_100%] lg:order-1 lg:flex lg:w-auto lg:flex-auto lg:justify-end lg:space-x-5"
+    >
+    <li class="nav-item">
+      <a href="about.html" class="nav-link">About Us</a>
+    </li>
+      <li class="nav-item">
+        <a href="products.html" class="nav-link">Products</a>
+      </li>
+      <li class="nav-item">
+        <a href="pricing.html" class="nav-link">Pricing</a>
+      </li>
+      <li class="nav-item mobile-hidden">
+        <a class="btn btn-green btn-sm border-border" href="signin.html"
+          >Get A Quote</a
         >
-        
-          <li class="nav-item">
-            <a href="" class="nav-link">Products</a>
-          </li>
-          <li class="nav-item">
-            <a href="" class="nav-link">FAQ</a>
-          </li>
-          <li class="nav-item hidden lg:block 2xl:block">
-            <a class="btn btn-green btn-sm border-border" href="signup.html"
-              >Get A Quote</a><br><a class="link mt-3 text-dark inline-flex text-center items-center justify-center w-full" href="tel:00909916"
-              ><svg class="mr-1.5" width="15" height="15" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path d="M164.9 24.6c-7.7-18.6-28-28.5-47.4-23.2l-88 24C12.1 30.2 0 46 0 64C0 311.4 200.6 512 448 512c18 0 33.8-12.1 38.6-29.5l24-88c5.3-19.4-4.6-39.7-23.2-47.4l-96-40c-16.3-6.8-35.2-2.1-46.3 11.6L304.7 368C234.3 334.7 177.3 277.7 144 207.3L193.3 167c13.7-11.2 18.4-30 11.6-46.3l-40-96z"/></svg> 00909916</a>
-          </li>
-        </ul>
-      
-    </nav>
+      </li>
+    </ul>
+  </nav>
   </header>
 <!-- Banner -->
 <section class="section banner relative mt-9">
@@ -120,20 +114,20 @@
       <div class="lg:col-6">
         <h1 class="banner-title">
            <small>How does a </small>
-<span class="block text-blue uppercase">ClOUd Based Phone</span><small>systems works</small>
+            <span class="block text-blue uppercase">ClOUd Based Phone</span><small>systems works</small>
 
         </h1>
         <p class="mt-6">
           Easy, reliable and fairly priced phone systems designed for freelancers, startups & growing small businesses.
 
         </p>
-        <a class="btn btn-green mt-8" href="#">Check in Detail</a>
+        <a class="btn btn-green mt-8" href="about.html">Check in Detail</a>
       </div>
-      <div class="lg:col-6 mt-9">
+      <div class="lg:col-6 mt-9  flex justify-end">
         <img
-          class="w-full object-contain"
+          class="object-contain"
           src="images/banner-img.png"
-          width="603"
+          width="580"
           height="396"
           alt=""
         />
@@ -155,7 +149,7 @@
     <div class="row justify-between text-center lg:text-center">
       <div class="lg:col-12">
         <h2 class="capitalize">Offer best affordable <br><span class="text-blue uppercase">Cloud Service</span> in UK</h2>
-        <a class="btn btn-green mt-8 uppercase" href="#">inquire now</a>
+        <a class="btn btn-green mt-8 uppercase" href="pricing.html">inquire now</a>
       </div>
       
     </div>
@@ -206,22 +200,24 @@
             </ul>
           </div>
           <div class="text-center">
-            <a class="btn btn-green btn-sm border-border items-center flex justify-center h-16 text-lg font-bold uppercase" href="#">GET YOUR PRICING</a>
+            <a class="btn btn-green btn-sm border-border items-center flex justify-center h-16 text-lg font-bold uppercase" href="pricing.html">GET YOUR PRICING</a>
             
           </div>
         </div>
       </div>
-      
       <div class="mt-8 md:col-6 lg:col-5 lg:mt-0">
-        <div class="rounded-xl bg-white px-8 py-10 shadow-lg">
-          <div class="flex items-center justify-between"> <h2 class="h3 border-b border-border pb-5 uppercase text-center">As low as 12 GBP per month</h2></div>
-          
-          <div class="py-6 my-6 text-center">
-              <img alt="" src="images/home-service.png">
-           
+        <div class="rounded-xl bg-white px-8 py-10 shadow-lg text-center">
+          <h2 class="h3 border-b border-border pb-5 uppercase">Residential</h2>
+          <div class="border-border py-3 text-center">
+            <p class="mt-6">As low as 12 GBP per month</p>
+            <div class="py-5 my-5 text-center flex justify-center">        <img alt="" src="images/home-service.png" width="250" height="250" class="rounded-lg">
+            </div>
+
+            
           </div>
           <div class="text-center">
-            <a  class="btn btn-green btn-sm border-border items-center flex justify-center h-16 text-lg font-bold uppercase"  href="#" >Get your QUOTE</a>
+            <a  class="btn btn-purple btn-sm border-border items-center flex justify-center h-16 text-lg font-bold uppercase"  href="signup.html" >Get your QUOTE</a>
+            
           </div>
         </div>
       </div>
@@ -347,7 +343,7 @@
       </div>
       <div class="col-12 mt-12 md:col-6 lg:col-3">
         <h6>Socials</h6>
-        <p>themefisher@gmail.com</p>
+        <p>cloudtelephone@gmail.com</p>
         <ul class="social-icons mt-4 lg:mt-6">
           <li>
             <a href="#">
@@ -422,13 +418,13 @@
             <a href="about.html">About</a>
           </li>
           <li>
-            <a href="#">Category</a>
+            <a href="products.html">Products</a>
           </li>
           <li>
-            <a href="#">Testimonial</a>
+            <a href="pricing.html">Pricong</a>
           </li>
           <li>
-            <a href="contact.html">Contact</a>
+            <a href="signup.html">Get A Quote</a>
           </li>
         </ul>
       </div>
@@ -449,11 +445,9 @@
 </footer>
 
 <!-- jQuery -->
-<!-- <script src="plugins/jquery/jquery.min.js"></script> -->
 <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
 
 <!-- Swiper JS -->
-<script src="plugins/swiper/swiper-bundle.js"></script>
 <script src="plugins/shufflejs/shuffle.js"></script>
 
 <!-- Main Script -->
@@ -475,4 +469,5 @@ sliderEl.addEventListener("input", (event) => {
 
 
 </script>
+
 </html>
