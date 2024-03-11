@@ -5,10 +5,7 @@
 (function () {
   "use strict";
 
-  // Preloader js
-  // window.addEventListener("load", (e) => {
-  //   document.querySelector(".preloader").style.display = "none";
-  // });
+
 
   //sticky header
   const header = document.querySelector(".header");
@@ -21,33 +18,7 @@
     }
   });
 
-  //reviews-carousel
-  new Swiper(".reviews-carousel", {
-    loop: true,
-    spaceBetween: 20,
-    pagination: {
-      el: ".reviews-carousel-pagination",
-      clickable: true,
-    },
-    breakpoints: {
-      768: {
-        slidesPerView: 1,
-      },
-      992: {
-        slidesPerView: 1,
-      },
-    },
-  });
 
-  //auth-banner-carousel
-  new Swiper(".auth-banner-carousel", {
-    slidesPerView: 1,
-    pagination: {
-      el: ".auth-banner-carousel .pagination",
-      type: "bullets",
-      clickable: true,
-    },
-  });
 
   // for tab component
   // Get all the tab groups on the page
@@ -106,37 +77,11 @@
     selectedTabPane.classList.add("active");
   }
 
-  //counter
-  function counter(el, duration) {
-    const endValue = Number(el.innerText.replace(/\D/gi, ""));
-    const text = el.innerText.replace(/\W|\d/gi, "");
-    const timeStep = Math.round(duration / endValue);
-    let current = 0;
-    const timer = setInterval(() => {
-      if (current > endValue) {
-        current = endValue;
-      } else {
-        current += 1;
-      }
-      el.innerText = current + text;
-      if (current === endValue) {
-        clearInterval(timer);
-      }
-    }, timeStep);
-  }
 
   document.querySelectorAll(".counter .count").forEach((count) => {
     counter(count, 500);
   });
 
-  //play youtube-video
-  const videoPlayBtn = document.querySelector(".video-play-btn");
-  if (videoPlayBtn) {
-    videoPlayBtn.addEventListener("click", function () {
-      const videoPlayer = this.closest(".video").querySelector(".video-player");
-      videoPlayer.classList.remove("hidden");
-    });
-  }
 
   // Accordion component
   const accordion = document.querySelectorAll("[data-accordion]");
@@ -147,29 +92,5 @@
     });
   });
 
-  //shuffle
-  const Shuffle = window.Shuffle;
-  const tabItems = document.querySelector(".integration-tab-items");
-  if (tabItems) {
-    const myShuffle = new Shuffle(tabItems, {
-      itemSelector: ".integration-tab-item",
-      sizer: ".integration-tab-item",
-      buffer: 1,
-    });
-    const tabLinks = document.querySelectorAll(".integration-tab .filter-btn");
-    tabLinks.forEach((tabItem) => {
-      tabItem.addEventListener("click", function (e) {
-        e.preventDefault();
-        let filter;
-        const group = tabItem.getAttribute("data-group");
-        filter = group;
-        if (filter === "all") {
-          filter = Shuffle.ALL_ITEMS;
-        }
-        tabLinks.forEach((link) => link.classList.remove("filter-btn-active"));
-        this.classList.add("filter-btn-active");
-        myShuffle.filter(filter);
-      });
-    });
-  }
+
 })();
