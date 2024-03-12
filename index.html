@@ -137,8 +137,12 @@
 </section>
 <!-- ./end Key features -->
 <!-- pricing -->
-<section class="section mt-12 bg-theme-light">
-  <div class="container">
+<style>
+ 
+</style>
+<section class="section mt-12 bg-theme-light relative hero-1 " >
+  <div class="bg-overlay overflow-hidden bg-transparent"><div class="hero-1-bg"></div></div>
+  <div class="container relative z-10">
     <div class="row lg:px-10 items-center justify-center g-5">
       <div class="mt-8 md:col-6 lg:col-5 lg:mt-0">
         <div class="rounded-xl bg-white px-8 py-10 shadow-lg text-center">
@@ -206,10 +210,9 @@
 <!-- ./end pricing -->
 
 <!-- Reviews -->
-<section class="reviews">
+<section class="section reviews">
   <div class="container">
-  
-    <div class="row mt-10">
+    <div class="row">
       <div class="col-12">
         <div class="swiper reviews-carousel">
           <div class="swiper-wrapper">
@@ -434,6 +437,23 @@
 <!-- Main Script -->
 <script src="scripts/main.js"></script>
 <script>
+   //reviews-carousel
+ new Swiper(".reviews-carousel", {
+  loop: true,
+  spaceBetween: 20,
+  pagination: {
+    el: ".reviews-carousel-pagination",
+    clickable: true,
+  },
+  breakpoints: {
+    768: {
+      slidesPerView: 1,
+    },
+    992: {
+      slidesPerView: 1,
+    },
+  },
+});
   const sliderEl = document.querySelector("#range2");
   const sliderValue = document.querySelector(".value2");
 
