@@ -2414,8 +2414,7 @@ input#nav-toggle:checked ~ #nav-menu {
   color: rgb(0 51 153 / var(--tw-text-opacity));
   --tw-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
   --tw-shadow-colored: 0 10px 15px -3px var(--tw-shadow-color), 0 4px 6px -4px var(--tw-shadow-color);
-  box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
-    box-shadow: 0px 15px 34px rgba(0, 0, 0, 0.1);
+  box-shadow: none;
 }
 .btn-green:hover {
   --tw-shadow: 0 1px 3px 0 rgb(0 0 0 / 0.1), 0 1px 2px -1px rgb(0 0 0 / 0.1);
@@ -2501,6 +2500,9 @@ input#nav-toggle:checked ~ #nav-menu {
 }
 .-bottom-6{
   bottom: -3rem;
+}
+.-bottom-10{
+  bottom: -7rem;
 }
 .-left-2 {
   left: -.5rem
@@ -4549,7 +4551,9 @@ code::after {
   .lg\:opacity-0 {
     opacity: 0;
   }
-
+  .opacity-8 {
+    opacity: 0.8;
+  }
   .group:hover .lg\:group-hover\:visible {
     visibility: visible;
   }
@@ -4651,9 +4655,8 @@ code::after {
   background-image: url(../images/counter-bg.svg);
   background-repeat: no-repeat;
   height: 197px;
-  background-position: 55% 0;
-
-   height:197px
+  background-position:56% 0%;
+  height: 197px;
 }
     /* range 2 */
     .range-input {
@@ -5006,4 +5009,52 @@ background-size: 50% 130%;
 }
 .right-8 {
   right: 2rem;
+}
+
+
+
+/**Hovers **/
+
+.pricing,.pricing-2{
+
+    -webkit-transition: all 0.8s;
+    -ms-transition: all 0.8s;
+    transition: all 0.8s;
+    background-color: white;
+}
+.pricing:hover{
+  transform: translateY(-20px);
+    border:1px solid rgb(153 255 51);
+}
+.pricing-2:hover{
+  transform: translateY(-20px);
+    border:1px solid rgb(204 102 204);
+}
+.btn{
+  
+  transition: .3s;
+  position: relative;
+}
+.btn:hover{
+  box-shadow: 0px 15px 34px rgba(0, 0, 0, 0.1);
+  -webkit-transform: translateY(-3px);
+  transform: translateY(-3px);
+
+}
+
+.cta{
+  min-height: 600px;
+  background-color: rgba(255, 255, 255, 0);
+  background: rgb(26 32 44 / var(--tw-bg-opacity)) url(../images/diagnol-img.svg);
+  background-position: 50% 200%;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+@media (max-width:1199px) {
+.cta-img{
+  position: relative;
+  margin: 0 auto;
+    bottom: 0;
+
+}
 }
