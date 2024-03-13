@@ -23,7 +23,7 @@
 
   <!-- Main Stylesheet -->
   <link rel="stylesheet" href="plugins/swiper/swiper-bundle.css" />
-  <link href="styles/main.css" rel="stylesheet" />
+  <link href="main.css" rel="stylesheet" />
 
 
 </head>
@@ -105,7 +105,7 @@
       <div class="lg:col-6 mt-9  flex justify-end">
         <img
           class="object-contain"
-          src="images/banner-img.png"
+          src="images/main-img.png"
           width="580"
           height="396"
           alt=""
@@ -145,7 +145,7 @@
   <div class="container relative z-10">
     <div class="row lg:px-10 items-center justify-center g-5">
       <div class="mt-8 md:col-6 lg:col-5 lg:mt-0">
-        <div class="rounded-xl bg-white px-8 py-10 shadow-lg text-center">
+        <div class="rounded-xl bg-white px-8 py-10 shadow-lg text-center pricing">
           <h2 class="h3 border-b border-border pb-5 uppercase">Business</h2>
           <div class="border-border py-3 text-center">
             <p class="mt-6">
@@ -189,7 +189,7 @@
         </div>
       </div>
       <div class="mt-8 md:col-6 lg:col-5 lg:mt-0">
-        <div class="rounded-xl bg-white px-8 py-10 shadow-lg text-center">
+        <div class="rounded-xl bg-white px-8 py-10 shadow-lg text-center pricing-2">
           <h2 class="h3 border-b border-border pb-5 uppercase">Residential</h2>
           <div class="border-border py-3 text-center">
             <p class="mt-6">As low as 12 GBP per month</p>
@@ -268,18 +268,25 @@
 </section>
 <!-- Reviews -->
 <!-- Counter -->
-<section class="page-hero py-16 bg-theme-dark relative overflow-hidden">
+<style>
+  
+</style>
+<section class="section relative cta flex items-center">
   <div class="container">
-    <div class="page-hero-content mx-auto max-w-[480px] text-center">
-      <p class="text-white">Easy, reliable and fairly priced phone systems designed for freelancers, startups & growing small businesses.</p>
-      <div class="range">
-          <div class="value2 range-slider-bg">0 <br>USERS</div>
-          <input type="range" min="0" max="50" value="0" id="range2" class="range-input" /> 
-      </div>
-      
-    </div>
+       <div class="row items-center justify-center g-5">
+              <div class="md:col-6 lg:col-12 text-center flex flex-col">
+                <h2 class="capitalize text-white">User Count</h2>
+                <p class="text-white mt-8">Easy, reliable and fairly priced phone systems designed for freelancers, startups & growing small businesses.</p>
+                <div class="range mt-8">
+                    <input type="range" min="0" max="50" value="0" id="range2" class="range-input" />
+                    <div class="value2 range-slider-bg">0 <br>USERS</div>
+                </div>
+                
+              </div>
+              <div class=""><img src="images/cta-3.png" alt="" class="absolute right-0 -bottom-10 cta-img"  width="530" height="396"></div>
+       </div>
+
   </div>
-  <img class="absolute right-0 max-w-[480px] -bottom-6" src="images/cta-phone.png" alt="">
 </section>
 <!-- end Counter -->
 <section class="section key-feature relative">
