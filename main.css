@@ -4817,9 +4817,36 @@ code::after {
       #tabs li .leading-none small{
         display: none;
       }
-
+      #tab-contents .pt-page>div {
+        padding: 0 !important;
+    }
 
     }
+
+    @media (max-width: 640px){
+      .header a img{ width: 160px;}
+      .header .btn-green {
+        padding: 0.5rem 0.4rem;
+        min-width: auto;
+        font-size: 14px;
+        height: auto;
+        line-height: 1;
+    }
+    .header label#show-button svg,
+    .header label#hide-button svg {
+      height: 1rem;
+      width: 1rem;
+  }
+  #tab-contents input#prev, #tab-contents input#next {
+    padding-left: 1rem;
+    padding-right: 1rem;
+    line-height: normal;
+    height: fit-content;
+    font-size: 1rem;
+    min-width: 110px;
+}
+    }
+
     @media (min-width: 640px){
       
       .sm\:grid-cols-2{
