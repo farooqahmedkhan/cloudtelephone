@@ -3,11 +3,15 @@ import Home from "./pages/Home.vue"
 import About from "./pages/About.vue"
 
 const routes = [
-  { path: '/', component: Home },
-  { path: '/about', component: About },
+  {
+    path: '/', component: Home, name: 'home',
+  },
+  {
+    path: '/about', component: About, name: 'about',
+  },
 ]
 
 export default createRouter( {
-  history: createMemoryHistory(),
+  history: createMemoryHistory( import.meta.env.BASE_URL ),
   routes,
 } )

@@ -16,7 +16,7 @@ onMounted( () => {
       <!-- logo -->
       <div class="order-0">
         <router-link to="/">
-          <img src="../assets/images/logo.png" height="60" width="250" alt="logo" />
+          <img src="/images/logo.png" height="60" width="250" alt="logo" />
         </router-link>
       </div>
       <!-- navbar toggler -->

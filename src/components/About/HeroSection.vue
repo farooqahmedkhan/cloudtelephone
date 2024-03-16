@@ -7,19 +7,19 @@ const items = [
     id: 1,
     title: "measurable results",
     description: "Encourage frequent & timely recognition integrating with communication tools",
-    img: "../assets/images/results.png",
+    img: "/images/results.png",
   },
   {
     id: 2,
     title: "market professionals",
     description: "Encourage frequent & timely recognition integrating with communication tools",
-    img: "../assets/images/market-professionals.png",
+    img: "/images/market-professionals.png",
   },
   {
     id: 3,
     title: "international award",
     description: "Encourage frequent & timely recognition integrating with communication tools",
-    img: "../assets/images/awards.png",
+    img: "/images/awards.png",
   },
 ]
 </script>
@@ -45,8 +45,8 @@ const items = [
           <time-line-item v-for="(item, i) in items" :key="item.id" :item="item" :last="i === items.length - 1" />
         </div>
       </div>
-      <img class="banner-shape absolute -top-28 right-0 -z-[1] w-full max-w-[600px]"
-        src="@/assets/images/banner-shape.svg" alt="">
+      <img class="banner-shape absolute -top-28 right-0 -z-[1] w-full max-w-[600px]" src="/images/banner-shape.svg"
+        alt="">
 
     </div>
   </section>

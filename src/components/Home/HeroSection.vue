@@ -20,12 +20,12 @@
           <rotuer-view class="btn btn-green mt-8 cursor-pointer" to="/about">Check in Detail</rotuer-view>
         </div>
         <div class="lg:col-6 mt-9  flex justify-end">
-          <img class="object-contain" src="@/assets/images/main-img.png" width="580" height="396" alt="" />
+          <img class="object-contain" src="/images/main-img.png" width="580" height="396" alt="" />
         </div>
       </div>
     </div>
-    <img class="banner-shape absolute -top-28 right-0 -z-[1] w-full max-w-[600px]"
-      src="@/assets/images/banner-shape.svg" alt="" />
+    <img class="banner-shape absolute -top-28 right-0 -z-[1] w-full max-w-[600px]" src="/images/banner-shape.svg"
+      alt="" />
   </section>
 </template>
 

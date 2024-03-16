@@ -19,8 +19,8 @@ const userNo = ref( "0" )
           </div>
 
         </div>
-        <div class=""><img src="@/assets/images/cta-3.png" alt="" class="absolute right-0 -bottom-10 cta-img"
-            width="530" height="396"></div>
+        <div class=""><img src="/images/cta-3.png" alt="" class="absolute right-0 -bottom-10 cta-img" width="530"
+            height="396"></div>
       </div>
 
     </div>

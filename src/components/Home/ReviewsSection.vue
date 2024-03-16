@@ -6,28 +6,28 @@ const reviews = [
   {
     id: 1,
     text: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent tempus sollicitudin tellus, ut auctor ligula lacinia eget. Aenean in varius orci. Ut scelerisque feugiat ultricies. Fusce molestie consectetur lacus a euismod.',
-    pic: "@/assets/images/users/user-5.png",
+    pic: "/images/users/user-5.png",
     name: "Courtney Henry",
     from: "microsoft corp"
   },
   {
     id: 2,
     text: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent tempus sollicitudin tellus, ut auctor ligula lacinia eget. Aenean in varius orci. Ut scelerisque feugiat ultricies. Fusce molestie consectetur lacus a euismod.',
-    pic: "@/assets/images/users/user-5.png",
+    pic: "/images/users/user-5.png",
     name: "Courtney Henry",
     from: "microsoft corp"
   },
   {
     id: 3,
     text: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent tempus sollicitudin tellus, ut auctor ligula lacinia eget. Aenean in varius orci. Ut scelerisque feugiat ultricies. Fusce molestie consectetur lacus a euismod.',
-    pic: "@/assets/images/users/user-5.png",
+    pic: "/images/users/user-5.png",
     name: "Courtney Henry",
     from: "microsoft corp"
   },
   {
     id: 4,
     text: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent tempus sollicitudin tellus, ut auctor ligula lacinia eget. Aenean in varius orci. Ut scelerisque feugiat ultricies. Fusce molestie consectetur lacus a euismod.',
-    pic: "@/assets/images/users/user-5.png",
+    pic: "/images/users/user-5.png",
     name: "Courtney Henry",
     from: "microsoft corp"
   },
@@ -48,7 +48,7 @@ const reviews = [
                   {{ review.text }}
                 </p>
                 <div class="review-author-avatar bg-gradient">
-                  <img src="@/assets/images/users/user-5.png" alt="" />
+                  <img src="/images/users/user-5.png" alt="" />
                 </div>
                 <h4 class="mb-2">{{ review.name }}</h4>
                 <p class="mb-4 text-[#666]">{{ review.from }}</p>

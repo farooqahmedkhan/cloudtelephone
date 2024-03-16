@@ -45,7 +45,7 @@ const businessItems = [
           <template #default>
             <div class="border-border py-3 text-center">
               <p class="mt-6">As low as 12 GBP per month</p>
-              <div class="py-5 my-5 text-center flex justify-center"> <img alt="" src="@/assets/images/home-service.png"
+              <div class="py-5 my-5 text-center flex justify-center"> <img alt="" src="/images/home-service.png"
                   width="250" height="250" class="rounded-lg">
               </div>
             </div>
