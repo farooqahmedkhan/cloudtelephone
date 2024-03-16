@@ -7,7 +7,7 @@ import navbar from "./layouts/Navbar.vue"
 <template>
   <div class="mi-h-screen">
     <navbar />
-    <router-view />
+    <RouterView />
     <Footer />
   </div>
 </template>
