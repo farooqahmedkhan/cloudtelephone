@@ -2240,7 +2240,7 @@ select:invalid {
   position: absolute;
   height: 1.25rem;
   width: 1.25rem;
-  background-image: url("images/icons/quote.svg");
+  background-image: url("./assets/images/icons/quote.svg");
   background-size: contain;
   background-repeat: no-repeat;
   --tw-content: "";
@@ -4968,7 +4968,7 @@ code::after {
 }
 
 .range-slider-bg {
-  background-image: url(images/counter-bg.svg);
+  background-image: url("./assets/images/counter-bg.svg");
   background-repeat: no-repeat;
   height: 197px;
   background-position: 56% 0%;
@@ -5373,7 +5373,8 @@ input:checked ~ .dot {
 .cta {
   min-height: 600px;
   background-color: rgba(255, 255, 255, 0);
-  background: rgb(26 32 44 / var(--tw-bg-opacity)) url(images/diagnol-img.svg);
+  background: rgb(26 32 44 / var(--tw-bg-opacity))
+    url("./assets/images/diagnol-img.svg");
   background-position: 50% 200%;
   background-repeat: no-repeat;
   background-size: cover;
