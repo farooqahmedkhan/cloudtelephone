@@ -5267,7 +5267,7 @@ input:checked ~ .dot {
 }
 
 .hero-1-bg {
-  background: url(images/bg-home-overlay.png);
+  background: url("./assets/images/bg-home-overlay.png");
   animation: slide_img 40s linear infinite;
   animation-delay: 1s;
   position: absolute;

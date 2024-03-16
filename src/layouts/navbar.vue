@@ -1,9 +1,17 @@
 <script setup>
+import { onMounted, ref } from "vue"
+
+const scrolled = ref( false )
+onMounted( () => {
+  window.onscroll = () => {
+    scrolled.value = window.scrollY > 0
+  }
+} )
 
 </script>
 
 <template>
-  <header class="header">
+  <header class="header" :class="`${scrolled ? 'header-sticky' : ''}`">
     <nav class="navbar container">
       <!-- logo -->
       <div class="order-0">
