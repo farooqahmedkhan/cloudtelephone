@@ -1,4 +1,5 @@
 <script setup>
+import AboutSection from "../components/About/AboutSection.vue"
 import HeroSection from "../components/About/HeroSection.vue";
 
 </script>
@@ -6,6 +7,7 @@ import HeroSection from "../components/About/HeroSection.vue";
 <template>
   <div>
     <HeroSection />
+    <AboutSection />
   </div>
 </template>
 
