@@ -1,11 +1,13 @@
 <script setup>
-import navbar from "./layouts/navbar.vue"
+import Footer from "./layouts/Footer.vue"
+import navbar from "./layouts/Navbar.vue"
 
 </script>
 
 <template>
-  <div class="h-screen">
+  <div class="mi-h-screen">
     <navbar />
-    <router-view></router-view>
+    <router-view />
+    <Footer />
   </div>
 </template>
