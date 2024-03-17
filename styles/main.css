@@ -1651,7 +1651,7 @@ select:invalid {
   margin-bottom: 4rem;
   border-radius: 0.75rem; */
   --tw-bg-opacity: 1;
-  background-color: rgb(255 255 255 / var(--tw-bg-opacity));
+  /* background-color: rgb(255 255 255 / var(--tw-bg-opacity)); */
   padding-left: 0.75rem;
   padding-right: 0.75rem;
   padding-top: 1.5rem;
@@ -1665,6 +1665,7 @@ select:invalid {
 .review p{
   max-width: 550px;
   margin: 0 auto;
+  font-size: 18px;
 }
 .review-author-avatar {
   margin-left: auto;
@@ -2141,6 +2142,9 @@ input#nav-toggle:checked ~ #nav-menu {
   padding: 20px 10px;
   border-radius: 10px;
   margin-top: 20px;
+  position: absolute;
+    top: 100%;
+    width: 50%;
 }
 @media (min-width: 1024px) {
 
@@ -2826,6 +2830,15 @@ input#nav-toggle:checked ~ #nav-menu {
   width: 2rem;
   height: 2rem
 }
+
+.size-9 {
+  width: 2.5rem;
+  height: 2.5rem
+}
+.size-10 {
+  width: 3rem;
+  height: 3rem
+}
 .h-14 {
   height: 3.5rem;
 }
@@ -3063,6 +3076,9 @@ input#nav-toggle:checked ~ #nav-menu {
 }
 .w-\[70px\] {
   width: 70px;
+}
+.w-50 {
+  width:50%;
 }
 .w-full {
   width: 100%;
@@ -3947,6 +3963,9 @@ input#nav-toggle:checked ~ #nav-menu {
 }
 .pt-11 {
   padding-top: 2.75rem;
+}
+.pt-12 {
+  padding-top: 3rem;
 }
 .pt-16 {
   padding-top: 4rem;
@@ -4932,6 +4951,7 @@ input:checked~.dot {
   opacity: 0.7;
   background-color: #343a40;
 }
+
 .hero-1 .bg-overlay {
   opacity: 0.2;
 }
@@ -5031,7 +5051,8 @@ background-size: 50% 130%;
     border:1px solid rgb(204 102 204);
 }
 .btn{
-  
+  box-shadow: 0px 15px 34px rgba(0, 0, 0, 0.1);
+
   transition: .3s;
   position: relative;
 }
@@ -5057,4 +5078,50 @@ background-size: 50% 130%;
     bottom: 0;
 
 }
+}
+@media (min-width: 1024px) {
+  .hero-1{
+    padding: 6rem 0;
+  }
+}
+.service-card{
+  border: 1px solid #f2f3f7;
+  box-sizing: none;
+  transition: all 0.8s;
+  position: relative;
+}
+
+.service-card:hover{
+  box-shadow: 0px -3px 0px 0px rgba(43, 78, 255, 0.004), 0px 30px 50px 0px rgba(1, 11, 60, 0.08);
+  border-color: rgb(229 229 229 / 0.5);
+  background-color: rgb(249 250 251/var(--tw-bg-opacity));
+  transform: translateY(-20px);
+}
+
+
+
+.service-card .card-icon {
+  display: flex;
+    width: 70px;
+    height: 70px;
+    text-align: center;
+    line-height: 67px;
+    border: 2px solid #ebedf3;
+    -webkit-border-radius: 50%;
+    -moz-border-radius: 50%;
+    border-radius: 50%;
+    align-items: center;
+    justify-content: center;
+    color: #0e1133;transition: all .3s;
+}
+.service-card .card-icon svg{
+  width: 30px;
+    height: 30px;
+    vertical-align: middle;
+}
+.service-card .card-icon svg{
+  fill:#003399 ;
+}
+.service-card:hover .card-icon {
+  border-color: #003399;
 }
