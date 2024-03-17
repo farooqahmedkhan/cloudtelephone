@@ -3,6 +3,13 @@ import ServicesSection from "../components/Quote/ServicesSection.vue"
 import BreadCrumb from "../components/Base/BreadCrumb.vue"
 import QuoteStepButton from "../components/Base/QuoteStepButton.vue"
 import useHash from "../composables/useHash.js"
+import DetailsForm from "../components/Quote/DetailsForm.vue"
+import UserLinesForm from "../components/Quote/UserLinesForm.vue"
+import EquipmentForm from "../components/Quote/EquipmentForm.vue"
+import FeaturesForm from "../components/Quote/FeaturesForm.vue"
+import PaymentForm from "../components/Quote/PaymentForm.vue"
+import SupportForm from "../components/Quote/SupportForm.vue"
+import FinalForm from "../components/Quote/FinalForm.vue"
 
 const stepButtons = [
   {
@@ -79,6 +86,19 @@ const hash = useHash()
               <QuoteStepButton v-for="step in stepButtons" :key="step.id" :step="step"
                 :class="`${hash === step.slug ? 'active' : ''}`" />
             </ul>
+          </div>
+          <div class="lg:col-9">
+            <form action="#">
+              <div id="tab-contents" class="border rounded-lg  mt-10 bg-white">
+                <DetailsForm v-if="hash === 'details'" />
+                <UserLinesForm v-if="hash === 'user-lines'" />
+                <EquipmentForm v-if="hash === 'equipment'" />
+                <FeaturesForm v-if="hash === 'extra-features'" />
+                <PaymentForm v-if="hash === 'payment'" />
+                <SupportForm v-if="hash === 'install-support'" />
+                <FinalForm v-if="hash === 'complete'" />
+              </div>
+            </form>
           </div>
         </div>
 

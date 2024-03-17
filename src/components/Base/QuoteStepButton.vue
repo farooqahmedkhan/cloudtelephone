@@ -8,7 +8,7 @@ defineProps( {
   <li class="relative flex items-center gap-2 p-4 group">
     <span class="arrow absolute -right-2 top-1/2 size-4 -translate-y-1/2 rotate-45 border border-gray-100 group-[.ative]:block hidden
       sm:block border-b-0 border-l-0 bg-gray-50" />
-    <a id="default-tab" :href="`#${step.slug}`" class="flex gap-3">
+    <a :id="step.slug" :href="`#${step.slug}`" class="flex gap-3">
       <template v-if="step.slug === 'details'">
         <svg class="size-7 shrink-0 mb-2" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
           stroke="currentColor" stroke-width="2">
