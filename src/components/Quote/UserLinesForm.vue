@@ -9,7 +9,7 @@
         <div class="key-feature-grid grid p-7 text-center">
           <h4 class="text-primary">How many users</h4>
           <!-- Input Number -->
-          <div class="my-5">
+          <div class="my-5 space-x-1">
             <button data-action="decrement">Decrement</button>
             <input type="text" value="0">
             <button data-action="increment">Increment</button>
@@ -67,7 +67,7 @@
             <table class="w-full  border border-neutral-200 text-left text-sm font-light mt-6">
 
               <tbody>
-                <tr class="border-b border-neutral-200 bg-black/[0.02] dark:border-white/10  whitespace-nowrap">
+                <tr class="border border-neutral-200 bg-black/[0.02]  whitespace-nowrap">
                   <td class="px-6 py-4" style="white-space: normal;">
                     <h6>Lorem ipsum dolor sit amet, consectetur adipiscing elit. </h6>
                     <p>Vivamus urna elit, congue eget metus sed, rhoncus tempus purus. Donec scelerisque

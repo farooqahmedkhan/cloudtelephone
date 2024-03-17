@@ -12,7 +12,7 @@
           <div class="relative overflow-x-auto">
             <table class="w-full  border border-neutral-200 text-left text-sm font-light mt-6">
               <tbody>
-                <tr class="border-b border-neutral-200 bg-black/[0.02] dark:border-white/10 whitespace-nowrap">
+                <tr class="border-b border-neutral-200 bg-black/[0.02] dark:order-white/10 whitespace-nowrap">
                   <td class="px-6 py-4">
                     <h6>Lorem ipsum dolor. </h6>
                   </td>
@@ -30,14 +30,14 @@
           <div class="relative overflow-x-auto">
             <table class="w-full  border border-neutral-200 text-left text-sm font-light mt-6">
               <tbody>
-                <tr class="border-b border-neutral-200 bg-black/[0.02] dark:border-white/10  whitespace-nowrap">
+                <tr class="border-b border-neutral-200 bg-black/[0.02] dark:order-white/10  whitespace-nowrap">
                   <th class="px-6 py-3"></th>
                   <th class="px-6 py-3 bg-gray-700 text-white">Softphone</th>
                   <th class="px-6 py-3 bg-gray-700 text-white">Webx Teams</th>
                   <th class="px-6 py-3 bg-gray-700 text-white">Webx Teams+</th>
                   <th class="px-6 py-3 bg-gray-700 text-white">Webx Presenter</th>
                 </tr>
-                <tr class="border-b border-neutral-200 bg-black/[0.02] dark:border-white/10 whitespace-nowrap">
+                <tr class="border-b border-neutral-200 bg-black/[0.02] dark:order-white/10 whitespace-nowrap">
                   <td class="px-6 py-3"></td>
                   <td class="px-6 py-3">
                     <p class="m-0 text-blue">Free</p>
@@ -52,19 +52,15 @@
                     <p class="m-0 text-blue">Free</p>
                   </td>
                 </tr>
-                <tr class="border-b border-neutral-200 bg-black/[0.02] dark:border-white/10 whitespace-nowrap">
+                <tr class="border-b border-neutral-200 bg-black/[0.02] dark:order-white/10 whitespace-nowrap">
                   <td class="px-6 py-3">Calling</td>
-                  <td class="px-6 py-3">
-                    <p class="m-0 text-dark"><i class="fa-solid fa-check"></i></p>
-                  </td>
-                  <td class="px-6 py-3">
-                    <p class="m-0 text-dark"><i class="fa-solid fa-check"></i></p>
-                  </td>
-                  <td class="px-6 py-3">
-                    <p class="m-0 text-dark"><i class="fa-solid fa-check"></i></p>
-                  </td>
-                  <td class="px-6 py-3">
-                    <p class="m-0 text-dark"><i class="fa-solid fa-check"></i></p>
+                  <td class="px-6 py-3" v-for="i in 4" :key="i">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-check" width="12"
+                      height="12" viewBox="0 0 24 24" stroke-width="1.5" stroke="#333" fill="none"
+                      stroke-linecap="round" stroke-linejoin="round">
+                      <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                      <path d="M5 12l5 5l10 -10" />
+                    </svg>
                   </td>
                 </tr>
               </tbody>
@@ -102,7 +98,7 @@
           <div class="relative overflow-x-auto">
             <table class="w-full  border border-neutral-200 text-left text-sm font-light mt-6">
               <tbody>
-                <tr class="border-b border-neutral-200 bg-black/[0.02] dark:border-white/10 whitespace-nowrap">
+                <tr class="border-b border-neutral-200 bg-black/[0.02] dark:order-white/10 whitespace-nowrap">
                   <td class="px-6 py-4">
                     <!-- Input Number -->
                     <div class="flex gap-3 justify-center">
@@ -117,7 +113,7 @@
                   </td>
                   <td class="px-6 py-4 text-blue">$33/user/month</td>
                 </tr>
-                <tr class="border-b border-neutral-200 bg-black/[0.02] dark:border-white/10 whitespace-nowrap">
+                <tr class="border-b border-neutral-200 bg-black/[0.02] dark:order-white/10 whitespace-nowrap">
                   <td class="px-6 py-4">
 
                     <form class="max-w-sm mx-auto">
@@ -140,7 +136,7 @@
                   </td>
                   <td class="px-6 py-4 text-blue">$33/user/month</td>
                 </tr>
-                <tr class="border-b border-neutral-200 bg-black/[0.02] dark:border-white/10 whitespace-nowrap">
+                <tr class="border-b border-neutral-200 bg-black/[0.02] dark:order-white/10 whitespace-nowrap">
                   <td class="px-6 py-4">
                     <div class="switch">
                       <label class="flex items-center relative w-max cursor-pointer select-none">

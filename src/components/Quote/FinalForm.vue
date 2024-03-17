@@ -15,23 +15,23 @@
         <div class="relative overflow-x-auto">
           <table class="w-full  border border-neutral-200 text-left text-sm font-light mt-6">
             <tbody>
-              <tr class="border-b border-neutral-200 bg-black/[0.02] dark:border-white/10 whitespace-nowrap">
+              <tr class="border-b border-neutral-200 bg-black/[0.02] dark:order-white/10 whitespace-nowrap">
                 <td colspan="4" class="px-6 py-4">
                   <h5 class="text-center">Cisco</h5>
                 </td>
               </tr>
-              <tr class="border-b border-neutral-200 bg-black/[0.02] dark:border-white/10 whitespace-nowrap">
+              <tr class="border-b border-neutral-200 bg-black/[0.02] dark:order-white/10 whitespace-nowrap">
                 <td class="px-6 py-4">Lorem ipsum</td>
                 <td class="px-6 py-4">Lorem ipsum</td>
                 <td class="px-6 py-4">Lorem ipsum</td>
                 <td class="px-6 py-4">Lorem ipsum</td>
               </tr>
-              <tr class="border-b border-neutral-200 bg-black/[0.02] dark:border-white/10 whitespace-nowrap">
+              <tr class="border-b border-neutral-200 bg-black/[0.02] dark:order-white/10 whitespace-nowrap">
                 <td colspan="4" class="px-6 py-4">
                   <h5 class="text-center">Polycorn</h5>
                 </td>
               </tr>
-              <tr class="border-b border-neutral-200 bg-black/[0.02] dark:border-white/10 whitespace-nowrap">
+              <tr class="border-b border-neutral-200 bg-black/[0.02] dark:order-white/10 whitespace-nowrap">
                 <td class="px-6 py-4">Lorem ipsum</td>
                 <td class="px-6 py-4">Lorem ipsum</td>
                 <td class="px-6 py-4">Lorem ipsum</td>

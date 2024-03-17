@@ -88,7 +88,7 @@ const hash = useHash()
             </ul>
           </div>
           <div class="lg:col-9">
-            <form action="#">
+            <form @submit.prevent>
               <div id="tab-contents" class="border rounded-lg  mt-10 bg-white">
                 <DetailsForm v-if="hash === 'details'" />
                 <UserLinesForm v-if="hash === 'user-lines'" />
