@@ -3,6 +3,7 @@ import Home from "./pages/Home.vue"
 import About from "./pages/About.vue"
 import Products from "./pages/Products.vue"
 import Pricing from "./pages/Pricing.vue"
+import QuotePage from "./pages/QuotePage.vue"
 
 const routes = [
   {
@@ -16,6 +17,9 @@ const routes = [
   },
   {
     path: '/pricing', component: Pricing, name: 'pricing',
+  },
+  {
+    path: '/get-a-quote', component: QuotePage, name: 'get-a-quote',
   },
 ]
 
