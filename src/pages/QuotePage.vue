@@ -58,6 +58,10 @@ const stepButtons = [
 
 const hash = useHash()
 
+
+function submitDetails ( e ) {
+  console.log( e )
+}
 </script>
 
 <template>
@@ -90,7 +94,7 @@ const hash = useHash()
           <div class="lg:col-9">
             <form @submit.prevent>
               <div id="tab-contents" class="border rounded-lg  mt-10 bg-white">
-                <DetailsForm v-if="hash === 'details'" />
+                <DetailsForm v-if="hash === 'details'" @submit-details="submitDetails" />
                 <UserLinesForm v-if="hash === 'user-lines'" />
                 <EquipmentForm v-if="hash === 'equipment'" />
                 <FeaturesForm v-if="hash === 'extra-features'" />
