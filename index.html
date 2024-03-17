@@ -5,8 +5,10 @@
   <!-- responsive meta -->
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5"/>
 
+  <!-- favicon -->
+  <link rel="shortcut icon" href="images/favicon.png" /> 
   <!-- title -->
-  <title>CloudTelephone-tailwind</title>
+  <title>CloudTelephone</title>
 
   <!-- noindex robots -->
   <meta name="robots" content="" />
@@ -32,58 +34,64 @@
 <body>
   <header class="header">
     <nav class="navbar container">
-    <!-- logo -->
-    <div class="order-0">
-      <a href="index.html">
-        <img src="images/logo.png" height="60" width="250" alt="logo" />
-      </a>
-    </div>
-    <!-- navbar toggler -->
-    <a class="btn btn-green btn-sm border-border show-mobile" href="signup.html">Get A Quote</a>
-    <input id="nav-toggle" type="checkbox" class="hidden" />
-    <label
-      id="show-button"
-      for="nav-toggle"
-      class="order-1 flex cursor-pointer items-center lg:order-1 lg:hidden"
-    >
-      <svg class="h-6 fill-current" viewBox="0 0 20 20">
-        <title>Menu Open</title>
-        <path d="M0 3h20v2H0V3z m0 6h20v2H0V9z m0 6h20v2H0V0z"></path>
-      </svg>
-    </label>
-    <label
-      id="hide-button"
-      for="nav-toggle"
-      class="order-2 hidden cursor-pointer items-center lg:order-1"
-    >
-      <svg class="h-6 fill-current" viewBox="0 0 20 20">
-        <title>Menu Close</title>
-        <polygon
-          points="11 9 22 9 22 11 11 11 11 22 9 22 9 11 -2 11 -2 9 9 9 9 -2 11 -2"
-          transform="rotate(45 10 10)"
-        ></polygon>
-      </svg>
-    </label>
-    <!-- /navbar toggler -->
-    <ul
-      id="nav-menu"
-      class="navbar-nav order-2 hidden w-full flex-[0_0_100%] lg:order-1 lg:flex lg:w-auto lg:flex-auto lg:justify-end lg:space-x-5"
-    >
-    <li class="nav-item">
-      <a href="about.html" class="nav-link">About Us</a>
-    </li>
-      <li class="nav-item">
-        <a href="products.html" class="nav-link">Products</a>
-      </li>
-      <li class="nav-item">
-        <a href="pricing.html" class="nav-link">Pricing</a>
-      </li>
-      <li class="nav-item mobile-hidden">
-        <a class="btn btn-green btn-sm border-border" href="signup.html"
-          >Get A Quote</a
-        >
-      </li>
-    </ul>
+         <div class="flex justify-between w-full">
+              <!-- logo -->
+              <div class="order-0">
+                <a href="index.html">
+                  <img src="images/logo.png" height="60" width="250" alt="logo" />
+                </a>
+              </div>
+              <div class="flex items-center justify-end w-50 gap-4">
+                   <!-- navbar toggler -->
+                  <a class="btn btn-green btn-sm border-border show-mobile" href="signup.html">Get A Quote</a>
+                  <input id="nav-toggle" type="checkbox" class="hidden" />
+                  <label
+                    id="show-button"
+                    for="nav-toggle"
+                    class="order-1 flex cursor-pointer items-center lg:order-1 lg:hidden"
+                  >
+                    <svg class="h-6 fill-current" viewBox="0 0 20 20">
+                      <title>Menu Open</title>
+                      <path d="M0 3h20v2H0V3z m0 6h20v2H0V9z m0 6h20v2H0V0z"></path>
+                    </svg>
+                  </label>
+                  <label
+                    id="hide-button"
+                    for="nav-toggle"
+                    class="order-2 hidden cursor-pointer items-center lg:order-1"
+                  >
+                    <svg class="h-6 fill-current" viewBox="0 0 20 20">
+                      <title>Menu Close</title>
+                      <polygon
+                        points="11 9 22 9 22 11 11 11 11 22 9 22 9 11 -2 11 -2 9 9 9 9 -2 11 -2"
+                        transform="rotate(45 10 10)"
+                      ></polygon>
+                    </svg>
+                  </label>
+                  <!-- /navbar toggler -->
+                  <ul
+                    id="nav-menu"
+                    class="navbar-nav order-2 hidden w-full flex-[0_0_100%] lg:order-1 lg:flex lg:w-auto lg:flex-auto lg:justify-end lg:space-x-5"
+                  >
+                  <li class="nav-item">
+                    <a href="about.html" class="nav-link">About Us</a>
+                  </li>
+                    <li class="nav-item">
+                      <a href="products.html" class="nav-link">Products</a>
+                    </li>
+                    <li class="nav-item">
+                      <a href="pricing.html" class="nav-link">Pricing</a>
+                    </li>
+                    <li class="nav-item mobile-hidden">
+                        <div class="flex flex-col items-center justify-center gap-4">
+                          <a class="btn btn-green btn-sm border-border" href="signup.html">Get A Quote</a>
+                          <a href="tel:00909916" class="text-dark font-semibold"><i class="fa-solid fa-phone-volume"></i> 00909916</a>
+                        </div>
+                      
+                    </li>
+                  </ul>
+              </div>
+         </div>
   </nav>
   </header>
 <!-- Banner -->
@@ -137,9 +145,7 @@
 </section>
 <!-- ./end Key features -->
 <!-- pricing -->
-<style>
- 
-</style>
+
 <section class="section mt-12 bg-theme-light relative hero-1 " >
   <div class="bg-overlay overflow-hidden bg-transparent"><div class="hero-1-bg"></div></div>
   <div class="container relative z-10">
@@ -213,55 +219,60 @@
 <section class="section reviews">
   <div class="container">
     <div class="row">
-      <div class="col-12">
-        <div class="swiper reviews-carousel">
-          <div class="swiper-wrapper">
+      <div class="col-12 relative">
+        <svg class="size-10 absolute left-0" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path fill="#003399" d="M0 216C0 149.7 53.7 96 120 96h8c17.7 0 32 14.3 32 32s-14.3 32-32 32h-8c-30.9 0-56 25.1-56 56v8h64c35.3 0 64 28.7 64 64v64c0 35.3-28.7 64-64 64H64c-35.3 0-64-28.7-64-64V320 288 216zm256 0c0-66.3 53.7-120 120-120h8c17.7 0 32 14.3 32 32s-14.3 32-32 32h-8c-30.9 0-56 25.1-56 56v8h64c35.3 0 64 28.7 64 64v64c0 35.3-28.7 64-64 64H320c-35.3 0-64-28.7-64-64V320 288 216z"/></svg>
+
+        <div class="swiper reviews-carousel ">
+
+          <div class="swiper-wrapper ">
+
             <div class="swiper-slide">
-              <div class="review">
+              <div class="review relative">
                 <p>
                   Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent tempus sollicitudin tellus, ut auctor ligula lacinia eget. Aenean in varius orci. Ut scelerisque feugiat ultricies. Fusce molestie consectetur lacus a euismod.
                 </p>
-                <div class="review-author-avatar bg-gradient">
+                <div class="review-author-avatar bg-gradient mt-9">
                   <img src="images/users/user-5.png" alt="" />
                 </div>
                 <h4 class="mb-2">Courtney Henry</h4>
                 <p class="mb-4 text-[#666]">microsoft corp</p>
                 
-                
               </div>
             </div>
             <div class="swiper-slide">
-              <div class="review">
+              <div class="review relative">
                 <p>
                   Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent tempus sollicitudin tellus, ut auctor ligula lacinia eget. Aenean in varius orci. Ut scelerisque feugiat ultricies. Fusce molestie consectetur lacus a euismod.
                 </p>
-                <div class="review-author-avatar bg-gradient">
-                  <img src="images/users/user-5.png" alt="" />
-                </div>
-                <h4 class="mb-2">Courtney Henry</h4>
-                <p class="mb-4 text-[#666]">microsoft corp</p>
-              </div>
-            </div>
-            <div class="swiper-slide">
-              <div class="review">
-                <p>
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent tempus sollicitudin tellus, ut auctor ligula lacinia eget. Aenean in varius orci. Ut scelerisque feugiat ultricies. Fusce molestie consectetur lacus a euismod.
-                </p>
-                <div class="review-author-avatar bg-gradient">
+                <div class="review-author-avatar bg-gradient mt-9">
                   <img src="images/users/user-5.png" alt="" />
                 </div>
                 <h4 class="mb-2">Courtney Henry</h4>
                 <p class="mb-4 text-[#666]">microsoft corp</p>
                 
+              </div>
+            </div>
+            <div class="swiper-slide">
+              <div class="review relative">
+                <p>
+                  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent tempus sollicitudin tellus, ut auctor ligula lacinia eget. Aenean in varius orci. Ut scelerisque feugiat ultricies. Fusce molestie consectetur lacus a euismod.
+                </p>
+                <div class="review-author-avatar bg-gradient mt-9">
+                  <img src="images/users/user-5.png" alt="" />
+                </div>
+                <h4 class="mb-2">Courtney Henry</h4>
+                <p class="mb-4 text-[#666]">microsoft corp</p>
                 
               </div>
             </div>
+
           </div>
           <!-- If we need pagination -->
-          <div
-            class="swiper-pagination reviews-carousel-pagination"
-          ></div>
+          <div class="swiper-pagination reviews-carousel-pagination"></div>
+
         </div>
+        <svg class="size-10 absolute right-0 bottom-6" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path fill="#003399" d="M448 296c0 66.3-53.7 120-120 120h-8c-17.7 0-32-14.3-32-32s14.3-32 32-32h8c30.9 0 56-25.1 56-56v-8H320c-35.3 0-64-28.7-64-64V160c0-35.3 28.7-64 64-64h64c35.3 0 64 28.7 64 64v32 32 72zm-256 0c0 66.3-53.7 120-120 120H64c-17.7 0-32-14.3-32-32s14.3-32 32-32h8c30.9 0 56-25.1 56-56v-8H64c-35.3 0-64-28.7-64-64V160c0-35.3 28.7-64 64-64h64c35.3 0 64 28.7 64 64v32 32 72z"/></svg>
+
       </div>
     </div>
   </div>
@@ -298,19 +309,31 @@
       </div>
     </div>
     <div class="key-feature-grid mt-10 grid grid-cols-2 gap-7 md:grid-cols-3 xl:grid-cols-5">
-      <div class="flex justify-center rounded-lg bg-white p-5 shadow-lg items-center">
-        <h6 class="uppercase text-center">Feature &  Pricing</h6>
+      <div class="flex flex-col justify-center rounded-lg bg-white px-5 py-6 items-center service-card">
+           <div class="card-icon mb-4">
+            <svg class="size-9 shrink-0" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512"><path d="M312 24V34.5c6.4 1.2 12.6 2.7 18.2 4.2c12.8 3.4 20.4 16.6 17 29.4s-16.6 20.4-29.4 17c-10.9-2.9-21.1-4.9-30.2-5c-7.3-.1-14.7 1.7-19.4 4.4c-2.1 1.3-3.1 2.4-3.5 3c-.3 .5-.7 1.2-.7 2.8c0 .3 0 .5 0 .6c.2 .2 .9 1.2 3.3 2.6c5.8 3.5 14.4 6.2 27.4 10.1l.9 .3c11.1 3.3 25.9 7.8 37.9 15.3c13.7 8.6 26.1 22.9 26.4 44.9c.3 22.5-11.4 38.9-26.7 48.5c-6.7 4.1-13.9 7-21.3 8.8V232c0 13.3-10.7 24-24 24s-24-10.7-24-24V220.6c-9.5-2.3-18.2-5.3-25.6-7.8c-2.1-.7-4.1-1.4-6-2c-12.6-4.2-19.4-17.8-15.2-30.4s17.8-19.4 30.4-15.2c2.6 .9 5 1.7 7.3 2.5c13.6 4.6 23.4 7.9 33.9 8.3c8 .3 15.1-1.6 19.2-4.1c1.9-1.2 2.8-2.2 3.2-2.9c.4-.6 .9-1.8 .8-4.1l0-.2c0-1 0-2.1-4-4.6c-5.7-3.6-14.3-6.4-27.1-10.3l-1.9-.6c-10.8-3.2-25-7.5-36.4-14.4c-13.5-8.1-26.5-22-26.6-44.1c-.1-22.9 12.9-38.6 27.7-47.4c6.4-3.8 13.3-6.4 20.2-8.2V24c0-13.3 10.7-24 24-24s24 10.7 24 24zM568.2 336.3c13.1 17.8 9.3 42.8-8.5 55.9L433.1 485.5c-23.4 17.2-51.6 26.5-80.7 26.5H192 32c-17.7 0-32-14.3-32-32V416c0-17.7 14.3-32 32-32H68.8l44.9-36c22.7-18.2 50.9-28 80-28H272h16 64c17.7 0 32 14.3 32 32s-14.3 32-32 32H288 272c-8.8 0-16 7.2-16 16s7.2 16 16 16H392.6l119.7-88.2c17.8-13.1 42.8-9.3 55.9 8.5zM193.6 384l0 0-.9 0c.3 0 .6 0 .9 0z"/></svg>
+           </div>
+           <h6 class="uppercase text-center">Feature &  Pricing</h6>
       </div>
-      <div class="flex justify-center rounded-lg bg-white p-5 shadow-lg items-center">
-        <h6 class="uppercase text-center">APP &  TEAMS</h6>
+      <div class="flex flex-col justify-center rounded-lg bg-white px-5 py-6 items-center service-card">
+        <div class="card-icon mb-4">
+              <svg class="size-9 shrink-0" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 512"><path d="M48 48h88c13.3 0 24-10.7 24-24s-10.7-24-24-24H32C14.3 0 0 14.3 0 32V136c0 13.3 10.7 24 24 24s24-10.7 24-24V48zM175.8 224a48 48 0 1 0 0-96 48 48 0 1 0 0 96zm-26.5 32C119.9 256 96 279.9 96 309.3c0 14.7 11.9 26.7 26.7 26.7h56.1c8-34.1 32.8-61.7 65.2-73.6c-7.5-4.1-16.2-6.4-25.3-6.4H149.3zm368 80c14.7 0 26.7-11.9 26.7-26.7c0-29.5-23.9-53.3-53.3-53.3H421.3c-9.2 0-17.8 2.3-25.3 6.4c32.4 11.9 57.2 39.5 65.2 73.6h56.1zm-89.4 0c-8.6-24.3-29.9-42.6-55.9-47c-3.9-.7-7.9-1-12-1H280c-4.1 0-8.1 .3-12 1c-26 4.4-47.3 22.7-55.9 47c-2.7 7.5-4.1 15.6-4.1 24c0 13.3 10.7 24 24 24H408c13.3 0 24-10.7 24-24c0-8.4-1.4-16.5-4.1-24zM464 224a48 48 0 1 0 0-96 48 48 0 1 0 0 96zm-80-32a64 64 0 1 0 -128 0 64 64 0 1 0 128 0zM504 48h88v88c0 13.3 10.7 24 24 24s24-10.7 24-24V32c0-17.7-14.3-32-32-32H504c-13.3 0-24 10.7-24 24s10.7 24 24 24zM48 464V376c0-13.3-10.7-24-24-24s-24 10.7-24 24V480c0 17.7 14.3 32 32 32H136c13.3 0 24-10.7 24-24s-10.7-24-24-24H48zm456 0c-13.3 0-24 10.7-24 24s10.7 24 24 24H608c17.7 0 32-14.3 32-32V376c0-13.3-10.7-24-24-24s-24 10.7-24 24v88H504z"/></svg>
+            </div>
+            <h6 class="uppercase text-center">APP &  TEAMS</h6>
       </div>
-      <div class="flex justify-center rounded-lg bg-white p-5 shadow-lg items-center">
+      <div class="flex flex-col justify-center rounded-lg bg-white px-5 py-6 items-center service-card">
+        <div class="card-icon mb-4">
+          <svg class="size-8 shrink-0" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path d="M280 0C408.1 0 512 103.9 512 232c0 13.3-10.7 24-24 24s-24-10.7-24-24c0-101.6-82.4-184-184-184c-13.3 0-24-10.7-24-24s10.7-24 24-24zm8 192a32 32 0 1 1 0 64 32 32 0 1 1 0-64zm-32-72c0-13.3 10.7-24 24-24c75.1 0 136 60.9 136 136c0 13.3-10.7 24-24 24s-24-10.7-24-24c0-48.6-39.4-88-88-88c-13.3 0-24-10.7-24-24zM117.5 1.4c19.4-5.3 39.7 4.6 47.4 23.2l40 96c6.8 16.3 2.1 35.2-11.6 46.3L144 207.3c33.3 70.4 90.3 127.4 160.7 160.7L345 318.7c11.2-13.7 30-18.4 46.3-11.6l96 40c18.6 7.7 28.5 28 23.2 47.4l-24 88C481.8 499.9 466 512 448 512C200.6 512 0 311.4 0 64C0 46 12.1 30.2 29.5 25.4l88-24z"/></svg>        </div>
         <h6 class="uppercase text-center">Phones & Accessories</h6>
       </div>
-      <div class="flex justify-center rounded-lg bg-white p-5 shadow-lg items-center">
+      <div class="flex flex-col justify-center rounded-lg bg-white px-5 py-6 items-center service-card">
+        <div class="card-icon mb-4">
+          <svg class="size-9 shrink-0" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 512"><path d="M256 64H384v64H256V64zM240 0c-26.5 0-48 21.5-48 48v96c0 26.5 21.5 48 48 48h48v32H32c-17.7 0-32 14.3-32 32s14.3 32 32 32h96v32H80c-26.5 0-48 21.5-48 48v96c0 26.5 21.5 48 48 48H240c26.5 0 48-21.5 48-48V368c0-26.5-21.5-48-48-48H192V288H448v32H400c-26.5 0-48 21.5-48 48v96c0 26.5 21.5 48 48 48H560c26.5 0 48-21.5 48-48V368c0-26.5-21.5-48-48-48H512V288h96c17.7 0 32-14.3 32-32s-14.3-32-32-32H352V192h48c26.5 0 48-21.5 48-48V48c0-26.5-21.5-48-48-48H240zM96 448V384H224v64H96zm320-64H544v64H416V384z"/></svg>        </div>
         <h6 class="uppercase text-center">INternet line</h6>
       </div>
-      <div class="flex justify-center rounded-lg bg-white p-5 shadow-lg items-center">
+      <div class="flex flex-col justify-center rounded-lg bg-white px-5 py-6 items-center service-card">
+        <div class="card-icon mb-4">
+          <svg class="size-9 shrink-0" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 512"><path d="M144 320a80 80 0 1 1 0-160 80 80 0 1 1 0 160zm119.8 0c15.3-22.9 24.2-50.4 24.2-80c0-79.5-64.5-144-144-144S0 160.5 0 240s64.5 144 144 144H496c79.5 0 144-64.5 144-144s-64.5-144-144-144s-144 64.5-144 144c0 29.6 8.9 57.1 24.2 80H263.8zM496 160a80 80 0 1 1 0 160 80 80 0 1 1 0-160z"/></svg>        </div>
         <h6 class="uppercase text-center">voice messages</h6>
       </div>
       
@@ -318,7 +341,7 @@
   </div>
 </section>
 
- <footer class="footer bg-theme-light/50">
+<footer class="footer bg-theme-light/50">
   <div class="container">
     <div class="row gx-5 pb-10 pt-[52px]">
       <div class="col-12 mt-12 md:col-6 lg:col-3">
@@ -352,18 +375,7 @@
           </li>
           <li>
             <a href="#">
-              <svg
-                width="19"
-                height="15"
-                viewBox="0 0 19 15"
-                fill="none"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <path
-                  d="M16.3308 3.92621C17.0129 3.42889 17.6269 2.83209 18.1044 2.13583C17.4904 2.40108 16.7742 2.60001 16.0579 2.66632C16.8083 2.2353 17.354 1.5722 17.6269 0.743317C16.9447 1.14118 16.1603 1.43958 15.3758 1.60535C14.6937 0.909093 13.7728 0.51123 12.7496 0.51123C10.7714 0.51123 9.16837 2.06952 9.16837 3.99252C9.16837 4.25777 9.20248 4.52301 9.27069 4.78825C6.3034 4.62247 3.64307 3.22995 1.86952 1.14118C1.56256 1.63851 1.39202 2.2353 1.39202 2.8984C1.39202 4.09199 2.00595 5.15296 2.99504 5.7829C2.41523 5.74975 1.83541 5.61713 1.35792 5.35189V5.38504C1.35792 7.07596 2.58576 8.46847 4.22289 8.80002C3.95003 8.86633 3.60897 8.93265 3.302 8.93265C3.06326 8.93265 2.85862 8.89949 2.61987 8.86633C3.06326 10.2589 4.39342 11.2535 5.96233 11.2867C4.73449 12.215 3.19968 12.7786 1.52845 12.7786C1.22149 12.7786 0.948636 12.7455 0.675781 12.7123C2.24469 13.707 4.12057 14.2706 6.16698 14.2706C12.7496 14.2706 16.3308 8.99896 16.3308 4.39039C16.3308 4.22461 16.3308 4.09199 16.3308 3.92621Z"
-                  fill="#222222"
-                />
-              </svg>
+              <svg width="19" height="21" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path d="M64 32C28.7 32 0 60.7 0 96V416c0 35.3 28.7 64 64 64H384c35.3 0 64-28.7 64-64V96c0-35.3-28.7-64-64-64H64zm297.1 84L257.3 234.6 379.4 396H283.8L209 298.1 123.3 396H75.8l111-126.9L69.7 116h98l67.7 89.5L313.6 116h47.5zM323.3 367.6L153.4 142.9H125.1L296.9 367.6h26.3z"></path></svg>
             </a>
           </li>
           <li>
@@ -431,7 +443,7 @@
       <p>&copy; Copyright - 2024</p>
     </div>
   </div>
-</footer>
+  </footer>
 
 <!-- jQuery -->
 <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>

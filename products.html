@@ -5,8 +5,10 @@
   <!-- responsive meta -->
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5"/>
 
+  <!-- favicon -->
+  <link rel="shortcut icon" href="images/favicon.png" /> 
   <!-- title -->
-  <title>CloudTelephone-tailwind</title>
+  <title>CloudTelephone</title>
 
   <!-- noindex robots -->
   <meta name="robots" content="" />
@@ -28,58 +30,64 @@
 <body>
   <header class="header">
     <nav class="navbar container">
-    <!-- logo -->
-    <div class="order-0">
-      <a href="index.html">
-        <img src="images/logo.png" height="60" width="250" alt="logo" />
-      </a>
-    </div>
-    <!-- navbar toggler -->
-    <a class="btn btn-green btn-sm border-border show-mobile" href="signup.html">Get A Quote</a>
-    <input id="nav-toggle" type="checkbox" class="hidden" />
-    <label
-      id="show-button"
-      for="nav-toggle"
-      class="order-1 flex cursor-pointer items-center lg:order-1 lg:hidden"
-    >
-      <svg class="h-6 fill-current" viewBox="0 0 20 20">
-        <title>Menu Open</title>
-        <path d="M0 3h20v2H0V3z m0 6h20v2H0V9z m0 6h20v2H0V0z"></path>
-      </svg>
-    </label>
-    <label
-      id="hide-button"
-      for="nav-toggle"
-      class="order-2 hidden cursor-pointer items-center lg:order-1"
-    >
-      <svg class="h-6 fill-current" viewBox="0 0 20 20">
-        <title>Menu Close</title>
-        <polygon
-          points="11 9 22 9 22 11 11 11 11 22 9 22 9 11 -2 11 -2 9 9 9 9 -2 11 -2"
-          transform="rotate(45 10 10)"
-        ></polygon>
-      </svg>
-    </label>
-    <!-- /navbar toggler -->
-    <ul
-      id="nav-menu"
-      class="navbar-nav order-2 hidden w-full flex-[0_0_100%] lg:order-1 lg:flex lg:w-auto lg:flex-auto lg:justify-end lg:space-x-5"
-    >
-    <li class="nav-item">
-      <a href="about.html" class="nav-link">About Us</a>
-    </li>
-      <li class="nav-item">
-        <a href="products.html" class="nav-link">Products</a>
-      </li>
-      <li class="nav-item">
-        <a href="pricing.html" class="nav-link">Pricing</a>
-      </li>
-      <li class="nav-item mobile-hidden">
-        <a class="btn btn-green btn-sm border-border" href="signup.html"
-          >Get A Quote</a
-        >
-      </li>
-    </ul>
+         <div class="flex justify-between w-full">
+              <!-- logo -->
+              <div class="order-0">
+                <a href="index.html">
+                  <img src="images/logo.png" height="60" width="250" alt="logo" />
+                </a>
+              </div>
+              <div class="flex items-center justify-end w-50 gap-4">
+                   <!-- navbar toggler -->
+                  <a class="btn btn-green btn-sm border-border show-mobile" href="signup.html">Get A Quote</a>
+                  <input id="nav-toggle" type="checkbox" class="hidden" />
+                  <label
+                    id="show-button"
+                    for="nav-toggle"
+                    class="order-1 flex cursor-pointer items-center lg:order-1 lg:hidden"
+                  >
+                    <svg class="h-6 fill-current" viewBox="0 0 20 20">
+                      <title>Menu Open</title>
+                      <path d="M0 3h20v2H0V3z m0 6h20v2H0V9z m0 6h20v2H0V0z"></path>
+                    </svg>
+                  </label>
+                  <label
+                    id="hide-button"
+                    for="nav-toggle"
+                    class="order-2 hidden cursor-pointer items-center lg:order-1"
+                  >
+                    <svg class="h-6 fill-current" viewBox="0 0 20 20">
+                      <title>Menu Close</title>
+                      <polygon
+                        points="11 9 22 9 22 11 11 11 11 22 9 22 9 11 -2 11 -2 9 9 9 9 -2 11 -2"
+                        transform="rotate(45 10 10)"
+                      ></polygon>
+                    </svg>
+                  </label>
+                  <!-- /navbar toggler -->
+                  <ul
+                    id="nav-menu"
+                    class="navbar-nav order-2 hidden w-full flex-[0_0_100%] lg:order-1 lg:flex lg:w-auto lg:flex-auto lg:justify-end lg:space-x-5"
+                  >
+                  <li class="nav-item">
+                    <a href="about.html" class="nav-link">About Us</a>
+                  </li>
+                    <li class="nav-item">
+                      <a href="products.html" class="nav-link">Products</a>
+                    </li>
+                    <li class="nav-item">
+                      <a href="pricing.html" class="nav-link">Pricing</a>
+                    </li>
+                    <li class="nav-item mobile-hidden">
+                        <div class="flex flex-col items-center justify-center gap-4">
+                          <a class="btn btn-green btn-sm border-border" href="signup.html">Get A Quote</a>
+                          <a href="tel:00909916" class="text-dark font-semibold"><i class="fa-solid fa-phone-volume"></i> 00909916</a>
+                        </div>
+                      
+                    </li>
+                  </ul>
+              </div>
+         </div>
   </nav>
   </header>
   <section class="section banner relative">
@@ -332,18 +340,7 @@
           </li>
           <li>
             <a href="#">
-              <svg
-                width="19"
-                height="15"
-                viewBox="0 0 19 15"
-                fill="none"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <path
-                  d="M16.3308 3.92621C17.0129 3.42889 17.6269 2.83209 18.1044 2.13583C17.4904 2.40108 16.7742 2.60001 16.0579 2.66632C16.8083 2.2353 17.354 1.5722 17.6269 0.743317C16.9447 1.14118 16.1603 1.43958 15.3758 1.60535C14.6937 0.909093 13.7728 0.51123 12.7496 0.51123C10.7714 0.51123 9.16837 2.06952 9.16837 3.99252C9.16837 4.25777 9.20248 4.52301 9.27069 4.78825C6.3034 4.62247 3.64307 3.22995 1.86952 1.14118C1.56256 1.63851 1.39202 2.2353 1.39202 2.8984C1.39202 4.09199 2.00595 5.15296 2.99504 5.7829C2.41523 5.74975 1.83541 5.61713 1.35792 5.35189V5.38504C1.35792 7.07596 2.58576 8.46847 4.22289 8.80002C3.95003 8.86633 3.60897 8.93265 3.302 8.93265C3.06326 8.93265 2.85862 8.89949 2.61987 8.86633C3.06326 10.2589 4.39342 11.2535 5.96233 11.2867C4.73449 12.215 3.19968 12.7786 1.52845 12.7786C1.22149 12.7786 0.948636 12.7455 0.675781 12.7123C2.24469 13.707 4.12057 14.2706 6.16698 14.2706C12.7496 14.2706 16.3308 8.99896 16.3308 4.39039C16.3308 4.22461 16.3308 4.09199 16.3308 3.92621Z"
-                  fill="#222222"
-                />
-              </svg>
+              <svg width="19" height="21" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--!Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.--><path d="M64 32C28.7 32 0 60.7 0 96V416c0 35.3 28.7 64 64 64H384c35.3 0 64-28.7 64-64V96c0-35.3-28.7-64-64-64H64zm297.1 84L257.3 234.6 379.4 396H283.8L209 298.1 123.3 396H75.8l111-126.9L69.7 116h98l67.7 89.5L313.6 116h47.5zM323.3 367.6L153.4 142.9H125.1L296.9 367.6h26.3z"></path></svg>
             </a>
           </li>
           <li>
@@ -411,7 +408,7 @@
       <p>&copy; Copyright - 2024</p>
     </div>
   </div>
-</footer>
+  </footer>
 
 <!-- jQuery -->
 <!-- <script src="plugins/jquery/jquery.min.js"></script> -->
