@@ -7,6 +7,10 @@ const userNo = ref( 0 )
 function onClickPrev () {
   window.location.hash = 'details'
 }
+
+function moveToEquipment () {
+  window.location.hash = 'equipment'
+}
 </script>
 
 <template>
@@ -39,24 +43,27 @@ function onClickPrev () {
         <div class="w-100 flex justify-between">
           <button @click="onClickPrev" class="btn text-white rounded-full bg-theme-dark mt-10  bg-opacity-75 text-lg"
             type="submit">Previous</button>
-          <button @click="step = 2" class="btn btn-green mt-10 text-lg">Next</button>
+          <button @click="$emit('setUserNumbers', userNo); step = 2" class="btn btn-green mt-10 text-lg">Next</button>
         </div>
       </div>
       <div v-else class="screen-2 pt-page current">
         <h4 class="text-primary">See Internet Options</h4>
         <div class="key-feature-grid grid gap-7 sm:grid-cols-2 p-7">
-          <div class="mb-8 rounded-xl bg-theme-dark text-white py-5 px-5 shadow-lg">
+          <!-- yes button -->
+          <button class="mb-8 rounded-xl bg-theme-dark text-white py-5 px-5 shadow-lg">
             <h5 class="h5 text-white">Yes</h5>
             <p class="mt-4">
               View Internet Options
             </p>
-          </div>
-          <div class="mb-8 rounded-xl bg-theme-dark text-white py-5 px-5 shadow-lg">
+          </button>
+
+          <!-- no button -->
+          <button @click="moveToEquipment" class="mb-8 rounded-xl bg-theme-dark text-white py-5 px-5 shadow-lg">
             <h5 class="h5 text-white">No</h5>
             <p class="mt-2">
               Use my existing internet
             </p>
-          </div>
+          </button>
         </div>
         <h5>What does this mean?</h5>
         <p class="mt-4">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam molestie odio id

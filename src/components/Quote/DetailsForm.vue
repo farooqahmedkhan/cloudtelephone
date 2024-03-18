@@ -4,11 +4,11 @@ import Input from "../Base/Input.vue"
 
 
 const data = reactive( {
-  company: "",
-  telephone: "",
-  name: "",
-  code: "",
-  email: ""
+  company: "Nitrogen Bomb",
+  telephone: "nhi pta",
+  name: "No",
+  code: "09988",
+  email: "w@w.com"
 } )
 
 

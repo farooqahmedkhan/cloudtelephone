@@ -102,7 +102,7 @@ function submitDetails ( data ) {
             <form @submit.prevent>
               <div id="tab-contents" class="border rounded-lg  mt-10 bg-white">
                 <DetailsForm v-if="hash === 'details'" @submit-details="submitDetails" />
-                <UserLinesForm v-if="hash === 'user-lines'" />
+                <UserLinesForm v-if="hash === 'user-lines'" @setUserNumbers="quotationStore.setUserNumbers($event)" />
                 <EquipmentForm v-if="hash === 'equipment'" />
                 <FeaturesForm v-if="hash === 'extra-features'" />
                 <PaymentForm v-if="hash === 'payment'" />
