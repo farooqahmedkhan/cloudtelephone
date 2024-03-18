@@ -10,6 +10,7 @@ import FeaturesForm from "../components/Quote/FeaturesForm.vue"
 import PaymentForm from "../components/Quote/PaymentForm.vue"
 import SupportForm from "../components/Quote/SupportForm.vue"
 import FinalForm from "../components/Quote/FinalForm.vue"
+import { useQuotationStore } from "../store/quotationStore"
 
 
 const stepButtons = [
@@ -62,9 +63,11 @@ window.location.hash = 'details'
 
 const hash = useHash()
 
+const quotationStore = useQuotationStore()
 
-function submitDetails ( e ) {
-  console.log( e )
+function submitDetails ( data ) {
+  quotationStore.setUserDetails( data )
+  window.location.hash = 'user-lines'
 }
 </script>
 
