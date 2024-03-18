@@ -11,6 +11,7 @@ import PaymentForm from "../components/Quote/PaymentForm.vue"
 import SupportForm from "../components/Quote/SupportForm.vue"
 import FinalForm from "../components/Quote/FinalForm.vue"
 
+
 const stepButtons = [
   {
     id: 1,
@@ -55,6 +56,9 @@ const stepButtons = [
     desc: "Show us the money."
   },
 ]
+
+window.location.hash = 'details'
+
 
 const hash = useHash()
 
