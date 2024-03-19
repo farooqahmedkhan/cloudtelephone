@@ -16,11 +16,9 @@ function moveToEquipment () {
 
 <template>
   <div id="" class="key-feature-grid grid p-7 text-center">
-    <div>
-      <UserCount v-if="step == 1" v-model="quotationStore.userNumbers" @move-to-next="step++" />
-      <InternetOptions v-else-if="step == 2" @move-to-previous="step--" @on-click-no="moveToEquipment"
-        @on-click-yes="step = 3" />
-      <Bandwidth v-else-if="step == 3" @move-to-previous="step--" @move-to-next="moveToEquipment" />
-    </div>
+    <UserCount v-if="step == 1" v-model="quotationStore.userNumbers" @move-to-next="step++" />
+    <InternetOptions v-else-if="step == 2" @move-to-previous="step--" @on-click-no="moveToEquipment"
+      @on-click-yes="step = 3" />
+    <Bandwidth v-else-if="step == 3" @move-to-previous="step--" @move-to-next="moveToEquipment" />
   </div>
 </template>
