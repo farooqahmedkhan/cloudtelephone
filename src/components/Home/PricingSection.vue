@@ -54,7 +54,7 @@ const businessItems = [
             <div class="text-center">
               <router-link
                 class="btn btn-purple btn-sm border-border items-center flex justify-center h-16 text-lg font-bold uppercase"
-                to="/get-a-quote">Get your QUOTE</router-link>
+                to="/quote">Get your QUOTE</router-link>
             </div>
           </template>
         </Card>

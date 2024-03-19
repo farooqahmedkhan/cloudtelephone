@@ -70,7 +70,7 @@
               <router-link to="/pricing">Pricong</router-link>
             </li>
             <li>
-              <router-link to="/get-a-quote">Get A Quote</router-link>
+              <router-link to="/quote">Get A Quote</router-link>
             </li>
           </ul>
         </div>

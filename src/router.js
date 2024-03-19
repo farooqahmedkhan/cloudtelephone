@@ -19,7 +19,7 @@ const routes = [
     path: '/pricing', component: Pricing, name: 'pricing',
   },
   {
-    path: '/get-a-quote', component: QuotePage, name: 'get-a-quote',
+    path: '/quote', component: QuotePage, name: 'quote',
   },
 ]
 

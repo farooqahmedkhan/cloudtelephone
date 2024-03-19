@@ -20,7 +20,7 @@ onMounted( () => {
         </router-link>
       </div>
       <!-- navbar toggler -->
-      <router-link class="btn btn-green btn-sm border-border show-mobile" to="/get-a-quote">Get A Quote</router-link>
+      <router-link class="btn btn-green btn-sm border-border show-mobile" to="/quote">Get A Quote</router-link>
       <input id="nav-toggle" type="checkbox" class="hidden" />
       <label id="show-button" for="nav-toggle" class="order-1 flex cursor-pointer items-center lg:order-1 lg:hidden">
         <svg class="h-6 fill-current" viewBox="0 0 20 20">
@@ -49,7 +49,7 @@ onMounted( () => {
           <router-link to="/pricing" class="nav-link">Pricing</router-link>
         </li>
         <li class="nav-item mobile-hidden">
-          <router-link class="btn btn-green btn-sm border-border" to="/get-a-quote">Get A Quote</router-link>
+          <router-link class="btn btn-green btn-sm border-border" to="/quote">Get A Quote</router-link>
         </li>
       </ul>
     </nav>
