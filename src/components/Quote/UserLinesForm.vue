@@ -4,9 +4,6 @@ import { ref } from "vue"
 const step = ref( 1 )
 const userNo = ref( 0 )
 
-function onClickPrev () {
-  window.location.hash = 'details'
-}
 
 function moveToEquipment () {
   window.location.hash = 'equipment'
@@ -16,6 +13,8 @@ function moveToEquipment () {
 <template>
   <div id="" class="key-feature-grid grid p-7 text-center">
     <div>
+
+      <!-- step-1 -->
       <div v-if="step == 1" class="screen-2-2 pt-page ">
         <div class="key-feature-grid grid p-7 text-center">
           <h4 class="text-primary">How many users</h4>
@@ -39,13 +38,13 @@ function moveToEquipment () {
             You can add and remove users each month and only pay for what you need, so only choose the number of users
             you need to start with. There is no limit to the number of users our system can handle.</p>
         </div>
-        <!-- buttons -->
-        <div class="w-100 flex justify-between">
-          <button @click="onClickPrev" class="btn text-white rounded-full bg-theme-dark mt-10  bg-opacity-75 text-lg"
-            type="submit">Previous</button>
+        <div class="w-100 flex justify-end">
           <button @click="$emit('setUserNumbers', userNo); step = 2" class="btn btn-green mt-10 text-lg">Next</button>
         </div>
       </div>
+
+
+      <!-- step-2 -->
       <div v-else class="screen-2 pt-page current">
         <h4 class="text-primary">See Internet Options</h4>
         <div class="key-feature-grid grid gap-7 sm:grid-cols-2 p-7">
@@ -70,6 +69,11 @@ function moveToEquipment () {
           gravida fermentum. Etiam quis quam ante. Donec sit amet magna gravida, imperdiet ex lacinia,
           tempor felis. Duis nec fringilla nibh. Vivamus vitae commodo sem. Vivamus vel lacinia massa.
           Curabitur convallis sem id condimentum vulputate.</p>
+
+        <div class="w-100 flex justify-start">
+          <button @click="step--" class="btn text-white rounded-full bg-theme-dark mt-10  bg-opacity-75 text-lg"
+            type="submit">Previous</button>
+        </div>
       </div>
       <!-- <div class="screen-2-1 pt-page ">
         <div class="key-feature-grid grid p-7">
