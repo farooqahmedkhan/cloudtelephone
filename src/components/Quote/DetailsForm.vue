@@ -1,6 +1,7 @@
 <script setup>
 import { reactive } from "vue"
 import Input from "../Base/Input.vue"
+import { useQuotationStore } from "../../store/quotationStore"
 
 
 const data = reactive( {
@@ -11,6 +12,11 @@ const data = reactive( {
   email: "w@w.com"
 } )
 
+const quotationStore = useQuotationStore()
+function submitDetails ( data ) {
+  quotationStore.setUserDetails( data )
+  window.location.hash = 'user-lines'
+}
 
 </script>
 
@@ -26,7 +32,7 @@ const data = reactive( {
       id="offer-code" />
     <Input rules="required|email" name="Email" v-model="data.email" label="Email Address" placeholder="Your Email"
       id="email" />
-    <button class="btn btn-green mt-10 text-lg" @click="$emit('submit-details', data)">Get an Instant Quote</button>
+    <button class="btn btn-green mt-10 text-lg" @click="submitDetails">Get an Instant Quote</button>
   </div>
 </template>
 

@@ -4,13 +4,12 @@ import BreadCrumb from "../components/Base/BreadCrumb.vue"
 import QuoteStepButton from "../components/Base/QuoteStepButton.vue"
 import useHash from "../composables/useHash.js"
 import DetailsForm from "../components/Quote/DetailsForm.vue"
-import UserLinesForm from "../components/Quote/UserLinesForm.vue"
+import UserLinesForm from "../components/Quote/UserLinesForm/index.vue"
 import EquipmentForm from "../components/Quote/EquipmentForm.vue"
 import FeaturesForm from "../components/Quote/FeaturesForm.vue"
 import PaymentForm from "../components/Quote/PaymentForm.vue"
 import SupportForm from "../components/Quote/SupportForm.vue"
 import FinalForm from "../components/Quote/FinalForm.vue"
-import { useQuotationStore } from "../store/quotationStore"
 
 
 const stepButtons = [
@@ -58,17 +57,24 @@ const stepButtons = [
   },
 ]
 
-window.location.hash = 'details'
-
-
 const hash = useHash()
 
-const quotationStore = useQuotationStore()
+window.location.hash = 'details'
 
-function submitDetails ( data ) {
-  quotationStore.setUserDetails( data )
-  window.location.hash = 'user-lines'
+const activeStep = {
+  "details": DetailsForm,
+  "user-lines": UserLinesForm,
+  "equipment": EquipmentForm,
+  "extra-features": FeaturesForm,
+  "payment": PaymentForm,
+  "install-support": SupportForm,
+  "complete": FinalForm
 }
+
+
+
+
+
 </script>
 
 <template>
@@ -100,14 +106,10 @@ function submitDetails ( data ) {
           </div>
           <div class="lg:col-9">
             <form @submit.prevent>
-              <div id="tab-contents" class="border rounded-lg  mt-10 bg-white">
-                <DetailsForm v-if="hash === 'details'" @submit-details="submitDetails" />
-                <UserLinesForm v-if="hash === 'user-lines'" @setUserNumbers="quotationStore.setUserNumbers($event)" />
-                <EquipmentForm v-if="hash === 'equipment'" />
-                <FeaturesForm v-if="hash === 'extra-features'" />
-                <PaymentForm v-if="hash === 'payment'" />
-                <SupportForm v-if="hash === 'install-support'" />
-                <FinalForm v-if="hash === 'complete'" />
+              <div id="tab-contents" class="border rounded-lg mt-10 bg-white">
+                <keep-alive>
+                  <component :is="activeStep[hash]" />
+                </keep-alive>
               </div>
             </form>
           </div>
