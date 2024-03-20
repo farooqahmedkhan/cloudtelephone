@@ -1,19 +1,26 @@
 <script setup>
 import { reactive } from "vue"
 import Input from "../Base/Input.vue"
+import { useForm } from "vee-validate"
 import { useQuotationStore } from "../../store/quotationStore"
 
 
+const { validate } = useForm()
+
 const data = reactive( {
-  company: "Nitrogen Bomb",
-  telephone: "nhi pta",
-  name: "No",
-  code: "09988",
-  email: "w@w.com"
+  company: "",
+  telephone: "",
+  name: "",
+  code: "",
+  email: ""
 } )
 
 const quotationStore = useQuotationStore()
-function submitDetails ( data ) {
+
+
+async function submitDetails () {
+  const { valid } = await validate()
+  if ( !valid ) return
   quotationStore.setUserDetails( data )
   window.location.hash = 'user-lines'
 }
@@ -28,8 +35,8 @@ function submitDetails ( data ) {
       placeholder="Mobile or Landline" id="telephone" />
     <Input rules="required" name="Name" v-model="data.name" label="Your Name" placeholder="Full Contact name"
       id="yourname" />
-    <Input rules="required" v-model="data.code" label="Offer Code" placeholder="If you have an offer code, enter here"
-      id="offer-code" />
+    <Input rules="required" name="Offer Code" v-model="data.code" label="Offer Code"
+      placeholder="If you have an offer code, enter here" id="offer-code" />
     <Input rules="required|email" name="Email" v-model="data.email" label="Email Address" placeholder="Your Email"
       id="email" />
     <button class="btn btn-green mt-10 text-lg" @click="submitDetails">Get an Instant Quote</button>

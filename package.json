@@ -9,10 +9,10 @@
     "preview": "vite preview"
   },
   "dependencies": {
-    "@vee-validate/rules": "^4.12.6",
+    "@vee-validate/rules": "^4.12.4",
     "pinia": "^2.1.7",
     "swiper": "^11.0.7",
-    "vee-validate": "^4.12.6",
+    "vee-validate": "^4.12.4",
     "vue": "^3.4.21",
     "vue-router": "^4.3.0"
   },
