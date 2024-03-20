@@ -43,11 +43,11 @@
 
       </div>
     </div>
-    <div class="w-100 flex justify-between p-7">
+    <!-- <div class="w-100 flex justify-between p-7">
       <input id="prev" class="btn text-white rounded-full bg-theme-dark mt-10  bg-opacity-75 text-lg" type="submit"
         value="Previous ">
       <input id="next" class="btn btn-green mt-10 text-lg " type="submit" value="Next">
-    </div>
+    </div> -->
   </div>
 </template>
 

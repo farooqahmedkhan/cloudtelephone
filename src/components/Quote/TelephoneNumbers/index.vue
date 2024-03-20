@@ -16,7 +16,7 @@ function onClickPrev () {
 
 function onClickNext () {
   if ( step.value > 1 ) {
-    window.location.hash = 'complete'
+    window.location.hash = 'install-support'
   } else {
     step.value++
   }
