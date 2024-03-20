@@ -1,5 +1,6 @@
 import { createApp } from 'vue'
 import './style.css'
+import VueTablerIcons from "vue-tabler-icons"
 import App from './App.vue'
 import { createPinia } from 'pinia'
 import router from "./router"

@@ -14,7 +14,8 @@
     "swiper": "^11.0.7",
     "vee-validate": "^4.12.4",
     "vue": "^3.4.21",
-    "vue-router": "^4.3.0"
+    "vue-router": "^4.3.0",
+    "vue-tabler-icons": "^2.21.0"
   },
   "devDependencies": {
     "@vitejs/plugin-vue": "^5.0.4",
