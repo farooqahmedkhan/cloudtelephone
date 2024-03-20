@@ -1,14 +1,23 @@
 <script setup>
 import { ref } from "vue"
+import { PlusIcon, MinusIcon } from "vue-tabler-icons"
 
 const userNo = ref( 0 )
 
-defineProps( {
+const props = defineProps( {
   modelValue: {
     type: Number,
     default: 0
   }
 } )
+
+const emit = defineEmits( ["update:modelValue"] )
+
+function decrement () {
+  if ( props.modelValue > 1 ) {
+    emit( 'update:modelValue', ( props.modelValue - 1 ) )
+  }
+}
 
 </script>
 
@@ -17,10 +26,15 @@ defineProps( {
     <div class=" key-feature-grid grid p-7 text-center">
       <h4 class="text-primary">How many users</h4>
       <!-- Input Number -->
-      <div class="my-5 space-x-1">
-        <button @click="$emit('update:modelValue', modelValue - 1)" data-action="decrement">Decrement</button>
-        <input type="text" :value="modelValue" @input="$emit('update:modelValue', $event.target.value)">
-        <button @click="$emit('update:modelValue', modelValue + 1)" data-action="increment">Increment</button>
+      <div class="my-5 space-x-1 max-w-64 mx-auto flex">
+        <button @click="decrement">
+          <minus-icon size="22" />
+        </button>
+        <input type="number" min="1" :value="modelValue" @input="$emit('update:modelValue', $event.target.value)">
+        <button @click="$emit('update:modelValue', modelValue + 1)" data-action="increment">
+          <plus-icon size="22" />
+
+        </button>
       </div>
       <!-- End Input Number -->
 
