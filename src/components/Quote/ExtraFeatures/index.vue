@@ -17,7 +17,7 @@ function onClickPrev () {
 
 function onClickNext () {
   if ( step.value > 1 ) {
-    window.location.hash = 'payment'
+    window.location.hash = 'tel-numbers'
   } else {
     step.value++
   }

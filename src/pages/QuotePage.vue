@@ -7,7 +7,7 @@ import DetailsForm from "../components/Quote/DetailsForm.vue"
 import UserLinesForm from "../components/Quote/UserLinesForm/index.vue"
 import EquipmentForm from "../components/Quote/EquipmentForm/index.vue"
 import FeaturesForm from "../components/Quote/ExtraFeatures/index.vue"
-import PaymentForm from "../components/Quote/PaymentForm.vue"
+import TelephoneNumbers from "../components/Quote/TelephoneNumbers/index.vue"
 import SupportForm from "../components/Quote/SupportForm.vue"
 import FinalForm from "../components/Quote/FinalForm.vue"
 
@@ -39,9 +39,9 @@ const stepButtons = [
   },
   {
     id: 6,
-    title: "Payment",
-    slug: "payment",
-    desc: "Show us the money."
+    title: "Telephone Numbers",
+    slug: "tel-numbers",
+    desc: "Lorem ipsum dolor sit"
   },
   {
     id: 7,
@@ -59,14 +59,15 @@ const stepButtons = [
 
 const hash = useHash()
 
-window.location.hash = 'details'
+// window.location.hash = 'details'
+window.location.hash = 'tel-numbers'
 
 const activeStep = {
   "details": DetailsForm,
   "user-lines": UserLinesForm,
   "equipment": EquipmentForm,
   "extra-features": FeaturesForm,
-  "payment": PaymentForm,
+  "tel-numbers": TelephoneNumbers,
   "install-support": SupportForm,
   "complete": FinalForm
 }
