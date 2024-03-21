@@ -1,5 +1,38 @@
 <script setup>
+import DeviceComponent from "../../Base/DeviceComponent.vue"
 import { ref } from "vue"
+
+
+const items = ref( [
+  {
+    id: 1,
+    img: '/images/cta-phone.png',
+    title: "Card Title",
+    value: 0,
+    price: 128
+  },
+  {
+    id: 2,
+    img: '/images/cta-phone.png',
+    title: "Card Title 2",
+    value: 0,
+    price: 18
+  },
+  {
+    id: 3,
+    img: '/images/cta-phone.png',
+    title: "Card Title 3",
+    value: 0,
+    price: 158
+  },
+  {
+    id: 4,
+    img: '/images/cta-phone.png',
+    title: "Card Title 4",
+    value: 0,
+    price: 971
+  },
+] )
 
 
 const stepNo = ref( 1 )
@@ -29,6 +62,7 @@ function onClickNext () {
       <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas eget nibh cursus, egestas
         sapien consequat, aliquet ligula. Vestibulum in commodo augue</p>
 
+
       <div class="bg-white dark:bg-gray-900 min-h-screen w-full justify-center flex flex-col items-center my-5">
         <h5 class="mb-2">Change Pricing Options</h5>
         <div class="flex flex-row justify-between toggle">
@@ -43,85 +77,15 @@ function onClickNext () {
           </label>
         </div>
       </div>
-
       <div class="key-feature-grid grid gap-7 sm:grid-cols-2 md:grid-cols-3 p-7">
-        <div class="block rounded-lg bg-white shadow-secondary-1 dark:bg-surface-dark">
-          <div class="relative overflow-hidden bg-cover bg-no-repeat">
-            <img class="rounded-t-lg" src="/images/cta-phone.png" alt="" />
-            <a href="#!">
-              <div
-                class="absolute bottom-0 left-0 right-0 top-0 h-full w-full overflow-hidden bg-[hsla(0,0%,98%,0.15)] bg-fixed opacity-0 transition duration-300 ease-in-out hover:opacity-100">
-              </div>
-            </a>
-          </div>
-          <div class="p-4 text-surface dark:text-white">
-            <!-- Input Number -->
-            <div class="my-5 flex gap-3 justify-center">
-              <button data-action="decrement"><i class="fa-solid fa-minus"></i></button>
-              <input type="text" value="0" class="form-control w-14 text-center">
-              <button data-action="increment"><i class="fa-solid fa-plus"></i></button>
-            </div>
-            <!-- End Input Number -->
-            <h5 class="mb-2 text-xl font-medium leading-tight">Card title</h5>
-            <h6 class="text-primary">$150</h6>
-            <p class="mb-4 text-base"> Some quick example text to build on the card title and make up
-              the bulk of the card's content. </p>
-          </div>
-        </div>
-
-        <div class="block rounded-lg bg-white shadow-secondary-1 dark:bg-surface-dark">
-          <div class="relative overflow-hidden bg-cover bg-no-repeat">
-            <img class="rounded-t-lg" src="/images/cta-phone.png" alt="" />
-            <a href="#!">
-              <div
-                class="absolute bottom-0 left-0 right-0 top-0 h-full w-full overflow-hidden bg-[hsla(0,0%,98%,0.15)] bg-fixed opacity-0 transition duration-300 ease-in-out hover:opacity-100">
-              </div>
-            </a>
-          </div>
-          <div class="p-4 text-surface dark:text-white">
-            <!-- Input Number -->
-            <div class="my-5 flex gap-3 justify-center">
-              <button data-action="decrement"><i class="fa-solid fa-minus"></i></button>
-              <input type="text" value="0" class="form-control w-14 text-center">
-              <button data-action="increment"><i class="fa-solid fa-plus"></i></button>
-            </div>
-            <!-- End Input Number -->
-            <h5 class="mb-2 text-xl font-medium leading-tight">Card title</h5>
-            <h6 class="text-primary">$150</h6>
-
-            <p class="mb-4 text-base"> Some quick example text to build on the card title and make up
-              the bulk of the card's content. </p>
-          </div>
-        </div>
-
-        <div class="block rounded-lg bg-white shadow-secondary-1 dark:bg-surface-dark">
-          <div class="relative overflow-hidden bg-cover bg-no-repeat">
-            <img class="rounded-t-lg" src="/images/cta-phone.png" alt="" />
-            <a href="#!">
-              <div
-                class="absolute bottom-0 left-0 right-0 top-0 h-full w-full overflow-hidden bg-[hsla(0,0%,98%,0.15)] bg-fixed opacity-0 transition duration-300 ease-in-out hover:opacity-100">
-              </div>
-            </a>
-          </div>
-          <div class="p-4 text-surface dark:text-white">
-            <div class="my-5 flex gap-3 justify-center">
-              <button data-action="decrement"><i class="fa-solid fa-minus"></i></button>
-              <input type="text" value="0" class="form-control w-14 text-center">
-              <button data-action="increment"><i class="fa-solid fa-plus"></i></button>
-            </div>
-            <h5 class="mb-2 text-xl font-medium leading-tight">Card title</h5>
-            <h6 class="text-primary">$150</h6>
-            <p class="mb-4 text-base"> Some quick example text to build on the card title and make up
-              the bulk of the card's content. </p>
-          </div>
-        </div>
+        <DeviceComponent v-for="item in items" :key="item.id" v-bind="item" v-model="item.value" />
       </div>
 
     </div>
     <div class="w-100 flex justify-between p-7">
       <button @click="$emit('onClickPrev')"
         class="btn text-white rounded-full bg-theme-dark mt-10  bg-opacity-75 text-lg">Previous</button>
-      <button @click="$emit('onClickNext')" class="btn btn-green mt-10 text-lg">Next</button>
+      <button @click="$emit('onClickNext', items)" class="btn btn-green mt-10 text-lg">Next</button>
     </div>
   </div>
 </template>
