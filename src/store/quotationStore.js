@@ -6,6 +6,7 @@ export const useQuotationStore = defineStore( 'quotationStore', {
       userDetails: null,
       userNumbers: 0,
       broadBands: null,
+      phoneTypes: 0,
       devices: null
     }
   },
@@ -21,6 +22,9 @@ export const useQuotationStore = defineStore( 'quotationStore', {
     },
     setDevices ( devices ) {
       this.devices = devices
-    }
+    },
+    setPhoneTypes ( phoneTypes ) {
+      this.phoneTypes = phoneTypes
+    },
   }
 } )
