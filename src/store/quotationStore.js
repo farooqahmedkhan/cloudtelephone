@@ -5,6 +5,7 @@ export const useQuotationStore = defineStore( 'quotationStore', {
     return {
       userDetails: null,
       userNumbers: 0,
+      broadBands: null
     }
   },
   actions: {
@@ -14,5 +15,8 @@ export const useQuotationStore = defineStore( 'quotationStore', {
     setUserNumbers ( no ) {
       this.userNumbers = no
     },
+    setBroadBands ( broadBands ) {
+      this.broadBands = broadBands
+    }
   }
 } )
