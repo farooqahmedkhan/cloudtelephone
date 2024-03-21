@@ -1,4 +1,27 @@
 <script setup>
+import { ref } from "vue"
+import UcItem from "../../Base/UcItem.vue"
+
+const ucItems = ref( [
+  {
+    id: 1,
+    title: "Lorem ipsum dolor sit.",
+    price: 0,
+    value: 0
+  },
+  {
+    id: 2,
+    title: "Lorem, ipsum dolor.",
+    price: 4,
+    value: 0
+  },
+  {
+    id: 2,
+    title: "Lorem ipsum dolor sit amet consectetur.",
+    price: 13,
+    value: 0
+  },
+] )
 
 </script>
 
@@ -9,17 +32,7 @@
       <h4 class="text-primary text-center">App &amp; Unified Communication</h4>
       <p class="font-regular text-center">Lorem ipsum dolor sit amet.</p>
       <div class="relative overflow-x-auto">
-        <table class="w-full  border border-neutral-200 text-left text-sm font-light mt-6">
-          <tbody>
-            <tr class="border-b border-neutral-200 bg-black/[0.02] dark:order-white/10 whitespace-nowrap">
-              <td class="px-6 py-4">
-                <h6>Lorem ipsum dolor. </h6>
-              </td>
-              <td class="px-6 py-4 text-blue">$33/month</td>
-              <td class="px-6 py-4 text-center"><input type="text" class="form-control w-14"></td>
-            </tr>
-          </tbody>
-        </table>
+        <uc-item v-for="item in ucItems" :key="item.id" v-bind="item" v-model="item.value" />
       </div>
       <div class="my-5">
         <h4 class="text-dark text-center">What does this means?</h4>
@@ -69,7 +82,7 @@
     <div class="w-100 flex justify-between p-7">
       <button @click="$emit('onClickPrev')"
         class="btn text-white rounded-full bg-theme-dark mt-10  bg-opacity-75 text-lg">Previous</button>
-      <button @click="$emit('onClickNext')" class="btn btn-green mt-10 text-lg">Next</button>
+      <button @click="$emit('onClickNext', ucItems)" class="btn btn-green mt-10 text-lg">Next</button>
     </div>
   </div>
 </template>
