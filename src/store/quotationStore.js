@@ -41,6 +41,19 @@ export const useQuotationStore = defineStore( 'quotationStore', {
     },
     setNewTelephonesNumbers ( newTelephonesNumbers ) {
       this.newTelephonesNumbers = newTelephonesNumbers
+    },
+    submitForm () {
+      console.log( {
+        userDetails: this.userDetails,
+        userNumbers: this.userNumbers,
+        broadBands: this.broadBands,
+        phoneTypes: this.phoneTypes,
+        featureItems: this.featureItems,
+        numberPorts: this.numberPorts,
+        newTelephonesNumbers: this.newTelephonesNumbers,
+        unifiedCommunicationItems: this.unifiedCommunicationItems,
+        devices: this.devices
+      } )
     }
   }
 } )
