@@ -1,5 +1,6 @@
 <script setup>
 import DeviceComponent from "../../Base/DeviceComponent.vue"
+import Switch from "../../Base/Switch.vue"
 import { ref } from "vue"
 
 
@@ -35,6 +36,7 @@ const items = ref( [
 ] )
 
 
+const changePricing = ref( false )
 const stepNo = ref( 1 )
 
 function onClickPrev () {
@@ -62,20 +64,9 @@ function onClickNext () {
       <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas eget nibh cursus, egestas
         sapien consequat, aliquet ligula. Vestibulum in commodo augue</p>
 
-
-      <div class="bg-white dark:bg-gray-900 min-h-screen w-full justify-center flex flex-col items-center my-5">
+      <div class="my-5 space-y-4">
         <h5 class="mb-2">Change Pricing Options</h5>
-        <div class="flex flex-row justify-between toggle">
-          <label for="dark-toggle" class="flex items-center cursor-pointer">
-            <div class="relative">
-              <input type="checkbox" name="dark-mode" id="dark-toggle" class="checkbox hidden">
-              <div class="block border-[1px] dark:border-white border-gray-900 w-14 h-8 rounded-full">
-              </div>
-              <div class="dot absolute left-1 top-1 dark:bg-white bg-gray-800 w-6 h-6 rounded-full transition">
-              </div>
-            </div>
-          </label>
-        </div>
+        <Switch v-model="changePricing" class="mx-auto" />
       </div>
       <div class="key-feature-grid grid gap-7 sm:grid-cols-2 md:grid-cols-3 p-7">
         <DeviceComponent v-for="item in items" :key="item.id" v-bind="item" v-model="item.value" />
