@@ -16,12 +16,12 @@ function moveToEquipment () {
 const userCount = ref( 1 )
 
 function moveToNextStep () {
-  quotationStore.setUserNumbers( userCount.value )
+  quotationStore.valuesSetter( 'userNumbers', userCount.value )
   step.value++
 }
 
 function moveToNext ( broadBands ) {
-  quotationStore.setBroadBands( broadBands )
+  quotationStore.valuesSetter( 'broadBands', broadBands )
   moveToEquipment()
 }
 

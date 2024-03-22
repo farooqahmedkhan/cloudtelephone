@@ -21,10 +21,10 @@ function onClickPrev () {
 
 function onClickNext ( items = null ) {
   if ( step.value === 1 ) {
-    quotationStore.setUnifiedCommunicationItems( items )
+    quotationStore.valuesSetter( 'unifiedCommunicationItems', items )
   }
   if ( step.value === 3 ) {
-    quotationStore.setExtraFeaturesItems( items )
+    quotationStore.valuesSetter( 'featureItems', items )
   }
   if ( step.value > 1 ) {
     window.location.hash = 'tel-numbers'

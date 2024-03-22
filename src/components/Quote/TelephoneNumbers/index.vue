@@ -18,10 +18,10 @@ function onClickPrev () {
 
 function onClickNext ( items = null ) {
   if ( step.value === 2 ) {
-    quotationStore.setNewTelephonesNumbers( items )
+    quotationStore.valuesSetter( 'newTelephonesNumbers', items )
   }
   if ( step.value === 3 ) {
-    quotationStore.setNumberPorts( items )
+    quotationStore.valuesSetter( 'numberPorts', items )
     step.value = 2
     return
   }

@@ -21,7 +21,7 @@ const quotationStore = useQuotationStore()
 async function submitDetails () {
   const { valid } = await validate()
   if ( !valid ) return
-  quotationStore.setUserDetails( data )
+  quotationStore.valuesSetter( 'userDetails', data )
   window.location.hash = 'user-lines'
 }
 

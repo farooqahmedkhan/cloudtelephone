@@ -31,12 +31,12 @@ function moveToExtraFeatures () {
   window.location.hash = "extra-features"
 }
 function saveDevices ( devices ) {
-  quotationStore.setDevices( devices )
+  quotationStore.valuesSetter( 'devices', devices )
   moveToExtraFeatures()
 }
 
 function savePhoneTypes () {
-  quotationStore.setPhoneTypes( phoneTypes.value )
+  quotationStore.valuesSetter( 'phoneTypes', phoneTypes.value )
   moveToExtraFeatures()
 }
 
