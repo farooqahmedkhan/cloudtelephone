@@ -59,7 +59,7 @@ const stepButtons = [
 
 const hash = useHash()
 
-window.location.hash = 'equipment'
+window.location.hash = 'details'
 
 const activeStep = {
   "details": DetailsForm,
