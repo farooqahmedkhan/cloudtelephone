@@ -20,6 +20,11 @@ function onClickNext ( items = null ) {
   if ( step.value === 2 ) {
     quotationStore.setNewTelephonesNumbers( items )
   }
+  if ( step.value === 3 ) {
+    quotationStore.setNumberPorts( items )
+    step.value = 2
+    return
+  }
   if ( step.value > 1 ) {
     window.location.hash = 'install-support'
   } else {
@@ -63,6 +68,6 @@ function onClickNext ( items = null ) {
       </div>
     </div>
     <NewNumbers v-if="step == 2" @on-click-prev="step = 1" @on-click-next="onClickNext" />
-    <NumberPorting v-if="step == 3" @on-click-prev="step = 1" @on-click-next="step = 2" />
+    <NumberPorting v-if="step == 3" @on-click-prev="step = 1" @on-click-next="onClickNext" />
   </div>
 </template>
