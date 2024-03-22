@@ -8,6 +8,8 @@ export const useQuotationStore = defineStore( 'quotationStore', {
       broadBands: null,
       phoneTypes: 0,
       featureItems: null,
+      numberPorts: null,
+      newTelephonesNumbers: null,
       unifiedCommunicationItems: null,
       devices: null
     }
@@ -34,5 +36,11 @@ export const useQuotationStore = defineStore( 'quotationStore', {
     setExtraFeaturesItems ( featureItems ) {
       this.featureItems = featureItems
     },
+    setNumberPorts ( numberPorts ) {
+      this.numberPorts = numberPorts
+    },
+    setNewTelephonesNumbers ( newTelephonesNumbers ) {
+      this.newTelephonesNumbers = newTelephonesNumbers
+    }
   }
 } )

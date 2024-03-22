@@ -1,4 +1,21 @@
 <script setup>
+import { ref } from "vue"
+import TheCounter from "../../Base/TheCounter.vue"
+
+const numbers = ref( [
+  {
+    id: 1,
+    value: 0,
+    title: "UK Geopgrahic Numbers",
+    price: 5
+  },
+  {
+    id: 2,
+    value: 0,
+    title: "03 Non Geopgrahic Numbers",
+    price: 6
+  }
+] )
 
 </script>
 
@@ -11,28 +28,10 @@
         tempor felis. Duis nec fringilla nibh. Vivamus vitae commodo sem. Vivamus vel lacinia massa.
         Curabitur convallis sem id condimentum vulputate.</p>
       <div class="key-feature-grid grid gap-7 sm:grid-cols-2 p-7">
-        <div>
-          <h4>UK Geopgrahic Numbers</h4>
-          <p class="text-blue mb-2">$5 per block</p>
-          <!-- Input Number -->
-          <div class="flex gap-3 justify-center">
-            <button data-action="decrement"><i class="fa-solid fa-minus"></i></button>
-            <input type="text" value="0" class="form-control w-14 text-center">
-            <button data-action="increment"><i class="fa-solid fa-plus"></i></button>
-          </div>
-          <!-- End Input Number -->
-        </div>
-        <div>
-          <h4>03 Non Geopgrahic Numbers</h4>
-          <p class="text-blue mb-2">$5 per block</p>
-
-          <!-- Input Number -->
-          <div class="flex gap-3 justify-center">
-            <button data-action="decrement"><i class="fa-solid fa-minus"></i></button>
-            <input type="text" value="0" class="form-control w-14 text-center">
-            <button data-action="increment"><i class="fa-solid fa-plus"></i></button>
-          </div>
-          <!-- End Input Number -->
+        <div v-for="number in numbers" :key="number.id">
+          <h4>{{ number.title }}</h4>
+          <p class="text-blue mb-2">${{ number.price }} per block</p>
+          <the-counter v-model="number.value" />
         </div>
       </div>
       <p class="mt-4">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam molestie odio id
@@ -45,7 +44,7 @@
     <div class="w-100 flex justify-between p-7">
       <button @click="$emit('onClickPrev')"
         class="btn text-white rounded-full bg-theme-dark mt-10  bg-opacity-75 text-lg">Previous</button>
-      <button @click="$emit('onClickNext')" class="btn btn-green mt-10 text-lg">Next</button>
+      <button @click="$emit('onClickNext', numbers)" class="btn btn-green mt-10 text-lg">Next</button>
     </div>
   </div>
 </template>
