@@ -1,4 +1,5 @@
 import { defineStore } from 'pinia'
+import axios from "../utils/axios"
 
 export const useQuotationStore = defineStore( 'quotationStore', {
   state: () => {
@@ -15,6 +16,10 @@ export const useQuotationStore = defineStore( 'quotationStore', {
     }
   },
   actions: {
+    async createLead ( leadsData ) {
+      const { data } = await axios.post( '/leads', leadsData )
+      return data
+    },
     valuesSetter ( key, data ) {
       this[key] = data
     },
