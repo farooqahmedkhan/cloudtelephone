@@ -1,5 +1,6 @@
 <script setup>
 import { PlusIcon, MinusIcon } from "vue-tabler-icons"
+import TheCounter from "@/components/Base/TheCounter.vue"
 const props = defineProps( {
   title: {
     type: String,
@@ -26,27 +27,20 @@ function decrement () {
 </script>
 
 <template>
-  <table class="w-full  border border-neutral-200 text-left text-sm font-light mt-6">
-    <tbody>
-      <tr class="border-b border-neutral-200 bg-black/[0.02] dark:order-white/10 whitespace-nowrap">
-        <td class="px-6 py-4">
-          <h6>{{ title }} </h6>
-        </td>
-        <td v-if="price > 0" class="px-6 py-4 text-blue">${{ price }}/month</td>
-        <td v-else class="px-6 py-4 text-blue">Free</td>
-        <td class="px-6 py-4 text-center">
-          <div class="my-5 flex gap-3 justify-center text-gray-700">
-            <button @click="decrement">
-              <minus-icon size="22" />
-            </button>
-            <input type="number" min="0" :value="modelValue" @input="emit('update:modelValue', $event.target.value)"
-              class="form-control w-14 text-center">
-            <button @click="emit('update:modelValue', modelValue + 1)" data-action="increment">
-              <plus-icon size="22" />
-            </button>
-          </div>
-        </td>
-      </tr>
-    </tbody>
-  </table>
+  <div
+    class="grid grid-cols-3 items-sart w-full border bg-black/[0.02] rounded  whitespace-normal items-center px-6 py-4 border-neutral-200 text-left text-sm font-light gap-4">
+    <h6 class="col-span-3 md:col-span-1 break-words">{{ title }}</h6>
+    <span class="col-span-3 md:col-span-1 px-6 py-4 text-blue bg-red flex justify-center md:justify-start">
+      <template v-if="price > 0">
+        ${{ price }}/month
+      </template>
+      <template v-else>Free</template>
+    </span>
+
+    <!-- col-3: Adjusted for responsive layout -->
+    <the-counter v-if="price > 0" :model-value="modelValue" @update:model-value="$emit('update:modelValue', $event)" />
+    <div v-else class="col-span-3 md:col-span-1 my-5 flex gap-3 justify-center text-gray-700">
+      <span>{{ modelValue }}</span>
+    </div>
+  </div>
 </template>
