@@ -1,7 +1,7 @@
 <script setup>
 import { useQuotationStore } from "@/store/quotationStore"
 import DeviceComponent from "../../Base/DeviceComponent.vue"
-import Switch from "../../Base/Switch.vue"
+import Switch from "../../Base/TheSwitch.vue"
 import { onMounted, ref } from "vue"
 
 
