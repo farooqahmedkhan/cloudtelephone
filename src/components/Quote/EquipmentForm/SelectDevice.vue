@@ -1,7 +1,8 @@
 <script setup>
+import { useQuotationStore } from "@/store/quotationStore"
 import DeviceComponent from "../../Base/DeviceComponent.vue"
 import Switch from "../../Base/Switch.vue"
-import { ref } from "vue"
+import { onMounted, ref } from "vue"
 
 
 const items = ref( [
@@ -36,6 +37,15 @@ const items = ref( [
 ] )
 
 
+const quotationStore = useQuotationStore()
+const loading = ref( false )
+
+onMounted( async () => {
+  loading.value = true
+  await quotationStore.fetchProducts()
+  loading.value = false
+} )
+
 const changePricing = ref( false )
 const stepNo = ref( 1 )
 
@@ -69,7 +79,7 @@ function onClickNext () {
         <Switch v-model="changePricing" class="mx-auto" />
       </div>
       <div class="key-feature-grid grid gap-7 sm:grid-cols-2 md:grid-cols-3 p-7">
-        <DeviceComponent v-for="item in items" :key="item.id" v-bind="item" v-model="item.value" />
+        <DeviceComponent v-for="prod in quotationStore.products" :key="prod.id" v-bind="prod" v-model="prod.value" />
       </div>
 
     </div>

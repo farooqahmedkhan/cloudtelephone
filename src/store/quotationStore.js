@@ -7,6 +7,7 @@ export const useQuotationStore = defineStore( 'quotationStore', {
       userDetails: null,
       userNumbers: 0,
       categories: [],
+      products: [],
       broadBands: null,
       phoneTypes: 0,
       featureItems: null,
@@ -36,6 +37,11 @@ export const useQuotationStore = defineStore( 'quotationStore', {
           products
         }
       } )
+    },
+    async fetchProducts () {
+      const { data } = await axios.get( '/products' )
+      this.products = data.map( product => ( { ...product, value: 0 } ) )
+      console.log( this.products )
     },
     valuesSetter ( key, data ) {
       this[key] = data
