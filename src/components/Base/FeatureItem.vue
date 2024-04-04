@@ -37,8 +37,8 @@ const props = defineProps( {
           an
           option</label>
         <select id="countries" :value="modelValue" @change="$emit('update:modelValue', $event.target.value)"
-          class="border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
-          <option selected>Choose a country</option>
+          class="border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5">
+          <!-- <option selected>No</option> -->
           <option v-for="op in options" :key="op.value" :value="op.value">{{ op.title }}</option>
         </select>
       </form>

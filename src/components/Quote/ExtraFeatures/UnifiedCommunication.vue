@@ -5,20 +5,20 @@ import UcItem from "../../Base/UcItem.vue"
 const ucItems = ref( [
   {
     id: 1,
-    title: "Lorem ipsum dolor sit.",
+    title: "Softphone",
     price: 0,
+    value: 1
+  },
+  {
+    id: 2,
+    title: "WebEx Teams+",
+    price: 8,
     value: 0
   },
   {
     id: 2,
-    title: "Lorem, ipsum dolor.",
-    price: 4,
-    value: 0
-  },
-  {
-    id: 2,
-    title: "Lorem ipsum dolor sit amet consectetur.",
-    price: 13,
+    title: "WebEx Presenter",
+    price: 20,
     value: 0
   },
 ] )
@@ -30,13 +30,15 @@ const ucItems = ref( [
   <div class="screen-4 pt-page current">
     <div class="key-feature-grid  grid p-7">
       <h4 class="text-primary text-center">App &amp; Unified Communication</h4>
-      <p class="font-regular text-center">Lorem ipsum dolor sit amet.</p>
-      <div class="relative overflow-x-auto">
+      <p class="font-regular text-center">Please choose the number of users for each style of app required</p>
+      <div class="relative overflow-x-auto space-y-6 mt-6">
         <uc-item v-for="item in ucItems" :key="item.id" v-bind="item" v-model="item.value" />
       </div>
       <div class="my-5">
         <h4 class="text-dark text-center">What does this means?</h4>
-        <p class="font-regular text-center">Lorem ipsum dolor sit amet.</p>
+        <p class="font-regular text-center">Lorem ipsum dolor sit amet consectetur adipisicing elit. Quidem molestiae
+          officia iure eius maxime dolorem non molestias! Assumenda blanditiis culpa earum atque dicta hic, ipsa quidem
+          modi possimus, animi quia.</p>
 
       </div>
       <div class="relative overflow-x-auto">

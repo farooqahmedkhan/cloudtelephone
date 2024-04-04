@@ -1,10 +1,13 @@
 import { defineStore } from 'pinia'
+import axios from "../utils/axios"
 
 export const useQuotationStore = defineStore( 'quotationStore', {
   state: () => {
     return {
       userDetails: null,
       userNumbers: 0,
+      categories: [],
+      products: [],
       broadBands: null,
       phoneTypes: 0,
       featureItems: null,
@@ -15,6 +18,31 @@ export const useQuotationStore = defineStore( 'quotationStore', {
     }
   },
   actions: {
+    async createLead ( leadsData ) {
+      const { data } = await axios.post( '/leads', leadsData )
+      return data
+    },
+    async fetchCategories () {
+      const { data } = await axios.get( '/categories' )
+      this.categories = data.map( category => {
+        const products = category.products.map( product => {
+          return {
+            ...product,
+            value: 0
+          }
+        } )
+
+        return {
+          ...category,
+          products
+        }
+      } )
+    },
+    async fetchProducts () {
+      const { data } = await axios.get( '/products' )
+      this.products = data.map( product => ( { ...product, value: 0 } ) )
+      console.log( this.products )
+    },
     valuesSetter ( key, data ) {
       this[key] = data
     },

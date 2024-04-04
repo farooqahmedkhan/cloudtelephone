@@ -7,50 +7,93 @@ import FeatureItem from "../../Base/FeatureItem.vue"
 const features = ref( [
   {
     id: 1,
-    title: "Lorem ipsum dolor sit.",
-    price: 4,
+    title: "Call Center User",
+    price: "£2/user/month",
     value: 0,
     type: 'number'
   },
   {
     id: 2,
-    title: "Lorem ipsum dolor sit amet consectetur.",
-    price: 6,
+    title: "Fax To Email",
+    price: "£5/number/month",
     value: 0,
     type: 'number'
   },
   {
     id: 3,
-    title: "Lorem, ipsum dolor.",
+    title: "Professional Recordings",
     price: 127,
-    value: "US",
+    price: "Silver: £174 \n Gold: £375 on off fee",
+    desc: "Find Out More",
     type: 'select',
+    value: "no",
     options: [
       {
-        value: "US",
-        title: "United States"
+        value: "no",
+        title: "No"
       },
       {
-        value: "CA",
-        title: "Canada"
+        value: "silver",
+        title: "Silver"
       },
       {
-        value: "FR",
-        title: "France"
+        value: "gold",
+        title: "Gold"
       },
-      {
-        value: "DE",
-        title: "Germany"
-      }
     ]
   },
   {
     id: 4,
-    title: "Lorem, ipsum.",
-    price: 13,
+    title: "Call Recording",
+    desc: "(6 Months Storage)",
+    price: "£6/user/month",
     value: false,
     type: 'switch'
-  }
+  },
+  {
+    id: 5,
+    title: "Call Recording",
+    desc: "(7 Months Storage MIFID2)",
+    price: "£6/user + £3/GB Stored",
+    value: false,
+    type: 'switch'
+  },
+  {
+    id: 6,
+    title: "Live Call Reporting",
+    price: "£4/user + £35 Admin User",
+    value: false,
+    type: 'switch'
+  },
+  {
+    id: 7,
+    title: "Insight Reporting",
+    price: "£1/user + £5 Admin User",
+    value: false,
+    type: 'switch'
+  },
+  {
+    id: 8,
+    title: "CRM Integration",
+    price: "£6/user",
+    value: false,
+    type: 'switch'
+  },
+  {
+    id: 9,
+    title: "Reception Console",
+    price: "£40/site",
+    value: false,
+    type: 'switch'
+  },
+  {
+    id: 10,
+    title: "Multi-Company Set-up",
+    price: "£150.00 Setup",
+    value: false,
+    type: 'switch'
+  },
+
 ] )
 
 </script>
