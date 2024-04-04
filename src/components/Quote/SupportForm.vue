@@ -1,5 +1,8 @@
 <script setup>
 import { ref } from "vue"
+import { useQuotationStore } from "@/store/quotationStore"
+
+const quotationStore = useQuotationStore()
 
 const step = ref( 1 )
 function onClickPrev () {
@@ -11,7 +14,8 @@ function onClickPrev () {
 
 }
 
-function moveToCompleteSection () {
+function moveToCompleteSection ( value ) {
+  quotationStore.valuesSetter( 'installSupport', value )
   window.location.hash = 'complete'
 }
 </script>
@@ -24,10 +28,12 @@ function moveToCompleteSection () {
         <h4 class="text-primary">Installation & Suppport</h4>
         <div class="key-feature-grid grid gap-7 sm:grid-cols-2 p-7">
           <!-- automatic -->
-          <button @click="moveToCompleteSection" class="mb-8 rounded-xl bg-theme-dark text-white py-5 px-5 shadow-lg">
+          <button @click="moveToCompleteSection('automatic')"
+            class="mb-8 rounded-xl bg-theme-dark text-white py-5 px-5 shadow-lg">
             <p class="mb-3">Automatic Install & Ongoing Support Free</p>
           </button>
-          <button @click="moveToCompleteSection" class="mb-8 rounded-xl bg-theme-dark text-white py-5 px-5 shadow-lg">
+          <button @click="moveToCompleteSection('manual')"
+            class="mb-8 rounded-xl bg-theme-dark text-white py-5 px-5 shadow-lg">
             <p class="mb-3">On- Site CAbling 550 per Day (Approx)</p>
           </button>
         </div>

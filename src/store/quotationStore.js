@@ -14,7 +14,8 @@ export const useQuotationStore = defineStore( 'quotationStore', {
       numberPorts: null,
       newTelephonesNumbers: null,
       unifiedCommunicationItems: null,
-      devices: null
+      devices: null,
+      installSupport: "automatic" | "manual",
     }
   },
   actions: {
