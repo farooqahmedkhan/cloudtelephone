@@ -18,6 +18,14 @@ export const useQuotationStore = defineStore( 'quotationStore', {
     }
   },
   actions: {
+    async createCustomer ( customerData ) {
+      const { data } = await axios.post( '/customers', customerData )
+      this.userDetails = {
+        ...data,
+        offer_code: customerData.code
+      }
+      return data
+    },
     async createLead ( leadsData ) {
       const { data } = await axios.post( '/leads', leadsData )
       return data

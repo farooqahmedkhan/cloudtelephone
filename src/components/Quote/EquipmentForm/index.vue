@@ -43,7 +43,7 @@ function savePhoneTypes () {
 </script>
 
 <template>
-  <div>
+  <div id="equipment">
     <FirstStep v-if="stepNo == 1" @on-click-yes="stepNo = 2" @on-click-app-only="moveToExtraFeatures"
       @on-click-own-phones="stepNo = 3" @on-click-prev="onClickPrev" />
     <SelectDevice v-if="stepNo == 2" @on-click-prev="onClickPrev" @on-click-next="saveDevices" />

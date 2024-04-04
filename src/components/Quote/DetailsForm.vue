@@ -21,11 +21,7 @@ const quotationStore = useQuotationStore()
 async function submitDetails () {
   const { valid } = await validate()
   if ( !valid ) return
-  quotationStore.createLead( {
-    ...data,
-    offer_code: data.code
-  } )
-  // quotationStore.valuesSetter( 'userDetails', data )
+  quotationStore.createCustomer( data )
   window.location.hash = 'user-lines'
 }
 
