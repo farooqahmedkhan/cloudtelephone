@@ -5,16 +5,14 @@ export const useQuotationStore = defineStore( 'quotationStore', {
   state: () => {
     return {
       userDetails: null,
-      userNumbers: 0,
+      numberOfUsers: 0,
       categories: [],
       products: [],
-      broadBands: null,
       phoneTypes: 0,
       featureItems: null,
       numberPorts: null,
       newTelephonesNumbers: null,
       unifiedCommunicationItems: null,
-      devices: null,
       installSupport: "automatic" | "manual",
     }
   },
@@ -56,17 +54,30 @@ export const useQuotationStore = defineStore( 'quotationStore', {
       this[key] = data
     },
     submitForm () {
-      console.log( {
+      const data = {
         userDetails: this.userDetails,
-        userNumbers: this.userNumbers,
-        broadBands: this.broadBands,
+        numberOfUsers: this.numberOfUsers,
+        categories: this.categories.filter( category => category.products.some( product => product.value > 0 ) ),
+        products: this.products.filter( product => product.value > 0 ),
         phoneTypes: this.phoneTypes,
-        featureItems: this.featureItems,
-        numberPorts: this.numberPorts,
-        newTelephonesNumbers: this.newTelephonesNumbers,
-        unifiedCommunicationItems: this.unifiedCommunicationItems,
-        devices: this.devices
-      } )
+        unifiedCommunicationItems: this.unifiedCommunicationItems.filter( item => item.value > 0 ),
+        featureItems: this.featureItems.filter( item => {
+          if ( typeof item.value === 'number' ) {
+            return item.value > 0
+          } else if ( typeof item.value === 'string' ) {
+            return item.value !== null && item.value.trim() !== ''
+          } else if ( typeof item.value === 'boolean' ) {
+            return item.value === true
+          } else {
+            return false
+          }
+        } ),
+        numberPorts: this.numberPorts.filter( item => item.value > 0 ),
+        newTelephonesNumbers: this.newTelephonesNumbers.filter( item => item.value > 0 ),
+        installSupport: this.installSupport,
+      }
+      // convert data to json
+      console.log( JSON.stringify( data ) )
     }
   }
 } )

@@ -30,10 +30,6 @@ function onClickNext () {
 function moveToExtraFeatures () {
   window.location.hash = "extra-features"
 }
-function saveDevices ( devices ) {
-  quotationStore.valuesSetter( 'devices', devices )
-  moveToExtraFeatures()
-}
 
 function savePhoneTypes () {
   quotationStore.valuesSetter( 'phoneTypes', phoneTypes.value )
@@ -46,7 +42,7 @@ function savePhoneTypes () {
   <div id="equipment">
     <FirstStep v-if="stepNo == 1" @on-click-yes="stepNo = 2" @on-click-app-only="moveToExtraFeatures"
       @on-click-own-phones="stepNo = 3" @on-click-prev="onClickPrev" />
-    <SelectDevice v-if="stepNo == 2" @on-click-prev="onClickPrev" @on-click-next="saveDevices" />
+    <SelectDevice v-if="stepNo == 2" @on-click-prev="onClickPrev" @on-click-next="moveToExtraFeatures" />
     <PhoneMigration v-if="stepNo == 3" v-model="phoneTypes" @on-click-prev="onClickPrev"
       @on-click-next="savePhoneTypes" />
   </div>

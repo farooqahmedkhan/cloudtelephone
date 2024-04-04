@@ -16,7 +16,7 @@ function moveToEquipment () {
 const userCount = ref( 1 )
 
 function moveToNextStep () {
-  quotationStore.valuesSetter( 'userNumbers', userCount.value )
+  quotationStore.valuesSetter( 'numberOfUsers', userCount.value )
   step.value++
 }
 
