@@ -14,6 +14,7 @@ export const useQuotationStore = defineStore( 'quotationStore', {
       newTelephonesNumbers: null,
       unifiedCommunicationItems: null,
       installSupport: "automatic" | "manual",
+      finalReviewData: null
     }
   },
   actions: {
@@ -53,30 +54,61 @@ export const useQuotationStore = defineStore( 'quotationStore', {
     valuesSetter ( key, data ) {
       this[key] = data
     },
-    submitForm () {
-      const data = {
-        userDetails: this.userDetails,
-        numberOfUsers: this.numberOfUsers,
-        categories: this.categories.filter( category => category.products.some( product => product.value > 0 ) ),
-        products: this.products.filter( product => product.value > 0 ),
-        phoneTypes: this.phoneTypes,
-        unifiedCommunicationItems: this.unifiedCommunicationItems.filter( item => item.value > 0 ),
-        featureItems: this.featureItems.filter( item => {
-          if ( typeof item.value === 'number' ) {
-            return item.value > 0
-          } else if ( typeof item.value === 'string' ) {
-            return item.value !== null && item.value.trim() !== ''
-          } else if ( typeof item.value === 'boolean' ) {
-            return item.value === true
-          } else {
-            return false
-          }
-        } ),
-        numberPorts: this.numberPorts.filter( item => item.value > 0 ),
-        newTelephonesNumbers: this.newTelephonesNumbers.filter( item => item.value > 0 ),
-        installSupport: this.installSupport,
+    async submitForm () {
+      try {
+        const data = {
+          userDetails: this.userDetails,
+          numberOfUsers: this.numberOfUsers,
+          categories: this.categories.filter( category => category.products.some( product => product.value > 0 ) ),
+          products: this.products.filter( product => product.value > 0 ),
+          phoneTypes: this.phoneTypes,
+          unifiedCommunicationItems: this.unifiedCommunicationItems.filter( item => item.value > 0 ),
+          featureItems: this.featureItems.filter( item => {
+            if ( typeof item.value === 'number' ) {
+              return item.value > 0
+            } else if ( typeof item.value === 'string' ) {
+              return item.value !== null && item.value.trim() !== ''
+            } else if ( typeof item.value === 'boolean' ) {
+              return item.value === true
+            } else {
+              return false
+            }
+          } ),
+          numberPorts: this.numberPorts.filter( item => item.value > 0 ),
+          newTelephonesNumbers: this.newTelephonesNumbers.filter( item => item.value > 0 ),
+          installSupport: this.installSupport,
+        }
+        const resp = await this.createLead( JSON.stringify( data ) )
+        const monthlyProducts = resp.products.filter( product => product.price_monthly > 0 )
+        const upfrontProducts = resp.products.filter( product => product.price_upfront > 0 )
+        this.finalReviewData = {
+          name: resp.userDetails.name,
+          date: new Date( resp.created_at ).toLocaleDateString( undefined, { day: '2-digit', month: 'long', year: 'numeric' } ),
+          monthly_breakdown: monthlyProducts.map( product => {
+            return {
+              name: product.name,
+              price: product.price_monthly,
+              quantity: product.value,
+              id: product.id,
+              total: product.price_monthly * product.value
+            }
+          } ),
+          monthly_total: monthlyProducts.reduce( ( acc, product ) => acc + product.price_monthly * product.value, 0 ),
+          upfront_breakdown: upfrontProducts.map( product => {
+            return {
+              name: product.name,
+              price: product.price_upfront,
+              quantity: product.value,
+              id: product.id,
+              total: product.price_upfront * product.value
+            }
+          } ),
+          upfront_total: upfrontProducts.reduce( ( acc, product ) => acc + product.price_upfront * product.value, 0 ),
+        }
+        window.location.hash = 'review'
+      } catch ( error ) {
+        console.log( error )
       }
-      this.createLead( JSON.stringify( data ) )
     }
   }
 } )
