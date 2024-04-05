@@ -25,8 +25,8 @@ export const useQuotationStore = defineStore( 'quotationStore', {
       }
       return data
     },
-    async createLead ( leadsData ) {
-      const { data } = await axios.post( '/leads', leadsData )
+    async createLead ( leadJSON ) {
+      const { data } = await axios.post( '/leads', leadJSON )
       return data
     },
     async fetchCategories () {
@@ -76,8 +76,7 @@ export const useQuotationStore = defineStore( 'quotationStore', {
         newTelephonesNumbers: this.newTelephonesNumbers.filter( item => item.value > 0 ),
         installSupport: this.installSupport,
       }
-      // convert data to json
-      console.log( JSON.stringify( data ) )
+      this.createLead( JSON.stringify( data ) )
     }
   }
 } )
