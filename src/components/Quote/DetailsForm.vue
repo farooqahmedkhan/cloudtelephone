@@ -21,7 +21,11 @@ const quotationStore = useQuotationStore()
 async function submitDetails () {
   const { valid } = await validate()
   if ( !valid ) return
-  quotationStore.valuesSetter( 'userDetails', data )
+  quotationStore.createLead( {
+    ...data,
+    offer_code: data.code
+  } )
+  // quotationStore.valuesSetter( 'userDetails', data )
   window.location.hash = 'user-lines'
 }
 
@@ -35,8 +39,8 @@ async function submitDetails () {
       placeholder="Mobile or Landline" id="telephone" />
     <Input rules="required" name="Name" v-model="data.name" label="Your Name" placeholder="Full Contact name"
       id="yourname" />
-    <Input rules="required" name="Offer Code" v-model="data.code" label="Offer Code"
-      placeholder="If you have an offer code, enter here" id="offer-code" />
+    <Input name="Offer Code" v-model="data.code" label="Offer Code" placeholder="If you have an offer code, enter here"
+      id="offer-code" />
     <Input rules="required|email" name="Email" v-model="data.email" label="Email Address" placeholder="Your Email"
       id="email" />
     <button class="btn btn-green mt-10 text-lg" @click="submitDetails">Get an Instant Quote</button>

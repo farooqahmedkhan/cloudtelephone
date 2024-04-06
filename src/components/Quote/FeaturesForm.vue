@@ -74,7 +74,7 @@
           <div class="key-feature-grid grid gap-7 sm:grid-cols-2 p-7">
             <div class="mb-8 rounded-xl bg-theme-dark text-white py-5 px-5 shadow-lg">
               <h5 class="h5 text-white">Yes</h5>
-              <p class="mt-4">See Pick & Mix Features</p>
+              <p class="mt-4">See Pick & Mix Featuresq</p>
             </div>
             <div class="mb-8 rounded-xl bg-theme-dark text-white py-5 px-5 shadow-lg">
               <h5 class="h5 text-white">No</h5>
