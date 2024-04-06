@@ -10,6 +10,7 @@ import FeaturesForm from "../components/Quote/ExtraFeatures/index.vue"
 import TelephoneNumbers from "../components/Quote/TelephoneNumbers/index.vue"
 import SupportForm from "../components/Quote/SupportForm.vue"
 import FinalForm from "../components/Quote/FinalForm.vue"
+import FinalPreview from "../components/Quote/FinalPreview.vue"
 
 
 const stepButtons = [
@@ -68,7 +69,8 @@ const activeStep = {
   "extra-features": FeaturesForm,
   "tel-numbers": TelephoneNumbers,
   "install-support": SupportForm,
-  "complete": FinalForm
+  "complete": FinalForm,
+  "review": FinalPreview
 }
 
 

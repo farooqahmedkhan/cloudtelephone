@@ -4,39 +4,6 @@ import DeviceComponent from "../../Base/DeviceComponent.vue"
 import Switch from "../../Base/TheSwitch.vue"
 import { onMounted, ref } from "vue"
 
-
-const items = ref( [
-  {
-    id: 1,
-    img: '/images/cta-phone.png',
-    title: "Card Title",
-    value: 0,
-    price: 128
-  },
-  {
-    id: 2,
-    img: '/images/cta-phone.png',
-    title: "Card Title 2",
-    value: 0,
-    price: 18
-  },
-  {
-    id: 3,
-    img: '/images/cta-phone.png',
-    title: "Card Title 3",
-    value: 0,
-    price: 158
-  },
-  {
-    id: 4,
-    img: '/images/cta-phone.png',
-    title: "Card Title 4",
-    value: 0,
-    price: 971
-  },
-] )
-
-
 const quotationStore = useQuotationStore()
 const loading = ref( false )
 
@@ -86,7 +53,7 @@ function onClickNext () {
     <div class="w-100 flex justify-between p-7">
       <button @click="$emit('onClickPrev')"
         class="btn text-white rounded-full bg-theme-dark mt-10  bg-opacity-75 text-lg">Previous</button>
-      <button @click="$emit('onClickNext', items)" class="btn btn-green mt-10 text-lg">Next</button>
+      <button @click="$emit('onClickNext')" class="btn btn-green mt-10 text-lg">Next</button>
     </div>
   </div>
 </template>

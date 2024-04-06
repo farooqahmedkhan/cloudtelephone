@@ -1,5 +1,5 @@
 <script setup>
-import { reactive } from "vue"
+import { onMounted, reactive } from "vue"
 import Input from "../Base/Input.vue"
 import { useForm } from "vee-validate"
 import { useQuotationStore } from "../../store/quotationStore"
@@ -21,14 +21,30 @@ const quotationStore = useQuotationStore()
 async function submitDetails () {
   const { valid } = await validate()
   if ( !valid ) return
-  quotationStore.createLead( {
-    ...data,
-    offer_code: data.code
-  } )
-  // quotationStore.valuesSetter( 'userDetails', data )
+  quotationStore.createCustomer( data )
   window.location.hash = 'user-lines'
 }
 
+
+onMounted( () => {
+  if ( process.env.NODE_ENV === "development" ) {
+    document.addEventListener( "keydown", handleKeyDown )
+  }
+} )
+
+function handleKeyDown ( event ) {
+  if ( event.metaKey && event.key === "k" ) {
+    populateDummyData()
+  }
+}
+
+function populateDummyData () {
+  data.company = "Company Name"
+  data.telephone = "1234567890"
+  data.name = "John Doe"
+  data.code = "OFFERCODE"
+  data.email = "john@doe.com"
+}
 </script>
 
 <template>
