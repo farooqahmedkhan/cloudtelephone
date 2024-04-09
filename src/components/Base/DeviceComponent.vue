@@ -18,6 +18,10 @@ const props = defineProps( {
     type: Number,
     default: 0
   },
+  price_upfront: {
+    type: Number,
+    default: 0
+  },
 } )
 const emit = defineEmits( ["update:modelValue"] )
 
@@ -53,7 +57,7 @@ function decrement () {
       </div>
       <!-- End Input Number -->
       <h5 class="mb-2 text-xl font-medium leading-tight">{{ name }}</h5>
-      <h6 class="text-primary">${{ price_monthly }}</h6>
+      <h6 class="text-primary">${{ price_monthly || price_upfront }}</h6>
       <p class="mb-4 text-base"> Some quick example text to build on the card name and make up
         the bulk of the card's content. </p>
     </div>

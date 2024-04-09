@@ -1,8 +1,8 @@
 <script setup>
 import { useQuotationStore } from "@/store/quotationStore"
+import { Switch } from '@headlessui/vue'
 import DeviceComponent from "../../Base/DeviceComponent.vue"
-import Switch from "../../Base/TheSwitch.vue"
-import { onMounted, ref } from "vue"
+import { computed, onMounted, ref } from "vue"
 
 const quotationStore = useQuotationStore()
 const loading = ref( false )
@@ -13,7 +13,7 @@ onMounted( async () => {
   loading.value = false
 } )
 
-const changePricing = ref( false )
+const pay_monthly = ref( false )
 const stepNo = ref( 1 )
 
 function onClickPrev () {
@@ -32,6 +32,13 @@ function onClickNext () {
     stepNo.value++
   }
 }
+
+const proudctsToShow = computed( () => {
+  if ( pay_monthly.value ) {
+    return quotationStore.products.filter( prod => prod.price_monthly > 0 )
+  }
+  return quotationStore.products.filter( prod => prod.price_upfront > 0 )
+} )
 </script>
 
 <template>
@@ -43,10 +50,18 @@ function onClickNext () {
 
       <div class="my-5 space-y-4">
         <h5 class="mb-2">Change Pricing Options</h5>
-        <Switch v-model="changePricing" class="mx-auto" />
+        <div class="flex justify-center items-center gap-x-4">
+          <p class="text-sm text-gray-500">Pay Monthly</p>
+          <Switch v-model="pay_monthly"
+            class="relative inline-flex bg-red-500 h-[38px] w-[74px] shrink-0 cursor-pointer rounded-full border-2 border-transparent transition-colors duration-200 ease-in-out focus:outline-none focus-visible:ring-2 focus-visible:ring-white/75">
+            <span aria-hidden="true" :class="pay_monthly ? 'translate-x-9' : 'translate-x-0'"
+              class="pointer-events-none inline-block h-[34px] w-[34px] transform rounded-full bg-white shadow-lg ring-0 transition duration-200 ease-in-out" />
+          </Switch>
+          <p class="text-sm text-gray-500 ml-2">Up front</p>
+        </div>
       </div>
       <div class="key-feature-grid grid gap-7 sm:grid-cols-2 md:grid-cols-3 p-7">
-        <DeviceComponent v-for="prod in quotationStore.products" :key="prod.id" v-bind="prod" v-model="prod.value" />
+        <DeviceComponent v-for="prod in proudctsToShow" :key="prod.id" v-bind="prod" v-model="prod.value" />
       </div>
 
     </div>

@@ -12,7 +12,7 @@ export const useQuotationStore = defineStore( 'quotationStore', {
       featureItems: null,
       numberPorts: null,
       newTelephonesNumbers: null,
-      unifiedCommunicationItems: null,
+      unifiedCommunicationItems: [],
       installSupport: "automatic" | "manual",
       finalReviewData: null
     }
@@ -31,7 +31,7 @@ export const useQuotationStore = defineStore( 'quotationStore', {
       return data
     },
     async fetchCategories () {
-      const { data } = await axios.get( '/categories' )
+      const { data } = await axios.get( '/categories?name=Broadband&name=Mobile&name=Hardware%20Upgrades' )
       this.categories = data.map( category => {
         const products = category.products.map( product => {
           return {
@@ -47,10 +47,17 @@ export const useQuotationStore = defineStore( 'quotationStore', {
       } )
     },
     async fetchProducts () {
-      const { data } = await axios.get( '/products' )
+      const { data } = await axios.get( '/products?category=Equipment' )
       this.products = data.map( product => ( { ...product, value: 0 } ) )
-      console.log( this.products )
     },
+    async fetchUnifiedProducts () {
+      const { data } = await axios.get( '/products?category=App%20%26%20Unified%20Communications' )
+      this.unifiedCommunicationItems = data.map( product => ( { ...product, value: product.name == 'Softphone' ? 1 : 0 } ) )
+    },
+    // async fetchFeatureProducts () {
+    //   const { data } = await axios.get( '/products?category=Pick%20%26%20Mix%20Features' )
+    //   this.unifiedCommunicationItems = data.map( product => ( { ...product, value: product.name == 'Softphone' ? 1 : 0 } ) )
+    // },
     valuesSetter ( key, data ) {
       this[key] = data
     },

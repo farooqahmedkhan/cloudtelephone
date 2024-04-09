@@ -20,9 +20,6 @@ function onClickPrev () {
 }
 
 function onClickNext ( items = null ) {
-  if ( step.value === 1 ) {
-    quotationStore.valuesSetter( 'unifiedCommunicationItems', items )
-  }
   if ( step.value === 3 ) {
     quotationStore.valuesSetter( 'featureItems', items )
   }
