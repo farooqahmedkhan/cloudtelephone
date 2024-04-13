@@ -1,6 +1,17 @@
 <script setup>
-import { ref } from "vue"
+import { onMounted, ref } from "vue"
 import UcItem from "../../Base/UcItem.vue"
+import { useQuotationStore } from "../../../store/quotationStore"
+
+const quotationStore = useQuotationStore()
+const loading = ref( false )
+
+onMounted( async () => {
+  loading.value = true
+  await quotationStore.fetchUnifiedProducts()
+  loading.value = false
+}
+)
 
 const ucItems = ref( [
   {
@@ -31,8 +42,9 @@ const ucItems = ref( [
     <div class="key-feature-grid  grid p-7">
       <h4 class="text-primary text-center">App &amp; Unified Communication</h4>
       <p class="font-regular text-center">Please choose the number of users for each style of app required</p>
-      <div class="relative overflow-x-auto space-y-6 mt-6">
-        <uc-item v-for="item in ucItems" :key="item.id" v-bind="item" v-model="item.value" />
+      <div v-if="!loading" class="relative overflow-x-auto space-y-6 mt-6">
+        <uc-item v-for="item in quotationStore.unifiedCommunicationItems" :key="item.id" v-bind="item"
+          v-model="item.value" />
       </div>
       <div class="my-5">
         <h4 class="text-dark text-center">What does this means?</h4>
@@ -84,7 +96,7 @@ const ucItems = ref( [
     <div class="w-100 flex justify-between p-7">
       <button @click="$emit('onClickPrev')"
         class="btn text-white rounded-full bg-theme-dark mt-10  bg-opacity-75 text-lg">Previous</button>
-      <button @click="$emit('onClickNext', ucItems)" class="btn btn-green mt-10 text-lg">Next</button>
+      <button @click="$emit('onClickNext')" class="btn btn-green mt-10 text-lg">Next</button>
     </div>
   </div>
 </template>
