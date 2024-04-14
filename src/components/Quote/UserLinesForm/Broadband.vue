@@ -2,11 +2,14 @@
 import BroadbandItem from "../../Base/BroadbandItem.vue"
 import Input from "@/components/Base/Input.vue"
 import { useQuotationStore } from "@/store/quotationStore"
+import { useAvailabilityStore } from "@/store/checkAvailability"
 import { onMounted, ref } from "vue"
 
 
 const quotationStore = useQuotationStore()
+const availabilityStore = useAvailabilityStore()
 const fetchingData = ref( false )
+const postCode = ref( "" ) //TN27 0JH
 
 
 onMounted( async () => {
@@ -14,6 +17,11 @@ onMounted( async () => {
   await quotationStore.fetchCategories()
   fetchingData.value = false
 } )
+
+const checkAvailability = async () => {
+  await availabilityStore.checkAvailability( postCode.value )
+}
+
 
 </script>
 
@@ -60,9 +68,10 @@ onMounted( async () => {
         </div>
         <div class="flex flex-wrap items-center gap-x-6 w-1/2 mx-auto">
 
-          <Input name="''" placeholder="Postcode" class="flex-1" />
-          <button class="btn btn-green text-lg">Check</button>
+          <Input name="''" placeholder="Postcode" class="flex-1" v-model="postCode" />
+          <button class="btn btn-green text-lg" @click="checkAvailability">Check</button>
         </div>
+        <div v-html="availabilityStore.resp"></div>
       </div>
     </div>
     <div class="w-100 flex justify-between">
