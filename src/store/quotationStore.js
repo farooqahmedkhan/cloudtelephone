@@ -9,9 +9,9 @@ export const useQuotationStore = defineStore( 'quotationStore', {
       categories: [],
       products: [],
       phoneTypes: 0,
-      featureItems: null,
-      numberPorts: null,
-      newTelephonesNumbers: null,
+      featureItems: [],
+      numberPorts: [],
+      newTelephonesNumbers: [],
       unifiedCommunicationItems: [],
       installSupport: "automatic" | "manual",
       finalReviewData: null
@@ -87,8 +87,9 @@ export const useQuotationStore = defineStore( 'quotationStore', {
         }
         const result = await this.createLead( JSON.stringify( data ) )
         const resp = JSON.parse( result?.leadJSON )
-        const monthlyProducts = resp.products.filter( product => product.price_monthly > 0 )
-        const upfrontProducts = resp.products.filter( product => product.price_upfront > 0 )
+        const productsFromJSON = ( !resp.products || !resp.products.length ) ? [] : resp.products
+        const monthlyProducts = productsFromJSON.filter( product => product.price_monthly > 0 )
+        const upfrontProducts = productsFromJSON.filter( product => product.price_upfront > 0 )
         this.finalReviewData = {
           name: resp.userDetails.name,
           date: new Date( resp.created_at ).toLocaleDateString( undefined, { day: '2-digit', month: 'long', year: 'numeric' } ),
