@@ -52,7 +52,7 @@ export const useQuotationStore = defineStore( 'quotationStore', {
     },
     async fetchUnifiedProducts () {
       const { data } = await axios.get( '/products?category=App%20%26%20Unified%20Communications' )
-      this.unifiedCommunicationItems = data.map( product => ( { ...product, value: product.name == 'Softphone' ? 1 : 0 } ) )
+      this.unifiedCommunicationItems = data.sort( ( a, b ) => a.price - b.price ).map( product => ( { ...product, value: product.name == 'Softphone' ? 1 : 0 } ) )
     },
     // async fetchFeatureProducts () {
     //   const { data } = await axios.get( '/products?category=Pick%20%26%20Mix%20Features' )
