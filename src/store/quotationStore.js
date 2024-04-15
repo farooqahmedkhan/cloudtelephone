@@ -85,7 +85,7 @@ export const useQuotationStore = defineStore( 'quotationStore', {
           newTelephonesNumbers: this.newTelephonesNumbers.filter( item => item.value > 0 ),
           installSupport: this.installSupport,
         }
-        const result = await this.createLead( JSON.stringify( data ) )
+        const result = await this.createLead( data )
         const resp = JSON.parse( result?.leadJSON )
         const productsFromJSON = ( !resp.products || !resp.products.length ) ? [] : resp.products
         const monthlyProducts = productsFromJSON.filter( product => product.price_monthly > 0 )
