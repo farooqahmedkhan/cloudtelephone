@@ -13,27 +13,6 @@ onMounted( async () => {
 }
 )
 
-const ucItems = ref( [
-  {
-    id: 1,
-    title: "Softphone",
-    price: 0,
-    value: 1
-  },
-  {
-    id: 2,
-    title: "WebEx Teams+",
-    price: 8,
-    value: 0
-  },
-  {
-    id: 2,
-    title: "WebEx Presenter",
-    price: 20,
-    value: 0
-  },
-] )
-
 </script>
 
 
