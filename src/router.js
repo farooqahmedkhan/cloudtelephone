@@ -4,6 +4,7 @@ import About from "./pages/About.vue"
 import Products from "./pages/Products.vue"
 import Pricing from "./pages/Pricing.vue"
 import QuotePage from "./pages/QuotePage.vue"
+import ResidentialQuote from "./pages/ResidentialQuote.vue"
 
 const routes = [
   {
@@ -20,6 +21,14 @@ const routes = [
   },
   {
     path: '/quote', component: QuotePage, name: 'quote',
+  },
+  {
+    path: '/quote/residential', component: ResidentialQuote, name: 'residential-quote',
+  },
+  // 404 page
+  {
+    path: '/:pathMatch(.*)*',
+    component: () => import( './pages/404.vue' ),
   },
 ]
 
