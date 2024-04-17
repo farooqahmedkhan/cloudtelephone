@@ -1,4 +1,8 @@
 <script setup>
+import useCurrency from "@/composables/useCurrency"
+
+const { currencySymbol } = useCurrency()
+
 defineProps( {
   name: {
     type: String,
@@ -27,7 +31,7 @@ defineProps( {
           <h6>{{ name }}</h6>
           <p>{{ description }}</p>
         </td>
-        <td class="px-6 py-4">${{ price_monthly }}/month</td>
+        <td class="px-6 py-4">{{ currencySymbol }}{{ price_monthly }}/month</td>
         <td class="px-6 py-4"><input type="number" min="0" :value="modelValue"
             @input="$emit('update:modelValue', $event.target.value)" class="form-control"></td>
       </tr>

@@ -1,4 +1,7 @@
 <script setup>
+import useCurrency from "@/composables/useCurrency"
+
+const { currencySymbol } = useCurrency()
 
 </script>
 
@@ -11,7 +14,7 @@
             <div class="flex items-center justify-between">
               <div>
                 <h2 class="h3">Business</h2>
-                <p class="mt-3 text-2xl text-dark">$ 29.00 USD</p>
+                <p class="mt-3 text-2xl text-dark">{{ currencySymbol }} 29.00 USD</p>
               </div>
               <span class="inline-flex h-16 w-16 items-center justify-center rounded-full bg-theme-light">
                 <img src="/images/icons/price-card-icon-1.svg" alt="" />
@@ -45,7 +48,7 @@
                     <path d="M2 5.42857L6.36364 10L14 2" stroke="currentColor" stroke-width="3"
                       stroke-linecap="round" />
                   </svg>
-                  Up to $100.000 monthly sales
+                  Up to {{ currencySymbol }}100.000 monthly sales
                 </li>
                 <li class="mb-3 flex items-center text-sm">
                   <svg class="mr-2.5" width="16" height="13" viewBox="0 0 16 13" fill="none"
@@ -85,7 +88,7 @@
             <div class="flex items-center justify-between">
               <div>
                 <h2 class="h3">Residential</h2>
-                <p class="mt-3 text-2xl text-dark">$ 59.00 USD</p>
+                <p class="mt-3 text-2xl text-dark">{{ currencySymbol }} 59.00 USD</p>
               </div>
               <span class="bg-primary inline-flex h-16 w-16 items-center justify-center rounded-full">
                 <img src="/images/residentail-icon.svg" alt="" width="40" height="40" />
@@ -119,7 +122,7 @@
                     <path d="M2 5.42857L6.36364 10L14 2" stroke="currentColor" stroke-width="3"
                       stroke-linecap="round" />
                   </svg>
-                  Up to $100.000 monthly sales
+                  Up to {{ currencySymbol }}100.000 monthly sales
                 </li>
                 <li class="mb-3 flex items-center text-sm">
                   <svg class="mr-2.5 text-primary" width="16" height="13" viewBox="0 0 16 13" fill="none"

@@ -1,5 +1,8 @@
 <script setup>
 import { useQuotationStore } from "../../store/quotationStore"
+import useCurrency from "@/composables/useCurrency"
+
+const { currencySymbol } = useCurrency()
 
 const quotatonStore = useQuotationStore()
 
@@ -25,15 +28,17 @@ const quotatonStore = useQuotationStore()
                 <tr v-for="prod in quotatonStore.finalReviewData.monthly_breakdown" :key="prod.id"
                   class="border-b border-neutral-200 bg-black/[0.02] dark:order-white/10 whitespace-nowrap">
                   <td class="px-6 py-4">{{ prod.name }}</td>
-                  <td class="px-6 py-4">£{{ prod.price }}</td>
+                  <td class="px-6 py-4">{{ currencySymbol }}{{ prod.price }}</td>
                   <td class="px-6 py-4">{{ prod.quantity }}</td>
-                  <td class="px-6 py-4">£{{ prod.total }}</td>
+                  <td class="px-6 py-4">{{ currencySymbol }}{{ prod.total }}</td>
                 </tr>
               </tbody>
             </table>
             <div class="text-left my-4">
-              <h4 class="text-primary">Set-up cost: £{{ quotatonStore.finalReviewData.monthly_total }}</h4>
-              <p class="text-primary">Price including VAT £6790.00</p>
+              <h4 class="text-primary">Set-up cost:
+                {{ currencySymbol }}{{ quotatonStore.finalReviewData.monthly_total }}
+              </h4>
+              <p class="text-primary">Price including VAT {{ currencySymbol }}6790.00</p>
             </div>
           </div>
           <!-- setup -->
@@ -48,15 +53,17 @@ const quotatonStore = useQuotationStore()
                 <tr v-for="prod in quotatonStore.finalReviewData.upfront_breakdown" :key="prod.id"
                   class="border-b border-neutral-200 bg-black/[0.02] dark:order-white/10 whitespace-nowrap">
                   <td class="px-6 py-4">{{ prod.name }}</td>
-                  <td class="px-6 py-4">£{{ prod.price }}</td>
+                  <td class="px-6 py-4">{{ currencySymbol }}{{ prod.price }}</td>
                   <td class="px-6 py-4">{{ prod.quantity }}</td>
-                  <td class="px-6 py-4">£{{ prod.total }}</td>
+                  <td class="px-6 py-4">{{ currencySymbol }}{{ prod.total }}</td>
                 </tr>
               </tbody>
             </table>
             <div class="text-left my-4">
-              <h4 class="text-primary">Set-up cost: £{{ quotatonStore.finalReviewData.upfront_total }}</h4>
-              <p class="text-primary">Price including VAT £6790.00</p>
+              <h4 class="text-primary">Set-up cost:
+                {{ currencySymbol }}{{ quotatonStore.finalReviewData.upfront_total }}
+              </h4>
+              <p class="text-primary">Price including VAT {{ currencySymbol }}6790.00</p>
             </div>
           </div>
 

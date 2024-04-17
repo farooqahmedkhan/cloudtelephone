@@ -1,4 +1,7 @@
 <script setup>
+import useCurrency from "@/composables/useCurrency"
+
+const { currencySymbol } = useCurrency()
 
 defineProps( {
   image_url: {
@@ -32,7 +35,7 @@ defineProps( {
     </div>
     <div class="p-4 text-surface dark:text-white">
       <h5 class="mb-2 text-xl font-medium leading-tight">{{ title }}</h5>
-      <h6 class="text-primary">{{ price < 1 ? 'Free' : "$" + price }}</h6>
+      <h6 class="text-primary">{{ price < 1 ? 'Free' : `${currencySymbol}` + price }}</h6>
       <p class="mb-4 text-base"> {{ description }} </p>
     </div>
   </button>

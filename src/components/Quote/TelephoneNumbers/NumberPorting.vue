@@ -1,6 +1,9 @@
 <script setup>
+import useCurrency from "@/composables/useCurrency"
 import { ref } from "vue"
+
 import TheCounter from "../../Base/TheCounter.vue"
+const { currencySymbol } = useCurrency()
 
 const numbers = ref( [
   {
@@ -38,7 +41,7 @@ const numbers = ref( [
         <div class="key-feature-grid grid gap-7 sm:grid-cols-2 md:grid-cols-3 p-7">
           <div v-for="number in numbers" :key="number.id">
             <h4>{{ number.title }}</h4>
-            <p class="text-blue mb-2">${{ number.price }} per block</p>
+            <p class="text-blue mb-2">{{ currencySymbol }}{{ number.price }} per block</p>
             <the-counter v-model="number.value" />
           </div>
         </div>
