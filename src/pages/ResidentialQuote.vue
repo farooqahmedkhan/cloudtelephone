@@ -3,26 +3,10 @@ import { onMounted, reactive, ref } from "vue"
 import Input from "@/components/Base/Input.vue"
 import ProductCard from "@/components/Quote/Residential/ProductCard.vue"
 import { useForm } from "vee-validate"
+import { useQuotationStore } from "../store/quotationStore"
 
-
+const quotationStore = useQuotationStore()
 const { validate } = useForm()
-
-const selectedProduct = ref( 1 )
-
-const data = reactive( {
-  name: "",
-  email: "",
-  telephone: "",
-  area_code: "",
-} )
-
-
-async function submitDetails () {
-  const { valid } = await validate()
-  if ( !valid ) return
-  console.log( { ...data, product: selectedProduct.value } )
-}
-
 const products = [
   {
     id: 1,
@@ -52,6 +36,24 @@ const products = [
     price_monthly: 0
   },
 ]
+
+
+const selectedProduct = ref( products[0] )
+
+const data = reactive( {
+  name: "",
+  email: "",
+  telephone: "",
+  area_code: "",
+} )
+
+
+async function submitDetails () {
+  const { valid } = await validate()
+  if ( !valid ) return
+  quotationStore.createResidentialLead( { ...data, product: selectedProduct.value } )
+}
+
 
 
 onMounted( () => {
@@ -112,7 +114,7 @@ function populateDummyData () {
           </h2>
           <div class="grid grid-cols-1 gap-4 sm:grid-cols-3">
             <ProductCard v-for="product in products" :key="product.id" v-bind="product"
-              :selected="selectedProduct === product.id" @click="selectedProduct = product.id" />
+              :selected="selectedProduct.id === product.id" @click="selectedProduct = product" />
           </div>
           <button class="btn btn-green w-full mt-10 text-lg" @click="submitDetails">Get an
             Instant

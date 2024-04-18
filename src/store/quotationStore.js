@@ -26,8 +26,8 @@ export const useQuotationStore = defineStore( 'quotationStore', {
       }
       return data
     },
-    async createLead ( leadJSON ) {
-      const { data } = await axios.post( '/leads', leadJSON )
+    async createLead ( leadJSON, type = 'business' ) {
+      const { data } = await axios.post( '/leads', { leadJSON: JSON.stringify( leadJSON ), type } )
       return data
     },
     async fetchCategories () {
@@ -85,7 +85,7 @@ export const useQuotationStore = defineStore( 'quotationStore', {
           newTelephonesNumbers: this.newTelephonesNumbers.filter( item => item.value > 0 ),
           installSupport: this.installSupport,
         }
-        const result = await this.createLead( data )
+        const result = await this.createLead( data, 'business' )
         const resp = JSON.parse( result?.leadJSON )
         const productsFromJSON = ( !resp.products || !resp.products.length ) ? [] : resp.products
         const monthlyProducts = productsFromJSON.filter( product => product.price_monthly > 0 )
@@ -115,6 +115,24 @@ export const useQuotationStore = defineStore( 'quotationStore', {
           upfront_total: upfrontProducts.reduce( ( acc, product ) => acc + product.price_upfront * product.value, 0 ),
         }
         window.location.hash = 'review'
+      } catch ( error ) {
+        console.log( error )
+      }
+    },
+    async createResidentialLead ( data ) {
+      try {
+        // const [customerData, leadResult] = 
+        await Promise.all( [
+          this.createCustomer( data ),
+          this.createLead( {
+            userDetails: {
+              ...data,
+              product: undefined
+            },
+            product: data.product,
+
+          }, 'residential' )
+        ] )
       } catch ( error ) {
         console.log( error )
       }
