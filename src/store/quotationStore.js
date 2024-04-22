@@ -4,7 +4,7 @@ import axios from "../utils/axios"
 export const useQuotationStore = defineStore( 'quotationStore', {
   state: () => {
     return {
-      leadId: null,
+      leadId: 52,
       userDetails: null,
       numberOfUsers: 0,
       categories: [],
