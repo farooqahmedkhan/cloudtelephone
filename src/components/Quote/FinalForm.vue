@@ -1,7 +1,15 @@
 <script setup>
-import { useQuotationStore } from "../../store/quotationStore"
+import { useQuotationStore } from "@/store/quotationStore"
+import { useStepsStore } from "@/store/stepsStore"
 
-const quotatonStore = useQuotationStore()
+const stepStore = useStepsStore()
+const quotationStore = useQuotationStore()
+
+function submit () {
+  quotationStore.updateLead( { isPartial: false, currentStep: 16 } )
+  stepStore.moveToStep( 16 )
+
+}
 </script>
 
 <template>
@@ -46,7 +54,7 @@ const quotatonStore = useQuotationStore()
       </div>
     </div>
     <div class="w-100 text-center pb-7">
-      <button @click="quotatonStore.submitForm" class="btn btn-green mt-10 text-lg">Submit</button>
+      <button @click="submit" class="btn btn-green mt-10 text-lg">Submit</button>
     </div>
   </div>
 </template>

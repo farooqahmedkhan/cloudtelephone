@@ -20,6 +20,7 @@ import PortNumber_Selector from "@/components/Quote/TelephoneNumbers/PortNumber_
 import IO_Products from "@/components/Quote/UserLinesForm/IO_Products.vue"
 import IO_Selector from "@/components/Quote/UserLinesForm/IO_Selector.vue"
 import UserCount from "@/components/Quote/UserLinesForm/UserCount.vue"
+import FinalPreview from "@/components/Quote/FinalPreview.vue"
 import { computed, watch } from "vue"
 
 const router = useRouter()
@@ -42,7 +43,8 @@ const activeStep = {
   12: NumberPorting,
   13: NewTelephoneNumber,
   14: SupportForm,
-  15: FinalForm
+  15: FinalForm,
+  16: FinalPreview
 }
 
 const getActiveComponent = computed( () => {
