@@ -24,7 +24,7 @@ const quotationStore = useQuotationStore()
 async function submitDetails () {
   const { valid } = await validate()
   if ( !valid ) return
-  quotationStore._createLead( data )
+  quotationStore.createLead( data )
   stepStore.next()
 }
 

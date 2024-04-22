@@ -1,20 +1,52 @@
 <script setup>
+import { ref, onMounted, computed } from "vue"
 import { useQuotationStore } from "../../store/quotationStore"
 import useCurrency from "@/composables/useCurrency"
 
 const { currencySymbol } = useCurrency()
 
 const quotatonStore = useQuotationStore()
+const lead = ref( null )
+const loading = ref( false )
+onMounted( async () => {
+  loading.value = true
+  lead.value = await quotatonStore.getLead()
+  loading.value = false
+} )
+
+const monthly_products = computed( () => {
+  const internetProducts = JSON.parse( lead.value.internetProducts )
+  const equipments = JSON.parse( lead.value.equipments )
+  return [
+    ...internetProducts.map( ( { name, price_monthly, value, id } ) => ( { id, name, price: price_monthly, quantity: value, total: price_monthly * value } ) ),
+    ...equipments.filter( ( { price_monthly } ) => price_monthly > 0 )
+      .map( ( { name, price_monthly, value, id } ) => ( { id, name, price: price_monthly, quantity: value, total: price_monthly * value } ) ),
+  ]
+} )
+
+const monthly_total = computed( () => monthly_products.value.reduce( ( acc, { total } ) => acc + total, 0 ) )
+
+const upfront_products = computed( () => {
+  const equipments = JSON.parse( lead.value.equipments )
+  return equipments.filter( ( { price_upfront } ) => price_upfront > 0 )
+    .map( ( { name, price_upfront, value, id } ) => ( { id, name, price: price_upfront, quantity: value, total: price_upfront * value } ) )
+} )
+
+const upfront_total = computed( () => upfront_products.value.reduce( ( acc, { total } ) => acc + total, 0 ) )
 
 </script>
 
 <template>
-  <div>
+  <div v-if="loading || !lead">
+    loading...
+  </div>
+  <div v-else>
     <div class="seventh-1">
       <div class="p-7 text-center">
         <h4 class="text-primary">Your Quotation</h4>
-        <p>For: {{ quotatonStore.finalReviewData.name }}</p>
-        <p>Date: {{ quotatonStore.finalReviewData.date }}</p>
+        <p>For: {{ lead?.customer?.name }}</p>
+        <p>Date: {{ new Date(lead.created_at).toLocaleDateString('en-GB') }}</p>
+
         <div class="relative overflow-x-auto">
           <!-- monthly -->
           <div>
@@ -25,20 +57,22 @@ const quotatonStore = useQuotationStore()
                     <h5 class="text-center">Monthly Breakdown</h5>
                   </td>
                 </tr>
-                <tr v-for="prod in quotatonStore.finalReviewData.monthly_breakdown" :key="prod.id"
+                <tr v-for="prod in monthly_products" :key="prod.id"
                   class="border-b border-neutral-200 bg-black/[0.02] dark:order-white/10 whitespace-nowrap">
-                  <td class="px-6 py-4">{{ prod.name }}</td>
-                  <td class="px-6 py-4">{{ currencySymbol }}{{ prod.price }}</td>
-                  <td class="px-6 py-4">{{ prod.quantity }}</td>
-                  <td class="px-6 py-4">{{ currencySymbol }}{{ prod.total }}</td>
+                  <td class="px-6 py-4 max-w-24 truncate">{{ prod.name }}</td>
+                  <td class="px-6 py-4 max-w-24 truncate">{{ currencySymbol }}{{ prod.price }}</td>
+                  <td class="px-6 py-4 max-w-24 truncate">{{ prod.quantity }}</td>
+                  <td class="px-6 py-4 max-w-24 truncate">{{ currencySymbol }}{{ prod.total }}</td>
                 </tr>
               </tbody>
             </table>
             <div class="text-left my-4">
               <h4 class="text-primary">Set-up cost:
-                {{ currencySymbol }}{{ quotatonStore.finalReviewData.monthly_total }}
+                {{ currencySymbol }}{{ monthly_total }}
               </h4>
-              <p class="text-primary">Price including VAT {{ currencySymbol }}6790.00</p>
+              <p class="text-primary">Price including VAT
+                {{ currencySymbol }}{{ monthly_total + (monthly_total * 0.2) }}
+              </p>
             </div>
           </div>
           <!-- setup -->
@@ -50,20 +84,22 @@ const quotatonStore = useQuotationStore()
                     <h5 class="text-center">Set-up Breakdown</h5>
                   </td>
                 </tr>
-                <tr v-for="prod in quotatonStore.finalReviewData.upfront_breakdown" :key="prod.id"
+                <tr v-for="prod in upfront_products" :key="prod.id"
                   class="border-b border-neutral-200 bg-black/[0.02] dark:order-white/10 whitespace-nowrap">
-                  <td class="px-6 py-4">{{ prod.name }}</td>
-                  <td class="px-6 py-4">{{ currencySymbol }}{{ prod.price }}</td>
-                  <td class="px-6 py-4">{{ prod.quantity }}</td>
-                  <td class="px-6 py-4">{{ currencySymbol }}{{ prod.total }}</td>
+                  <td class="px-6 py-4 max-w-24 truncate">{{ prod.name }}</td>
+                  <td class="px-6 py-4 max-w-24 truncate">{{ currencySymbol }}{{ prod.price }}</td>
+                  <td class="px-6 py-4 max-w-24 truncate">{{ prod.quantity }}</td>
+                  <td class="px-6 py-4 max-w-24 truncate">{{ currencySymbol }}{{ prod.total }}</td>
                 </tr>
               </tbody>
             </table>
             <div class="text-left my-4">
               <h4 class="text-primary">Set-up cost:
-                {{ currencySymbol }}{{ quotatonStore.finalReviewData.upfront_total }}
+                {{ currencySymbol }}{{ upfront_total }}
               </h4>
-              <p class="text-primary">Price including VAT {{ currencySymbol }}6790.00</p>
+              <p class="text-primary">Price including VAT
+                {{ currencySymbol }}{{ upfront_total + (upfront_total * 0.2) }}
+              </p>
             </div>
           </div>
 
