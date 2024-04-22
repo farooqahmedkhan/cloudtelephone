@@ -11,15 +11,24 @@ const quotationStore = useQuotationStore()
 
 function moveToEquipment () {
   window.location.hash = 'equipment'
+  if ( step.value == 3 ) {
+    const products = quotationStore.categories.flatMap( cate =>
+      cate.products.filter( product => product.value > 0 )
+    )
+    if ( products.length ) {
+      quotationStore.updateLead( { internetProducts: JSON.stringify( products ) } )
+    }
+
+  }
 }
 
 const userCount = ref( 1 )
 
 function moveToNextStep () {
   quotationStore.valuesSetter( 'numberOfUsers', userCount.value )
+  quotationStore.updateLead( { userCount: userCount.value } )
   step.value++
 }
-
 
 </script>
 

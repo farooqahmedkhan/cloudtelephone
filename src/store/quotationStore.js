@@ -4,6 +4,7 @@ import axios from "../utils/axios"
 export const useQuotationStore = defineStore( 'quotationStore', {
   state: () => {
     return {
+      leadId: null,
       userDetails: null,
       numberOfUsers: 0,
       categories: [],
@@ -18,13 +19,19 @@ export const useQuotationStore = defineStore( 'quotationStore', {
     }
   },
   actions: {
-    async createCustomer ( customerData ) {
-      const { data } = await axios.post( '/customers', customerData )
+    async _createLead ( customerData ) {
+      const { data } = await axios.post( '/leads', customerData )
       this.userDetails = {
         ...data,
         offer_code: customerData.code
       }
+      this.leadId = data.id
       return data
+    },
+    async updateLead ( data ) {
+      if ( this.leadId === null ) return
+      const { data: leadData } = await axios.put( '/leads/' + this.leadId, data )
+      return leadData
     },
     async createLead ( leadJSON, type = 'business' ) {
       const { data } = await axios.post( '/leads', { leadJSON: JSON.stringify( leadJSON ), type } )
