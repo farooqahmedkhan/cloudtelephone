@@ -1,22 +1,24 @@
 <script setup>
+import { ref } from "vue"
 import { PlusIcon, MinusIcon } from "vue-tabler-icons"
+import { useQuotationStore } from "@/store/quotationStore"
+import { useStepsStore } from "@/store/stepsStore"
 
+const stepStore = useStepsStore()
+const quotationStore = useQuotationStore()
+const phoneCount = ref( 0 )
 
-const props = defineProps( {
-  modelValue: {
-    type: Number,
-    default: 0
-  }
-} )
-
-const emit = defineEmits( ["update:modelValue"] )
 
 function decrement () {
-  if ( props.modelValue > 0 ) {
-    emit( 'update:modelValue', ( props.modelValue - 1 ) )
+  if ( phoneCount > 0 ) {
+    phoneCount.value--
   }
 }
 
+function save () {
+  quotationStore.updateLead( { currentStep: 8, numberOfPhoneTypes: phoneCount.value } )
+  stepStore.moveToStep( 8 )
+}
 
 </script>
 
@@ -29,8 +31,8 @@ function decrement () {
         <button @click="decrement">
           <minus-icon size="22" />
         </button>
-        <input type="number" :min="0" :value="modelValue" @input="$emit('update:modelValue', $event.target.value)">
-        <button @click="$emit('update:modelValue', modelValue + 1)" data-action="increment">
+        <input type="number" :min="0" v-model="phoneCount">
+        <button @click="phoneCount++" data-action="increment">
           <plus-icon size="22" />
 
         </button>
@@ -46,9 +48,9 @@ function decrement () {
     </div>
 
     <div class="w-100 flex justify-between p-7">
-      <button @click="$emit('onClickPrev')"
+      <button @click="stepStore.moveToStep(5)"
         class="btn text-white rounded-full bg-theme-dark mt-10  bg-opacity-75 text-lg">Previous</button>
-      <button @click="$emit('onClickNext')" class="btn btn-green mt-10 text-lg">Next</button>
+      <button @click="save" class="btn btn-green mt-10 text-lg">Next</button>
     </div>
   </div>
 </template>
