@@ -2,6 +2,11 @@
 import useCurrency from "@/composables/useCurrency"
 import { ref } from "vue"
 import TheCounter from "../../Base/TheCounter.vue"
+import { useQuotationStore } from "@/store/quotationStore"
+import { useStepsStore } from "@/store/stepsStore"
+
+const stepStore = useStepsStore()
+const quotationStore = useQuotationStore()
 
 
 const { currencySymbol } = useCurrency()
@@ -20,11 +25,17 @@ const numbers = ref( [
   }
 ] )
 
+function save () {
+  quotationStore.updateLead( { newTelephoneNumbers: JSON.stringify( numbers.value.filter( item => item.value > 0 ) ) } )
+  stepStore.moveToStep( 14 )
+}
+
+
 </script>
 
 <template>
   <div class="fifth-1 pt-page current">
-    <div class="key-feature-grid  grid p-7  text-center">
+    <div class="key-feature-grid grid p-7 text-center">
       <h4 class="text-primary">New Telephone Numbers</h4>
       <p class="mt-4">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam molestie odio id
         gravida fermentum. Etiam quis quam ante. Donec sit amet magna gravida, imperdiet ex lacinia,
@@ -46,9 +57,9 @@ const numbers = ref( [
 
     </div>
     <div class="w-100 flex justify-between p-7">
-      <button @click="$emit('onClickPrev')"
+      <button @click="stepStore.moveToStep(11)"
         class="btn text-white rounded-full bg-theme-dark mt-10  bg-opacity-75 text-lg">Previous</button>
-      <button @click="$emit('onClickNext', numbers)" class="btn btn-green mt-10 text-lg">Next</button>
+      <button @click="save" class="btn btn-green mt-10 text-lg">Next</button>
     </div>
   </div>
 </template>
