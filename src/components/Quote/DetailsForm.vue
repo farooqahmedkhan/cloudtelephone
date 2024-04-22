@@ -4,11 +4,15 @@ import Input from "../Base/Input.vue"
 import { useForm } from "vee-validate"
 import { useQuotationStore } from "../../store/quotationStore"
 import { useStepsStore } from "../../store/stepsStore.js"
+import { useRoute, useRouter } from "vue-router"
 
 
 
 const stepStore = useStepsStore()
 const { validate } = useForm()
+
+const router = useRouter()
+const route = useRoute()
 
 const data = reactive( {
   company: "",
@@ -24,7 +28,8 @@ const quotationStore = useQuotationStore()
 async function submitDetails () {
   const { valid } = await validate()
   if ( !valid ) return
-  quotationStore.createLead( data )
+  const resp = await quotationStore.createLead( data )
+  router.push( { query: { ...route.query, leadId: resp.id, step: 2 } } )
   stepStore.next()
 }
 

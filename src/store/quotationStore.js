@@ -1,10 +1,10 @@
 import { defineStore } from 'pinia'
 import axios from "../utils/axios"
+import useLeadId from "../composables/useLeadId.js"
 
 export const useQuotationStore = defineStore( 'quotationStore', {
   state: () => {
     return {
-      leadId: 52,
       userDetails: null,
       numberOfUsers: 0,
       categories: [],
@@ -25,17 +25,17 @@ export const useQuotationStore = defineStore( 'quotationStore', {
         ...data,
         offer_code: customerData.code
       }
-      this.leadId = data.id
       return data
     },
     async getLead () {
-      const { data } = await axios.get( '/leads/' + this.leadId )
-      console.log( data )
+      const leadId = useLeadId()
+      const { data } = await axios.get( '/leads/' + leadId )
       return data
     },
     async updateLead ( data ) {
-      if ( this.leadId === null ) return
-      const { data: leadData } = await axios.put( '/leads/' + this.leadId, data )
+      const leadId = useLeadId()
+      if ( leadId === null ) return
+      const { data: leadData } = await axios.put( '/leads/' + leadId, data )
       return leadData
     },
     async fetchCategories () {

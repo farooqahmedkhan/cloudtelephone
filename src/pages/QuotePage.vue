@@ -21,6 +21,9 @@ import IO_Products from "@/components/Quote/UserLinesForm/IO_Products.vue"
 import IO_Selector from "@/components/Quote/UserLinesForm/IO_Selector.vue"
 import UserCount from "@/components/Quote/UserLinesForm/UserCount.vue"
 import FinalPreview from "@/components/Quote/FinalPreview.vue"
+import { useQuotationStore } from "@/store/quotationStore"
+
+const quotationStore = useQuotationStore()
 import { computed, watch } from "vue"
 
 const router = useRouter()
@@ -29,7 +32,7 @@ const stepStore = useStepsStore()
 
 
 const activeStep = {
-  1: DetailsForm,
+  // 1: DetailsForm,
   2: UserCount,
   3: IO_Selector,
   4: IO_Products,
@@ -51,7 +54,15 @@ const getActiveComponent = computed( () => {
   return activeStep[stepStore.currentStep]
 } )
 
-watch( () => stepStore.currentStep, ( nv ) => {
+
+const showDetailForm = computed( () => {
+  return stepStore.currentStep === 1 || !route.query.step
+} )
+
+watch( () => stepStore.currentStep, ( nv, ov ) => {
+  if ( ov === 1 && nv === 2 ) {
+    return
+  }
   router.push( { query: { ...route.query, step: nv } } )
 } )
 
@@ -89,7 +100,8 @@ watch( () => stepStore.currentStep, ( nv ) => {
             <form @submit.prevent>
               <div id="tab-contents" class="border rounded-lg mt-10 bg-white">
                 <keep-alive>
-                  <component :is="getActiveComponent" />
+                  <DetailsForm v-if="showDetailForm" />
+                  <component v-else :is="getActiveComponent" />
                 </keep-alive>
               </div>
             </form>

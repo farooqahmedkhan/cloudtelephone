@@ -4,7 +4,7 @@ import { useRoute } from 'vue-router'
 
 export const useStepsStore = defineStore( 'steps', () => {
   const route = useRoute()
-  const initialStep = parseInt( route.query.step ) || 11
+  const initialStep = parseInt( route.query.step ) || 1
   const currentStep = ref( initialStep )
 
   const next = () => {
