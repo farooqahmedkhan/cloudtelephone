@@ -1,6 +1,6 @@
 <script setup>
 import { ref } from "vue"
-import NewNumbers from "./NewNumbers.vue"
+import NewNumbers from "./NewTelephoneNumber.vue"
 import NumberPorting from "./NumberPorting.vue"
 import { useQuotationStore } from "../../../store/quotationStore"
 

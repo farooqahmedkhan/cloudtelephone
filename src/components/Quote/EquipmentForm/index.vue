@@ -1,8 +1,8 @@
 <script setup>
 import { ref } from "vue"
-import FirstStep from "./FirstStep.vue"
-import SelectDevice from "./SelectDevice.vue"
-import PhoneMigration from "./PhoneMigration.vue"
+import FirstStep from "./Eq_Selector.vue"
+import SelectDevice from "./Eq_Products.vue"
+import PhoneMigration from "./PhoneTypes.vue"
 import { useQuotationStore } from "../../../store/quotationStore.js"
 
 

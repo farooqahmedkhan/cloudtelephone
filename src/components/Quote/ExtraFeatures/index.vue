@@ -1,6 +1,6 @@
 <script setup>
 import UnifiedCommunication from "./UnifiedCommunication.vue"
-import ExtraFeatures from "./ExtraFeatures.vue"
+import ExtraFeatures from "./ExtraFeatures_Selector.vue"
 import MixFeatures from "./MixFeatures.vue"
 import { ref } from "vue"
 import { useQuotationStore } from "../../../store/quotationStore"

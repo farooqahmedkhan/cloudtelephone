@@ -1,77 +1,57 @@
 <script setup>
-import ServicesSection from "../components/Quote/ServicesSection.vue"
+import { useStepsStore } from "../store/stepsStore.js"
+import { useRoute, useRouter } from "vue-router"
 import BreadCrumb from "../components/Base/BreadCrumb.vue"
 import QuoteStepButton from "../components/Base/QuoteStepButton.vue"
-import useHash from "../composables/useHash.js"
-import DetailsForm from "../components/Quote/DetailsForm.vue"
-import UserLinesForm from "../components/Quote/UserLinesForm/index.vue"
-import EquipmentForm from "../components/Quote/EquipmentForm/index.vue"
-import FeaturesForm from "../components/Quote/ExtraFeatures/index.vue"
-import TelephoneNumbers from "../components/Quote/TelephoneNumbers/index.vue"
-import SupportForm from "../components/Quote/SupportForm.vue"
-import FinalForm from "../components/Quote/FinalForm.vue"
-import FinalPreview from "../components/Quote/FinalPreview.vue"
+import ServicesSection from "../components/Quote/ServicesSection.vue"
 
+import DetailsForm from "@/components/Quote/DetailsForm.vue"
+import Eq_Products from "@/components/Quote/EquipmentForm/Eq_Products.vue"
+import Eq_Selector from "@/components/Quote/EquipmentForm/Eq_Selector.vue"
+import PhoneTypes from "@/components/Quote/EquipmentForm/PhoneTypes.vue"
+import ExtraFeatures_Selector from "@/components/Quote/ExtraFeatures/ExtraFeatures_Selector.vue"
+import MixFeatures from "@/components/Quote/ExtraFeatures/MixFeatures.vue"
+import UnifiedCommunication from "@/components/Quote/ExtraFeatures/UnifiedCommunication.vue"
+import FinalForm from "@/components/Quote/FinalForm.vue"
+import SupportForm from "@/components/Quote/SupportForm.vue"
+import NewTelephoneNumber from "@/components/Quote/TelephoneNumbers/NewTelephoneNumber.vue"
+import NumberPorting from "@/components/Quote/TelephoneNumbers/NumberPorting.vue"
+import PortNumber_Selector from "@/components/Quote/TelephoneNumbers/PortNumber_Selector.vue"
+import IO_Products from "@/components/Quote/UserLinesForm/IO_Products.vue"
+import IO_Selector from "@/components/Quote/UserLinesForm/IO_Selector.vue"
+import UserCount from "@/components/Quote/UserLinesForm/UserCount.vue"
+import { computed, watch } from "vue"
 
-const stepButtons = [
-  {
-    id: 1,
-    title: "Your Details",
-    slug: "details",
-    desc: "Some info about you."
-  },
-  {
-    id: 2,
-    title: "Users & Lines",
-    slug: "user-lines",
-    desc: "Where we sending it?"
-  },
-  {
-    id: 3,
-    title: "Equipment",
-    slug: "equipment",
-    desc: "Where we sending it?"
-  },
-  {
-    id: 5,
-    title: "Extra Features",
-    slug: "extra-features",
-    desc: "Where we sending it?"
-  },
-  {
-    id: 6,
-    title: "Telephone Numbers",
-    slug: "tel-numbers",
-    desc: "Lorem ipsum dolor sit"
-  },
-  {
-    id: 7,
-    title: "Install & Support",
-    slug: "install-support",
-    desc: "Show us the money."
-  },
-  {
-    id: 8,
-    title: "Complete",
-    slug: "complete",
-    desc: "Show us the money."
-  },
-]
+const router = useRouter()
+const route = useRoute()
+const stepStore = useStepsStore()
 
-const hash = useHash()
-
-window.location.hash = 'details'
 
 const activeStep = {
-  "details": DetailsForm,
-  "user-lines": UserLinesForm,
-  "equipment": EquipmentForm,
-  "extra-features": FeaturesForm,
-  "tel-numbers": TelephoneNumbers,
-  "install-support": SupportForm,
-  "complete": FinalForm,
-  "review": FinalPreview
+  1: DetailsForm,
+  2: UserCount,
+  3: IO_Selector,
+  4: IO_Products,
+  5: Eq_Selector,
+  6: Eq_Products,
+  7: PhoneTypes,
+  8: UnifiedCommunication,
+  9: ExtraFeatures_Selector,
+  10: MixFeatures,
+  11: PortNumber_Selector,
+  12: NumberPorting,
+  13: NewTelephoneNumber,
+  14: SupportForm,
+  15: FinalForm
 }
+
+const getActiveComponent = computed( () => {
+  return activeStep[stepStore.currentStep]
+} )
+
+watch( () => stepStore.currentStep, ( nv ) => {
+  router.push( { query: { ...route.query, step: nv } } )
+} )
 
 
 </script>
@@ -99,15 +79,15 @@ const activeStep = {
           <div class="lg:col-3">
             <ul id="tabs"
               class="divide-x divide-gray-100  mt-10 rounded-lg border border-gray-100 text-sm text-gray-5 bg-white">
-              <QuoteStepButton v-for="step in stepButtons" :key="step.id" :step="step"
-                :class="`${hash === step.slug ? 'active' : ''}`" />
+              <QuoteStepButton v-for="step in stepStore.stepButtons" :key="step.id" :step="step"
+                :class="`${step.active ? 'active' : ''}`" />
             </ul>
           </div>
           <div class="lg:col-9">
             <form @submit.prevent>
               <div id="tab-contents" class="border rounded-lg mt-10 bg-white">
                 <keep-alive>
-                  <component :is="activeStep[hash]" />
+                  <component :is="getActiveComponent" />
                 </keep-alive>
               </div>
             </form>

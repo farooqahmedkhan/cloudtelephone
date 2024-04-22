@@ -1,7 +1,17 @@
 <script setup>
-defineProps( {
+import { useStepsStore } from "../../store/stepsStore"
+
+const props = defineProps( {
   step: Object
 } )
+
+const stepStore = useStepsStore()
+
+
+function onClick () {
+  if ( props.step.disabled ) return
+  stepStore.moveToStep( props.step.id )
+}
 </script>
 
 <template>
@@ -21,7 +31,8 @@ defineProps( {
         </p>
       </a>
     </template>
-    <a v-else :href="`#${step.slug}`" class="flex gap-3" disabled>
+
+    <button v-else class="flex gap-3" :disabled="step.disabled" @click="onClick">
       <template v-if="step.slug === 'user-lines'">
         <svg class="size-7 shrink-0 mb-2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 512">
           <path stroke-linecap="round" stroke-linejoin="round"
@@ -78,11 +89,11 @@ defineProps( {
             d="M3 10h18M7 15h1m4 0h1m-7 4h12a3 3 0 003-3V8a3 3 0 00-3-3H6a3 3 0 00-3 3v8a3 3 0 003 3z" />
         </svg>
       </template>
-      <p class="leading-none">
+      <p class="leading-none text-left">
         <strong class="block font-medium"> {{ step.title }} </strong>
         <small class="mt-1"> {{ step.desc }} </small>
       </p>
-    </a>
+    </button>
   </li>
 </template>
 

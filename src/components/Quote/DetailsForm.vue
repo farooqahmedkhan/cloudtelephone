@@ -3,8 +3,11 @@ import { onMounted, reactive } from "vue"
 import Input from "../Base/Input.vue"
 import { useForm } from "vee-validate"
 import { useQuotationStore } from "../../store/quotationStore"
+import { useStepsStore } from "../../store/stepsStore.js"
 
 
+
+const stepStore = useStepsStore()
 const { validate } = useForm()
 
 const data = reactive( {
@@ -22,7 +25,7 @@ async function submitDetails () {
   const { valid } = await validate()
   if ( !valid ) return
   quotationStore._createLead( data )
-  window.location.hash = 'user-lines'
+  stepStore.next()
 }
 
 

@@ -1,8 +1,8 @@
 <script setup>
 import { ref } from "vue"
 import { useQuotationStore } from "../../../store/quotationStore.js"
-import Broadband from "./Broadband.vue"
-import InternetOptions from "./InternetOptions.vue"
+import Broadband from "./IO_Products.vue"
+import InternetOptions from "./IO_Selector.vue"
 import UserCount from "./UserCount.vue"
 
 const step = ref( 1 )
