@@ -1,7 +1,11 @@
 <script setup>
 import { ref } from "vue"
 import FeatureItem from "../../Base/FeatureItem.vue"
+import { useQuotationStore } from "@/store/quotationStore"
+import { useStepsStore } from "@/store/stepsStore"
 
+const stepStore = useStepsStore()
+const quotationStore = useQuotationStore()
 
 
 const features = ref( [
@@ -96,6 +100,22 @@ const features = ref( [
 
 ] )
 
+function save () {
+  const selectedFeatures = features.value.filter( item => {
+    if ( typeof item.value === 'number' ) {
+      return item.value > 0
+    } else if ( typeof item.value === 'string' ) {
+      return item.value !== null && item.value.trim() !== ''
+    } else if ( typeof item.value === 'boolean' ) {
+      return item.value === true
+    } else {
+      return false
+    }
+  } )
+  quotationStore.updateLead( { currentStep: 9, extraFeatures: JSON.stringify( selectedFeatures ) } )
+  stepStore.moveToStep( 11 )
+}
+
 </script>
 
 
@@ -114,9 +134,9 @@ const features = ref( [
 
     </div>
     <div class="w-100 flex justify-between p-7">
-      <button @click="$emit('onClickPrev')"
+      <button @click="stepStore.moveToStep(9)"
         class="btn text-white rounded-full bg-theme-dark mt-10  bg-opacity-75 text-lg">Previous</button>
-      <button @click="$emit('onClickNext', features)" class="btn btn-green mt-10 text-lg">Next</button>
+      <button @click="save" class="btn btn-green mt-10 text-lg">Next</button>
     </div>
   </div>
 </template>
