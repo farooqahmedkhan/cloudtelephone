@@ -1,18 +1,13 @@
 <script setup>
-import { onMounted, reactive } from "vue"
-import Input from "../Base/Input.vue"
+import useStep from "@/composables/useStep.js"
 import { useForm } from "vee-validate"
+import { onMounted, reactive } from "vue"
 import { useQuotationStore } from "../../store/quotationStore"
-import { useStepsStore } from "../../store/stepsStore.js"
-import { useRoute, useRouter } from "vue-router"
+import Input from "../Base/Input.vue"
 
-
-
-const stepStore = useStepsStore()
+const { moveToNextStep } = useStep()
 const { validate } = useForm()
 
-const router = useRouter()
-const route = useRoute()
 
 const data = reactive( {
   company: "",
@@ -29,8 +24,7 @@ async function submitDetails () {
   const { valid } = await validate()
   if ( !valid ) return
   const resp = await quotationStore.createLead( data )
-  router.push( { query: { ...route.query, leadId: resp.id, step: 2 } } )
-  stepStore.next()
+  moveToNextStep( resp.id )
 }
 
 

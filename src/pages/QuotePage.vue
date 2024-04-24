@@ -1,6 +1,4 @@
 <script setup>
-import { useStepsStore } from "../store/stepsStore.js"
-import { useRoute, useRouter } from "vue-router"
 import BreadCrumb from "../components/Base/BreadCrumb.vue"
 import QuoteStepButton from "../components/Base/QuoteStepButton.vue"
 import ServicesSection from "../components/Quote/ServicesSection.vue"
@@ -13,6 +11,7 @@ import ExtraFeatures_Selector from "@/components/Quote/ExtraFeatures/ExtraFeatur
 import MixFeatures from "@/components/Quote/ExtraFeatures/MixFeatures.vue"
 import UnifiedCommunication from "@/components/Quote/ExtraFeatures/UnifiedCommunication.vue"
 import FinalForm from "@/components/Quote/FinalForm.vue"
+import FinalPreview from "@/components/Quote/FinalPreview.vue"
 import SupportForm from "@/components/Quote/SupportForm.vue"
 import NewTelephoneNumber from "@/components/Quote/TelephoneNumbers/NewTelephoneNumber.vue"
 import NumberPorting from "@/components/Quote/TelephoneNumbers/NumberPorting.vue"
@@ -20,19 +19,15 @@ import PortNumber_Selector from "@/components/Quote/TelephoneNumbers/PortNumber_
 import IO_Products from "@/components/Quote/UserLinesForm/IO_Products.vue"
 import IO_Selector from "@/components/Quote/UserLinesForm/IO_Selector.vue"
 import UserCount from "@/components/Quote/UserLinesForm/UserCount.vue"
-import FinalPreview from "@/components/Quote/FinalPreview.vue"
-import { useQuotationStore } from "@/store/quotationStore"
+import useStep from "../composables/useStep.js"
 
-const quotationStore = useQuotationStore()
-import { computed, watch } from "vue"
+import { computed } from "vue"
 
-const router = useRouter()
-const route = useRoute()
-const stepStore = useStepsStore()
+const { step, stepButtons } = useStep()
 
 
 const activeStep = {
-  // 1: DetailsForm,
+  1: DetailsForm,
   2: UserCount,
   3: IO_Selector,
   4: IO_Products,
@@ -51,21 +46,8 @@ const activeStep = {
 }
 
 const getActiveComponent = computed( () => {
-  return activeStep[stepStore.currentStep]
+  return activeStep[step.value]
 } )
-
-
-const showDetailForm = computed( () => {
-  return stepStore.currentStep === 1 || !route.query.step
-} )
-
-watch( () => stepStore.currentStep, ( nv, ov ) => {
-  if ( ov === 1 && nv === 2 ) {
-    return
-  }
-  router.push( { query: { ...route.query, step: nv } } )
-} )
-
 
 </script>
 
@@ -82,7 +64,7 @@ watch( () => stepStore.currentStep, ( nv, ov ) => {
               <h2 class="text-center mb-3">Instant Phone System <br><span class="text-blue uppercase">Quote
                   Wizard</span>
               </h2>
-              <p class="text-center">Complete in 60 second</p>
+              <p class="text-center">Complete in 60 second -- {{ step }}</p>
             </div>
           </div>
         </div>
@@ -92,7 +74,7 @@ watch( () => stepStore.currentStep, ( nv, ov ) => {
           <div class="lg:col-3">
             <ul id="tabs"
               class="divide-x divide-gray-100  mt-10 rounded-lg border border-gray-100 text-sm text-gray-5 bg-white">
-              <QuoteStepButton v-for="step in stepStore.stepButtons" :key="step.id" :step="step"
+              <QuoteStepButton v-for="step in stepButtons" :key="step.id" :step="step"
                 :class="`${step.active ? 'active' : ''}`" />
             </ul>
           </div>
@@ -100,8 +82,7 @@ watch( () => stepStore.currentStep, ( nv, ov ) => {
             <form @submit.prevent>
               <div id="tab-contents" class="border rounded-lg mt-10 bg-white">
                 <keep-alive>
-                  <DetailsForm v-if="showDetailForm" />
-                  <component v-else :is="getActiveComponent" />
+                  <component :is="getActiveComponent" />
                 </keep-alive>
               </div>
             </form>
