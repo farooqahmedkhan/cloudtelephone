@@ -1,13 +1,14 @@
 <script setup>
+import useStep from "@/composables/useStep.js"
 import { useQuotationStore } from "@/store/quotationStore"
-import { useStepsStore } from "@/store/stepsStore"
 
-const stepStore = useStepsStore()
+
+const { jumpToStep } = useStep()
 const quotationStore = useQuotationStore()
 
 function submit () {
   quotationStore.updateLead( { isPartial: false, currentStep: 16 } )
-  stepStore.moveToStep( 16 )
+  jumpToStep( 16 )
 
 }
 </script>

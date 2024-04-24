@@ -1,11 +1,12 @@
 <script setup>
 import useCurrency from "@/composables/useCurrency"
+import useStep from "@/composables/useStep.js"
 import { useQuotationStore } from "@/store/quotationStore"
-import { useStepsStore } from "@/store/stepsStore"
 import { ref } from "vue"
 import TheCounter from "../../Base/TheCounter.vue"
 
-const stepStore = useStepsStore()
+
+const { jumpToStep } = useStep()
 const quotationStore = useQuotationStore()
 
 const { currencySymbol } = useCurrency()
@@ -33,7 +34,7 @@ const numbers = ref( [
 
 function save () {
   quotationStore.updateLead( { portingNumbers: JSON.stringify( numbers.value.filter( item => item.value > 0 ) ) } )
-  stepStore.moveToStep( 13 )
+  jumpToStep( 13 )
 }
 
 </script>
@@ -63,7 +64,7 @@ function save () {
       </div>
     </div>
     <div class="w-100 flex justify-between p-7">
-      <button @click="stepStore.moveToStep(11)"
+      <button @click="jumpToStep(11)"
         class="btn text-white rounded-full bg-theme-dark mt-10  bg-opacity-75 text-lg">Previous</button>
       <button @click="save" class="btn btn-green mt-10 text-lg">Next</button>
     </div>

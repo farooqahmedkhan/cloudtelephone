@@ -1,12 +1,14 @@
 <script setup>
+import useStep from "@/composables/useStep.js"
 import { useQuotationStore } from "@/store/quotationStore"
-import { useStepsStore } from "@/store/stepsStore"
 import { Switch } from '@headlessui/vue'
 import { computed, onMounted, ref } from "vue"
 import DeviceComponent from "../../Base/DeviceComponent.vue"
 
 
-const stepStore = useStepsStore()
+const { jumpToStep } = useStep()
+
+
 const quotationStore = useQuotationStore()
 const loading = ref( false )
 
@@ -22,7 +24,7 @@ const pay_monthly = ref( false )
 
 function saveProducts () {
   quotationStore.updateLead( { currentStep: 8, equipments: JSON.stringify( quotationStore.products.filter( product => product.value > 0 ) ) } )
-  stepStore.moveToStep( 8 )
+  jumpToStep( 8 )
 }
 
 const proudctsToShow = computed( () => {
@@ -58,7 +60,7 @@ const proudctsToShow = computed( () => {
 
     </div>
     <div class="w-100 flex justify-between p-7">
-      <button @click="stepStore.moveToStep(5)"
+      <button @click="jumpToStep(5)"
         class="btn text-white rounded-full bg-theme-dark mt-10  bg-opacity-75 text-lg">Previous</button>
       <button @click="saveProducts" class="btn btn-green mt-10 text-lg">Next</button>
     </div>

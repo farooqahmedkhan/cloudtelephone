@@ -1,10 +1,11 @@
 <script setup>
+import useStep from "@/composables/useStep.js"
+import { useQuotationStore } from "@/store/quotationStore"
 import { ref } from "vue"
 import FeatureItem from "../../Base/FeatureItem.vue"
-import { useQuotationStore } from "@/store/quotationStore"
-import { useStepsStore } from "@/store/stepsStore"
 
-const stepStore = useStepsStore()
+
+const { jumpToStep } = useStep()
 const quotationStore = useQuotationStore()
 
 
@@ -112,8 +113,8 @@ function save () {
       return false
     }
   } )
-  quotationStore.updateLead( { currentStep: 9, extraFeatures: JSON.stringify( selectedFeatures ) } )
-  stepStore.moveToStep( 11 )
+  quotationStore.updateLead( { currentStep: 11, extraFeatures: JSON.stringify( selectedFeatures ) } )
+  jumpToStep( 11 )
 }
 
 </script>
@@ -134,7 +135,7 @@ function save () {
 
     </div>
     <div class="w-100 flex justify-between p-7">
-      <button @click="stepStore.moveToStep(9)"
+      <button @click="jumpToStep(9)"
         class="btn text-white rounded-full bg-theme-dark mt-10  bg-opacity-75 text-lg">Previous</button>
       <button @click="save" class="btn btn-green mt-10 text-lg">Next</button>
     </div>

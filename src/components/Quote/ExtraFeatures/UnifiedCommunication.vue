@@ -1,11 +1,14 @@
 <script setup>
+import useStep from "@/composables/useStep.js"
+import { useQuotationStore } from "@/store/quotationStore"
 import { onMounted, ref } from "vue"
 import UcItem from "../../Base/UcItem.vue"
-import { useQuotationStore } from "@/store/quotationStore"
-import { useStepsStore } from "@/store/stepsStore"
+
+
+const { jumpToStep } = useStep()
 
 const quotationStore = useQuotationStore()
-const stepStore = useStepsStore()
+
 const loading = ref( false )
 
 onMounted( async () => {
@@ -19,7 +22,7 @@ onMounted( async () => {
 
 function save () {
   quotationStore.updateLead( { currentStep: 9, unifiedProducts: JSON.stringify( quotationStore.unifiedCommunicationItems.filter( item => item.value > 0 ) ) } )
-  stepStore.moveToStep( 9 )
+  jumpToStep( 9 )
 }
 
 </script>
@@ -82,7 +85,7 @@ function save () {
       </div>
     </div>
     <div class="w-100 flex justify-between p-7">
-      <button @click="stepStore.moveToStep(5)"
+      <button @click="jumpToStep(5)"
         class="btn text-white rounded-full bg-theme-dark mt-10  bg-opacity-75 text-lg">Previous</button>
       <button @click="save" class="btn btn-green mt-10 text-lg">Next</button>
     </div>

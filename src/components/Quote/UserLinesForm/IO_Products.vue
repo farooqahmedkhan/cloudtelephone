@@ -1,12 +1,14 @@
 <script setup>
-import BroadbandItem from "../../Base/BroadbandItem.vue"
 import Input from "@/components/Base/Input.vue"
-import { useQuotationStore } from "@/store/quotationStore"
+import useStep from "@/composables/useStep.js"
 import { useAvailabilityStore } from "@/store/checkAvailability"
+import { useQuotationStore } from "@/store/quotationStore"
 import { onMounted, ref } from "vue"
-import { useStepsStore } from "../../../store/stepsStore"
+import BroadbandItem from "../../Base/BroadbandItem.vue"
 
-const stepStore = useStepsStore()
+
+const { moveToNextStep, moveToPreviousStep } = useStep()
+
 
 
 const quotationStore = useQuotationStore()
@@ -32,7 +34,7 @@ async function save () {
   )
   if ( products.length ) {
     await quotationStore.updateLead( { internetProducts: JSON.stringify( products ), currentStep: 5 } )
-    stepStore.next()
+    moveToNextStep()
   }
 }
 
@@ -88,7 +90,7 @@ async function save () {
       </div>
     </div>
     <div class="w-100 flex justify-between">
-      <button @click="stepStore.prev"
+      <button @click="moveToPreviousStep"
         class="btn text-white rounded-full bg-theme-dark mt-10  bg-opacity-75 text-lg">Previous</button>
       <button @click="save" class="btn btn-green mt-10 text-lg">Next</button>
     </div>

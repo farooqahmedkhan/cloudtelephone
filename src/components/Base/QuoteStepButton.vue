@@ -1,16 +1,18 @@
 <script setup>
-import { useStepsStore } from "../../store/stepsStore"
+import useStep from "@/composables/useStep.js"
+
+
+const { jumpToStep } = useStep()
 
 const props = defineProps( {
   step: Object
 } )
 
-const stepStore = useStepsStore()
 
 
 function onClick () {
   if ( props.step.disabled ) return
-  stepStore.moveToStep( props.step.id )
+  jumpToStep( props.step.id )
 }
 </script>
 

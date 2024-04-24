@@ -1,17 +1,18 @@
 <script setup>
+import useStep from "@/composables/useStep.js"
 import { useQuotationStore } from "@/store/quotationStore"
-import { useStepsStore } from "@/store/stepsStore"
 
-const stepStore = useStepsStore()
+
+const { jumpToStep } = useStep()
 const quotationStore = useQuotationStore()
 
 function moveToCompleteSection ( value ) {
   if ( value === 'automatic' ) {
     quotationStore.updateLead( { installationSupport: 'Automatic Install & Ongoing Support Free', currentStep: 15 } )
-    stepStore.moveToStep( 15 )
+    jumpToStep( 15 )
   } else {
     quotationStore.updateLead( { installationSupport: 'On-Site CAbling 550 per Day (Approx)', currentStep: 15 } )
-    stepStore.moveToStep( 15 )
+    jumpToStep( 15 )
   }
 }
 </script>
@@ -40,7 +41,7 @@ function moveToCompleteSection ( value ) {
           Curabitur convallis sem id condimentum vulputate.</p>
       </div>
       <div class="w-100 flex justify-between p-7">
-        <button @click="stepStore.moveToStep(11)"
+        <button @click="jumpToStep(11)"
           class="btn text-white rounded-full bg-theme-dark mt-10  bg-opacity-75 text-lg">Previous</button>
       </div>
     </div>

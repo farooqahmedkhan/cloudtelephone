@@ -1,14 +1,15 @@
 <script setup>
+import useStep from "@/composables/useStep.js"
 import { useQuotationStore } from "@/store/quotationStore"
-import { useStepsStore } from "@/store/stepsStore"
 
-const stepStore = useStepsStore()
+
+const { jumpToStep, moveToPreviousStep } = useStep()
 const quotationStore = useQuotationStore()
 
 
 function saveStepInDB ( step ) {
   quotationStore.updateLead( { currentStep: step } )
-  stepStore.moveToStep( step )
+  jumpToStep( step )
 }
 
 </script>
@@ -39,7 +40,7 @@ function saveStepInDB ( step ) {
         Curabitur convallis sem id condimentum vulputate.</p>
     </div>
     <div class="w-100 flex justify-between p-7">
-      <button @click="$emit('onClickPrev')"
+      <button @click="moveToPreviousStep"
         class="btn text-white rounded-full bg-theme-dark mt-10  bg-opacity-75 text-lg">Previous</button>
     </div>
   </div>

@@ -1,12 +1,13 @@
 <script setup>
+import useStep from "@/composables/useStep.js"
 import { ref } from "vue"
-import { PlusIcon, MinusIcon } from "vue-tabler-icons"
+import { MinusIcon, PlusIcon } from "vue-tabler-icons"
 import { useQuotationStore } from "../../../store/quotationStore"
-import { useStepsStore } from "../../../store/stepsStore"
 
+
+const { moveToNextStep } = useStep()
 const userNo = ref( 0 )
 const quotationStore = useQuotationStore()
-const stepStore = useStepsStore()
 
 
 function decrement () {
@@ -16,9 +17,9 @@ function decrement () {
 }
 
 
-function saveUserNo () {
-  quotationStore.updateLead( { userCount: userNo.value, currentStep: 3 } )
-  stepStore.next()
+async function saveUserNo () {
+  await quotationStore.updateLead( { userCount: userNo.value, currentStep: 3 } )
+  moveToNextStep()
 }
 
 </script>

@@ -12,7 +12,7 @@ export default function useStep () {
 
 
   const next = ( leadId = null ) => {
-    if ( step.value === 15 ) return
+    if ( step.value === 16 ) return
     const nextStep = step.value + 1
     if ( leadId !== null && step.value === 1 ) {
       router.push( { query: { ...route.query, step: nextStep, leadId } } )
@@ -22,8 +22,7 @@ export default function useStep () {
   }
 
   const moveToStep = ( newStep ) => {
-    if ( newStep <= 1 || newStep > 15 || newStep == step.value ) return
-    console.log( 'cange' )
+    if ( newStep <= 1 || newStep > 16 || newStep == step.value ) return
     router.push( { query: { ...route.query, step: newStep } } )
   }
 

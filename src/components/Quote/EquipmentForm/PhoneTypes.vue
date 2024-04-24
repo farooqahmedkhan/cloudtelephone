@@ -1,10 +1,11 @@
 <script setup>
-import { ref } from "vue"
-import { PlusIcon, MinusIcon } from "vue-tabler-icons"
+import useStep from "@/composables/useStep.js"
 import { useQuotationStore } from "@/store/quotationStore"
-import { useStepsStore } from "@/store/stepsStore"
+import { ref } from "vue"
+import { MinusIcon, PlusIcon } from "vue-tabler-icons"
 
-const stepStore = useStepsStore()
+
+const { jumpToStep } = useStep()
 const quotationStore = useQuotationStore()
 const phoneCount = ref( 0 )
 
@@ -17,7 +18,7 @@ function decrement () {
 
 function save () {
   quotationStore.updateLead( { currentStep: 8, numberOfPhoneTypes: phoneCount.value } )
-  stepStore.moveToStep( 8 )
+  jumpToStep( 8 )
 }
 
 </script>
@@ -48,7 +49,7 @@ function save () {
     </div>
 
     <div class="w-100 flex justify-between p-7">
-      <button @click="stepStore.moveToStep(5)"
+      <button @click="jumpToStep(5)"
         class="btn text-white rounded-full bg-theme-dark mt-10  bg-opacity-75 text-lg">Previous</button>
       <button @click="save" class="btn btn-green mt-10 text-lg">Next</button>
     </div>
