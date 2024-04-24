@@ -1,27 +1,11 @@
-import { ref, onMounted, onUnmounted } from 'vue'
+import { computed } from 'vue'
 
 export default function useLeadId () {
-  const leadId = ref( null )
-
-  const updateLeadId = () => {
+  const leadId = computed( () => {
     const urlParams = new URLSearchParams( window.location.search )
     const value = urlParams.get( 'leadId' )
-    leadId.value = value ? parseInt( value ) : null
-  }
-
-  // Function to handle URL changes
-  const onUrlChange = () => {
-    updateLeadId()
-  }
-
-  onMounted( () => {
-    updateLeadId()
-    window.addEventListener( 'popstate', onUrlChange )
+    return value ? parseInt( value ) : null
   } )
 
-  onUnmounted( () => {
-    window.removeEventListener( 'popstate', onUrlChange )
-  } )
-
-  return leadId
+  return leadId.value
 }

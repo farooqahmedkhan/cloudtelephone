@@ -34,7 +34,7 @@ export const useQuotationStore = defineStore( 'quotationStore', {
     },
     async updateLead ( data ) {
       const leadId = useLeadId()
-      if ( leadId === null ) return
+      if ( !leadId ) return
       const { data: leadData } = await axios.put( '/leads/' + leadId, data )
       return leadData
     },
