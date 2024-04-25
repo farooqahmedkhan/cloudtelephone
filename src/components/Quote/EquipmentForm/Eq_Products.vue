@@ -1,11 +1,18 @@
 <script setup>
+import useStep from "@/composables/useStep.js"
 import { useQuotationStore } from "@/store/quotationStore"
 import { Switch } from '@headlessui/vue'
-import DeviceComponent from "../../Base/DeviceComponent.vue"
 import { computed, onMounted, ref } from "vue"
+import DeviceComponent from "../../Base/DeviceComponent.vue"
+
+
+const { jumpToStep } = useStep()
+
 
 const quotationStore = useQuotationStore()
 const loading = ref( false )
+
+
 
 onMounted( async () => {
   loading.value = true
@@ -14,23 +21,10 @@ onMounted( async () => {
 } )
 
 const pay_monthly = ref( false )
-const stepNo = ref( 1 )
 
-function onClickPrev () {
-  if ( stepNo.value <= 1 ) {
-    window.location.hash = 'user-lines'
-  } else {
-    stepNo.value--
-  }
-
-}
-
-function onClickNext () {
-  if ( stepNo.value > 1 ) {
-    window.location.hash = "extra-features"
-  } else {
-    stepNo.value++
-  }
+function saveProducts () {
+  quotationStore.updateLead( { currentStep: 8, equipments: JSON.stringify( quotationStore.products.filter( product => product.value > 0 ) ) } )
+  jumpToStep( 8 )
 }
 
 const proudctsToShow = computed( () => {
@@ -66,9 +60,9 @@ const proudctsToShow = computed( () => {
 
     </div>
     <div class="w-100 flex justify-between p-7">
-      <button @click="$emit('onClickPrev')"
+      <button @click="jumpToStep(5)"
         class="btn text-white rounded-full bg-theme-dark mt-10  bg-opacity-75 text-lg">Previous</button>
-      <button @click="$emit('onClickNext')" class="btn btn-green mt-10 text-lg">Next</button>
+      <button @click="saveProducts" class="btn btn-green mt-10 text-lg">Next</button>
     </div>
   </div>
 </template>

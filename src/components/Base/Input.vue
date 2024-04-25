@@ -1,6 +1,6 @@
 <script setup>
 import { useField } from 'vee-validate'
-import { computed } from 'vue'
+import { computed, watch } from 'vue'
 
 const emit = defineEmits( ['update:modelValue'] )
 
@@ -37,6 +37,14 @@ const props = defineProps( {
 } )
 
 const { value, errorMessage, validate } = useField( props.name, props.rules )
+
+let first = true
+watch( () => props.modelValue, ( newValue ) => {
+  if ( first && newValue ) {
+    first = false
+    value.value = newValue
+  }
+} )
 
 const inputModelValue = computed( {
   get () {

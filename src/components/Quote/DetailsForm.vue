@@ -1,11 +1,13 @@
 <script setup>
-import { onMounted, reactive } from "vue"
-import Input from "../Base/Input.vue"
+import useStep from "@/composables/useStep.js"
 import { useForm } from "vee-validate"
+import { onMounted, reactive } from "vue"
 import { useQuotationStore } from "../../store/quotationStore"
+import Input from "../Base/Input.vue"
 
-
+const { moveToNextStep } = useStep()
 const { validate } = useForm()
+
 
 const data = reactive( {
   company: "",
@@ -21,8 +23,8 @@ const quotationStore = useQuotationStore()
 async function submitDetails () {
   const { valid } = await validate()
   if ( !valid ) return
-  quotationStore.createCustomer( data )
-  window.location.hash = 'user-lines'
+  const resp = await quotationStore.createLead( data )
+  moveToNextStep( 16 )
 }
 
 

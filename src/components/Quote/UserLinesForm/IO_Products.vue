@@ -1,9 +1,14 @@
 <script setup>
-import BroadbandItem from "../../Base/BroadbandItem.vue"
 import Input from "@/components/Base/Input.vue"
-import { useQuotationStore } from "@/store/quotationStore"
+import useStep from "@/composables/useStep.js"
 import { useAvailabilityStore } from "@/store/checkAvailability"
+import { useQuotationStore } from "@/store/quotationStore"
 import { onMounted, ref } from "vue"
+import BroadbandItem from "../../Base/BroadbandItem.vue"
+
+
+const { moveToNextStep, moveToPreviousStep } = useStep()
+
 
 
 const quotationStore = useQuotationStore()
@@ -23,11 +28,21 @@ const checkAvailability = async () => {
 }
 
 
+async function save () {
+  const products = quotationStore.categories.flatMap( cate =>
+    cate.products.filter( product => product.value > 0 )
+  )
+  if ( products.length ) {
+    await quotationStore.updateLead( { internetProducts: JSON.stringify( products ), currentStep: 5 } )
+    moveToNextStep()
+  }
+}
+
 </script>
 
 <template>
-  <div class="screen-2-1 pt-page ">
-    <div class="key-feature-grid grid p-7">
+  <div class="p-7">
+    <div class="key-feature-grid grid">
       <h4 class="text-primary text-center">Internet Options</h4>
       <img alt="" src="/images/internet-options.jpg" class="mx-auto">
       <div v-if="fetchingData" class="mt-4">
@@ -37,7 +52,7 @@ const checkAvailability = async () => {
         <div class="my-3" v-for="category in quotationStore.categories" :key="category.id">
           <div class="flex flex-col">
             <div class="overflow-x-auto sm:-mx-6 lg:-mx-8">
-              <div class="inline-block min-w-full py-2 sm:px-6 lg:px-8">
+              <div class="inline-block text-center min-w-full py-2 sm:px-6 lg:px-8">
                 <h5>{{ category.name }}</h5>
                 <p class="font-regular" v-html="category.description" />
               </div>
@@ -68,16 +83,16 @@ const checkAvailability = async () => {
         </div>
         <div class="flex flex-wrap items-center gap-x-6 w-1/2 mx-auto">
 
-          <Input name="''" placeholder="Postcode" class="flex-1" v-model="postCode" />
+          <Input name="''" placeholder="Postcode" class="flex-1" v-model="postCode" id="postcode" />
           <button class="btn btn-green text-lg" @click="checkAvailability">Check</button>
         </div>
         <div v-html="availabilityStore.resp"></div>
       </div>
     </div>
     <div class="w-100 flex justify-between">
-      <button @click="$emit('moveToPrevious')"
+      <button @click="moveToPreviousStep"
         class="btn text-white rounded-full bg-theme-dark mt-10  bg-opacity-75 text-lg">Previous</button>
-      <button @click="$emit('moveToNext')" class="btn btn-green mt-10 text-lg">Next</button>
+      <button @click="save" class="btn btn-green mt-10 text-lg">Next</button>
     </div>
   </div>
 </template>

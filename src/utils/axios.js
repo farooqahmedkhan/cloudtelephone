@@ -1,6 +1,7 @@
 import axios from "axios"
 
 axios.defaults.baseURL = import.meta.env.VITE_API_URL
+// axios.defaults.baseURL = "https://cloudtelephone-crm.vercel.app"
 
 // axios.interceptors.request.use( ( request ) => {
 //   request.headers.Authorization = `Bearer ${localStorage.getItem( 'token' )}`

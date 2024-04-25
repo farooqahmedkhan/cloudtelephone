@@ -1,6 +1,8 @@
 <script setup>
-import { PlusIcon, MinusIcon } from "vue-tabler-icons"
+import useCurrency from "@/composables/useCurrency"
 import TheCounter from "@/components/Base/TheCounter.vue"
+
+const { currencySymbol } = useCurrency()
 const props = defineProps( {
   name: {
     type: String,
@@ -32,7 +34,7 @@ function decrement () {
     <h6 class="col-span-3 md:col-span-1 break-words">{{ name }}</h6>
     <span class="col-span-3 md:col-span-1 px-6 py-4 text-blue bg-red flex justify-center md:justify-start">
       <template v-if="price > 0">
-        ${{ price }}/month
+        {{ currencySymbol }}{{ price }}/month
       </template>
       <template v-else>Free</template>
     </span>

@@ -1,6 +1,15 @@
 <script setup>
+import useCurrency from "@/composables/useCurrency"
+import useStep from "@/composables/useStep.js"
+import { useQuotationStore } from "@/store/quotationStore"
 import { ref } from "vue"
 import TheCounter from "../../Base/TheCounter.vue"
+
+
+const { jumpToStep } = useStep()
+const quotationStore = useQuotationStore()
+
+const { currencySymbol } = useCurrency()
 
 const numbers = ref( [
   {
@@ -23,6 +32,10 @@ const numbers = ref( [
   }
 ] )
 
+function save () {
+  quotationStore.updateLead( { portingNumbers: JSON.stringify( numbers.value.filter( item => item.value > 0 ) ) } )
+  jumpToStep( 13 )
+}
 
 </script>
 
@@ -38,7 +51,7 @@ const numbers = ref( [
         <div class="key-feature-grid grid gap-7 sm:grid-cols-2 md:grid-cols-3 p-7">
           <div v-for="number in numbers" :key="number.id">
             <h4>{{ number.title }}</h4>
-            <p class="text-blue mb-2">${{ number.price }} per block</p>
+            <p class="text-blue mb-2">{{ currencySymbol }}{{ number.price }} per block</p>
             <the-counter v-model="number.value" />
           </div>
         </div>
@@ -51,9 +64,9 @@ const numbers = ref( [
       </div>
     </div>
     <div class="w-100 flex justify-between p-7">
-      <button @click="$emit('onClickPrev')"
+      <button @click="jumpToStep(11)"
         class="btn text-white rounded-full bg-theme-dark mt-10  bg-opacity-75 text-lg">Previous</button>
-      <button @click="$emit('onClickNext', numbers)" class="btn btn-green mt-10 text-lg">Next</button>
+      <button @click="save" class="btn btn-green mt-10 text-lg">Next</button>
     </div>
   </div>
 </template>

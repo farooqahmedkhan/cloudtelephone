@@ -1,7 +1,16 @@
 <script setup>
-import { useQuotationStore } from "../../store/quotationStore"
+import useStep from "@/composables/useStep.js"
+import { useQuotationStore } from "@/store/quotationStore"
 
-const quotatonStore = useQuotationStore()
+
+const { jumpToStep } = useStep()
+const quotationStore = useQuotationStore()
+
+function submit () {
+  quotationStore.updateLead( { isPartial: false, currentStep: 16 } )
+  jumpToStep( 16 )
+
+}
 </script>
 
 <template>
@@ -46,7 +55,7 @@ const quotatonStore = useQuotationStore()
       </div>
     </div>
     <div class="w-100 text-center pb-7">
-      <button @click="quotatonStore.submitForm" class="btn btn-green mt-10 text-lg">Submit</button>
+      <button @click="submit" class="btn btn-green mt-10 text-lg">Submit</button>
     </div>
   </div>
 </template>

@@ -1,37 +1,40 @@
 <script setup>
+import useStep from "@/composables/useStep.js"
 import { ref } from "vue"
-import { PlusIcon, MinusIcon } from "vue-tabler-icons"
+import { MinusIcon, PlusIcon } from "vue-tabler-icons"
+import { useQuotationStore } from "../../../store/quotationStore"
 
+
+const { moveToNextStep } = useStep()
 const userNo = ref( 0 )
+const quotationStore = useQuotationStore()
 
-const props = defineProps( {
-  modelValue: {
-    type: Number,
-    default: 0
-  }
-} )
-
-const emit = defineEmits( ["update:modelValue"] )
 
 function decrement () {
-  if ( props.modelValue > 1 ) {
-    emit( 'update:modelValue', ( props.modelValue - 1 ) )
+  if ( userNo.value > 1 ) {
+    userNo.value++
   }
+}
+
+
+async function saveUserNo () {
+  await quotationStore.updateLead( { userCount: userNo.value, currentStep: 3 } )
+  moveToNextStep()
 }
 
 </script>
 
 <template>
-  <div class="screen-2-2 pt-page ">
-    <div class=" key-feature-grid grid p-7 text-center">
+  <div class="p-7">
+    <div class=" key-feature-grid grid text-center">
       <h4 class="text-primary">How many users</h4>
       <!-- Input Number -->
       <div class="my-5 space-x-1 max-w-64 mx-auto flex">
         <button @click="decrement">
           <minus-icon size="22" />
         </button>
-        <input type="number" min="1" :value="modelValue" @input="$emit('update:modelValue', $event.target.value)">
-        <button @click="$emit('update:modelValue', modelValue + 1)" data-action="increment">
+        <input type="number" min="1" v-model="userNo">
+        <button @click="userNo++" data-action="increment">
           <plus-icon size="22" />
 
         </button>
@@ -51,7 +54,7 @@ function decrement () {
         you need to start with. There is no limit to the number of users our system can handle.</p>
     </div>
     <div class="w-100 flex justify-end">
-      <button @click="$emit('moveToNext')" class="btn btn-green mt-10 text-lg">Next</button>
+      <button @click="saveUserNo" class="btn btn-green mt-10 text-lg">Next</button>
     </div>
   </div>
 </template>
