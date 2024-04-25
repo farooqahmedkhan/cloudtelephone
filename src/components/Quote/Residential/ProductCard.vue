@@ -36,7 +36,7 @@ defineProps( {
     <div class="p-4 text-surface dark:text-white">
       <h5 class="mb-2 text-xl font-medium leading-tight">{{ title }}</h5>
       <h6 class="text-primary">{{ price < 1 ? 'Free' : `${currencySymbol}` + price }}</h6>
-      <p class="mb-4 text-base"> {{ description }} </p>
+      <p class="mb-4 text-xs text-gray-500 mt-2"> {{ description }}</p>
     </div>
   </button>
 </template>

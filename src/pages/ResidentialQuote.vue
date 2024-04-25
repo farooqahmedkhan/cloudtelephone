@@ -47,11 +47,26 @@ const data = reactive( {
   area_code: "",
 } )
 
+const lead = ref( null )
+
+function reset () {
+  lead.value = null
+  data.name = ""
+  data.email = ""
+  data.telephone = ""
+  data.area_code = ""
+  selectedProduct.value = products[0]
+}
 
 async function submitDetails () {
   const { valid } = await validate()
   if ( !valid ) return
-  quotationStore.createResidentialLead( { ...data, product: selectedProduct.value } )
+  const response = await quotationStore.createLead( { ...data, leadData: { ...selectedProduct.value, type: "residential" } } )
+  lead.value = {
+    ...response,
+    residentialProducts: response.residentialProducts ? JSON.parse( response.residentialProducts ) : [],
+  }
+  lead.value
 }
 
 
@@ -82,7 +97,7 @@ function populateDummyData () {
 
 <template>
   <div>
-    <section class="section banner relative">
+    <section v-if="!lead" class="section banner relative">
       <div class="container">
         <div class="row">
           <div class="py-10 lg:col-12">
@@ -117,13 +132,21 @@ function populateDummyData () {
               :selected="selectedProduct.id === product.id" @click="selectedProduct = product" />
           </div>
           <button class="btn btn-green w-full mt-10 text-lg" @click="submitDetails">Get an
-            Instant
-            Quote</button>
+            Instant Quote</button>
         </div>
 
         <img class="banner-shape absolute -top-28 right-0 -z-[1] w-full max-w-[600px]" src="/images/banner-shape.svg"
           alt="">
       </div>
     </section>
+    <div v-else class="my-20 lg:col-12 text-center">
+      <div class="p-7 text-center">
+        <h4 class="text-primary">Your Quotation</h4>
+        <p>For: {{ lead?.customer?.name }}</p>
+        <p>Date: {{ new Date(lead.created_at).toLocaleDateString('en-GB') }}</p>
+      </div>
+      <ProductCard v-bind="lead.residentialProducts" class="max-w-[380px] mx-auto" />
+      <button @click="reset" class="mt-4 btn btn-green btn-sm border-border">Go back</button>
+    </div>
   </div>
 </template>
