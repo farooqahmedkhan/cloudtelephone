@@ -18,9 +18,9 @@ const monthly_products = computed( () => {
   const internetProducts = JSON.parse( lead.value.internetProducts )
   const equipments = JSON.parse( lead.value.equipments )
   return [
-    ...internetProducts.map( ( { name, price_monthly, value, id } ) => ( { id, name, price: price_monthly, quantity: value, total: price_monthly * value } ) ),
-    ...equipments.filter( ( { price_monthly } ) => price_monthly > 0 )
-      .map( ( { name, price_monthly, value, id } ) => ( { id, name, price: price_monthly, quantity: value, total: price_monthly * value } ) ),
+    ...( internetProducts ? internetProducts.map( ( { name, price_monthly, value, id } ) => ( { id, name, price: price_monthly, quantity: value, total: price_monthly * value } ) ) : [] ),
+    ...( equipments ? equipments.filter( ( { price_monthly } ) => price_monthly > 0 )
+      .map( ( { name, price_monthly, value, id } ) => ( { id, name, price: price_monthly, quantity: value, total: price_monthly * value } ) ) : [] ),
   ]
 } )
 
@@ -28,8 +28,8 @@ const monthly_total = computed( () => monthly_products.value.reduce( ( acc, { to
 
 const upfront_products = computed( () => {
   const equipments = JSON.parse( lead.value.equipments )
-  return equipments.filter( ( { price_upfront } ) => price_upfront > 0 )
-    .map( ( { name, price_upfront, value, id } ) => ( { id, name, price: price_upfront, quantity: value, total: price_upfront * value } ) )
+  return ( equipments ? equipments.filter( ( { price_upfront } ) => price_upfront > 0 )
+    .map( ( { name, price_upfront, value, id } ) => ( { id, name, price: price_upfront, quantity: value, total: price_upfront * value } ) ) : [] )
 } )
 
 const upfront_total = computed( () => upfront_products.value.reduce( ( acc, { total } ) => acc + total, 0 ) )
