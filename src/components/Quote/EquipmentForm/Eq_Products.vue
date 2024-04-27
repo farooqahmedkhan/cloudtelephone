@@ -2,7 +2,7 @@
 import useStep from "@/composables/useStep.js"
 import { useQuotationStore } from "@/store/quotationStore"
 import { Switch } from '@headlessui/vue'
-import { computed, onMounted, ref } from "vue"
+import { computed, ref } from "vue"
 import DeviceComponent from "../../Base/DeviceComponent.vue"
 
 
@@ -10,15 +10,8 @@ const { jumpToStep } = useStep()
 
 
 const quotationStore = useQuotationStore()
-const loading = ref( false )
 
 
-
-onMounted( async () => {
-  loading.value = true
-  await quotationStore.fetchProducts()
-  loading.value = false
-} )
 
 const pay_monthly = ref( false )
 

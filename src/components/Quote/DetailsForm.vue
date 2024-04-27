@@ -24,7 +24,7 @@ async function submitDetails () {
   const { valid } = await validate()
   if ( !valid ) return
   const resp = await quotationStore.createLead( data )
-  moveToNextStep( 16 )
+  moveToNextStep( resp.id )
 }
 
 

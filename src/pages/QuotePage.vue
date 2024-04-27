@@ -2,6 +2,7 @@
 import BreadCrumb from "../components/Base/BreadCrumb.vue"
 import QuoteStepButton from "../components/Base/QuoteStepButton.vue"
 import ServicesSection from "../components/Quote/ServicesSection.vue"
+import { useQuotationStore } from "../store/quotationStore.js"
 
 import DetailsForm from "@/components/Quote/DetailsForm.vue"
 import Eq_Products from "@/components/Quote/EquipmentForm/Eq_Products.vue"
@@ -19,11 +20,11 @@ import PortNumber_Selector from "@/components/Quote/TelephoneNumbers/PortNumber_
 import IO_Products from "@/components/Quote/UserLinesForm/IO_Products.vue"
 import IO_Selector from "@/components/Quote/UserLinesForm/IO_Selector.vue"
 import UserCount from "@/components/Quote/UserLinesForm/UserCount.vue"
+import { computed, onMounted } from "vue"
 import useStep from "../composables/useStep.js"
 
-import { computed } from "vue"
-
 const { step, stepButtons } = useStep()
+
 
 
 const activeStep = {
@@ -49,6 +50,11 @@ const getActiveComponent = computed( () => {
   return activeStep[step.value]
 } )
 
+const quotationStore = useQuotationStore()
+onMounted( async () => {
+  await quotationStore.fetchAllData()
+} )
+
 </script>
 
 <template>
@@ -64,7 +70,7 @@ const getActiveComponent = computed( () => {
               <h2 class="text-center mb-3">Instant Phone System <br><span class="text-blue uppercase">Quote
                   Wizard</span>
               </h2>
-              <p class="text-center">Complete in 60 second -- {{ step }}</p>
+              <p class="text-center">Complete in 60 second</p>
             </div>
           </div>
         </div>
@@ -80,10 +86,14 @@ const getActiveComponent = computed( () => {
           </div>
           <div class="lg:col-9">
             <form @submit.prevent>
-              <div id="tab-contents" class="border rounded-lg mt-10 bg-white">
+              <div id="tab-contents" class="border rounded-lg mt-10 bg-white relative overflow-hidden">
                 <keep-alive>
                   <component :is="getActiveComponent" />
                 </keep-alive>
+                <div v-if="!quotationStore.leadDataFetched && step > 1"
+                  class="absolute text-gray-700 text-2xl capitalize font-bold inset-0 z-20 backdrop-blur-sm bg-white/30 flex justify-center items-center">
+                  <!-- loading... -->
+                </div>
               </div>
             </form>
           </div>
@@ -93,6 +103,7 @@ const getActiveComponent = computed( () => {
           alt="">
       </div>
     </section>
+
     <ServicesSection />
   </div>
 </template>
