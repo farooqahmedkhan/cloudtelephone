@@ -9,15 +9,6 @@ const { jumpToStep } = useStep()
 
 const quotationStore = useQuotationStore()
 
-const loading = ref( false )
-
-onMounted( async () => {
-  loading.value = true
-  await quotationStore.fetchUnifiedProducts()
-  loading.value = false
-}
-)
-
 
 
 function save () {
@@ -33,7 +24,7 @@ function save () {
     <div class="key-feature-grid  grid p-7">
       <h4 class="text-primary text-center">App &amp; Unified Communication</h4>
       <p class="font-regular text-center">Please choose the number of users for each style of app required</p>
-      <div v-if="!loading" class="relative overflow-x-auto space-y-6 mt-6">
+      <div class="relative overflow-x-auto space-y-6 mt-6">
         <uc-item v-for="item in quotationStore.unifiedCommunicationItems" :key="item.id" v-bind="item"
           v-model="item.value" />
       </div>

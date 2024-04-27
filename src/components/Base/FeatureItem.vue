@@ -13,7 +13,7 @@ const props = defineProps( {
     }
   },
   price: {
-    type: Number,
+    type: [Number, String],
     default: 0
   },
   options: {

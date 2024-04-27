@@ -6,19 +6,18 @@ import { useQuotationStore } from "../../../store/quotationStore"
 
 
 const { moveToNextStep } = useStep()
-const userNo = ref( 0 )
 const quotationStore = useQuotationStore()
 
 
 function decrement () {
-  if ( userNo.value > 1 ) {
-    userNo.value++
+  if ( quotationStore.userCount > 1 ) {
+    quotationStore.userCount--
   }
 }
 
 
 async function saveUserNo () {
-  await quotationStore.updateLead( { userCount: userNo.value, currentStep: 3 } )
+  await quotationStore.updateLead( { userCount: quotationStore.userCount, currentStep: 3 } )
   moveToNextStep()
 }
 
@@ -33,8 +32,8 @@ async function saveUserNo () {
         <button @click="decrement">
           <minus-icon size="22" />
         </button>
-        <input type="number" min="1" v-model="userNo">
-        <button @click="userNo++" data-action="increment">
+        <input type="number" min="1" v-model="quotationStore.userCount">
+        <button @click="quotationStore.userCount++" data-action="increment">
           <plus-icon size="22" />
 
         </button>

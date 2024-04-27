@@ -9,100 +9,100 @@ const { jumpToStep } = useStep()
 const quotationStore = useQuotationStore()
 
 
-const features = ref( [
-  {
-    id: 1,
-    title: "Call Center User",
-    price: "£2/user/month",
-    value: 0,
-    type: 'number'
-  },
-  {
-    id: 2,
-    title: "Fax To Email",
-    price: "£5/number/month",
-    value: 0,
-    type: 'number'
-  },
-  {
-    id: 3,
-    title: "Professional Recordings",
-    price: 127,
-    price: "Silver: £174 \n Gold: £375 on off fee",
-    desc: "Find Out More",
-    type: 'select',
-    value: "no",
-    options: [
-      {
-        value: "no",
-        title: "No"
-      },
-      {
-        value: "silver",
-        title: "Silver"
-      },
-      {
-        value: "gold",
-        title: "Gold"
-      },
-    ]
-  },
-  {
-    id: 4,
-    title: "Call Recording",
-    desc: "(6 Months Storage)",
-    price: "£6/user/month",
-    value: false,
-    type: 'switch'
-  },
-  {
-    id: 5,
-    title: "Call Recording",
-    desc: "(7 Months Storage MIFID2)",
-    price: "£6/user + £3/GB Stored",
-    value: false,
-    type: 'switch'
-  },
-  {
-    id: 6,
-    title: "Live Call Reporting",
-    price: "£4/user + £35 Admin User",
-    value: false,
-    type: 'switch'
-  },
-  {
-    id: 7,
-    title: "Insight Reporting",
-    price: "£1/user + £5 Admin User",
-    value: false,
-    type: 'switch'
-  },
-  {
-    id: 8,
-    title: "CRM Integration",
-    price: "£6/user",
-    value: false,
-    type: 'switch'
-  },
-  {
-    id: 9,
-    title: "Reception Console",
-    price: "£40/site",
-    value: false,
-    type: 'switch'
-  },
-  {
-    id: 10,
-    title: "Multi-Company Set-up",
-    price: "£150.00 Setup",
-    value: false,
-    type: 'switch'
-  },
+// const features = ref( [
+//   {
+//     id: 1,
+//     title: "Call Center User",
+//     price: "£2/user/month",
+//     value: 0,
+//     type: 'number'
+//   },
+//   {
+//     id: 2,
+//     title: "Fax To Email",
+//     price: "£5/number/month",
+//     value: 0,
+//     type: 'number'
+//   },
+//   {
+//     id: 3,
+//     title: "Professional Recordings",
+//     price: 127,
+//     price: "Silver: £174 \n Gold: £375 on off fee",
+//     desc: "Find Out More",
+//     type: 'select',
+//     value: "no",
+//     options: [
+//       {
+//         value: "no",
+//         title: "No"
+//       },
+//       {
+//         value: "silver",
+//         title: "Silver"
+//       },
+//       {
+//         value: "gold",
+//         title: "Gold"
+//       },
+//     ]
+//   },
+//   {
+//     id: 4,
+//     title: "Call Recording",
+//     desc: "(6 Months Storage)",
+//     price: "£6/user/month",
+//     value: false,
+//     type: 'switch'
+//   },
+//   {
+//     id: 5,
+//     title: "Call Recording",
+//     desc: "(7 Months Storage MIFID2)",
+//     price: "£6/user + £3/GB Stored",
+//     value: false,
+//     type: 'switch'
+//   },
+//   {
+//     id: 6,
+//     title: "Live Call Reporting",
+//     price: "£4/user + £35 Admin User",
+//     value: false,
+//     type: 'switch'
+//   },
+//   {
+//     id: 7,
+//     title: "Insight Reporting",
+//     price: "£1/user + £5 Admin User",
+//     value: false,
+//     type: 'switch'
+//   },
+//   {
+//     id: 8,
+//     title: "CRM Integration",
+//     price: "£6/user",
+//     value: false,
+//     type: 'switch'
+//   },
+//   {
+//     id: 9,
+//     title: "Reception Console",
+//     price: "£40/site",
+//     value: false,
+//     type: 'switch'
+//   },
+//   {
+//     id: 10,
+//     title: "Multi-Company Set-up",
+//     price: "£150.00 Setup",
+//     value: false,
+//     type: 'switch'
+//   },
 
-] )
+// ] )
 
 function save () {
-  const selectedFeatures = features.value.filter( item => {
+  const selectedFeatures = quotationStore.extraFeatures.filter( item => {
     if ( typeof item.value === 'number' ) {
       return item.value > 0
     } else if ( typeof item.value === 'string' ) {
@@ -128,7 +128,8 @@ function save () {
       <div class="relative overflow-x-auto">
         <table class="w-full  border border-neutral-200 text-left text-sm font-light mt-6">
           <tbody>
-            <FeatureItem v-for="feature in features" :key="feature.id" v-model="feature.value" v-bind="feature" />
+            <FeatureItem v-for="feature in quotationStore.extraFeatures" :key="feature.id" v-model="feature.value"
+              v-bind="feature" />
           </tbody>
         </table>
       </div>

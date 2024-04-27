@@ -2,7 +2,6 @@
 import useCurrency from "@/composables/useCurrency"
 import useStep from "@/composables/useStep.js"
 import { useQuotationStore } from "@/store/quotationStore"
-import { ref } from "vue"
 import TheCounter from "../../Base/TheCounter.vue"
 
 
@@ -11,32 +10,11 @@ const quotationStore = useQuotationStore()
 
 const { currencySymbol } = useCurrency()
 
-const numbers = ref( [
-  {
-    id: 1,
-    value: 0,
-    title: "UK Geopgrahic Numbers",
-    price: 5
-  },
-  {
-    id: 2,
-    value: 0,
-    title: "03 Non Geopgrahic Numbers",
-    price: 6
-  },
-  {
-    id: 3,
-    value: 0,
-    title: "04 PK Geopgrahic Numbers",
-    price: 14
-  }
-] )
 
 function save () {
-  quotationStore.updateLead( { portingNumbers: JSON.stringify( numbers.value.filter( item => item.value > 0 ) ) } )
+  quotationStore.updateLead( { portingNumbers: JSON.stringify( quotationStore.portingNumbers.filter( item => item.value > 0 ) ) } )
   jumpToStep( 13 )
 }
-
 </script>
 
 <template>
@@ -49,7 +27,7 @@ function save () {
           tempor felis. Duis nec fringilla nibh. Vivamus vitae commodo sem. Vivamus vel lacinia massa.
           Curabitur convallis sem id condimentum vulputate.</p>
         <div class="key-feature-grid grid gap-7 sm:grid-cols-2 md:grid-cols-3 p-7">
-          <div v-for="number in numbers" :key="number.id">
+          <div v-for="number in quotationStore.portingNumbers" :key="number.id">
             <h4>{{ number.title }}</h4>
             <p class="text-blue mb-2">{{ currencySymbol }}{{ number.price }} per block</p>
             <the-counter v-model="number.value" />
