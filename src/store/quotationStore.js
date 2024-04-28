@@ -186,68 +186,79 @@ export const useQuotationStore = defineStore( 'quotationStore', {
       this.unifiedCommunicationItems = unifiedData.map( product => ( { ...product, value: product.name == 'Softphone' ? 1 : 0 } ) )
       if ( savedLeadData ) {
         // set user count
-        this.userCount = savedLeadData.userCount
+        this.userCount = savedLeadData.userCount || 0
         // set categories | internet options
         const internetProducts = JSON.parse( savedLeadData.internetProducts )
-        this.categories.forEach( category => {
-          const internetProductsByCategory = internetProducts.filter( product => product.categoryId == category.id )
-          // set the value of the products
-          category.products.forEach( product => {
-            const internetProduct = internetProductsByCategory.find( item => item.id == product.id )
-            if ( internetProduct ) {
-              product.value = internetProduct.value
-            }
+        if ( internetProducts ) {
+          this.categories.forEach( category => {
+            const internetProductsByCategory = internetProducts.filter( product => product.categoryId == category.id )
+            // set the value of the products
+            category.products.forEach( product => {
+              const internetProduct = internetProductsByCategory.find( item => item.id == product.id )
+              if ( internetProduct ) {
+                product.value = internetProduct.value
+              }
+            } )
           } )
-        } )
+        }
         // set equipments
         const equipments = JSON.parse( savedLeadData.equipments )
-        this.products = productsData.map( product => {
-          const equipment = equipments.find( item => item.id == product.id )
-          if ( equipment ) {
-            product.value = equipment.value
-          }
-          return product
-        } )
-
+        if ( equipments ) {
+          this.products = productsData.map( product => {
+            const equipment = equipments.find( item => item.id == product.id )
+            if ( equipment ) {
+              product.value = equipment.value
+            }
+            return product
+          } )
+        }
         // set unified communication items
         const unifiedProducts = JSON.parse( savedLeadData.unifiedProducts )
-        this.unifiedCommunicationItems = unifiedData.map( product => {
-          const unifiedProduct = unifiedProducts.find( item => item.id == product.id )
-          if ( unifiedProduct ) {
-            product.value = unifiedProduct.value
-          }
-          return product
-        } )
+        if ( unifiedProducts ) {
+          this.unifiedCommunicationItems = unifiedData.map( product => {
+            const unifiedProduct = unifiedProducts.find( item => item.id == product.id )
+            if ( unifiedProduct ) {
+              product.value = unifiedProduct.value
+            }
+            return product
+          } )
+        }
 
         // mix features
         const extraFeatures = JSON.parse( savedLeadData.extraFeatures )
-        this.extraFeatures = this.extraFeatures.map( feature => {
-          const savedFeature = extraFeatures.find( item => item.id == feature.id )
-          if ( savedFeature ) {
-            feature.value = savedFeature.value
-          }
-          return feature
-        } )
+        if ( extraFeatures ) {
+          this.extraFeatures = this.extraFeatures.map( feature => {
+            const savedFeature = extraFeatures.find( item => item.id == feature.id )
+            if ( savedFeature ) {
+              feature.value = savedFeature.value
+            }
+            return feature
+          } )
+        }
 
         // fetch phone types
         const phoneTypes = JSON.parse( savedLeadData.portingNumbers )
-        this.portingNumbers = this.portingNumbers.map( phoneType => {
-          const savedPhoneType = phoneTypes.find( item => item.id == phoneType.id )
-          if ( savedPhoneType ) {
-            phoneType.value = savedPhoneType.value
-          }
-          return phoneType
-        } )
+        if ( phoneTypes ) {
+          this.portingNumbers = this.portingNumbers.map( phoneType => {
+            const savedPhoneType = phoneTypes.find( item => item.id == phoneType.id )
+            if ( savedPhoneType ) {
+              phoneType.value = savedPhoneType.value
+            }
+            return phoneType
+          } )
+        }
 
         // fetch new number
         const new_numbers = JSON.parse( savedLeadData.newTelephoneNumbers )
-        this.newNumbers = this.newNumbers.map( newNumber => {
-          const savedNewNumber = new_numbers.find( item => item.id == newNumber.id )
-          if ( savedNewNumber ) {
-            newNumber.value = savedNewNumber.value
-          }
-          return newNumber
-        } )
+        if ( new_numbers ) {
+          this.newNumbers = this.newNumbers.map( newNumber => {
+            const savedNewNumber = new_numbers.find( item => item.id == newNumber.id )
+            if ( savedNewNumber ) {
+              newNumber.value = savedNewNumber.value
+            }
+            return newNumber
+          } )
+        }
 
       }
       this.unifiedCommunicationItems = this.unifiedCommunicationItems.sort( ( a, b ) => a.price - b.price )
