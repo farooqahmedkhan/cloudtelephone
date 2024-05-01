@@ -18,7 +18,7 @@ function onClick () {
 
 <template>
   <li class="relative flex items-center gap-2 p-4 group">
-    <span class="arrow absolute -right-2 top-1/2 size-4 -translate-y-1/2 rotate-45 border border-gray-100 group-[.ative]:block hidden
+    <span class="arrow absolute -right-2 top-1/2 size-4 -translate-y-1/2 rotate-45 border group-[.ative]:block hidden
       sm:block border-b-0 border-l-0 bg-gray-50" />
     <template v-if="step.slug === 'details'">
       <a class="flex gap-3">

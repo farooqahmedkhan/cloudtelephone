@@ -7,6 +7,7 @@ export const useQuotationStore = defineStore( 'quotationStore', {
     return {
       userDetails: null,
       categories: [],
+      leadData: null,
       userCount: 0,
       products: [],
       phoneTypes: 0,
@@ -164,6 +165,12 @@ export const useQuotationStore = defineStore( 'quotationStore', {
     },
     async fetchAllData () {
       const savedLeadData = await this.getLead()
+      if ( savedLeadData ) {
+        this.leadData = {
+          id: savedLeadData.id,
+          lost_focus: savedLeadData.lost_focus
+        }
+      }
       const [categoriesData, productsData, unifiedData] = await Promise.all( [
         this.fetchCategories(),
         this.fetchProducts(),
