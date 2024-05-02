@@ -45,7 +45,13 @@ const upfront_total = computed( () => upfront_products.value.reduce( ( acc, { to
       <div class="p-7 text-center">
         <h4 class="text-primary">Your Quotation</h4>
         <p>For: {{ lead?.customer?.name }}</p>
+        <p>Company: {{ lead?.customer?.company }}</p>
         <p>Date: {{ new Date(lead.created_at).toLocaleDateString('en-GB') }}</p>
+
+        <div class="my-8 text-left">
+          <h4 class="text-primary">Number of users: {{ lead?.userCount }}</h4>
+          <h4 class="text-primary">Number of phone types: {{ lead?.numberOfPhoneTypes }}</h4>
+        </div>
 
         <div class="relative overflow-x-auto">
           <!-- monthly -->
@@ -104,17 +110,81 @@ const upfront_total = computed( () => upfront_products.value.reduce( ( acc, { to
           </div>
 
         </div>
+        <!-- unified products -->
+        <table v-if="lead?.unifiedProducts" class="w-full  border border-neutral-200 text-left text-sm font-light mt-6">
+          <tbody>
+            <tr class="border-b border-neutral-200 bg-black/[0.02] dark:order-white/10 whitespace-nowrap">
+              <td colspan="4" class="px-6 py-4">
+                <h5 class="text-center">Unified Products</h5>
+              </td>
+            </tr>
+            <tr v-for="prod in JSON.parse(lead?.unifiedProducts)" :key="prod.id"
+              class="border-b border-neutral-200 bg-black/[0.02] dark:order-white/10 whitespace-nowrap">
+              <td class="px-6 py-4 max-w-24 truncate">{{ prod.name }}</td>
+              <td class="px-6 py-4 max-w-24 truncate">{{ currencySymbol }}{{ prod.price }}</td>
+              <td class="px-6 py-4 max-w-24 truncate">{{ prod.value }}</td>
+              <td class="px-6 py-4 max-w-24 truncate">{{ currencySymbol }}{{ prod.price * prod.value }}</td>
+            </tr>
+          </tbody>
+        </table>
+
+        <!-- extra features -->
+        <table v-if="lead?.extraFeatures" class="w-full  border border-neutral-200 text-left text-sm font-light mt-6">
+          <tbody>
+            <tr class="border-b border-neutral-200 bg-black/[0.02] dark:order-white/10 whitespace-nowrap">
+              <td colspan="4" class="px-6 py-4">
+                <h5 class="text-center">Extra Features</h5>
+              </td>
+            </tr>
+            <tr v-for="prod in JSON.parse(lead?.extraFeatures)" :key="prod.id"
+              class="border-b border-neutral-200 bg-black/[0.02] dark:order-white/10 whitespace-nowrap">
+              <td class="px-6 py-4 max-w-24 truncate">{{ prod.title }}</td>
+              <td class="px-6 py-4 max-w-24 truncate">{{ currencySymbol }}{{ prod.price }}</td>
+              <td class="px-6 py-4 max-w-24 truncate">{{ prod.value }}</td>
+            </tr>
+          </tbody>
+        </table>
+
+        <!-- new telephone numbers -->
+        <table v-if="lead?.newTelephoneNumbers"
+          class="w-full  border border-neutral-200 text-left text-sm font-light mt-6">
+          <tbody>
+            <tr class="border-b border-neutral-200 bg-black/[0.02] dark:order-white/10 whitespace-nowrap">
+              <td colspan="4" class="px-6 py-4">
+                <h5 class="text-center">New Telephone Numbers</h5>
+              </td>
+            </tr>
+            <tr v-for="no in JSON.parse(lead?.newTelephoneNumbers)" :key="no.id"
+              class="border-b border-neutral-200 bg-black/[0.02] dark:order-white/10 whitespace-nowrap">
+              <td class="px-6 py-4 max-w-24 truncate">{{ no.title }}</td>
+              <td class="px-6 py-4 max-w-24 truncate">{{ currencySymbol }}{{ no.price }}</td>
+              <td class="px-6 py-4 max-w-24 truncate">{{ no.value }}</td>
+              <td class="px-6 py-4 max-w-24 truncate">{{ currencySymbol }}{{ no.price * no.value }}</td>
+            </tr>
+          </tbody>
+        </table>
+
+        <!-- porting numbers -->
+        <table v-if="lead?.portingNumbers" class="w-full  border border-neutral-200 text-left text-sm font-light mt-6">
+          <tbody>
+            <tr class="border-b border-neutral-200 bg-black/[0.02] dark:order-white/10 whitespace-nowrap">
+              <td colspan="4" class="px-6 py-4">
+                <h5 class="text-center">Porting Numbers</h5>
+              </td>
+            </tr>
+            <tr v-for="no in JSON.parse(lead?.portingNumbers)" :key="no.id"
+              class="border-b border-neutral-200 bg-black/[0.02] dark:order-white/10 whitespace-nowrap">
+              <td class="px-6 py-4 max-w-24 truncate">{{ no.title }}</td>
+              <td class="px-6 py-4 max-w-24 truncate">{{ currencySymbol }}{{ no.price }}</td>
+              <td class="px-6 py-4 max-w-24 truncate">{{ no.value }}</td>
+              <td class="px-6 py-4 max-w-24 truncate">{{ currencySymbol }}{{ no.price * no.value }}</td>
+            </tr>
+          </tbody>
+        </table>
+
         <div class="my-8 text-left">
-          <h4 class="text-primary">Contract</h4>
-          <p class="mt-1 text-sm text-gray-500">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Ipsa
-            exercitationem
-            repellendus modi maiores
-            repudiandae,
-            saepe deserunt cumque molestiae facilis tempore laudantium autem perspiciatis nisi illum nostrum enim
-            necessitatibus
-            cum, itaque reprehenderit veritatis assumenda id quisquam deleniti ad! Unde dicta fuga suscipit saepe
-            voluptatum,
-            culpa natus non eos atque accusamus dolores!</p>
+          <h4 class="text-primary">Installation</h4>
+          <p class="mt-1 text-sm text-gray-500">{{ lead?.installationSupport }}</p>
         </div>
       </div>
     </div>

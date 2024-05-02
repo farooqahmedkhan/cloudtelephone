@@ -1,9 +1,9 @@
 <script setup>
-import { onMounted, ref, watch } from "vue"
+import { onMounted, watch } from "vue"
+import { useRoute } from "vue-router"
 import Footer from "./layouts/Footer.vue"
 import navbar from "./layouts/Navbar.vue"
 import { useConfigStore } from "./store/configStore"
-import { useRoute } from "vue-router"
 import { useQuotationStore } from "./store/quotationStore"
 
 const configStore = useConfigStore()
