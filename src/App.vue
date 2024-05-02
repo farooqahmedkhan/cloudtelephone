@@ -24,8 +24,9 @@ watch( () => route.name, ( newValue, oldValue ) => {
 } )
 
 async function onWindowBlur () {
+  if ( !quotationStore.leadData ) return
   let lost_focus = quotationStore.leadData.lost_focus
-  if ( !quotationStore.leadData || lost_focus ) return
+  if ( !quotationStore.leadData || lost_focus || quotationStore.leadData.currentStep > 1 ) return
   await quotationStore.updateLead( {
     lost_focus: true,
     lost_focus_at: new Date()
