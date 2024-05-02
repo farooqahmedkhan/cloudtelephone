@@ -78,8 +78,7 @@ onMounted( async () => {
         <!-- quote calculator -->
         <div class="row">
           <div class="lg:col-3">
-            <ul id="tabs"
-              class="divide-x divide-gray-100  mt-10 rounded-lg border border-gray-100 text-sm text-gray-5 bg-white">
+            <ul id="tabs" class="divide-x divide-gray-100  mt-10 rounded-lg border text-sm text-gray-5 bg-white">
               <QuoteStepButton v-for="step in stepButtons" :key="step.id" :step="step"
                 :class="`${step.active ? 'active' : ''}`" />
             </ul>
