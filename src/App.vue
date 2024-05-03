@@ -1,9 +1,9 @@
 <script setup>
-import { onMounted, ref, watch } from "vue"
+import { onMounted, watch } from "vue"
+import { useRoute } from "vue-router"
 import Footer from "./layouts/Footer.vue"
 import navbar from "./layouts/Navbar.vue"
 import { useConfigStore } from "./store/configStore"
-import { useRoute } from "vue-router"
 import { useQuotationStore } from "./store/quotationStore"
 
 const configStore = useConfigStore()
@@ -24,8 +24,9 @@ watch( () => route.name, ( newValue, oldValue ) => {
 } )
 
 async function onWindowBlur () {
+  if ( !quotationStore.leadData ) return
   let lost_focus = quotationStore.leadData.lost_focus
-  if ( !quotationStore.leadData || lost_focus ) return
+  if ( !quotationStore.leadData || lost_focus || quotationStore.leadData.currentStep > 1 ) return
   await quotationStore.updateLead( {
     lost_focus: true,
     lost_focus_at: new Date()
