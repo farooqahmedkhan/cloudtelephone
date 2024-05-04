@@ -40,9 +40,9 @@ function decrement () {
     </span>
 
     <!-- col-3: Adjusted for responsive layout -->
-    <the-counter v-if="price > 0" :model-value="modelValue" @update:model-value="$emit('update:modelValue', $event)" />
-    <div v-else class="col-span-3 md:col-span-1 my-5 flex gap-3 justify-center text-gray-700">
+    <the-counter :model-value="modelValue" @update:model-value="$emit('update:modelValue', $event)" />
+    <!-- <div v-else class="col-span-3 md:col-span-1 my-5 flex gap-3 justify-center text-gray-700">
       <span>{{ modelValue }}</span>
-    </div>
+    </div> -->
   </div>
 </template>

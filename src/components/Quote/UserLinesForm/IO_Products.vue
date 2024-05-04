@@ -30,8 +30,8 @@ async function save () {
   )
   if ( products.length ) {
     await quotationStore.updateLead( { internetProducts: JSON.stringify( products ), currentStep: 5 } )
-    moveToNextStep()
   }
+  moveToNextStep()
 }
 
 </script>
