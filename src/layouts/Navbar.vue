@@ -19,6 +19,8 @@ onMounted( () => {
           <img src="/images/logo.png" height="60" width="250" alt="logo" />
         </router-link>
       </div>
+      <div class="flex items-center justify-end w-50 gap-4">
+
       <!-- navbar toggler -->
       <router-link class="btn btn-green btn-sm border-border show-mobile" to="/quote">Get A Quote</router-link>
       <input id="nav-toggle" type="checkbox" class="hidden" />
@@ -52,6 +54,7 @@ onMounted( () => {
           <router-link class="btn btn-green btn-sm border-border" to="/quote">Get A Quote</router-link>
         </li>
       </ul>
+</div>
     </nav>
   </header>
 </template>
