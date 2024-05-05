@@ -1,3 +1,7 @@
 {
+    "cleanUrls": true,
+    "framework": "Other",
+    "devCommand": "npm run dev",
+    "buildCommand": "npm run build",
     "rewrites": [{ "source": "/(.*)", "destination": "/" }]
 }
