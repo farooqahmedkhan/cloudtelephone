@@ -8,7 +8,7 @@ export default function useCurrency () {
     "USD": "$",
     "EUR": "€",
     "GBP": "£",
-    "PKR": "PKR"
+    "PKR": "Rs."
   }
 
   const currencySymbol = computed( () => {

@@ -17,8 +17,10 @@ function decrement () {
 
 
 async function saveUserNo () {
-  await quotationStore.updateLead( { userCount: quotationStore.userCount, currentStep: 3 } )
-  moveToNextStep()
+  if ( quotationStore.userCount >= 1 ) {
+    await quotationStore.updateLead( { userCount: quotationStore.userCount, currentStep: 3 } )
+    moveToNextStep()
+  }
 }
 
 </script>

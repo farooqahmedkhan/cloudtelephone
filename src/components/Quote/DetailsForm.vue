@@ -29,9 +29,9 @@ async function submitDetails () {
 
 
 onMounted( () => {
-  if ( process.env.NODE_ENV === "development" ) {
-    document.addEventListener( "keydown", handleKeyDown )
-  }
+  // if ( process.env.NODE_ENV === "development" ) {
+  document.addEventListener( "keydown", handleKeyDown )
+  // }
 } )
 
 function handleKeyDown ( event ) {

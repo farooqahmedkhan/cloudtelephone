@@ -110,19 +110,19 @@ export const useQuotationStore = defineStore( 'quotationStore', {
         {
           id: 1,
           value: 0,
-          title: "UK Geopgrahic Numbers",
+          title: "UK Geographic Numbers",
           price: 5
         },
         {
           id: 2,
           value: 0,
-          title: "03 Non Geopgrahic Numbers",
+          title: "03 Non Geographic Numbers",
           price: 6
         },
         {
           id: 3,
           value: 0,
-          title: "04 PK Geopgrahic Numbers",
+          title: "04 PK Geographic Numbers",
           price: 14
         }
       ],
@@ -130,13 +130,13 @@ export const useQuotationStore = defineStore( 'quotationStore', {
         {
           id: 1,
           value: 0,
-          title: "UK Geopgrahic Numbers",
+          title: "UK Geographic Numbers",
           price: 5
         },
         {
           id: 2,
           value: 0,
-          title: "03 Non Geopgrahic Numbers",
+          title: "03 Non Geographic Numbers",
           price: 6
         }
       ]
