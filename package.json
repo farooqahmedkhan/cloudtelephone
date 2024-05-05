@@ -6,7 +6,8 @@
   "scripts": {
     "dev": "vite --port=3001",
     "build": "vite build",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "vercel-build": "rm -rf dist/ && npm run build"
   },
   "dependencies": {
     "@headlessui/vue": "^1.7.19",
