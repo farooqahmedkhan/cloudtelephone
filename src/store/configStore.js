@@ -3,18 +3,23 @@ import { ref } from "vue"
 import axios from "../utils/axios.js"
 
 
-export const useConfigStore = defineStore( 'config-store', () => {
-  const config = ref( { currency: "USD" } )
+export const useConfigStore = defineStore('config-store', () => {
+  const config = ref({ currency: "USD" })
+  const plans = ref([])
   // fetch settings
-  async function fetchConfig () {
+  async function fetchConfig() {
     try {
-      const { data } = await axios.get( "/config" )
-      config.value = data
-    } catch ( error ) {
-      console.log( error )
+      const [configResp, plansResp] = await Promise.all([
+        axios.get("/config"),
+        axios.get("/plans")
+      ])
+      config.value = configResp.data
+      plans.value = plansResp.data
+    } catch (error) {
+      console.log(error)
     }
   }
 
 
-  return { fetchConfig, config }
-} )
+  return { fetchConfig, config, plans }
+})
