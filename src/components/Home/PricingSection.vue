@@ -27,7 +27,7 @@ const configStore = useConfigStore()
             <template #default>
               <div class="border-border py-3 text-center">
                 <p class="mt-6">
-                  {{plan.description}}
+                  {{ plan.description }}
                 </p>
                 <ul class="mt-6">
                   <li v-for="offer in plan.offerings.split(',')" :key="offer"
@@ -35,13 +35,16 @@ const configStore = useConfigStore()
                     {{ offer }}
                   </li>
                 </ul>
+                <div v-if="plan.imageUrl" class="py-5 my-5 text-center flex justify-center"> <img alt="" :src="plan.imageUrl"
+                    width="250" height="250" class="rounded-lg">
+                </div>
               </div>
             </template>
             <template #footer>
               <div class="text-center">
                 <router-link
                   class="btn btn-green btn-sm border-border items-center flex justify-center h-16 text-lg font-bold uppercase"
-                  :to="`/${plan.redirectUrl || 'pricing'}`">{{plan.buttonText}}</router-link>
+                  :to="`/${plan.redirectUrl || 'pricing'}`">{{ plan.buttonText }}</router-link>
               </div>
             </template>
           </Card>
