@@ -46,13 +46,16 @@ async function saveUserNo () {
         and includues the basic softphone.</p>
 
       <h5>What is a user?</h5>
-      <p class="mt-4">This is the number of people using the system. Each user gets a softphone and can be assigned
-        to a physical phone as well.
-        All users can be on the phone at the same time making and receiving calls. You can have a single user on
-        more than one phone, but both phones will have the same extension, this works well if you want a phone at
-        the office and at home.
-        You can add and remove users each month and only pay for what you need, so only choose the number of users
-        you need to start with. There is no limit to the number of users our system can handle.</p>
+      <p class="mt-4 text-justify mx-auto">
+        This is the number of people using the system. Each user gets a softphone and can be
+        assigned to a physical phone as well.
+        All users can be on the phone at the same time making and receiving calls. You can have a
+        single user on more than one phone, but both phones will have the same extension, this
+        works well if you want a phone at the office and at home.
+        You can add and remove users each month and only pay for what you need, so only choose
+        the number of users you need to start with. There is no limit to the number of users our
+        system can handle.
+      </p>
     </div>
     <div class="w-100 flex justify-end">
       <button @click="saveUserNo" class="btn btn-green mt-10 text-lg">Next</button>

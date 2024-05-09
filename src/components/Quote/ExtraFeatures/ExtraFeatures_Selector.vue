@@ -34,10 +34,10 @@ function saveStepInDB ( step ) {
         </button>
       </div>
       <h5>What does this mean?</h5>
-      <p class="mt-4">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam molestie odio id
-        gravida fermentum. Etiam quis quam ante. Donec sit amet magna gravida, imperdiet ex lacinia,
-        tempor felis. Duis nec fringilla nibh. Vivamus vitae commodo sem. Vivamus vel lacinia massa.
-        Curabitur convallis sem id condimentum vulputate.</p>
+      <p class="mt-4">Our Standard setup includes: Call Analysis Reporting, Auto-Attendant, Custom Greetings,
+Voicemail, Hunt Groups, Conferencing (3 Way), Click to Dial, App, Caller-Id, Busy Status,
+Video Calls and Hot Desking are all included as standard. We have some additional Pick &amp;
+Mix options you can choose from that are charged additionally.</p>
     </div>
     <div class="w-100 flex justify-between p-7">
       <button @click="moveToPreviousStep"

@@ -41,11 +41,11 @@ function save () {
     </div>
     <div class="text-center px-7">
 
-      <h5>What does this mean?</h5>
-      <p class="mt-4">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam molestie odio id
+      <!-- <h5>What does this mean?</h5> -->
+      <!-- <p class="mt-4">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam molestie odio id
         gravida fermentum. Etiam quis quam ante. Donec sit amet magna gravida, imperdiet lacinia,
         tempor felis. Duis nec fringilla nibh. Vivamus vitae commodo sem. Vivamus vel lacinia massa.
-        Curabitur convallis sem id condimentum vulputate.</p>
+        Curabitur convallis sem id condimentum vulputate.</p> -->
     </div>
 
     <div class="w-100 flex justify-between p-7">

@@ -38,10 +38,8 @@ async function saveStepInDB ( step ) {
         </button>
       </div>
       <h5>What does this mean?</h5>
-      <p class="mt-4">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam molestie odio id
-        gravida fermentum. Etiam quis quam ante. Donec sit amet magna gravida, imperdiet lacinia,
-        tempor felis. Duis nec fringilla nibh. Vivamus vitae commodo sem. Vivamus vel lacinia massa.
-        Curabitur convallis sem id condimentum vulputate.</p>
+      <p class="mt-4 text-justify mx-auto">You can choose to add a phone as part of your monthly billing cost, or buy up front and save
+money. Use the toggle to view the different pricing options.</p>
     </div>
     <div class="w-100 flex justify-between p-7">
       <button @click="jumpToStep(3)"

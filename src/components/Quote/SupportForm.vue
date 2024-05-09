@@ -35,10 +35,10 @@ function moveToCompleteSection ( value ) {
           </button>
         </div>
         <h5>What does this mean?</h5>
-        <p class="mt-4">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam molestie odio id
-          gravida fermentum. Etiam quis quam ante. Donec sit amet magna gravida, imperdiet ex lacinia,
-          tempor felis. Duis nec fringilla nibh. Vivamus vitae commodo sem. Vivamus vel lacinia massa.
-          Curabitur convallis sem id condimentum vulputate.</p>
+        <p class="mt-4">Our telephones are dispatched already configured and ready to go, all you need to do is plug
+the phone into your Internet Connection. Connectivity can be via existing Network Cabling,
+plugged directly into your Router or by using &#39;Ethernet Over Power&#39; Adapters. We can
+provide onsite cabling if require, or this can be done by your own local IT company.</p>
       </div>
       <div class="w-100 flex justify-between p-7">
         <button @click="jumpToStep(11)"

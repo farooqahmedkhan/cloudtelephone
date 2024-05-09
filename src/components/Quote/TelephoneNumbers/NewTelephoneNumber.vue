@@ -25,10 +25,9 @@ function save () {
   <div class="fifth-1 pt-page current">
     <div class="key-feature-grid grid p-7 text-center">
       <h4 class="text-primary">New Telephone Numbers</h4>
-      <p class="mt-4">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam molestie odio id
-        gravida fermentum. Etiam quis quam ante. Donec sit amet magna gravida, imperdiet ex lacinia,
-        tempor felis. Duis nec fringilla nibh. Vivamus vitae commodo sem. Vivamus vel lacinia massa.
-        Curabitur convallis sem id condimentum vulputate.</p>
+      <p class="mt-4">Our system needs a range of phone numbers to allow features to work such as direct dials,
+hunt groups, auto attendants etc., you can choose in your set-up if they are displayed or
+not.</p>
       <div class="key-feature-grid grid gap-7 sm:grid-cols-2 p-7">
         <div v-for="number in quotationStore.newNumbers" :key="number.id">
           <h4>{{ number.title }}</h4>
@@ -37,10 +36,10 @@ function save () {
           <the-counter v-model="number.value" />
         </div>
       </div>
-      <p class="mt-4">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam molestie odio id
-        gravida fermentum. Etiam quis quam ante. Donec sit amet magna gravida, imperdiet ex lacinia,
-        tempor felis. Duis nec fringilla nibh. Vivamus vitae commodo sem. Vivamus vel lacinia massa.
-        Curabitur convallis sem id condimentum vulputate.</p>
+      <p class="mt-4">You have 2 users, so you must have a minimum of 1 block(s) of telephone numbers.
+
+UK Geographic Numbers are sold in blocks of 5. Area codes are chosen after placing your
+order. If you require international numbers, please call.</p>
 
 
     </div>

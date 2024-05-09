@@ -28,10 +28,17 @@ const { moveToPreviousStep, jumpToStep } = useStep()
       </button>
     </div>
     <h5>What does this mean?</h5>
-    <p class="mt-4">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam molestie odio id
-      gravida fermentum. Etiam quis quam ante. Donec sit amet magna gravida, imperdiet ex lacinia,
-      tempor felis. Duis nec fringilla nibh. Vivamus vitae commodo sem. Vivamus vel lacinia massa.
-      Curabitur convallis sem id condimentum vulputate.</p>
+    <p class="mt-4 mx-auto">
+      We can provide your Internet connection, including Fibre, SOGEA, 4G, and Lease line. You
+      do not have to use our Internet connection to use our phone system, you can stay with your
+      current supplier, or you can choose us as your supplier and enjoy our competitive rates
+    </p>
+    <h5 class="mt-4 mx-auto">Do I need hardware?</h5>
+    <p class="mt-4 mx-auto">
+      Each user includes an App for both mobile and computers, so you can make and receive
+      calls without any hardware. However many people prefer phones, conference pods or
+      headsets and we offer a range of quality equipment.
+    </p>
 
     <div class="w-100 flex justify-start">
       <button @click="moveToPreviousStep" class="btn text-white rounded-full bg-theme-dark mt-10  bg-opacity-75 text-lg"
