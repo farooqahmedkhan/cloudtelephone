@@ -41,7 +41,7 @@ const configStore = useConfigStore()
               <div class="text-center">
                 <router-link
                   class="btn btn-green btn-sm border-border items-center flex justify-center h-16 text-lg font-bold uppercase"
-                  to="/pricing">{{plan.buttonText}}</router-link>
+                  :to="`/${plan.redirectUrl || 'pricing'}`">{{plan.buttonText}}</router-link>
               </div>
             </template>
           </Card>
