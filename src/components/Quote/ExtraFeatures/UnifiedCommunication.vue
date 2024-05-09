@@ -23,16 +23,21 @@ function save () {
   <div class="screen-4 pt-page current">
     <div class="key-feature-grid  grid p-7">
       <h4 class="text-primary text-center">App &amp; Unified Communication</h4>
-      <p class="font-regular text-center">Please choose the number of users for each style of app required</p>
+      <p class="font-regular text-center">Our standard price includes the softphone, but we offer a range of upgrades for your app to
+allow full unified communication. Allowing your phone system to be totally integrated into a
+WebEx Teams experience.</p>
       <div class="relative overflow-x-auto space-y-6 mt-6">
         <uc-item v-for="item in quotationStore.unifiedCommunicationItems" :key="item.id" v-bind="item"
           v-model="item.value" />
       </div>
       <div class="my-5">
         <h4 class="text-dark text-center">What does this means?</h4>
-        <p class="font-regular text-center">Lorem ipsum dolor sit amet consectetur adipisicing elit. Quidem molestiae
-          officia iure eius maxime dolorem non molestias! Assumenda blanditiis culpa earum atque dicta hic, ipsa quidem
-          modi possimus, animi quia.</p>
+        <p class="font-regular text-center">
+          Our Standard setup includes: Call Analysis Reporting, Auto-Attendant, Custom Greetings,
+Voicemail, Hunt Groups, Conferencing (3 Way), Click to Dial, App, Caller-Id, Busy Status,
+Video Calls and Hot Desking are all included as standard. We have some additional Pick &amp;
+Mix options you can choose from that are charged additionally.
+        </p>
 
       </div>
       <div class="relative overflow-x-auto">

@@ -35,10 +35,8 @@ function saveStepInDB ( step ) {
 
     </div>
     <h5>What does this mean?</h5>
-    <p class="mt-4">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam molestie odio id
-      gravida fermentum. Etiam quis quam ante. Donec sit amet magna gravida, imperdiet ex lacinia,
-      tempor felis. Duis nec fringilla nibh. Vivamus vitae commodo sem. Vivamus vel lacinia massa.
-      Curabitur convallis sem id condimentum vulputate.</p>
+    <p class="mt-4">If you have an existing number with another supplier, we can port that number into our
+system.</p>
 
     <div class="w-100 flex justify-start">
       <button @click="jumpToStep(8)" class="btn text-white rounded-full bg-theme-dark mt-10  bg-opacity-75 text-lg"

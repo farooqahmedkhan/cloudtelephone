@@ -19,12 +19,12 @@ function submit () {
       <div class="p-7 text-center">
         <h4 class="text-primary">Thankyou</h4>
         <h5 class="text-blue mt-4">What does this mean?</h5>
-        <p class="mt-4">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam molestie odio id
-          gravida fermentum. Etiam quis quam ante. Donec sit amet magna gravida, imperdiet ex lacinia,
-          tempor felis. Duis nec fringilla nibh. Vivamus vitae commodo sem. Vivamus vel lacinia massa.
-          Curabitur convallis sem id condimentum vulputate.</p>
+        <p class="mt-4">Our telephones are dispatched already configured and ready to go, all you need to do is plug
+the phone into your Internet Connection. Connectivity can be via existing Network Cabling,
+plugged directly into your Router or by using &#39;Ethernet Over Power&#39; Adapters. We can
+provide onsite cabling if require, or this can be done by your own local IT company.</p>
         <div class="relative overflow-x-auto">
-          <table class="w-full  border border-neutral-200 text-left text-sm font-light mt-6">
+          <!-- <table class="w-full  border border-neutral-200 text-left text-sm font-light mt-6">
             <tbody>
               <tr class="border-b border-neutral-200 bg-black/[0.02] dark:order-white/10 whitespace-nowrap">
                 <td colspan="4" class="px-6 py-4">
@@ -49,7 +49,7 @@ function submit () {
                 <td class="px-6 py-4">Lorem ipsum</td>
               </tr>
             </tbody>
-          </table>
+          </table> -->
         </div>
 
       </div>
