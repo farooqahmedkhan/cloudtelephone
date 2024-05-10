@@ -34,7 +34,7 @@ async function saveUserNo () {
         <button @click="decrement">
           <minus-icon size="22" />
         </button>
-        <input type="number" min="1" v-model="quotationStore.userCount">
+        <input type="number" :min="1" v-model="quotationStore.userCount">
         <button @click="quotationStore.userCount++" data-action="increment">
           <plus-icon size="22" />
 

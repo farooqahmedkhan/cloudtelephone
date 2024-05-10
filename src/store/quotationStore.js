@@ -8,7 +8,7 @@ export const useQuotationStore = defineStore( 'quotationStore', {
       userDetails: null,
       categories: [],
       leadData: null,
-      userCount: 0,
+      userCount: 1,
       products: [],
       phoneTypes: 0,
       newTelephonesNumbers: [],
@@ -193,7 +193,7 @@ export const useQuotationStore = defineStore( 'quotationStore', {
       this.unifiedCommunicationItems = unifiedData.map( product => ( { ...product, value: product.name == 'Softphone' ? 1 : 0 } ) )
       if ( savedLeadData ) {
         // set user count
-        this.userCount = savedLeadData.userCount || 0
+        this.userCount = savedLeadData.userCount || 1
         // set categories | internet options
         const internetProducts = JSON.parse( savedLeadData.internetProducts )
         if ( internetProducts ) {
