@@ -31,7 +31,7 @@ const proudctsToShow = computed(() => {
 <template>
   <div class="screen-3-1 pt-page ">
     <div class="key-feature-grid  grid p-7 text-center">
-      <h4 class="text-primary">Equipment</h4>
+      <h4 class="text-primary">Headset</h4>
       <p class="mt-4 text-justify mx-auto">You can choose to add a phone as part of your monthly billing cost, or buy up
         front and save
         money. Use the toggle to view the different pricing options.</p>
