@@ -276,7 +276,11 @@ export const useQuotationStore = defineStore( 'quotationStore', {
       return data
     },
     async fetchProducts () {
-      const { data } = await axios.get( '/products?category=Headset&category&Handset&category=Accessories' )
+      const { data } = await axios.get( '/products?category=Headset&category=Handset&category=Accessories' )
+      return data
+    },
+    async getProductImage(id){
+      const { data } = await axios.get( `/products/${id}/get-image` )
       return data
     },
     async fetchUnifiedProducts () {
