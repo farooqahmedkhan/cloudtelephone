@@ -1,13 +1,16 @@
 <script setup>
 import { PlusIcon, MinusIcon } from "vue-tabler-icons"
 import useCurrency from "@/composables/useCurrency"
+import { useQuotationStore } from "@/store/quotationStore";
+import { onMounted, ref } from "vue";
 
 const { currencySymbol } = useCurrency()
+const quotationStore = useQuotationStore()
 
 const props = defineProps( {
-  image_url: {
-    type: String,
-    default: ""
+  id: {
+    type: Number,
+    default: 0
   },
   name: {
     type: String,
@@ -37,6 +40,12 @@ function decrement () {
     emit( 'update:modelValue', ( props.modelValue - 1 ) )
   }
 }
+
+const image_url = ref("https://rb.gy/rbhxma")
+onMounted(async() => {
+  image_url.value = await quotationStore.getProductImage(props.id)
+})
+
 
 </script>
 

@@ -20,12 +20,6 @@ function saveProducts() {
   jumpToStep(8)
 }
 
-const proudctsToShow = computed(() => {
-  if (pay_monthly.value) {
-    return quotationStore.products.filter(prod => prod.price_monthly > 0)
-  }
-  return quotationStore.products.filter(prod => prod.price_upfront > 0)
-})
 </script>
 
 <template>
@@ -49,7 +43,7 @@ const proudctsToShow = computed(() => {
         </div>
       </div>
       <div class="key-feature-grid grid gap-7 sm:grid-cols-2 md:grid-cols-3 p-7">
-        <DeviceComponent v-for="prod in proudctsToShow" :key="prod.id" v-bind="prod" v-model="prod.value"
+        <DeviceComponent v-for="prod in quotationStore.products" :key="prod.id" v-bind="prod" v-model="prod.value"
           :show-monthly-price="pay_monthly" />
       </div>
 
