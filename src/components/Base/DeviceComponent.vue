@@ -1,5 +1,5 @@
 <script setup>
-import { PlusIcon, MinusIcon } from "vue-tabler-icons"
+import { PlusIcon, MinusIcon, DeselectIcon } from "vue-tabler-icons"
 import useCurrency from "@/composables/useCurrency"
 import { useQuotationStore } from "@/store/quotationStore";
 import { onMounted, ref } from "vue";
@@ -13,6 +13,10 @@ const props = defineProps( {
     default: 0
   },
   name: {
+    type: String,
+    default: ""
+  },
+  description: {
     type: String,
     default: ""
   },
@@ -74,8 +78,7 @@ onMounted(async() => {
       <!-- End Input Number -->
       <h5 class="mb-2 text-xl font-medium leading-tight">{{ name }}</h5>
       <h6 class="text-primary">{{ `${currencySymbol}${showMonthlyPrice ? price_monthly : price_upfront}` }}</h6>
-      <p class="mb-4 text-base"> Some quick example text to build on the card name and make up
-        the bulk of the card's content. </p>
+      <p class="mb-4 text-base">{{ description }}</p>
     </div>
   </div>
 </template>
