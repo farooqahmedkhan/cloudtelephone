@@ -29,6 +29,9 @@ dependencies:
   vue-router:
     specifier: ^4.3.0
     version: 4.3.0(vue@3.4.21)
+  vue-signature-pad:
+    specifier: ^3.0.2
+    version: 3.0.2(vue@3.4.21)
   vue-tabler-icons:
     specifier: ^2.21.0
     version: 2.21.0
@@ -1625,6 +1628,10 @@ packages:
     dependencies:
       '@jridgewell/sourcemap-codec': 1.4.15
 
+  /merge-images@1.2.0:
+    resolution: {integrity: sha512-hEGvgnTdXr08uzGvEArxRsKpy7WmozM73YaSi4s5IYF4LxrhANpqfHaz9CgBZ5+0+s2NsjPnPdStz3aCc0Yulw==}
+    dev: false
+
   /merge-stream@2.0.0:
     resolution: {integrity: sha512-abv/qOcuPfk3URPfDzmZU1LKmuw8kT+0nIHvKrKgFrwifol/doWcdA4ZqsWQ8ENrFKkd67Mfpo/LovbIUsbt3w==}
     dev: true
@@ -1976,6 +1983,10 @@ packages:
     engines: {node: '>=14'}
     dev: true
 
+  /signature_pad@3.0.0-beta.4:
+    resolution: {integrity: sha512-cOf2NhVuTiuNqe2X/ycEmizvCDXk0DoemhsEpnkcGnA4kS5iJYTCqZ9As7tFBbsch45Q1EdX61833+6sjJ8rrw==}
+    dev: false
+
   /sirv@2.0.4:
     resolution: {integrity: sha512-94Bdh3cC2PKrbgSOUqTiGPWVZeSiXfKOVZNJniWoqrWrRkB1CJzBU3NEbiTsPcYy1lDsANA/THzS+9WBiy5nfQ==}
     engines: {node: '>= 10'}
@@ -2294,6 +2305,17 @@ packages:
       vue: ^3.2.0
     dependencies:
       '@vue/devtools-api': 6.6.1
+      vue: 3.4.21
+    dev: false
+
+  /vue-signature-pad@3.0.2(vue@3.4.21):
+    resolution: {integrity: sha512-o25o+lROfCmzASS2+fU8ZV801kV+D4/02zkZ+ez3NKeiUmbxW7kwlUf5oKQkvA+l7Ou9xGsGLsirBLch3jyX8A==}
+    engines: {node: '>=12'}
+    peerDependencies:
+      vue: ^3.2.0
+    dependencies:
+      merge-images: 1.2.0
+      signature_pad: 3.0.0-beta.4
       vue: 3.4.21
     dev: false
 

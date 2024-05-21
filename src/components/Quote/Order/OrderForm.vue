@@ -1,5 +1,5 @@
 <script setup>
-import { reactive } from 'vue';
+import { reactive, ref } from 'vue';
 import { useForm } from 'vee-validate';
 import Input from '../../Base/Input.vue';
 
@@ -30,11 +30,15 @@ const form = reactive({
   agreeTerms: false,
   signature: ''
 });
+const signaturePad = ref(null)
 
 async function submitForm() {
-  const { valid } = await validate();
-  if (!valid) return;
-  // Handle form submission
+  const { valid } = await validate()
+  if ( !valid ) return
+  const { isEmpty, data } = signaturePad.value.saveSignature()
+  if (!isEmpty) {
+    form.signature = data
+  }
 }
 </script>
 
@@ -94,7 +98,8 @@ async function submitForm() {
     </div>
     <div class="form-group">
       <label for="signature">Write your signature in box below:</label>
-      <textarea id="signature" v-model="form.signature" placeholder="Signature" required></textarea>
+      <VueSignaturePad width="500px" height="300px" ref="signaturePad" class="rounded border"/>
+      <!-- <textarea id="signature" v-model="form.signature" placeholder="Signature" required></textarea> -->
     </div>
     <div class="w-100 text-center pb-7 col-span-2">
       <button @click="submitForm" class="btn btn-green mt-10 text-lg w-full">Submit</button>
