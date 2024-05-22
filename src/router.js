@@ -5,6 +5,7 @@ import Products from "./pages/Products.vue"
 import Pricing from "./pages/Pricing.vue"
 import QuotePage from "./pages/QuotePage.vue"
 import ResidentialQuote from "./pages/ResidentialQuote.vue"
+import OrderThanks from "./pages/OrderThanks.vue";
 
 const routes = [
   {
@@ -21,6 +22,9 @@ const routes = [
   },
   {
     path: '/quote', component: QuotePage, name: 'quote',
+  },
+  {
+    path: '/thanks', component: OrderThanks, name: 'thanks',
   },
   {
     path: '/quote/residential', component: ResidentialQuote, name: 'residential-quote',
