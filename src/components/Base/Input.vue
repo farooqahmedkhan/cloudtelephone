@@ -9,7 +9,10 @@ const props = defineProps( {
     type: String,
     default: null
   },
-
+  disabled: {
+    type: Boolean,
+    default: false
+  },
   label: {
     type: String,
     default: null
@@ -59,9 +62,9 @@ const inputModelValue = computed( {
 
 <template>
   <div class="form-group">
-    <label :for="id" class="form-label">{{ label }}</label>
-    <input :type="type" :id="id" class="form-control" :placeholder="placeholder" v-model="inputModelValue"
-      @blur="validate">
+    <label :for="id" class="form-label" :class="`${disabled && 'opacity-60'}`">{{ label }} <span v-if="rules === 'required'" class="text-red-600">*</span></label>
+    <input :type="type" :id="id" class="form-control disabled:border-opacity-60 disabled:cursor-not-allowed" :placeholder="placeholder" v-model="inputModelValue"
+      @blur="validate" :disabled="disabled">
     <span v-if="errorMessage" class="text-sm text-red-600">{{ errorMessage }}</span>
 
 

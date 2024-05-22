@@ -3,7 +3,7 @@ import useStep from "@/composables/useStep.js"
 import { ref, onMounted, computed } from "vue"
 import { useQuotationStore } from "../../../store/quotationStore"
 import QuoteStats from "../QuoteStats.vue";
-import OrderForm from "./OrderForm.vue";
+import CreateOrderForm from "./CreateOrderForm.vue";
 
 const quotatonStore = useQuotationStore()
 const lead = ref( null )
@@ -35,7 +35,7 @@ const { jumpToStep } = useStep()
           <h4 class="text-primary">Number of phone types: {{ lead?.numberOfPhoneTypes }}</h4>
         </div>
         <quote-stats :lead="lead"></quote-stats>
-        <order-form></order-form>
+        <create-order-form v-if="lead" :lead="lead" />
       </div>
     </div>
   </div>
