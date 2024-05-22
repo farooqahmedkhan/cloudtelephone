@@ -12,10 +12,13 @@
   },
   "dependencies": {
     "@headlessui/vue": "^1.7.19",
+    "@supabase/supabase-js": "^2.43.2",
     "@vee-validate/rules": "^4.12.4",
     "axios": "^1.6.8",
+    "buffer": "^6.0.3",
     "pinia": "^2.1.7",
     "swiper": "^11.0.7",
+    "uuid": "^9.0.1",
     "vee-validate": "^4.12.4",
     "vue": "^3.4.21",
     "vue-router": "^4.3.0",
