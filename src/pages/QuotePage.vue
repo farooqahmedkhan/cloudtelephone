@@ -13,6 +13,7 @@ import MixFeatures from "@/components/Quote/ExtraFeatures/MixFeatures.vue"
 import UnifiedCommunication from "@/components/Quote/ExtraFeatures/UnifiedCommunication.vue"
 import FinalForm from "@/components/Quote/FinalForm.vue"
 import FinalPreview from "@/components/Quote/FinalPreview.vue"
+import OrderPage from "@/components/Quote/Order/index.vue"
 import SupportForm from "@/components/Quote/SupportForm.vue"
 import NewTelephoneNumber from "@/components/Quote/TelephoneNumbers/NewTelephoneNumber.vue"
 import NumberPorting from "@/components/Quote/TelephoneNumbers/NumberPorting.vue"
@@ -43,7 +44,8 @@ const activeStep = {
   13: NewTelephoneNumber,
   14: SupportForm,
   15: FinalForm,
-  16: FinalPreview
+  16: FinalPreview,
+  17: OrderPage
 }
 
 const getActiveComponent = computed( () => {

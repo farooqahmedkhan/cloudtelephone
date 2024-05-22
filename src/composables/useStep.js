@@ -22,7 +22,7 @@ export default function useStep () {
   }
 
   const moveToStep = ( newStep ) => {
-    if ( newStep <= 1 || newStep > 16 || newStep == step.value ) return
+    if ( newStep <= 1 || newStep > 17 || newStep == step.value ) return
     router.push( { query: { ...route.query, step: newStep } } )
   }
 

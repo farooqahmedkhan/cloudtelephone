@@ -1,8 +1,9 @@
 <script setup>
 import useStep from "@/composables/useStep.js"
 import { ref, onMounted, computed } from "vue"
-import { useQuotationStore } from "../../store/quotationStore"
-import QuoteStats from "./QuoteStats.vue";
+import { useQuotationStore } from "../../../store/quotationStore"
+import QuoteStats from "../QuoteStats.vue";
+import CreateOrderForm from "./CreateOrderForm.vue";
 
 const quotatonStore = useQuotationStore()
 const lead = ref( null )
@@ -24,7 +25,7 @@ const { jumpToStep } = useStep()
   <div v-else>
     <div class="seventh-1">
       <div class="p-7 text-center">
-        <h4 class="text-primary">Your Quotation</h4>
+        <h4 class="text-primary">Place Order</h4>
         <p>For: {{ lead?.customer?.name }}</p>
         <p>Company: {{ lead?.customer?.company }}</p>
         <p>Date: {{ new Date(lead.created_at).toLocaleDateString('en-GB') }}</p>
@@ -34,10 +35,8 @@ const { jumpToStep } = useStep()
           <h4 class="text-primary">Number of phone types: {{ lead?.numberOfPhoneTypes }}</h4>
         </div>
         <quote-stats :lead="lead"></quote-stats>
+        <create-order-form v-if="lead" :lead="lead" />
       </div>
-    </div>
-    <div class="w-100 text-center pb-7">
-      <button @click="jumpToStep( 17 )" class="btn btn-green mt-10 text-lg">Order Today</button>
     </div>
   </div>
 </template>
