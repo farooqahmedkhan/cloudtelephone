@@ -69,10 +69,12 @@ onMounted( async () => {
               <div class="text-center my-5">
                 <BreadCrumb currentPage="Get A Quote" />
               </div>
-              <h2 class="text-center mb-3">Instant Phone System <br><span class="text-blue uppercase">Quote
-                  Wizard</span>
+              <h2 class="text-center mb-3">Instant On-screen <span class="text-blue">Quotation</span>
               </h2>
-              <p class="text-center">Complete in 60 second</p>
+              <p class="text-center text-xs">
+                This wizard will take you through all the steps to get an instant on-screen quotation in less than 60 seconds. <br/>
+                Please call <a href="tel:08002545256" class="text-blue hover:underline hover:font-semibold">0800 254 5256</a> if you are not sure about anything you are filling in and we can walk you through it. <br/>
+                You can then head on from there to order online today if you are ready, or you can order from your emailed quotation later</p>
             </div>
           </div>
         </div>
