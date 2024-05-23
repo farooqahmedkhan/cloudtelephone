@@ -9,7 +9,7 @@ export const useOrderStore = defineStore('order-store', () => {
       const { data } = await axios.post("/orders", orderData)
       return data
     } catch (error) {
-      console.log(error);
+      throw error
     }
   }
 
