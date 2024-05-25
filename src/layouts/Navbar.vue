@@ -19,10 +19,10 @@ onMounted( () => {
           <img src="/images/logo.png" height="60" width="250" alt="logo" />
         </router-link>
       </div>
-      <div class="flex items-center justify-end w-50 gap-4">
+      <div class="flex items-center justify-end w-auto gap-4">
 
       <!-- navbar toggler -->
-      <router-link class="btn btn-green btn-sm border-border show-mobile" to="/quote">Get A Quote</router-link>
+      <!-- <router-link class="btn btn-green btn-sm border-border show-mobile" to="/quote">Get A Quote</router-link> -->
       <input id="nav-toggle" type="checkbox" class="hidden" />
       <label id="show-button" for="nav-toggle" class="order-1 flex cursor-pointer items-center lg:order-1 lg:hidden">
         <svg class="h-6 fill-current" viewBox="0 0 20 20">
@@ -42,6 +42,18 @@ onMounted( () => {
       <ul id="nav-menu"
         class="navbar-nav order-2 hidden w-full flex-[0_0_100%] lg:order-1 lg:flex lg:w-auto lg:flex-auto lg:justify-end lg:space-x-5">
         <li class="nav-item">
+          <a class="nav-link">Cloud Phone System</a>
+        </li>
+        <li class="nav-item">
+          <router-link to="/how-it-works" class="nav-link">How It Works</router-link>
+        </li>
+        <li class="nav-item">
+          <router-link to="/faq" class="nav-link">FAQs</router-link>
+        </li>
+        <li class="nav-item">
+          <router-link to="/why-cloudtelephone" class="nav-link">Why CloudTelephone</router-link>
+        </li>
+        <!-- <li class="nav-item">
           <router-link to="/about" class="nav-link">About Us</router-link>
         </li>
         <li class="nav-item">
@@ -49,7 +61,7 @@ onMounted( () => {
         </li>
         <li class="nav-item">
           <router-link to="/pricing" class="nav-link">Pricing</router-link>
-        </li>
+        </li> -->
         <li class="nav-item mobile-hidden">
           <router-link class="btn btn-green btn-sm border-border" to="/quote">Get A Quote</router-link>
         </li>
