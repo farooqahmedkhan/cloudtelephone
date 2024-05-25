@@ -166,6 +166,7 @@ export const useQuotationStore = defineStore( 'quotationStore', {
     async fetchAllData () {
       const savedLeadData = await this.getLead()
       if ( savedLeadData ) {
+        this.userDetails = savedLeadData.customer
         this.leadData = {
           id: savedLeadData.id,
           lost_focus: savedLeadData.lost_focus

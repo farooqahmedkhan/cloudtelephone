@@ -78,7 +78,8 @@ async function save () {
           <Input name="''" placeholder="Postcode" class="flex-1" v-model="postCode" id="postcode" />
           <button class="btn btn-green text-lg" @click="checkAvailability">Check</button>
         </div>
-        <div v-html="availabilityStore.resp"></div>
+        <pre>{{availabilityStore.resp}}</pre>
+        <!-- <div v-html="availabilityStore.resp"></div> -->
       </div>
     </div>
     <div class="w-100 flex justify-between">
