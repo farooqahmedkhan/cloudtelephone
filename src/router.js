@@ -6,6 +6,7 @@ import Pricing from "./pages/Pricing.vue"
 import QuotePage from "./pages/QuotePage.vue"
 import ResidentialQuote from "./pages/ResidentialQuote.vue"
 import OrderThanks from "./pages/OrderThanks.vue";
+import FAQs from "./pages/FAQs.vue"
 
 const routes = [
   {
@@ -28,6 +29,9 @@ const routes = [
   },
   {
     path: '/quote/residential', component: ResidentialQuote, name: 'residential-quote',
+  },
+  {
+    path: '/faq', component: FAQs, name: 'faq',
   },
   // 404 page
   {
