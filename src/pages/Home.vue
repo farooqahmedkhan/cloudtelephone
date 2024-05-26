@@ -2,6 +2,7 @@
 import CounterSection from "../components/Home/CounterSection.vue"
 import HeroSection from "../components/Home/HeroSection.vue"
 import PricingSection from "../components/Home/PricingSection.vue"
+import CampaignSection from "../components/Home/CampaignSection.vue"
 import ReviewsSection from "../components/Home/ReviewsSection.vue"
 import Footer from "../layouts/Footer.vue"
 
@@ -24,7 +25,8 @@ import Footer from "../layouts/Footer.vue"
         </div>
       </div>
     </section>
-
+    
+    <CampaignSection />
     <PricingSection />
     <ReviewsSection />
     <CounterSection />
