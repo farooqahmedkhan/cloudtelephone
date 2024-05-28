@@ -17,7 +17,7 @@ const configStore = useConfigStore()
             <swiper-slide v-for="campaign in configStore.campaigns" :key="campaign.id">
               <div class="review">
                 <h2 class="text-white mb-2">{{ campaign.title }}</h2>
-                <div v-html="campaign.content" class="text-white" />
+                <div v-html="campaign.content" class="text-white max-w-[420px] mx-auto" />
                 <img v-if="campaign.image_url" :src="campaign.image_url" alt="campaign image"
                   class="w-14 h-14 mx-auto my-2 rounded-full border-2 border-primary object-cover" />
               </div>
