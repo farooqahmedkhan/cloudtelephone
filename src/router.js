@@ -8,6 +8,7 @@ import ResidentialQuote from "./pages/ResidentialQuote.vue"
 import OrderThanks from "./pages/OrderThanks.vue";
 import FAQs from "./pages/FAQs.vue"
 import Login from "./pages/Login.vue"
+import Dashboard from "./pages/Dashboard.vue"
 
 const routes = [
   {
@@ -33,6 +34,9 @@ const routes = [
   },
   {
     path: '/faq', component: FAQs, name: 'faq',
+  },
+  {
+    path: '/dashboard', component: Dashboard, name: 'dashboard',
   },
   {
     path: '/login', component: Login, name: 'login', meta: {
