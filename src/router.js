@@ -9,6 +9,8 @@ import OrderThanks from "./pages/OrderThanks.vue";
 import FAQs from "./pages/FAQs.vue"
 import Login from "./pages/Login.vue"
 import Dashboard from "./pages/Dashboard.vue"
+import MyOrders from "./pages/MyOrders.vue";
+import MyLeads from "./pages/MyLeads.vue";
 
 const routes = [
   {
@@ -37,6 +39,12 @@ const routes = [
   },
   {
     path: '/dashboard', component: Dashboard, name: 'dashboard',
+  },
+  {
+    path: '/my-orders', component: MyOrders, name: 'orders',
+  },
+  {
+    path: '/my-leads', component: MyLeads, name: 'leads',
   },
   {
     path: '/login', component: Login, name: 'login', meta: {
