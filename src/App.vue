@@ -31,9 +31,14 @@ async function onWindowBlur () {
 </script>
 
 <template>
-  <div class="mi-h-screen">
-    <navbar />
-    <RouterView />
-    <Footer />
+  <div>
+    <template v-if="$route.meta.fullscreen">
+      <RouterView />
+    </template>
+    <template v-else>
+      <navbar />
+      <RouterView />
+      <Footer />
+    </template>
   </div>
 </template>

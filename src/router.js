@@ -7,6 +7,7 @@ import QuotePage from "./pages/QuotePage.vue"
 import ResidentialQuote from "./pages/ResidentialQuote.vue"
 import OrderThanks from "./pages/OrderThanks.vue";
 import FAQs from "./pages/FAQs.vue"
+import Login from "./pages/Login.vue"
 
 const routes = [
   {
@@ -33,14 +34,19 @@ const routes = [
   {
     path: '/faq', component: FAQs, name: 'faq',
   },
+  {
+    path: '/login', component: Login, name: 'login', meta: {
+      fullscreen: true
+    }
+  },
   // 404 page
   {
     path: '/:pathMatch(.*)*',
-    component: () => import( './pages/404.vue' ),
+    component: () => import('./pages/404.vue'),
   },
 ]
 
-export default createRouter( {
-  history: createWebHistory( import.meta.env.BASE_URL ),
+export default createRouter({
+  history: createWebHistory(import.meta.env.BASE_URL),
   routes,
-} )
+})
