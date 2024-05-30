@@ -21,7 +21,7 @@ const configStore = useConfigStore()
       <div class="hero-1-bg" />
     </div>
     <div class="container relative z-10">
-      <div class="row lg:px-10 items-center justify-center g-5">
+      <div class="row lg:px-10 items-center justify-center gap-5">
         <PricingCard v-for="plan in configStore.plans" :plan="plan"/>
       </div>
     </div>

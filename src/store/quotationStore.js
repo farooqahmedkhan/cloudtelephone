@@ -157,6 +157,17 @@ export const useQuotationStore = defineStore( 'quotationStore', {
       const { data } = await axios.get( '/leads/' + leadId )
       return data
     },
+    async updateLeadFocusStatus() {
+      const leadId = useLeadId()
+      if (!leadId) return
+      const { data } = await axios.patch(`/leads/${leadId}/update-focus-status`)
+      this.leadData = {
+        id: data.id,
+        lost_focus: data.lost_focus,
+        currentStep: data.currentStep
+      }
+      return leadData
+    },
     async updateLead ( data ) {
       const leadId = useLeadId()
       if ( !leadId ) return
