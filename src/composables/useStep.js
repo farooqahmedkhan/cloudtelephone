@@ -40,7 +40,7 @@ export default function useStep () {
       active: step.value === 1,
       moveTo: 1,
       disabled: true,
-      desc: "Some info about you."
+      desc: "Some information about you"
     },
     {
       id: 2,
@@ -49,7 +49,7 @@ export default function useStep () {
       active: step.value >= 2 && step.value <= 4,
       moveTo: 2,
       disabled: step.value < 2,
-      desc: "Where we sending it?"
+      desc: "Configure the number of users & lines required"
     },
     {
       id: 3,
@@ -58,7 +58,7 @@ export default function useStep () {
       active: step.value >= 5 && step.value <= 7,
       moveTo: 5,
       disabled: step.value < 5,
-      desc: "Where we sending it?"
+      desc: "IP Phones, Headsets & More"
     },
     {
       id: 5,
@@ -67,7 +67,7 @@ export default function useStep () {
       active: step.value >= 8 && step.value <= 10,
       moveTo: 8,
       disabled: step.value < 8,
-      desc: "Where we sending it?"
+      desc: "Telephony features and add ons"
     },
     {
       id: 6,
@@ -76,7 +76,7 @@ export default function useStep () {
       active: step.value >= 11 && step.value <= 13,
       moveTo: 11,
       disabled: step.value < 11,
-      desc: "Lorem ipsum dolor sit"
+      desc: "Geographic and Non Geographic Numbers"
     },
     {
       id: 7,
@@ -85,7 +85,7 @@ export default function useStep () {
       active: step.value == 14,
       moveTo: 14,
       disabled: step.value < 14,
-      desc: "Show us the money."
+      desc: "Support, Configuration and Installation options"
     },
     {
       id: 8,
@@ -94,7 +94,7 @@ export default function useStep () {
       moveTo: 15,
       active: step.value == 15,
       disabled: step.value < 15,
-      desc: "Show us the money."
+      desc: "Finalising the quotation and Summary"
     },
   ] )
 
