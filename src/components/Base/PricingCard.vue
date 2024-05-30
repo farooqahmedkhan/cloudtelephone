@@ -22,8 +22,8 @@ defineProps({
           <p class="mt-3 text-2xl text-dark">{{ currencySymbol }} {{ plan.price }}</p>
         </div>
         <!-- <span class="overflow-hidden bg-primary inline-flex h-16 w-16 items-center justify-center rounded-full"> -->
-        <img class="bg-primary object-cover inline-flex h-16 w-16 items-center justify-center rounded-full"
-          :src="plan.imageUrl" alt="" />
+        <img v-if="plan.icon_url" class="bg-primary object-cover inline-flex h-16 w-16 items-center justify-center rounded-full"
+          :src="plan.icon_url" alt="" />
         <!-- </span> -->
       </div>
       <p class="mt-6">
@@ -40,6 +40,9 @@ defineProps({
             {{ offer }}
           </li>
         </ul>
+      </div>
+      <div v-if="plan.imageUrl" class="h-52 mt-6 rounded-md overflow-hidden">
+        <img :src="plan.imageUrl" alt="" class="h-full w-full object-cover">
       </div>
       <div class="text-center mt-6">
         <a class="btn btn-green btn-purple btn-sm border-border items-center flex justify-center h-16 text-lg font-bold uppercase"
