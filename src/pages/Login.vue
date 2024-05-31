@@ -1,6 +1,10 @@
 <script setup>
 import { useForm } from "vee-validate";
 import { reactive } from "vue";
+import { useAuthStore } from "../store/authStore.js";
+
+
+const authStore = useAuthStore()
 
 import Input from "../components/Base/Input.vue";
 const userData = reactive({
@@ -14,6 +18,7 @@ const { validate } = useForm()
 async function login() {
   const { valid } = await validate()
   if (!valid) return
+  authStore.login(userData)
   console.log('login');
 }
 
