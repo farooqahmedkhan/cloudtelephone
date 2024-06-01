@@ -69,7 +69,7 @@ const columns = [
                       <x-icon v-else class="w-5 h-5 text-red-500" />
                     </td>
                     <td @click.stop class="whitespace-nowrap px-3 py-4 text-sm text-gray-500">
-                      <router-link to="/orders" class="text-indigo-600 hover:text-indigo-700 hover:underline">Order
+                      <router-link :to="`/quote?step=17&leadId=${lead.id}`" class="text-indigo-600 hover:text-indigo-700 hover:underline">Order
                         Again</router-link>
                     </td>
                   </tr>
