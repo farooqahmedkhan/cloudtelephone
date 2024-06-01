@@ -95,7 +95,7 @@ onMounted( () => {
             <router-link class="btn btn-green btn-sm border-border" to="/quote">Get A Quote</router-link>
           </li>
           <li class="nav-item mobile-hidden">
-            <button class="btn btn-green btn-sm disabled:opacity-50" disabled @click="$router.push('/login')">Login</button>
+            <button class="btn btn-green btn-sm disabled:opacity-50" @click="$router.push('/login')">Login</button>
           </li>
         </ul>
       </div>

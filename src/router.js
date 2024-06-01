@@ -9,7 +9,8 @@ import OrderThanks from "./pages/OrderThanks.vue";
 import FAQs from "./pages/FAQs.vue"
 import Login from "./pages/Login.vue"
 import Dashboard from "./pages/Dashboard.vue"
-import MyOrders from "./pages/MyOrders.vue";
+import Orders from "./pages/Orders.vue";
+import OrderDetails from "./pages/OrderDetails.vue";
 import MyLeads from "./pages/MyLeads.vue";
 
 const routes = [
@@ -39,12 +40,27 @@ const routes = [
   },
   {
     path: '/dashboard', component: Dashboard, name: 'dashboard',
+    meta: {
+      requiresAuth: true
+    }
   },
   {
-    path: '/my-orders', component: MyOrders, name: 'orders',
+    path: '/orders', component: Orders, name: 'orders',
+    meta: {
+      requiresAuth: true
+    }
   },
   {
-    path: '/my-leads', component: MyLeads, name: 'leads',
+    path: '/orders/:id', component: OrderDetails, name: 'order-details',
+    meta: {
+      requiresAuth: true
+    }
+  },
+  {
+    path: '/leads', component: MyLeads, name: 'leads',
+    meta: {
+      requiresAuth: true
+    }
   },
   {
     path: '/login', component: Login, name: 'login', meta: {
@@ -58,7 +74,23 @@ const routes = [
   },
 ]
 
-export default createRouter({
+
+const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
   routes,
 })
+
+router.beforeEach((to, from, next) => {
+  const token = localStorage.getItem('token')
+
+  // Check if the route requires authentication
+  if (to.meta.requiresAuth && !token) {
+    // Redirect to sign-in route if token doesn't exist
+    next('/login')
+  } else {
+    // Continue to the requested route
+    next()
+  }
+})
+
+export default router
