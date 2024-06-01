@@ -11,6 +11,7 @@ import Login from "./pages/Login.vue"
 import Dashboard from "./pages/Dashboard.vue"
 import Orders from "./pages/Orders.vue";
 import OrderDetails from "./pages/OrderDetails.vue";
+import LeadDetails from "./pages/LeadDetails.vue";
 import Leads from "./pages/Leads.vue";
 
 const routes = [
@@ -52,6 +53,12 @@ const routes = [
   },
   {
     path: '/orders/:id', component: OrderDetails, name: 'order-details',
+    meta: {
+      requiresAuth: true
+    }
+  },
+  {
+    path: '/leads/:id', component: LeadDetails, name: 'lead-details',
     meta: {
       requiresAuth: true
     }
