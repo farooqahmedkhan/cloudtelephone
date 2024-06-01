@@ -11,7 +11,7 @@ import Login from "./pages/Login.vue"
 import Dashboard from "./pages/Dashboard.vue"
 import Orders from "./pages/Orders.vue";
 import OrderDetails from "./pages/OrderDetails.vue";
-import MyLeads from "./pages/MyLeads.vue";
+import Leads from "./pages/Leads.vue";
 
 const routes = [
   {
@@ -57,7 +57,7 @@ const routes = [
     }
   },
   {
-    path: '/leads', component: MyLeads, name: 'leads',
+    path: '/leads', component: Leads, name: 'leads',
     meta: {
       requiresAuth: true
     }
