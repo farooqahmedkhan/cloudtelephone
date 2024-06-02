@@ -9,6 +9,8 @@ onMounted( () => {
     }
 } )
 
+
+
 </script>
 
 <template>
@@ -41,7 +43,7 @@ onMounted( () => {
         </label>
         <!-- /navbar toggler -->
         <ul id="nav-menu"
-          class="navbar-nav order-2 hidden w-full flex-[0_0_100%] lg:order-1 lg:flex lg:w-auto lg:flex-auto lg:justify-end lg:space-x-5">
+          class="navbar-nav order-2 hidden w-full flex-[0_0_100%] lg:order-1 lg:flex lg:w-auto lg:flex-auto lg:justify-end lg:space-x-3">
           <li class="nav-item">
             <a class="nav-link cursor-pointer" @click="() => open = !open">
               Cloud Phone System
@@ -91,6 +93,9 @@ onMounted( () => {
         </li> -->
           <li class="nav-item mobile-hidden">
             <router-link class="btn btn-green btn-sm border-border" to="/quote">Get A Quote</router-link>
+          </li>
+          <li class="nav-item mobile-hidden">
+            <button class="btn btn-green btn-sm disabled:opacity-50" @click="$router.push('/login')">Login</button>
           </li>
         </ul>
       </div>

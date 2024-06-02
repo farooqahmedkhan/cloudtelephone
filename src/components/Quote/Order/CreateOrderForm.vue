@@ -26,7 +26,7 @@ const form = reactive({
   jobTitle: '',
   telephone: props.lead.customer.telephone,
   email: props.lead.customer.email,
-  password: props.lead.customer.password || '',
+  password: '',
   bank_acc_number: '',
   bank_sort_code: '',
   bank_name: '',
@@ -105,8 +105,17 @@ async function submitForm() {
     <Input type="tel" name="Contact Telephone Number" v-model="form.telephone" label="Contact Telephone Number"
       placeholder="Telephone Number" disabled />
     <Input name="Email Address" v-model="form.email" label="Email Address" placeholder="Email Address" disabled />
-    <Input type="password" name="Password" rules="required|min:8" v-model="form.password" label="My Account Password"
-      placeholder="Password" :disabled="lead.customer.password" />
+
+    <div v-if="lead.customer.password_saved">
+      <label class="form-label opacity-60">My Account Password</label>
+      <input type="password" class="form-control disabled:border-opacity-60 disabled:cursor-not-allowed" disabled
+        value="asl;djfsal;f">
+    </div>
+    <template v-else>
+      <Input type="password" name="Password" rules="required|min:8" v-model="form.password" label="My Account Password"
+        placeholder="Password" :disabled="lead.customer.password" />
+    </template>
+
     <Input name="Bank Account No" rules="required" v-model="form.bank_acc_number" label="Bank Account No"
       placeholder="Bank Account No" />
     <Input name="Bank Sort Code" rules="required" v-model="form.bank_sort_code" label="Bank Sort Code"
