@@ -45,7 +45,8 @@ defineProps({
         <img :src="plan.imageUrl" alt="" class="h-full w-full object-cover">
       </div>
       <div class="text-center mt-6">
-        <a class="btn btn-green btn-purple btn-sm border-border items-center flex justify-center h-16 text-lg font-bold uppercase"
+        {{ plan.buttonColor }}
+        <a class="btn plan_btn border btn-sm rounded-full items-center flex justify-center h-16 text-lg font-bold uppercase"
           :href="`/${plan.redirectUrl}`">{{ plan.buttonText }}</a>
         <a v-if="plan.trialEnabled" class="mt-6 inline-flex items-center text-dark" :href="`/${plan.redirectUrl}`">
           Start Free trial
@@ -61,4 +62,16 @@ defineProps({
 </template>
 
 
-<style lang="scss" scoped></style>
+<style scoped>
+.plan_btn {
+  color: v-bind('plan.buttonColor');
+  border-color: v-bind('plan.buttonColor');
+}
+.plan_btn:hover {
+  /* color: white;
+  background-color: v-bind('plan.buttonColor'); */
+  box-shadow: 0px 15px 34px v-bind('plan.buttonColor');
+  -webkit-transform: translateY(-3px);
+  transform: translateY(-3px);
+}
+</style>
