@@ -19,7 +19,7 @@ onMounted( () => {
       <!-- logo -->
       <div class="order-0">
         <router-link to="/">
-          <img src="/images/logo.png" height="60" width="250" alt="logo" />
+          <img src="/new-logo.svg" height="60" width="250" alt="logo" />
         </router-link>
       </div>
       <div class="flex items-center justify-end w-auto gap-4">

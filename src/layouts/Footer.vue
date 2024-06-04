@@ -8,7 +8,7 @@
       <div class="row gx-5 pb-10 pt-[52px]">
         <div class="col-12 mt-12 md:col-6 lg:col-3">
           <router-link to="/">
-            <img src="/images/logo.png" alt="" />
+            <img src="/new-logo.svg" alt="" />
           </router-link>
           <!-- <p class="mt-6">
             Lorem ipsum dolor sit sed dmi amet, consectetur adipiscing. Cdo

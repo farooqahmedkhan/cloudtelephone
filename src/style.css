@@ -4372,11 +4372,11 @@ input#nav-toggle:checked ~ #nav-menu {
   color: rgb(34 34 34 / var(--tw-text-opacity));
 }
 .text-blue {
-  color: rgb(0 51 153 / var(--tw-text-opacity));
+  color: rgb(24 176 240 / var(--tw-text-opacity));
 }
 .text-primary {
   --tw-text-opacity: 1;
-  color: rgb(0 51 153 / var(--tw-text-opacity));
+  color: rgb(24 176 240 / var(--tw-text-opacity));
 }
 .text-white {
   --tw-text-opacity: 1;
