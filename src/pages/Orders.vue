@@ -60,7 +60,7 @@ const columns = [
                     <td class="whitespace-nowrap px-3 py-4 text-sm text-gray-500">{{ order.billing_address1 }}</td>
                     <td class="whitespace-nowrap px-3 py-4 text-sm text-gray-500 capitalize">{{ order.order_status }}</td>
                     <td @click.stop class="whitespace-nowrap px-3 py-4 text-sm text-gray-500">
-                      <router-link to="/orders" class="text-indigo-600 hover:text-indigo-700 hover:underline">Order Again</router-link>
+                      <button @click="$router.push({ path: `/orders/${order.id}`, hash: '#msg-box' })" class="text-indigo-600 hover:text-indigo-700 hover:underline">Contact</button>
                     </td>
                   </tr>
                 </tbody>
