@@ -53,6 +53,7 @@ const upfront_total = computed(() => upfront_products.value.reduce((acc, { total
     <div class="seventh-1">
       <div class="p-7 text-center">
         <h4 class="text-3xl font-bold my-2">Order Details</h4>
+        <p class="capitalize">Order Status: {{ order?.order_status }}</p>
         <p>For: {{ order?.customer?.name }}</p>
         <p>Company: {{ order?.customer?.company }}</p>
         <p>Date: {{ new Date(order.created_at).toLocaleDateString('en-GB') }}</p>
