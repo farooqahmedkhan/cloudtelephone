@@ -40,35 +40,35 @@ const routes = [
     path: '/faq', component: FAQs, name: 'faq',
   },
   {
-    path: '/dashboard', component: Dashboard, name: 'dashboard',
+    path: '/dashboard', component: Orders, name: 'dashboard',
     meta: {
       requiresAuth: true
     }
   },
-  {
-    path: '/orders', component: Orders, name: 'orders',
-    meta: {
-      requiresAuth: true
-    }
-  },
+  // {
+  //   path: '/orders', component: Orders, name: 'orders',
+  //   meta: {
+  //     requiresAuth: true
+  //   }
+  // },
   {
     path: '/orders/:id', component: OrderDetails, name: 'order-details',
     meta: {
       requiresAuth: true
     }
   },
-  {
-    path: '/leads/:id', component: LeadDetails, name: 'lead-details',
-    meta: {
-      requiresAuth: true
-    }
-  },
-  {
-    path: '/leads', component: Leads, name: 'leads',
-    meta: {
-      requiresAuth: true
-    }
-  },
+  // {
+  //   path: '/leads/:id', component: LeadDetails, name: 'lead-details',
+  //   meta: {
+  //     requiresAuth: true
+  //   }
+  // },
+  // {
+  //   path: '/leads', component: Leads, name: 'leads',
+  //   meta: {
+  //     requiresAuth: true
+  //   }
+  // },
   {
     path: '/login', component: Login, name: 'login', meta: {
       fullscreen: true
