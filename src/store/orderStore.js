@@ -18,6 +18,12 @@ export const useOrderStore = defineStore('order-store', () => {
       const { data } = await axios.get("/orders/get-by-customer")
       return data
     } catch (error) {
+      if (error.response.status == '401') {
+        // clear local storage
+        localStorage.removeItem('token')
+        localStorage.removeItem('user')
+        router.push('/signin')
+      }
       throw error
     }
   }

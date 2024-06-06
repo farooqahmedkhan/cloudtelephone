@@ -11,7 +11,7 @@ export const useAuthStore = defineStore('auth-store', () => {
     try {
       const { data } = await axios.post("/auth/login-customer", { email, password })
       router.push('/dashboard')
-      useStorage('token',  data.token)
+      const token = useStorage('token',  data.token)
       // useStorage('user', { token: data.token, id: data.id, name: data.name, email: data.email })
 
     } catch (error) {

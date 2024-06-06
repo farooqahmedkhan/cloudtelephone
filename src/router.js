@@ -40,35 +40,35 @@ const routes = [
     path: '/faq', component: FAQs, name: 'faq',
   },
   {
-    path: '/dashboard', component: Dashboard, name: 'dashboard',
+    path: '/dashboard', component: Orders, name: 'dashboard',
     meta: {
       requiresAuth: true
     }
   },
-  {
-    path: '/orders', component: Orders, name: 'orders',
-    meta: {
-      requiresAuth: true
-    }
-  },
+  // {
+  //   path: '/orders', component: Orders, name: 'orders',
+  //   meta: {
+  //     requiresAuth: true
+  //   }
+  // },
   {
     path: '/orders/:id', component: OrderDetails, name: 'order-details',
     meta: {
       requiresAuth: true
     }
   },
-  {
-    path: '/leads/:id', component: LeadDetails, name: 'lead-details',
-    meta: {
-      requiresAuth: true
-    }
-  },
-  {
-    path: '/leads', component: Leads, name: 'leads',
-    meta: {
-      requiresAuth: true
-    }
-  },
+  // {
+  //   path: '/leads/:id', component: LeadDetails, name: 'lead-details',
+  //   meta: {
+  //     requiresAuth: true
+  //   }
+  // },
+  // {
+  //   path: '/leads', component: Leads, name: 'leads',
+  //   meta: {
+  //     requiresAuth: true
+  //   }
+  // },
   {
     path: '/login', component: Login, name: 'login', meta: {
       fullscreen: true
@@ -85,6 +85,19 @@ const routes = [
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
   routes,
+  scrollBehavior(to) {
+    if (to.hash) {
+      return new Promise((resolve) => {
+        setTimeout(() => {
+          resolve({
+            el: to.hash,
+            behavior: 'smooth'
+          })
+        }, 200)
+      })
+    }
+    return { x: 0, y: 0 };
+  },
 })
 
 router.beforeEach((to, from, next) => {
