@@ -8,6 +8,9 @@ dependencies:
   '@headlessui/vue':
     specifier: ^1.7.19
     version: 1.7.19(vue@3.4.21)
+  '@mayasabha/ckeditor4-vue3':
+    specifier: ^1.0.8
+    version: 1.0.8(vue@3.4.21)
   '@supabase/supabase-js':
     specifier: ^2.43.2
     version: 2.43.2
@@ -680,6 +683,16 @@ packages:
       '@jridgewell/sourcemap-codec': 1.4.15
     dev: true
 
+  /@mayasabha/ckeditor4-vue3@1.0.8(vue@3.4.21):
+    resolution: {integrity: sha512-4JVyaDujCWhlF07blbIZhOzEmINRga82QCC86VcRkMni9MI9+CTurKf5oPr5ID1Rx6o2r8YUZdFBO/wbRAm6Eg==}
+    engines: {node: '>=8.0.0', npm: '>=5.7.1'}
+    peerDependencies:
+      vue: ^3.3.4
+    dependencies:
+      ckeditor4-integrations-common: 1.0.0
+      vue: 3.4.21
+    dev: false
+
   /@nodelib/fs.scandir@2.1.5:
     resolution: {integrity: sha512-vq24Bq3ym5HEQm2NKCr3yXDwjc7vTsEThRDnkp2DK9p1uqLR+DHurm/NOTo0KG7HYHU7eppKZj3MyqYuMBf62g==}
     engines: {node: '>= 8'}
@@ -1289,6 +1302,10 @@ packages:
     optionalDependencies:
       fsevents: 2.3.3
     dev: true
+
+  /ckeditor4-integrations-common@1.0.0:
+    resolution: {integrity: sha512-OAoQT/gYrHkg0qgzf6MS/rndYhq3SScLVQ3rtXQeuCE8ju7nFHg3qZ7WGA2XpFxcZzsMP6hhugXqdel5vbcC3g==}
+    dev: false
 
   /color-convert@1.9.3:
     resolution: {integrity: sha512-QfAUtd+vFdAtFQcC8CCyYt1fYWxSqAiK2cSD6zDB8N3cpsEBAvRxp9zOGg6G/SHHJYAT88/az/IuDGALsNVbGg==}

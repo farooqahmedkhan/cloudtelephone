@@ -1,4 +1,5 @@
 <script setup>
+import ChatBox from "../components/ChatBox.vue";
 import useCurrency from "@/composables/useCurrency";
 import { useOrderStore } from "@/store/orderStore";
 import { computed } from "vue";
@@ -208,9 +209,10 @@ const upfront_total = computed(() => upfront_products.value.reduce((acc, { total
               <p class="mt-1 text-sm text-gray-500">{{ lead?.installationSupport }}</p>
             </div>
 
-            <div id="msg-box" class="w-full py-20 uppercase bg-gray-100 rounded-md text-xl text-primary">
+            <chat-box :orderId="order.id" :conversations="order.conversations" />
+            <!-- <div id="msg-box" class="w-full py-20 uppercase bg-gray-100 rounded-md text-xl text-primary">
               conversation box
-            </div>
+            </div> -->
           </div>
         </div>
       </div>

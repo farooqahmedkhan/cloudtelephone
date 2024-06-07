@@ -12,6 +12,7 @@
   },
   "dependencies": {
     "@headlessui/vue": "^1.7.19",
+    "@mayasabha/ckeditor4-vue3": "^1.0.8",
     "@supabase/supabase-js": "^2.43.2",
     "@vee-validate/rules": "^4.12.4",
     "@vueuse/core": "^10.10.0",

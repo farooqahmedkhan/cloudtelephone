@@ -37,7 +37,15 @@ export const useOrderStore = defineStore('order-store', () => {
       console.log(error);
     }
   }
+  async function sendMessage({ orderId, content }) {
+    try {
+      const { data } = await axios.post(`/orders/${orderId}/send-message`, { content })
+      return data
+    } catch (error) {
+      console.error(error);
+    }
+  }
 
 
-  return { createOrder, getMyOrders, fetchSingleOrder }
+  return { createOrder, getMyOrders, fetchSingleOrder, sendMessage }
 })
