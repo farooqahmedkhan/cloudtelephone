@@ -1,8 +1,10 @@
 import { defineStore } from 'pinia'
 import axios from "../utils/axios.js"
+import { useRouter } from "vue-router"
 
 
 export const useOrderStore = defineStore('order-store', () => {
+  const router = useRouter()
 
   async function createOrder(orderData) {
     try {
@@ -34,6 +36,12 @@ export const useOrderStore = defineStore('order-store', () => {
       const { data } = await axios.get(`/orders/${id}`)
       return data
     } catch (error) {
+      if (error.response.status == '401') {
+        // clear local storage
+        localStorage.removeItem('token')
+        localStorage.removeItem('user')
+        router.push('/signin')
+      }
       console.log(error);
     }
   }
@@ -42,6 +50,12 @@ export const useOrderStore = defineStore('order-store', () => {
       const { data } = await axios.post(`/orders/${orderId}/send-message`, { content })
       return data
     } catch (error) {
+      if (error.response.status == '401') {
+        // clear local storage
+        localStorage.removeItem('token')
+        localStorage.removeItem('user')
+        router.push('/signin')
+      }
       console.error(error);
     }
   }
