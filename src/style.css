@@ -5065,23 +5065,18 @@ code::after {
 #tabs li .arrow {
   display: none;
 }
-#tabs li svg path {
-  fill: rgb(136 136 136 / var(--tw-text-opacity));
-}
 #tabs li.active {
   background-color: rgb(249 250 251 / var(--tw-bg-opacity));
 }
 #tabs li.active .arrow {
   display: block;
 }
-#tabs li.active:nth-child(2) svg path,
-#tabs li.active:nth-child(3) svg path,
 #tabs li.active svg path {
-  fill: rgb(0 51 153 / var(--tw-text-opacity));
+  fill: rgb(24 176 240 / var(--tw-text-opacity));
 }
 
-#tabs li.active a {
-  color: rgb(0 51 153 / var(--tw-text-opacity));
+#tabs li.active {
+  color: rgb(24 176 240 / var(--tw-text-opacity));
 }
 .show-mobile {
   display: none;
