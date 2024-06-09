@@ -134,8 +134,15 @@ const logout = () => {
                 <MenuItems class="absolute right-0 mt-2 w-32 border origin-top-right divide-y
                    divide-gray-100 rounded-md bg-white shadow-lg ring-1 ring-black/5 focus:outline-none">
                   <MenuItem>
-                  <button @click="logout" class="hover:bg-[#99ff33] hover:text w-full text-black rounded-md px-2 py-2 text-sm">
+                  <button @click="logout"
+                    class="hover:bg-[#99ff33] text-left hover:text w-full text-black px-2 py-2 text-sm">
                     Logout
+                  </button>
+                  </MenuItem>
+                  <MenuItem>
+                  <button @click="$router.push('/dashboard')"
+                    class="hover:bg-[#99ff33] text-left hover:text w-full text-black px-2 py-2 text-sm">
+                    Dashboard
                   </button>
                   </MenuItem>
                 </MenuItems>
