@@ -46,8 +46,8 @@ const token = useStorage('token')
         <ul id="nav-menu"
           class="navbar-nav order-2 hidden w-full flex-[0_0_100%] lg:order-1 lg:flex lg:w-auto lg:flex-auto lg:justify-end lg:space-x-3">
           <li class="nav-item">
-            <a class="nav-link cursor-pointer" @click="() => open = !open">
-              Cloud Phone System
+            <a class="nav-link" @click="() => open = !open">
+              <label class="hover:text-sky-500 hover:font-medium">Cloud Phone System</label>
               <svg class="inline ml-1 h-5 w-5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"
                 fill="currentColor">
                 <path fill-rule="evenodd"
@@ -57,36 +57,32 @@ const token = useStorage('token')
               <div v-if="open"
                 class="absolute z-10 mt-4 w-48 bg-white rounded-xl shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none">
                 <router-link to="/pricing" class="px-4 block text-sm text-gray-700">
-                  Pricing and features
+                  <label class="hover:text-sky-500 hover:font-semibold">Pricing and features</label>
                   <ul class="px-2 py-2">
-                    <li class="pb-1 text-sm"><router-link to="/features/app">-&nbsp;Apps & Teams</router-link></li>
-                    <li class="pb-1 text-sm"><router-link to="/features/recording">-&nbsp;Call Recording</router-link>
-                    </li>
-                    <li class="pb-1 text-sm"><router-link to="/features/call-center">-&nbsp;Call Centre</router-link>
-                    </li>
-                    <li class="pb-1 text-sm"><router-link to="/features/crm-integration">-&nbsp;CRM
-                        Integration</router-link></li>
-                    <li class="pb-1 text-sm"><router-link to="/features/live-call-reporting">-&nbsp;Live Call
-                        Reporting</router-link></li>
+                    <li class="pb-1 text-sm"><router-link class="hover:text-sky-500 hover:font-semibold cursor-pointer" to="/features/app">-&nbsp;Apps & Teams</router-link></li>
+                    <li class="pb-1 text-sm"><router-link class="hover:text-sky-500 hover:font-semibold cursor-pointer" to="/features/recording">-&nbsp;Call Recording</router-link></li>
+                    <li class="pb-1 text-sm"><router-link class="hover:text-sky-500 hover:font-semibold cursor-pointer" to="/features/call-center">-&nbsp;Call Centre</router-link></li>
+                    <li class="pb-1 text-sm"><router-link class="hover:text-sky-500 hover:font-semibold cursor-pointer" to="/features/crm-integration">-&nbsp;CRM Integration</router-link></li>
+                    <li class="pb-1 text-sm"><router-link class="hover:text-sky-500 hover:font-semibold cursor-pointer" to="/features/live-call-reporting">-&nbsp;Live Call Reporting</router-link></li>
                   </ul>
                 </router-link>
-                <a href="#" class="block px-4 py-1 text-sm text-gray-700">Phone & Accessories</a>
-                <a href="#" class="block px-4 py-1 text-sm text-gray-700">Fibre & Broadband</a>
-                <a href="#" class="block px-4 py-1 text-sm text-gray-700">Telephone Numbers</a>
-                <a href="#" class="block px-4 py-1 text-sm text-gray-700">Voice Messages</a>
-                <a href="#" class="block px-4 py-1 text-sm text-gray-700">Mobile SIM's</a>
-                <a href="#" class="block px-4 py-1 text-sm text-gray-700">Free Install & Support</a>
+                <a href="#" class="block px-4 py-1 text-sm text-gray-700 hover:text-sky-500 hover:font-semibold">Phone & Accessories</a>
+                <a href="#" class="block px-4 py-1 text-sm text-gray-700 hover:text-sky-500 hover:font-semibold">Fibre & Broadband</a>
+                <a href="#" class="block px-4 py-1 text-sm text-gray-700 hover:text-sky-500 hover:font-semibold">Telephone Numbers</a>
+                <a href="#" class="block px-4 py-1 text-sm text-gray-700 hover:text-sky-500 hover:font-semibold">Voice Messages</a>
+                <a href="#" class="block px-4 py-1 text-sm text-gray-700 hover:text-sky-500 hover:font-semibold">Mobile SIM's</a>
+                <a href="#" class="block px-4 py-1 text-sm text-gray-700 hover:text-sky-500 hover:font-semibold">Free Install & Support</a>
               </div>
             </a>
           </li>
           <li class="nav-item">
-            <router-link to="/how-it-works" class="nav-link">How It Works</router-link>
+            <router-link to="/how-it-works" class="nav-link hover:text-sky-500 hover:font-medium">How It Works</router-link>
           </li>
           <li class="nav-item">
-            <router-link to="/faq" class="nav-link">FAQs</router-link>
+            <router-link to="/faq" class="nav-link hover:text-sky-500 hover:font-medium">FAQs</router-link>
           </li>
           <li class="nav-item">
-            <router-link to="/why-cloudtelephone" class="nav-link">Why CloudTelephone</router-link>
+            <router-link to="/why-cloudtelephone" class="nav-link hover:text-sky-500 hover:font-medium">Why CloudTelephone</router-link>
           </li>
           <!-- <li class="nav-item">
           <router-link to="/about" class="nav-link">About Us</router-link>
@@ -98,7 +94,7 @@ const token = useStorage('token')
           <router-link to="/pricing" class="nav-link">Pricing</router-link>
         </li> -->
           <li class="nav-item mobile-hidden">
-            <router-link class="btn btn-green btn-sm border-border" to="/quote">Get A Quote</router-link>
+            <router-link class="btn btn-green btn-sm border-border text-black font-semibold" to="/quote">Get A Quote</router-link>
           </li>
           <li v-if="!token" class="nav-item mobile-hidden">
             <button class="btn btn-green btn-sm disabled:opacity-50" @click="$router.push('/login')">Login</button>
