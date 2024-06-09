@@ -18,8 +18,8 @@ defineProps({
     <div class="rounded-xl bg-white px-8 py-10 shadow-lg pricing">
       <div class="flex items-center justify-between">
         <div>
-          <h2 class="h3">{{ plan.title }}</h2>
-          <p class="mt-3 text-2xl text-dark">{{ currencySymbol }} {{ plan.price }}</p>
+          <h2 class="h3 text-blue">{{ plan.title }}</h2>
+          <p class="mt-3 text-2xl text-gray-50000">{{ currencySymbol }} {{ plan.price }}</p>
         </div>
         <!-- <span class="overflow-hidden bg-primary inline-flex h-16 w-16 items-center justify-center rounded-full"> -->
         <img v-if="plan.icon_url" class="bg-primary object-cover inline-flex h-16 w-16 items-center justify-center rounded-full"
@@ -30,7 +30,7 @@ defineProps({
         {{ plan.description }}
       </p>
       <div v-if="plan.offerings" class="mt-6 border-y border-border py-6">
-        <h4 class="h6">What's included?</h4>
+        <h4 class="h6 text-blue">What's included?</h4>
         <ul class="mt-6">
           <li v-for="offer in plan.offerings.split(',')" :key="offer" class="mb-3 flex items-center text-sm">
             <svg class="mr-2.5 text-primary" width="16" height="13" viewBox="0 0 16 13" fill="none"
@@ -42,7 +42,7 @@ defineProps({
         </ul>
       </div>
       <div v-if="plan.imageUrl" class="h-52 mt-6 rounded-md overflow-hidden">
-        <img :src="plan.imageUrl" alt="" class="h-full w-full object-cover">
+        <img :src="plan.imageUrl" alt="" class="h-full w-full object-contain">
       </div>
       <div class="text-center mt-6">
         <a class="btn plan_btn border btn-sm rounded-full items-center flex justify-center h-16 text-lg font-bold uppercase"
@@ -65,13 +65,15 @@ defineProps({
 .plan_btn {
   color: v-bind('plan.buttonColor');
   border-color: v-bind('plan.buttonColor');
+  border-width: 0.1rem;
+  /* box-shadow: v-bind('plan.buttonColor') 0px 2px 5px; */
 }
 .plan_btn:hover {
   /* box-shadow: 0px 15px 34px v-bind('plan.buttonColor');
    */
   color: white;
   background-color: v-bind('plan.buttonColor');
-  -webkit-transform: translateY(-3px);
-  transform: translateY(-3px);
+  -webkit-transform: translateY(-0.2rem);
+  transform: translateY(-0.2rem);
 }
 </style>

@@ -32,11 +32,11 @@ async function saveUserNo () {
       <!-- Input Number -->
       <div class="my-5 space-x-1 max-w-64 mx-auto flex">
         <button @click="decrement">
-          <minus-icon size="22" />
+          <minus-icon size="20" />
         </button>
-        <input type="number" :min="1" v-model="quotationStore.userCount">
+        <input class="rounded-full text-center border-2 border-sky-500" type="number" :min="1" v-model="quotationStore.userCount">
         <button @click="quotationStore.userCount++" data-action="increment">
-          <plus-icon size="22" />
+          <plus-icon size="20" />
 
         </button>
       </div>
@@ -45,7 +45,7 @@ async function saveUserNo () {
       <p class="my-6">Unlimited free minute bundle to 01/02/03 and UK mobile<span class="text-primary">*</span>
         and includues the basic softphone.</p>
 
-      <h5>What is a user?</h5>
+      <h5 class="text-gray-500">What is a user?</h5>
       <p class="mt-4 text-justify mx-auto">
         This is the number of people using the system. Each user gets a softphone and can be
         assigned to a physical phone as well.

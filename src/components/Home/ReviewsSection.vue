@@ -85,7 +85,7 @@ const reviews = [
                 <div class="review-author-avatar bg-gradient">
                   <img :src="review.pic" alt="" />
                 </div>
-                <h4 class="mb-2">{{ review.name }}</h4>
+                <h4 class="mb-2 text-sky-400">{{ review.name }}</h4>
                 <p class="mb-4 text-[#666]">{{ review.from }}</p>
               </div>
             </swiper-slide>

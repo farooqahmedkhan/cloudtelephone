@@ -9,7 +9,7 @@
         <div class="lg:col-6">
           <h1 class="banner-title">
             <small>How does a </small>
-            <span class="block text-blue uppercase">ClOUd Based Phone</span><small>systems works</small>
+            <span class="block text-blue uppercase">Cloud Based Phone</span><small>systems works</small>
 
           </h1>
           <p class="mt-6">
@@ -17,7 +17,7 @@
             businesses.
 
           </p>
-          <rotuer-view class="btn btn-green mt-8 cursor-pointer" to="/about">Check in Detail</rotuer-view>
+          <rotuer-view class="btn rounded-full border-sky-400 mt-8 uppercase text-blue font-semibold hover:bg-sky-400 hover:text-white" to="/about">Get more details</rotuer-view>
         </div>
         <div class="lg:col-6 mt-9  flex justify-end">
           <img class="object-contain" src="/images/main-img.png" width="580" height="396" alt="" />
