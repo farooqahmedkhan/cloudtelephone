@@ -62,10 +62,10 @@ const inputModelValue = computed( {
 
 <template>
   <div class="form-group">
-    <label :for="id" class="form-label" :class="`${disabled && 'opacity-60'}`">{{ label }} <span v-if="rules === 'required'" class="text-red-600">*</span></label>
+    <label :for="id" class="form-label" :class="`${disabled && 'opacity-60'}`">{{ label }} <span v-if="rules ? rules.split('|').indexOf('required') > -1 : false" class="text-red-500">*</span></label>
     <input :type="type" :id="id" class="form-control disabled:border-opacity-60 disabled:cursor-not-allowed" :placeholder="placeholder" v-model="inputModelValue"
       @blur="validate" :disabled="disabled">
-    <span v-if="errorMessage" class="text-sm text-red-600">{{ errorMessage }}</span>
+    <small v-if="errorMessage" class="text-xs text-red-500">{{ errorMessage }}</small>
 
 
   </div>
