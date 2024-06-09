@@ -44,7 +44,7 @@ function populateDummyData () {
   data.company = "Company Name"
   data.telephone = "1234567890"
   data.name = "John Doe"
-  data.code = "OFFERCODE"
+  data.code = "COUPON"
   data.email = "john@doe.com"
 }
 </script>
@@ -57,11 +57,11 @@ function populateDummyData () {
       placeholder="Mobile or Landline" id="telephone" />
     <Input rules="required" name="Name" v-model="data.name" label="Your Name" placeholder="Full Contact name"
       id="yourname" />
-    <Input name="Offer Code" v-model="data.code" label="Offer Code" placeholder="If you have an offer code, enter here"
+    <Input name="Offer Code" v-model="data.code" label="Discount Coupon" placeholder="If you have a discount offer coupon, enter here"
       id="offer-code" />
     <Input rules="required|email" name="Email" v-model="data.email" label="Email Address" placeholder="Your Email"
       id="email" />
-    <button class="btn btn-green mt-10 text-lg" @click="submitDetails">Get an Instant Quote</button>
+    <button class="btn btn-green mt-10 text-lg text-black font-semibold" @click="submitDetails">Get an Instant Quote</button>
   </div>
 </template>
 

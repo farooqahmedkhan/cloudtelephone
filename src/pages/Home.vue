@@ -20,7 +20,7 @@ import Footer from "../layouts/Footer.vue"
             <h2 class="capitalize">Offer best affordable <br><span class="text-blue uppercase">Cloud Service</span> in
               UK
             </h2>
-            <router-link class="btn btn-green mt-8 uppercase" to="/pricing">inquire now</router-link>
+            <router-link class="btn rounded-full border-sky-400 mt-8 uppercase text-blue font-semibold hover:bg-sky-400 hover:text-white" to="/pricing">inquire now</router-link>
           </div>
         </div>
       </div>
@@ -36,12 +36,12 @@ import Footer from "../layouts/Footer.vue"
       <div class="container">
         <div class="row justify-between text-center lg:text-start">
           <div class="lg:col-12">
-            <h2 class="text-center capitalize">Buy trending
-              <span class="block text-blue uppercase">Services</span>
+            <h2 class="text-center capitalize">OUR
+              <span class="text-blue uppercase">SERVICES</span>
             </h2>
           </div>
         </div>
-        <div class="key-feature-grid mt-10 grid grid-cols-2 gap-7 md:grid-cols-3 xl:grid-cols-5">
+        <div class="key-feature-grid mt-10 grid grid-cols-2 gap-7 md:grid-cols-3 xl:grid-cols-6">
           <div class="flex justify-center rounded-lg bg-white p-5 shadow-lg items-center">
             <h6 class="uppercase text-center">Feature & Pricing</h6>
           </div>
@@ -49,13 +49,16 @@ import Footer from "../layouts/Footer.vue"
             <h6 class="uppercase text-center">APP & TEAMS</h6>
           </div>
           <div class="flex justify-center rounded-lg bg-white p-5 shadow-lg items-center">
-            <h6 class="uppercase text-center">Phones & Accessories</h6>
+            <h6 class="uppercase text-center">Handsets</h6>
           </div>
           <div class="flex justify-center rounded-lg bg-white p-5 shadow-lg items-center">
-            <h6 class="uppercase text-center">INternet line</h6>
+            <h6 class="uppercase text-center">Internet line</h6>
           </div>
           <div class="flex justify-center rounded-lg bg-white p-5 shadow-lg items-center">
-            <h6 class="uppercase text-center">voice messages</h6>
+            <h6 class="uppercase text-center">Voice messages</h6>
+          </div>
+          <div class="flex justify-center rounded-lg bg-white p-5 shadow-lg items-center">
+            <h6 class="uppercase text-center">Accessories</h6>
           </div>
 
         </div>

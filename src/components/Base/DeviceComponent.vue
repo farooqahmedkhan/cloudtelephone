@@ -50,8 +50,8 @@ function decrement () {
 
 <template>
   <div class="block rounded-lg bg-white shadow-secondary-1 dark:bg-surface-dark">
-    <div class="relative overflow-hidden bg-cover bg-no-repeat">
-      <img class="rounded-t-lg h-40 w-full object-cover" :src="image_url || 'https://rb.gy/rbhxma'" alt="" />
+    <div class="relative overflow-hidden bg-cover bg-no-repeat" @click="emit('update:modelValue', modelValue + 1)" title="Click to add product in your qoutation">
+      <img class="rounded-t-lg h-40 w-full object-contain" :src="image_url || 'https://rb.gy/rbhxma'" alt="" />
       <a href="#!">
         <div
           class="absolute bottom-0 left-0 right-0 top-0 h-full w-full overflow-hidden bg-[hsla(0,0%,98%,0.15)] bg-fixed opacity-0 transition duration-300 ease-in-out hover:opacity-100">
@@ -71,9 +71,9 @@ function decrement () {
         </button>
       </div>
       <!-- End Input Number -->
-      <h5 class="mb-2 text-xl font-medium leading-tight">{{ name }}</h5>
-      <h6 class="text-primary">{{ `${currencySymbol}${showMonthlyPrice ? price_monthly : price_upfront}` }}</h6>
-      <p class="mb-4 text-base">{{ description }}</p>
+      <h5 class="mb-2 text-xs font-semibold leading-tight">{{ name }}</h5>
+      <h6 class="text-primary font-semibold">{{ `${currencySymbol}${showMonthlyPrice ? price_monthly : price_upfront}` }}</h6>
+      <p class="mb-4 text-pretty" :title="description">{{ description.length > 75 ? `${description.substr(0, 100)}...`:  description }}</p>
     </div>
   </div>
 </template>

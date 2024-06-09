@@ -14,8 +14,11 @@ const userNo = ref( "0" )
             growing small businesses.</p>
           <div class="range mt-8">
             {{ value }}
-            <input type="range" min="0" max="50" value="0" v-model="userNo" id="range2" class="range-input" />
-            <div class="value2 range-slider-bg">{{ userNo }} <br>USERS</div>
+            <input type="range" min="0" max="500" value="0" v-model="userNo" id="range2" class="range-input" />
+            <div class="value2 range-slider-bg text-sky-400">
+              <span class="text-sky-400 block text-4xl">{{ userNo }} </span>
+              <span class="text-sky-400 text-xs">&nbsp;USERS</span>
+            </div>
           </div>
 
         </div>
