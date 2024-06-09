@@ -104,6 +104,19 @@ const router = createRouter({
   },
 })
 
+
+function isTokenExpired(token) {
+  const base64Url = token.split('.')[1];
+  const base64 = base64Url.replace(/-/g, '+').replace(/_/g, '/');
+  const jsonPayload = decodeURIComponent(atob(base64).split('').map(function(c) {
+      return '%' + ('00' + c.charCodeAt(0).toString(16)).slice(-2);
+  }).join(''));
+
+  const decodedToken = JSON.parse(jsonPayload);
+  const currentTime = Math.floor(Date.now() / 1000); // current time in seconds
+  return decodedToken.exp < currentTime;
+}
+
 router.beforeEach((to, from, next) => {
   const token = localStorage.getItem('token')
 
@@ -113,6 +126,10 @@ router.beforeEach((to, from, next) => {
     next('/login')
   } else {
     // Continue to the requested route
+    if (token && isTokenExpired(token)) {
+      // delete token
+      localStorage.removeItem('token')
+    }
     next()
   }
 })
