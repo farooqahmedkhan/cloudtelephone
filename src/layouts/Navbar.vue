@@ -57,7 +57,7 @@ const token = useStorage('token')
               <div v-if="open"
                 class="absolute z-10 mt-4 w-48 bg-white rounded-xl shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none">
                 <router-link to="/pricing" class="px-4 block text-sm text-gray-700">
-                  <label class="hover:text-sky-500 hover:font-semibold">Pricing and features</label>
+                  <router-link to="/pricing-and-features" class="hover:text-sky-500 hover:font-semibold">Pricing and features</router-link>
                   <ul class="px-2 py-2">
                     <li class="pb-1 text-sm"><router-link class="hover:text-sky-500 hover:font-semibold cursor-pointer" to="/features/app">-&nbsp;Apps & Teams</router-link></li>
                     <li class="pb-1 text-sm"><router-link class="hover:text-sky-500 hover:font-semibold cursor-pointer" to="/features/recording">-&nbsp;Call Recording</router-link></li>
