@@ -9,7 +9,7 @@
         <div class="lg:col-6">
           <h1 class="banner-title">
             <small>How does a </small>
-            <span class="block text-blue uppercase">ClOUd Based Phone</span><small>systems works</small>
+            <span class="block text-blue uppercase">Cloud Based Phone</span><small>systems works</small>
 
           </h1>
           <p class="mt-6">
