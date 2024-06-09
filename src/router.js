@@ -3,6 +3,7 @@ import Home from "./pages/Home.vue"
 import About from "./pages/About.vue"
 import Products from "./pages/Products.vue"
 import Pricing from "./pages/Pricing.vue"
+import PricingAndFeatures from "./pages/PricingAndFeatures.vue"
 import QuotePage from "./pages/QuotePage.vue"
 import ResidentialQuote from "./pages/ResidentialQuote.vue"
 import OrderThanks from "./pages/OrderThanks.vue";
@@ -26,6 +27,9 @@ const routes = [
   },
   {
     path: '/pricing', component: Pricing, name: 'pricing',
+  },
+  {
+    path: '/pricing-and-features', component: PricingAndFeatures, name: 'pricing-and-features',
   },
   {
     path: '/quote', component: QuotePage, name: 'quote',
