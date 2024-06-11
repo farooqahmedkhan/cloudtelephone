@@ -1,10 +1,10 @@
 <template>
-  <div class="flex flex-col border  rounded-md" id="msg-box">
+  <div class="flex flex-col border rounded-md border-sky-500 shadow-sky-300 shadow-md" id="msg-box">
     <div class="flex justify-between items-center p-4 border-b">
-      <h1 class="text-xl font-bold">Chat</h1>
+      <h1 class="text-primary text-xl font-bold">Chat</h1>
     </div>
     <div class="flex-1 p-4 overflow-y-auto max-h-[80vh] min-h-[50vh] " ref="chatContainer">
-      <div v-for="message in messages" :key="message.id" class="mb-4">
+      <div v-for="message in messages" :key="message.id" class="mb-4">      
         <div v-html="message.content"
           :class="['p-2 rounded', me(message) ? 'text-green-700  text-right' : 'text-left  text-gray-700 ']" />
       </div>

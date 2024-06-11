@@ -16,7 +16,7 @@
         <h1 class="text-4xl font-bold mb-4 text-blue">Business Communication with No Strings Attached</h1>
         <p class="mb-6">Discover our cloud phone system offering straightforward, contract-free pricing and no hidden fees. Tailored to suit any business, our extensive feature set and customizable options ensure you get the perfect solution every time.</p>
         <a href="/quote/"
-          class="inline-block bg-sky-500 text-white py-3 px-6 text-lg font-semibold rounded hover:bg-white hover:border-sky-500 hover:border hover:text-sky-500">
+          class="inline-block bg-sky-500 text-white py-3 px-6 text-lg font-semibold rounded hover:border hover:border-sky-500 hover:text-sky-500 hover:bg-white hover:shadow-sm hover:shadow-sky-500">
           <span class="glyphicon glyphicon-gbp"></span> Instant On-screen Quote
           <span class="glyphicon glyphicon-chevron-right"></span>
         </a>
