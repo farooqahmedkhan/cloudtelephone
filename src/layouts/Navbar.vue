@@ -51,6 +51,9 @@ const logout = () => {
         <!-- /navbar toggler -->
         <ul id="nav-menu"
           class="navbar-nav order-2 hidden w-full flex-[0_0_100%] lg:order-1 lg:flex items-center lg:w-auto lg:flex-auto lg:justify-end lg:space-x-3">
+          <li class="nav-item show-mobile">
+            <router-link to="/dashboard" class="nav-link hover:text-sky-500 hover:font-medium">Dashboard</router-link>
+          </li>
           <li class="nav-item">
             <a class="nav-link" @click="() => open = !open">
               <label class="hover:text-sky-500 hover:font-medium">Cloud Phone System</label>
@@ -117,6 +120,12 @@ const logout = () => {
           <li class="nav-item mobile-hidden">
             <router-link class="btn btn-green btn-sm border-border text-black font-semibold" to="/quote">Get A
               Quote</router-link>
+          </li>
+          <li v-if="!token" class="nav-item show-mobile">
+            <router-link to="/login" class="nav-link hover:text-sky-500 hover:font-medium">Login</router-link>
+          </li>
+          <li v-else class="nav-item show-mobile">
+            <button @click="logout" class="nav-link mx-auto hover:text-sky-500 hover:font-medium">Logout</button>
           </li>
           <li v-if="!token" class="nav-item mobile-hidden">
             <button class="btn btn-green btn-sm disabled:opacity-50" @click="$router.push('/login')">Login</button>
