@@ -39,7 +39,7 @@ function populateDummyData() {
           placeholder="Enter Email" id="email" />
         <Input rules="required" name="Password" v-model="userData.password" label="Password"
           placeholder="Enter Password" id="password" type="password" class="mt-5" />
-        <button @click="login" class="btn btn-green mt-5 text-lg mx-auto w-full">Login</button>
+        <button @click="login" class="btn mt-5 text-lg mx-auto w-full rounded-full bg-sky-500 text-white hover:bg-white hover:border hover:border-sky-500 hover:text-sky-500 hover:font-semibold hover:shadow-sky-500 hover:shadow-md">Login</button>
       </div>
     </div>
   </div>
