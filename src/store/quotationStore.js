@@ -8,6 +8,7 @@ export const useQuotationStore = defineStore( 'quotationStore', {
       userDetails: null,
       categories: [],
       leadData: null,
+      ipAddress: null,
       userCount: 1,
       products: [],
       phoneTypes: 0,
