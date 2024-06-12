@@ -10,7 +10,7 @@ export const useOrderStore = defineStore('order-store', () => {
 
   async function createOrder(orderData) {
     try {
-      const { data } = await axios.post("/orders", orderData)
+      const { data } = await axios.post("/orders", {...orderData, ip_address: ipAddress.value})
       return data
     } catch (error) {
       throw error
