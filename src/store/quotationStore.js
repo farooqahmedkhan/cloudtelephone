@@ -8,6 +8,7 @@ export const useQuotationStore = defineStore( 'quotationStore', {
       userDetails: null,
       categories: [],
       leadData: null,
+      ipAddress: null,
       userCount: 1,
       products: [],
       phoneTypes: 0,
@@ -144,7 +145,7 @@ export const useQuotationStore = defineStore( 'quotationStore', {
   },
   actions: {
     async createLead ( customerData ) {
-      const { data } = await axios.post( '/leads', customerData )
+      const { data } = await axios.post( '/leads', {...customerData, ip: this.ipAddress} )
       this.userDetails = {
         ...data,
         offer_code: customerData.code

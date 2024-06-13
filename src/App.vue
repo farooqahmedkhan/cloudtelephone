@@ -4,10 +4,12 @@ import { useRoute } from "vue-router"
 import Footer from "./layouts/Footer.vue"
 import navbar from "./layouts/Navbar.vue"
 import { useConfigStore } from "./store/configStore"
+import { useOrderStore } from "./store/orderStore"
 import { useQuotationStore } from "./store/quotationStore"
 
 const configStore = useConfigStore()
 const quotationStore = useQuotationStore()
+const orderStore = useOrderStore()
 const route = useRoute()
 
 onMounted( async () => {
@@ -15,6 +17,13 @@ onMounted( async () => {
   window.addEventListener( 'blur', () => {
     onWindowBlur()
   } )
+  const res = await fetch('https://api.ipify.org?format=json')
+
+  const { ip } = await res.json()
+  if ( ip ) {
+    quotationStore.ipAddress = ip
+    orderStore.setIpAddress(ip)
+  }
 } )
 
 watch( () => route.name, ( newValue, oldValue ) => {
