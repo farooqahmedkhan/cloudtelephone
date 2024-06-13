@@ -11,6 +11,7 @@ import FAQs from "./pages/FAQs.vue"
 import Login from "./pages/Login.vue"
 import Dashboard from "./pages/Dashboard.vue"
 import Orders from "./pages/Orders.vue";
+import Industries from "./pages/industries/index.vue";
 import OrderDetails from "./pages/OrderDetails.vue";
 import LeadDetails from "./pages/LeadDetails.vue";
 import Leads from "./pages/Leads.vue";
@@ -77,6 +78,9 @@ const routes = [
     path: '/login', component: Login, name: 'login', meta: {
       fullscreen: true
     }
+  },
+  {
+    path: '/industries/:id', component: Industries, name: 'industries',
   },
   // 404 page
   {
