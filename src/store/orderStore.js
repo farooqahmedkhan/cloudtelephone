@@ -1,14 +1,16 @@
 import { defineStore } from 'pinia'
 import axios from "../utils/axios.js"
 import { useRouter } from "vue-router"
+import { ref } from "vue"
 
 
 export const useOrderStore = defineStore('order-store', () => {
   const router = useRouter()
+  const ipAddress = ref(null)
 
   async function createOrder(orderData) {
     try {
-      const { data } = await axios.post("/orders", orderData)
+      const { data } = await axios.post("/orders", {...orderData, ip_address: ipAddress.value})
       return data
     } catch (error) {
       throw error
@@ -60,6 +62,10 @@ export const useOrderStore = defineStore('order-store', () => {
     }
   }
 
+  const setIpAddress = async (ip) => {
+    ipAddress.value = ip
+  }
 
-  return { createOrder, getMyOrders, fetchSingleOrder, sendMessage }
+
+  return { createOrder, getMyOrders, fetchSingleOrder, sendMessage, setIpAddress }
 })

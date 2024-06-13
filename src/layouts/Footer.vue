@@ -1,4 +1,22 @@
 <script setup>
+const industries = [
+  { title: "Small Business VoIP Phone System", url: "small-business-voip" },
+  { title: "Phone system for Recruitment", url: "recruitment-phones" },
+  { title: "Phone system for UK Offices", url: "uk-office-phones" },
+  { title: "Phone system for GP's, NHS & Dentists", url: "medical-phones" },
+  { title: "Phone system for Charities", url: "charity-phones" },
+  { title: "Phone system for Finance", url: "finance-phones" },
+  { title: "Phone system for Funeral Providers", url: "funeral-provider-phones" },
+  { title: "Phone system for Opticians", url: "optician-phones" },
+  { title: "Telephone Systems for Business", url: "business-telephones" },
+  { title: "Phone system for Marketing", url: "marketing-phones" },
+  { title: "Phone system for Hospitality", url: "hospitality-phones" },
+  { title: "Phone system for Vets", url: "vet-phones" },
+  { title: "Phone system for Care Homes", url: "care-home-phones" },
+  { title: "Phone system for Start-Ups", url: "startup-phones" },
+  { title: "Office Phone system", url: "office-phones" },
+  { title: "Phone system with CRM", url: "crm-phones" }
+];
 
 </script>
 
@@ -83,6 +101,13 @@
           <p>205 Kings Road, B11 2AA</p>
           <p>Birmingham</p>
           <p><a class="hover:font-semibold" href="tel:7045550127">(704) 555-0127</a></p>
+        </div>
+      </div>
+      <div>
+        <h1>Industries</h1>
+        <div class="w-full grid grid-cols-3 gap-y-1">
+          <router-link v-for="item in industries" :key="item.url" class="text-sm text-gray-500 hover:text-gray-600"
+            :to="`/industries/${item.url}`">{{ item.title }}</router-link>
         </div>
       </div>
     </div>
