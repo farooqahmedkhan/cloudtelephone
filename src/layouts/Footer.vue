@@ -104,7 +104,6 @@ const industries = [
         </div>
       </div>
       <div>
-        <h1>Industries</h1>
         <div class="w-full grid grid-cols-3 gap-y-1">
           <router-link v-for="item in industries" :key="item.url" class="text-sm text-gray-500 hover:text-gray-600"
             :to="`/industries/${item.url}`">{{ item.title }}</router-link>
