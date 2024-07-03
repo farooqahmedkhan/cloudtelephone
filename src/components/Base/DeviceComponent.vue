@@ -36,6 +36,10 @@ const props = defineProps( {
   image_url: {
     type: String,
     default: "https://rb.gy/rbhxma"
+  },
+  addons: {
+    type: Array,
+    default: []
   }
 } )
 const emit = defineEmits( ["update:modelValue"] )
@@ -73,7 +77,14 @@ function decrement () {
       <!-- End Input Number -->
       <h5 class="mb-2 text-xs font-semibold leading-tight">{{ name }}</h5>
       <h6 class="text-primary font-semibold">{{ `${currencySymbol}${showMonthlyPrice ? price_monthly : price_upfront}` }}</h6>
-      <p class="mb-4 text-pretty" :title="description">{{ description.length > 75 ? `${description.substr(0, 100)}...`:  description }}</p>
+      <p class="mb-4 text-pretty text-black" >{{ description.length > 75 ? `${description.substr(0, 100)}...`:  description }}</p>
+      <br>
+      <ul class="text-left" v-if="addons.length">
+        <h1 class="text-base">Addons</h1>
+        <li v-for="addon in addons" :key="addon.id" class="text-pretty text-black list-disc ml-4">
+          {{ addon.title }}
+        </li>
+      </ul>
     </div>
   </div>
 </template>
