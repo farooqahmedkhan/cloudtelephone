@@ -78,8 +78,49 @@ async function save () {
           <Input name="''" placeholder="Postcode" class="flex-1" v-model="postCode" id="postcode" />
           <button class="btn btn-green text-lg" @click="checkAvailability">Check</button>
         </div>
-        <pre>{{availabilityStore.resp}}</pre>
-        <!-- <div v-html="availabilityStore.resp"></div> -->
+        <!-- <pre>{{availabilityStore.availability}}</pre> -->
+        <div class="relative overflow-x-auto" v-if="availabilityStore.availability.status">
+          <div class="card" v-for="category in availabilityStore.availability.json">
+            <div class="card-title">
+              <h1 class="text-xl">{{category.name.toUpperCase()}}</h1>
+            </div>
+            <div class="card-content p-1">
+              <table class="w-full border border-neutral-200 text-left text-sm font-light mt-6">
+                <tbody>
+                  <tr>
+                    <td class="px-6 py-3 font-bold">Product</td>
+                    <td class="px-6 py-3 font-bold">Throughput(%)</td>
+                    <td class="px-6 py-3 font-bold">Up Speed</td>
+                    <td class="px-6 py-3 font-bold">Down Speed</td>
+                    <td class="px-6 py-3 font-bold">Min Range</td>
+                    <!-- <td class="px-6 py-3 font-bold">Max Range</td> -->
+                    <!-- <td class="px-6 py-3 font-bold">Max Speed Up</td> -->
+                    <!-- <td class="px-6 py-3 font-bold">Max Speed Down</td> -->
+                    <!-- <td class="px-6 py-3 font-bold">Min Threshold</td> -->
+                    <!-- <td class="px-6 py-3 font-bold">Min Guaranteed Speed</td> -->
+                    <!-- <td class="px-6 py-3 font-bold">Est Dowload Range</td> -->
+                    <!-- <td class="px-6 py-3 font-bold">Est Upload Range</td> -->
+                  </tr>
+                  <tr v-for="product in category.block.block" :key="i"
+                    class="border-b border-neutral-200 bg-white  dark:border-black/10 whitespace-nowrap">
+                    <td class="px-6 py-3">{{ product.a[0].value}}</td>
+                    <td class="px-6 py-3">{{ product.a[1].value}}</td>
+                    <td class="px-6 py-3">{{ product.a[2].value}}</td>
+                    <td class="px-6 py-3">{{ product.a[3].value}}</td>
+                    <td class="px-6 py-3">{{ product.a[4].value}}</td>
+                    <!-- <td class="px-6 py-3">{{ product.a[5].value}}</td> -->
+                    <!-- <td class="px-6 py-3">{{ product.a[6].value}}</td> -->
+                    <!-- <td class="px-6 py-3">{{ product.a[7].value}}</td> -->
+                    <!-- <td class="px-6 py-3">{{ product.a[8].value}}</td> -->
+                    <!-- <td class="px-6 py-3">{{ product.a[9].value}}</td> -->
+                    <!-- <td class="px-6 py-3">{{ product.a[10].value}}</td> -->
+                    <!-- <td class="px-6 py-3">{{ product.a[11].value}}</td> -->
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
     <div class="w-100 flex justify-between">

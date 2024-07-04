@@ -1,19 +1,17 @@
 import { defineStore } from 'pinia'
-import { ref } from "vue"
+import { reactive } from "vue"
 import { useQuotationStore } from "./quotationStore"
 import axios from "axios"
 
 
 export const useAvailabilityStore = defineStore('check-availability', () => {
   const quotationStore = useQuotationStore()
-  const resp = ref(null)
+  
 
-  function convertXmlToHtml(xml) {
-    // Parse XML to DOM object
-    const parser = new DOMParser();
-    const xmlNodes = parser.parseFromString(xml, 'application/xml');
-    return xmlNodes
-  }
+  const availability = reactive({
+    status: false,
+    json: null
+  })
 
   function xmlToJson(xmlString) {
       const parser = new DOMParser();
@@ -71,15 +69,17 @@ export const useAvailabilityStore = defineStore('check-availability', () => {
         postCode,
         telephone: quotationStore.userDetails.telephone
       })
-
-      resp.value = xmlToJson(data)
-      // resp.value = data
+      
+      const json = xmlToJson(data);
+      availability.status = true
+      availability.json   = json.block[0].block[0].block
+      console.log('data', availability);
     } catch (error) {
-      resp.value = error
+      availability.status = false
     }
   }
 
   return {
-    checkAvailability, resp
+    checkAvailability, availability
   }
 })
