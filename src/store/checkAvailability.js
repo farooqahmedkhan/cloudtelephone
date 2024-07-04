@@ -72,7 +72,7 @@ export const useAvailabilityStore = defineStore('check-availability', () => {
         telephone: quotationStore.userDetails.telephone
       })
 
-      resp.value = convertXmlToHtml(data)
+      resp.value = xmlToJson(data)
       // resp.value = data
     } catch (error) {
       resp.value = error
