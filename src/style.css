@@ -994,8 +994,8 @@ h6,
 }
 .social-icons li a {
   display: inline-flex;
-  height: 2.75rem;
-  width: 2.75rem;
+  height: 1.75rem;
+  width: 1.75rem;
   align-items: center;
   justify-content: center;
   border-radius: 9999px;
@@ -1012,7 +1012,7 @@ h6,
 }
 .social-icons li a svg {
   margin: auto;
-  height: 2.75rem;
+  height: 1.75rem;
 }
 .social-icons li a path {
   transition-property: all;
@@ -1984,10 +1984,11 @@ select:invalid {
   padding-top: 0.875rem;
   padding-bottom: 0.875rem;
 }
-.footer h6 {
+.footer h5 {
   margin-bottom: 1rem;
   font-family: Poppins, sans-serif;
   font-weight: 600;
+  color: white;
 }
 @media (min-width: 1024px) {
   .footer h6 {
@@ -2006,6 +2007,9 @@ select:invalid {
   --tw-text-opacity: 1;
   color: rgb(0 51 153 / var(--tw-text-opacity));
   text-decoration-line: underline;
+}
+.footer .quicklinks li{
+  display: inline-block;
 }
 .gradient-number span {
   -webkit-background-clip: text;
