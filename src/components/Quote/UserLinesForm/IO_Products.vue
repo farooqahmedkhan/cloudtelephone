@@ -14,10 +14,12 @@ const { moveToNextStep, moveToPreviousStep } = useStep()
 const quotationStore = useQuotationStore()
 const availabilityStore = useAvailabilityStore()
 const postCode = ref( "" ) //TN27 0JH
-
+const loadingAvailability = ref(false)
 
 const checkAvailability = async () => {
+  loadingAvailability.value = true
   await availabilityStore.checkAvailability( postCode.value )
+  loadingAvailability.value = false
 }
 
 
@@ -79,13 +81,23 @@ async function save () {
           <button class="btn btn-green text-lg" @click="checkAvailability">Check</button>
         </div>
         <!-- <pre>{{availabilityStore.availability}}</pre> -->
-        <div class="relative overflow-x-auto" v-if="availabilityStore.availability.status">
+        <div v-if="loadingAvailability" class="w-36 mt-2 h-36 mx-auto">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 300 150">
+            <path fill="none" stroke="#18B0F0" stroke-width="3" stroke-linecap="round" stroke-dasharray="300 385"
+              stroke-dashoffset="0"
+              d="M275 75c0 31-27 50-50 50-58 0-92-100-150-100-28 0-50 22-50 50s23 50 50 50c58 0 92-100 150-100 24 0 50 19 50 50Z">
+              <animate attributeName="stroke-dashoffset" calcMode="spline" dur="2" values="685;-685" keySplines="0 0 1 1"
+                repeatCount="indefinite"></animate>
+            </path>
+          </svg>
+        </div>
+        <div class="relative overflow-x-auto" v-else-if="availabilityStore.availability.status">
           <div class="card" v-for="category in availabilityStore.availability.json">
             <div class="card-title">
               <h1 class="text-xl">{{category.name.toUpperCase()}}</h1>
             </div>
-            <div class="card-content p-1">
-              <table class="w-full border border-neutral-200 text-left text-sm font-light mt-6">
+            <div class="card-content border border-neutral-200 overflow-x-auto max-w-[774px]">
+              <table class="w-full text-left text-sm font-light mt-6">
                 <tbody>
                   <tr>
                     <td class="px-6 py-3 font-bold">Product</td>
@@ -93,28 +105,28 @@ async function save () {
                     <td class="px-6 py-3 font-bold">Up Speed</td>
                     <td class="px-6 py-3 font-bold">Down Speed</td>
                     <td class="px-6 py-3 font-bold">Min Range</td>
-                    <!-- <td class="px-6 py-3 font-bold">Max Range</td> -->
-                    <!-- <td class="px-6 py-3 font-bold">Max Speed Up</td> -->
-                    <!-- <td class="px-6 py-3 font-bold">Max Speed Down</td> -->
-                    <!-- <td class="px-6 py-3 font-bold">Min Threshold</td> -->
-                    <!-- <td class="px-6 py-3 font-bold">Min Guaranteed Speed</td> -->
-                    <!-- <td class="px-6 py-3 font-bold">Est Dowload Range</td> -->
-                    <!-- <td class="px-6 py-3 font-bold">Est Upload Range</td> -->
+                    <td class="px-6 py-3 font-bold">Max Range</td>
+                    <td class="px-6 py-3 font-bold">Max Speed Up</td>
+                    <td class="px-6 py-3 font-bold">Max Speed Down</td>
+                    <td class="px-6 py-3 font-bold">Min Threshold</td>
+                    <td class="px-6 py-3 font-bold">Min Guaranteed Speed</td>
+                    <td class="px-6 py-3 font-bold">Est Dowload Range</td>
+                    <td class="px-6 py-3 font-bold">Est Upload Range</td>
                   </tr>
                   <tr v-for="product in category.block.block" :key="i"
-                    class="border-b border-neutral-200 bg-white  dark:border-black/10 whitespace-nowrap">
-                    <td class="px-6 py-3">{{ product.a[0].value}}</td>
-                    <td class="px-6 py-3">{{ product.a[1].value}}</td>
-                    <td class="px-6 py-3">{{ product.a[2].value}}</td>
-                    <td class="px-6 py-3">{{ product.a[3].value}}</td>
-                    <td class="px-6 py-3">{{ product.a[4].value}}</td>
-                    <!-- <td class="px-6 py-3">{{ product.a[5].value}}</td> -->
-                    <!-- <td class="px-6 py-3">{{ product.a[6].value}}</td> -->
-                    <!-- <td class="px-6 py-3">{{ product.a[7].value}}</td> -->
-                    <!-- <td class="px-6 py-3">{{ product.a[8].value}}</td> -->
-                    <!-- <td class="px-6 py-3">{{ product.a[9].value}}</td> -->
-                    <!-- <td class="px-6 py-3">{{ product.a[10].value}}</td> -->
-                    <!-- <td class="px-6 py-3">{{ product.a[11].value}}</td> -->
+                    class="border-b border-neutral-200 bg-white last:border-none  dark:border-black/10 whitespace-nowrap">
+                    <td class="px-6 py-3">{{ product.a[0]?.value}}</td>
+                    <td class="px-6 py-3">{{ product.a[1]?.value}}</td>
+                    <td class="px-6 py-3">{{ product.a[2]?.value}}</td>
+                    <td class="px-6 py-3">{{ product.a[3]?.value}}</td>
+                    <td class="px-6 py-3">{{ product.a[4]?.value}}</td>
+                    <td class="px-6 py-3">{{ product.a[5]?.value}}</td>
+                    <td class="px-6 py-3">{{ product.a[6]?.value}}</td>
+                    <td class="px-6 py-3">{{ product.a[7]?.value}}</td>
+                    <td class="px-6 py-3">{{ product.a[8]?.value}}</td>
+                    <td class="px-6 py-3">{{ product.a[9]?.value}}</td>
+                    <td class="px-6 py-3">{{ product.a[10]?.value}}</td>
+                    <td class="px-6 py-3">{{ product.a[11]?.value}}</td>
                   </tr>
                 </tbody>
               </table>
