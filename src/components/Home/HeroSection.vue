@@ -7,15 +7,21 @@
     <div class="container">
       <div class="row items-center">
         <div class="lg:col-6">
-          <h1 class="banner-title">
-            <small>How does a </small>
-            <span class="block text-blue uppercase">Cloud Based Phone</span><small>systems works</small>
-
-          </h1>
+          <h3 class="banner-title">
+            <!-- <small>How does a </small> -->
+            <span class="block text-blue uppercase">Cloud Phone System <br/><small>for UK Business</small></span>
+          </h3>
           <p class="mt-6">
-            Easy, reliable and fairly priced phone systems designed for freelancers, startups & growing small
-            businesses.
-
+            Need a phone system for seamless flexible working, worried about business continuity or just need a phone system that scales easily?
+          </p>
+          <p class="mt-6">
+            With no crazy contracts and ethical billing you no longer need to suffer from hidden escalating costs!
+          </p>
+          <p class="mt-6">
+            Cloud telephony is an innovation that gives the business the chance to cut costs, while increasing agility and business performance. Now is a critical moment for businesses to consider adopting a cloud calling solution and the scalability it unlocks.
+          </p>
+          <p class="mt-6">
+            Cloud Telephone is future proof, secure, cost effective, dynamic, scalable and  flexible.
           </p>
           <rotuer-view class="btn rounded-full border-sky-400 mt-8 uppercase text-blue font-semibold hover:bg-sky-400 hover:text-white" to="/about">Get more details</rotuer-view>
         </div>

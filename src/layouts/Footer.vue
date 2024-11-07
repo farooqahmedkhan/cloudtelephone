@@ -29,11 +29,11 @@ const industries = [
                           <router-link to="/">
                             <img src="/new-logo.svg" alt="" />
                           </router-link>
-                          <p class="text-gray-400 mt-5">quotes@cloudtelephone.co.uk</p>
+                          <p class="text-gray-400 mt-5">DMV Communications T/A Cloud Telephone.co.uk</p>
                           <p class="text-gray-400">Fairgate House</p>
                           <p class="text-gray-400">205 Kings Road, B11 2AA</p>
                           <p class="text-gray-400">Birmingham</p>
-                          <p class="text-gray-400"><a class="hover:font-semibold" href="tel:7045550127">(704) 555-0127</a></p>
+                          <p class="text-gray-400"><a class="hover:font-semibold" href="tel:441213690121">(44) 121 369 0121</a></p>
                         </div>
                         <div class="col-12 mt-6 md:col-6 lg:col-9">
                             <h5>Services</h5>
@@ -75,7 +75,7 @@ const industries = [
          <div class="row items-center">
           <div class="col-12 md:col-6 lg:col-6 pt-5">
                 <div class="footer-copyright ">
-                  <p>&copy; Copyright - 2024 DMV Communications</p>
+                  <p>&copy; CloudTelephone.co.uk T/A DMV Communications Ltd | All Rights Reserved.</p>
                 </div>
           </div>
             <div class="col-12 md:col-6 lg:col-6 pt-5">

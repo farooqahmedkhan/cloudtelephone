@@ -20,7 +20,7 @@ import Footer from "../layouts/Footer.vue"
             <h2 class="capitalize">Offer best affordable <br><span class="text-blue uppercase">Cloud Service</span> in
               UK
             </h2>
-            <router-link class="btn rounded-full border-sky-400 mt-8 uppercase text-blue font-semibold hover:bg-sky-400 hover:text-white" to="/pricing">inquire now</router-link>
+            <router-link class="btn rounded-full border-sky-400 mt-8 uppercase text-blue font-semibold hover:bg-sky-400 hover:text-white" to="/pricing">Enquire now</router-link>
           </div>
         </div>
       </div>
